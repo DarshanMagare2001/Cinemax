@@ -10,9 +10,13 @@
 		139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22512B6126F60082DBDD /* AppDelegate.swift */; };
 		139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22532B6126F60082DBDD /* SceneDelegate.swift */; };
 		139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22552B6126F60082DBDD /* MainTabVC.swift */; };
-		139C22592B6126F60082DBDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22572B6126F60082DBDD /* Main.storyboard */; };
 		139C225B2B6126F80082DBDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 139C225A2B6126F80082DBDD /* Assets.xcassets */; };
 		139C225E2B6126F80082DBDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C225C2B6126F80082DBDD /* LaunchScreen.storyboard */; };
+		139C226B2B6128500082DBDD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C226A2B6128500082DBDD /* Onboarding.storyboard */; };
+		139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C226D2B61288C0082DBDD /* Authentication.storyboard */; };
+		139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22702B6128A80082DBDD /* MainTab.storyboard */; };
+		139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22742B61298E0082DBDD /* MainTabVCBuilder.swift */; };
+		139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +24,14 @@
 		139C22512B6126F60082DBDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139C22532B6126F60082DBDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		139C22552B6126F60082DBDD /* MainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
-		139C22582B6126F60082DBDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		139C225A2B6126F80082DBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		139C225D2B6126F80082DBDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		139C225F2B6126F80082DBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		139C226A2B6128500082DBDD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		139C226D2B61288C0082DBDD /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		139C22702B6128A80082DBDD /* MainTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTab.storyboard; sourceTree = "<group>"; };
+		139C22742B61298E0082DBDD /* MainTabVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVCBuilder.swift; sourceTree = "<group>"; };
+		139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboards+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +64,10 @@
 		139C22502B6126F60082DBDD /* Cinemax */ = {
 			isa = PBXGroup;
 			children = (
+				139C22762B6129C10082DBDD /* Extensions */,
 				139C22652B6127700082DBDD /* AppDelegates */,
 				139C22672B6127A80082DBDD /* Storyboards */,
-				139C22552B6126F60082DBDD /* MainTabVC.swift */,
+				139C22722B6129270082DBDD /* Screens */,
 				139C22662B61279A0082DBDD /* Resources */,
 				139C225F2B6126F80082DBDD /* Info.plist */,
 			);
@@ -85,10 +94,69 @@
 		139C22672B6127A80082DBDD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				139C22572B6126F60082DBDD /* Main.storyboard */,
-				139C225C2B6126F80082DBDD /* LaunchScreen.storyboard */,
+				139C226F2B6128980082DBDD /* MainTab */,
+				139C226C2B6128760082DBDD /* Authentication */,
+				139C22682B6128280082DBDD /* LaunchScreen */,
+				139C22692B6128390082DBDD /* Onboarding */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		139C22682B6128280082DBDD /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				139C225C2B6126F80082DBDD /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		139C22692B6128390082DBDD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				139C226A2B6128500082DBDD /* Onboarding.storyboard */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		139C226C2B6128760082DBDD /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				139C226D2B61288C0082DBDD /* Authentication.storyboard */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		139C226F2B6128980082DBDD /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				139C22702B6128A80082DBDD /* MainTab.storyboard */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		139C22722B6129270082DBDD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				139C22732B6129490082DBDD /* MainTab */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		139C22732B6129490082DBDD /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				139C22552B6126F60082DBDD /* MainTabVC.swift */,
+				139C22742B61298E0082DBDD /* MainTabVCBuilder.swift */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		139C22762B6129C10082DBDD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +217,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */,
+				139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */,
+				139C226B2B6128500082DBDD /* Onboarding.storyboard in Resources */,
 				139C225E2B6126F80082DBDD /* LaunchScreen.storyboard in Resources */,
 				139C225B2B6126F80082DBDD /* Assets.xcassets in Resources */,
-				139C22592B6126F60082DBDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,22 +233,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */,
+				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
+				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		139C22572B6126F60082DBDD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				139C22582B6126F60082DBDD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		139C225C2B6126F80082DBDD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -318,7 +382,6 @@
 				INFOPLIST_FILE = Cinemax/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -346,7 +409,6 @@
 				INFOPLIST_FILE = Cinemax/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
