@@ -12,4 +12,9 @@ extension UIStoryboard {
     static let Onboarding = UIStoryboard(name: "Onboarding", bundle: nil)
     static let Authentication = UIStoryboard(name: "Authentication", bundle: nil)
     static let MainTab = UIStoryboard(name: "MainTab", bundle: nil)
+    static let Home = UIStoryboard(name: "Home", bundle: nil)
+    static let Search = UIStoryboard(name: "Search", bundle: nil)
+    static let Download = UIStoryboard(name: "Download", bundle: nil)
+    static let Profile = UIStoryboard(name: "Profile", bundle: nil)
+    static let Common = UIStoryboard(name: "Common", bundle: nil)
 }

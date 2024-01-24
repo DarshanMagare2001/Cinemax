@@ -17,6 +17,11 @@
 		139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22702B6128A80082DBDD /* MainTab.storyboard */; };
 		139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22742B61298E0082DBDD /* MainTabVCBuilder.swift */; };
 		139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */; };
+		139C227B2B612D270082DBDD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C227A2B612D270082DBDD /* Home.storyboard */; };
+		139C227E2B612D4C0082DBDD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C227D2B612D4C0082DBDD /* Search.storyboard */; };
+		139C22812B612D700082DBDD /* Download.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22802B612D700082DBDD /* Download.storyboard */; };
+		139C22842B612D8D0082DBDD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22832B612D8D0082DBDD /* Profile.storyboard */; };
+		139C22872B612DC00082DBDD /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 139C22862B612DC00082DBDD /* Common.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		139C22702B6128A80082DBDD /* MainTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTab.storyboard; sourceTree = "<group>"; };
 		139C22742B61298E0082DBDD /* MainTabVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVCBuilder.swift; sourceTree = "<group>"; };
 		139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboards+Extensions.swift"; sourceTree = "<group>"; };
+		139C227A2B612D270082DBDD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		139C227D2B612D4C0082DBDD /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		139C22802B612D700082DBDD /* Download.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Download.storyboard; sourceTree = "<group>"; };
+		139C22832B612D8D0082DBDD /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		139C22862B612DC00082DBDD /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +104,11 @@
 		139C22672B6127A80082DBDD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				139C226F2B6128980082DBDD /* MainTab */,
-				139C226C2B6128760082DBDD /* Authentication */,
 				139C22682B6128280082DBDD /* LaunchScreen */,
 				139C22692B6128390082DBDD /* Onboarding */,
+				139C226C2B6128760082DBDD /* Authentication */,
+				139C226F2B6128980082DBDD /* MainTab */,
+				139C22852B612DB10082DBDD /* Common */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -130,6 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				139C22702B6128A80082DBDD /* MainTab.storyboard */,
+				139C22792B612D160082DBDD /* Home */,
+				139C227C2B612D3C0082DBDD /* Search */,
+				139C227F2B612D600082DBDD /* Download */,
+				139C22822B612D7E0082DBDD /* Profile */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
@@ -137,7 +152,10 @@
 		139C22722B6129270082DBDD /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				139C22882B612E1F0082DBDD /* Onboarding */,
+				139C22892B612E300082DBDD /* Authentication */,
 				139C22732B6129490082DBDD /* MainTab */,
+				139C228A2B612E3D0082DBDD /* Common */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -157,6 +175,67 @@
 				139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		139C22792B612D160082DBDD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				139C227A2B612D270082DBDD /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		139C227C2B612D3C0082DBDD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				139C227D2B612D4C0082DBDD /* Search.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		139C227F2B612D600082DBDD /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				139C22802B612D700082DBDD /* Download.storyboard */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		139C22822B612D7E0082DBDD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				139C22832B612D8D0082DBDD /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		139C22852B612DB10082DBDD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				139C22862B612DC00082DBDD /* Common.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		139C22882B612E1F0082DBDD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		139C22892B612E300082DBDD /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		139C228A2B612E3D0082DBDD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +298,12 @@
 			files = (
 				139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */,
 				139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */,
+				139C22812B612D700082DBDD /* Download.storyboard in Resources */,
+				139C22872B612DC00082DBDD /* Common.storyboard in Resources */,
 				139C226B2B6128500082DBDD /* Onboarding.storyboard in Resources */,
+				139C227B2B612D270082DBDD /* Home.storyboard in Resources */,
+				139C227E2B612D4C0082DBDD /* Search.storyboard in Resources */,
+				139C22842B612D8D0082DBDD /* Profile.storyboard in Resources */,
 				139C225E2B6126F80082DBDD /* LaunchScreen.storyboard in Resources */,
 				139C225B2B6126F80082DBDD /* Assets.xcassets in Resources */,
 			);
