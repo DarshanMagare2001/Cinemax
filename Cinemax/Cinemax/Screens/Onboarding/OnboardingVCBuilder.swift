@@ -12,6 +12,10 @@ public final class OnboardingVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Onboarding
         let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
+        let interactor = OnboardingVCInteractor()
+        let router = OnboardingVCRouter(viewController: onboardingVC)
+        let presenter = OnboardingVCPresenter(view: onboardingVC, interactor: interactor, router: router)
+        onboardingVC.presenter = presenter
         return onboardingVC
     }
 }

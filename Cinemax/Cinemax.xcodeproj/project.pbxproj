@@ -26,6 +26,10 @@
 		139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C228D2B6131050082DBDD /* OnboardingVC.swift */; };
 		139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C228F2B61316E0082DBDD /* OnboardingVCBuilder.swift */; };
 		139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22922B61399B0082DBDD /* RoundedCorners.swift */; };
+		139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22942B6143F50082DBDD /* OnboardingVCInteractor.swift */; };
+		139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */; };
+		139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22982B6144110082DBDD /* OnboardingVCEntity.swift */; };
+		139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		139C228D2B6131050082DBDD /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		139C228F2B61316E0082DBDD /* OnboardingVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCBuilder.swift; sourceTree = "<group>"; };
 		139C22922B61399B0082DBDD /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		139C22942B6143F50082DBDD /* OnboardingVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCInteractor.swift; sourceTree = "<group>"; };
+		139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCPresenter.swift; sourceTree = "<group>"; };
+		139C22982B6144110082DBDD /* OnboardingVCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCEntity.swift; sourceTree = "<group>"; };
+		139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				139C228D2B6131050082DBDD /* OnboardingVC.swift */,
+				139C22942B6143F50082DBDD /* OnboardingVCInteractor.swift */,
+				139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */,
+				139C22982B6144110082DBDD /* OnboardingVCEntity.swift */,
+				139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */,
 				139C228F2B61316E0082DBDD /* OnboardingVCBuilder.swift */,
 			);
 			path = Onboarding;
@@ -340,8 +352,12 @@
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
+				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
+				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
+				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
+				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,

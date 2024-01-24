@@ -7,12 +7,21 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+protocol OnboardingVCProtocol: class {
+    
+}
 
+class OnboardingVC: UIViewController {
+    
+    var presenter: OnboardingVCPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.viewDidload()
     }
-   
+    
+}
 
+extension OnboardingVC: OnboardingVCProtocol {
+    
 }
