@@ -10,6 +10,7 @@ import JXPageControl
 
 protocol OnboardingVCProtocol: class {
     func updateUI()
+    func nextOnboarding()
 }
 
 class OnboardingVC: UIViewController {
@@ -19,7 +20,6 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var frontImgView: UIView!
     @IBOutlet weak var headlineLbl: UILabel!
     @IBOutlet weak var subHeadlineLbl: UILabel!
-    
     @IBOutlet weak var pageControl: JXPageControlEllipse!
     
     var presenter: OnboardingVCPresenterProtocol?
@@ -34,6 +34,14 @@ class OnboardingVC: UIViewController {
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
+        nextOnboarding()
+    }
+    
+}
+
+extension OnboardingVC: OnboardingVCProtocol {
+    
+    func nextOnboarding(){
         guard onboardingScreenIndex < 2 else {
             return
         }
@@ -45,9 +53,6 @@ class OnboardingVC: UIViewController {
     }
     
     
-}
-
-extension OnboardingVC: OnboardingVCProtocol {
     func updateUI(){
         guard let datasource = presenter?.datasource[onboardingScreenIndex] else {
             return
@@ -65,6 +70,7 @@ extension OnboardingVC: OnboardingVCProtocol {
             subHeadlineLbl.text = datasource.subHeadline
         }
     }
+    
 }
 
 
