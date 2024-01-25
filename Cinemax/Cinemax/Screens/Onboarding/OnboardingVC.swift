@@ -41,7 +41,6 @@ extension OnboardingVC: OnboardingVCProtocol {
     
     func nextOnboarding(){
         guard onboardingScreenIndex < 2 else {
-            presenter?.onboardingDone()
             return
         }
         onboardingScreenIndex += 1
@@ -49,6 +48,9 @@ extension OnboardingVC: OnboardingVCProtocol {
         let progress = CGFloat(onboardingScreenIndex) / CGFloat(presenter?.datasource.count ?? 1)
         pageControl.progress = progress
         pageControl.currentPage = onboardingScreenIndex
+        if onboardingScreenIndex == 2 {
+            presenter?.onboardingDone()
+        }
     }
     
     
