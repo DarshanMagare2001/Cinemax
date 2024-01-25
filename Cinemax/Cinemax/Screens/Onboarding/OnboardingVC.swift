@@ -21,6 +21,7 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var presenter: OnboardingVCPresenterProtocol?
+    var onboardingScreenIndex = 0
     
     
     override func viewDidLoad() {
@@ -29,7 +30,11 @@ class OnboardingVC: UIViewController {
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
-        
+        guard onboardingScreenIndex < 2 else {
+            return
+        }
+        onboardingScreenIndex += 1
+        updateUI()
     }
     
     
@@ -37,11 +42,21 @@ class OnboardingVC: UIViewController {
 
 extension OnboardingVC: OnboardingVCProtocol {
     func updateUI(){
-        guard let datasource = presenter?.datasource[0] else {
+        guard let datasource = presenter?.datasource[onboardingScreenIndex] else {
             return
         }
-        backgroundImg.image = datasource.img
-        headlineLbl.text = datasource.headline
-        subHeadlineLbl.text = datasource.subHeadline
+        
+        if onboardingScreenIndex == 0 {
+            backgroundImg.isHidden = false
+            frontImg.isHidden = true
+            backgroundImg.image = datasource.img
+        }else{
+            backgroundImg.isHidden = true
+            frontImg.isHidden = false
+            frontImg.image = datasource.img
+            headlineLbl.text = datasource.headline
+            subHeadlineLbl.text = datasource.subHeadline
+        }
+        
     }
 }
