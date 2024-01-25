@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03202808CE58AE7281E7307F56446668 /* Pods-Cinemax-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2272989E6A156B27C94ABCCB2AA7EBD2 /* Pods-Cinemax-dummy.m */; };
+		0E0078B3011F85AECF0063C5399B57EE /* JXPageControlLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4D6D73879BBEEBEDD022E08AF9958 /* JXPageControlLine.swift */; };
+		3CAE0BA54C27D7D96B54D6B51812E580 /* JXPageControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD991BE1B8DF7ADA19B5627460B46E9 /* JXPageControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E95D7B4F5CCE66EE13269968CDB5E66 /* JXPageControlJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2601467C6FCCC58E7E6C614CE006B5 /* JXPageControlJump.swift */; };
+		3EF86B5E182D6571F5C5EA73E820D257 /* JXPageControlEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD27956A28F3EEFE5C8B74634F0C6158 /* JXPageControlEllipse.swift */; };
+		4486BF560A8E9FFE49D2564E1AFBE47D /* JXPageControlTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA96B86C67871BBF3206A46D3BCB8239 /* JXPageControlTool.swift */; };
+		5397643ED2DA52DBE5F44995D91CF109 /* JXPageControlBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3893FBB4589C689BA0BAE0BCB7AEE88C /* JXPageControlBase.swift */; };
+		666150250B801FFCA753AE682A204D7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		795DFBA94968EDD51280BB2618B921FB /* JXPageControlExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F5C2CA0632E2E5C8299C22A710E0D /* JXPageControlExchange.swift */; };
+		7B851DF95A4BBA82600468AF26ACC496 /* JXPageControlType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1D9C341D6503D62F2FA1B3F0736B1 /* JXPageControlType.swift */; };
+		88A5F592FD92467416CF97C451357C04 /* JXPageControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E002B5AD31E927BDB708421A1BE89C99 /* JXPageControl-dummy.m */; };
+		B39A4B94B59D4ED00B1BA97E19E56B54 /* JXPageControlScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692ADA64FDD66ABF4C3B1F005EA23E5 /* JXPageControlScale.swift */; };
+		BAEF73E4843381A24ADA11672840B6D6 /* JXPageControlFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0327F41892162ADA6B6D2E71356AB /* JXPageControlFill.swift */; };
+		E61CE3C739C5252B0A43FA5C017D8680 /* JXPageControlBoldLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57186F176562EB76CFEB8B8CABE812C9 /* JXPageControlBoldLine.swift */; };
+		EEFE1958C2CB49E3BCFD2DEF77BE4618 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F2026F63B0B89FBFD2DFD1D9C2DCCD30 /* JXPageControlChameleon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048E815944198A870829B06A2D5C2FC /* JXPageControlChameleon.swift */; };
+		FC62000FFEC92143CFCCFCBDCA289951 /* Pods-Cinemax-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B9651620EEF4E65F564BBCCAB6FB614 /* Pods-Cinemax-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED5F0D0D848797A1C52C9F4A9F875127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4C88C2A40F178CFDA25F6F1E2C779D8;
+			remoteInfo = JXPageControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0785358C5B21DB3EFA3D4FA7AE3C7E7C /* JXPageControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JXPageControl-Info.plist"; sourceTree = "<group>"; };
+		1900FF358AE9A6418CE4FFF5CA8F7FD0 /* JXPageControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXPageControl.debug.xcconfig; sourceTree = "<group>"; };
+		2272989E6A156B27C94ABCCB2AA7EBD2 /* Pods-Cinemax-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cinemax-dummy.m"; sourceTree = "<group>"; };
+		26E0327F41892162ADA6B6D2E71356AB /* JXPageControlFill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlFill.swift; path = JXPageControl/Classes/Transform/JXPageControlFill.swift; sourceTree = "<group>"; };
+		3747FEFA081FEFB8CC89A41BB4768ADD /* JXPageControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JXPageControl.modulemap; sourceTree = "<group>"; };
+		3791C7E568E3807F146313F48D73E71D /* Pods-Cinemax-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cinemax-Info.plist"; sourceTree = "<group>"; };
+		3893FBB4589C689BA0BAE0BCB7AEE88C /* JXPageControlBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlBase.swift; path = JXPageControl/Classes/Common/JXPageControlBase.swift; sourceTree = "<group>"; };
+		3B9651620EEF4E65F564BBCCAB6FB614 /* Pods-Cinemax-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cinemax-umbrella.h"; sourceTree = "<group>"; };
+		3FA65F9CCA2E6B73884EC5C8B5CDD8E1 /* Pods-Cinemax-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cinemax-frameworks.sh"; sourceTree = "<group>"; };
+		40A71185B4A8B58C1F2B68E5DA355999 /* JXPageControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXPageControl-prefix.pch"; sourceTree = "<group>"; };
+		489101E9ACDAB1274D6786DB44A73A24 /* Pods-Cinemax.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cinemax.modulemap"; sourceTree = "<group>"; };
+		4C2601467C6FCCC58E7E6C614CE006B5 /* JXPageControlJump.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlJump.swift; path = JXPageControl/Classes/Jump/JXPageControlJump.swift; sourceTree = "<group>"; };
+		57186F176562EB76CFEB8B8CABE812C9 /* JXPageControlBoldLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlBoldLine.swift; path = JXPageControl/Classes/Jump/JXPageControlBoldLine.swift; sourceTree = "<group>"; };
+		5C008AF537FF397F502E5FD90E473B71 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
+		638D0F280C9623606B5CCC57D553565D /* JXPageControl */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JXPageControl; path = JXPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73640015F0F5F45019DDEB73EC2F5629 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
+		816A4C3D1FB473BE659144911F8F785F /* Pods-Cinemax-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cinemax-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8EBF736C6E2EDC84013D21193ACE0641 /* Pods-Cinemax */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Cinemax"; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9692ADA64FDD66ABF4C3B1F005EA23E5 /* JXPageControlScale.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlScale.swift; path = JXPageControl/Classes/Transform/JXPageControlScale.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE115DA1C7B0A8BB9B5117075E8C2AA2 /* JXPageControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXPageControl.release.xcconfig; sourceTree = "<group>"; };
+		BFD991BE1B8DF7ADA19B5627460B46E9 /* JXPageControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXPageControl-umbrella.h"; sourceTree = "<group>"; };
+		D6A0B83A03F1B1A279BE46F057E20022 /* Pods-Cinemax-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cinemax-acknowledgements.plist"; sourceTree = "<group>"; };
+		DAC4D6D73879BBEEBEDD022E08AF9958 /* JXPageControlLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlLine.swift; path = JXPageControl/Classes/Jump/JXPageControlLine.swift; sourceTree = "<group>"; };
+		DD27956A28F3EEFE5C8B74634F0C6158 /* JXPageControlEllipse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlEllipse.swift; path = JXPageControl/Classes/Jump/JXPageControlEllipse.swift; sourceTree = "<group>"; };
+		E002B5AD31E927BDB708421A1BE89C99 /* JXPageControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXPageControl-dummy.m"; sourceTree = "<group>"; };
+		E6E1D9C341D6503D62F2FA1B3F0736B1 /* JXPageControlType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlType.swift; path = JXPageControl/Classes/Common/JXPageControlType.swift; sourceTree = "<group>"; };
+		EA96B86C67871BBF3206A46D3BCB8239 /* JXPageControlTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlTool.swift; path = JXPageControl/Classes/Common/JXPageControlTool.swift; sourceTree = "<group>"; };
+		F048E815944198A870829B06A2D5C2FC /* JXPageControlChameleon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlChameleon.swift; path = JXPageControl/Classes/Transform/JXPageControlChameleon.swift; sourceTree = "<group>"; };
+		F34F5C2CA0632E2E5C8299C22A710E0D /* JXPageControlExchange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPageControlExchange.swift; path = JXPageControl/Classes/Transform/JXPageControlExchange.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4694713F6A42CF5C9DC3D3EBDCFDCE8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEFE1958C2CB49E3BCFD2DEF77BE4618 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE4F0BBC24EFE6AE521CE724A758548 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				666150250B801FFCA753AE682A204D7A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20D7CC40B5C0DD3DFCE348F065ED9D18 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3893FBB4589C689BA0BAE0BCB7AEE88C /* JXPageControlBase.swift */,
+				EA96B86C67871BBF3206A46D3BCB8239 /* JXPageControlTool.swift */,
+				E6E1D9C341D6503D62F2FA1B3F0736B1 /* JXPageControlType.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		269E7FC077E82765389D2C9A08F77B8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9AB6EC5E9C24D8F3D67B277C95EC38F /* JXPageControl */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		37F132AB5D98C648DE3E3EB9F4B513A6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F8961A53B7CC2059D765EDB80374964 /* Pods-Cinemax */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8BA96927AD918E49542FF080F9047E9E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3747FEFA081FEFB8CC89A41BB4768ADD /* JXPageControl.modulemap */,
+				E002B5AD31E927BDB708421A1BE89C99 /* JXPageControl-dummy.m */,
+				0785358C5B21DB3EFA3D4FA7AE3C7E7C /* JXPageControl-Info.plist */,
+				40A71185B4A8B58C1F2B68E5DA355999 /* JXPageControl-prefix.pch */,
+				BFD991BE1B8DF7ADA19B5627460B46E9 /* JXPageControl-umbrella.h */,
+				1900FF358AE9A6418CE4FFF5CA8F7FD0 /* JXPageControl.debug.xcconfig */,
+				AE115DA1C7B0A8BB9B5117075E8C2AA2 /* JXPageControl.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JXPageControl";
+			sourceTree = "<group>";
+		};
+		8F8961A53B7CC2059D765EDB80374964 /* Pods-Cinemax */ = {
+			isa = PBXGroup;
+			children = (
+				489101E9ACDAB1274D6786DB44A73A24 /* Pods-Cinemax.modulemap */,
+				816A4C3D1FB473BE659144911F8F785F /* Pods-Cinemax-acknowledgements.markdown */,
+				D6A0B83A03F1B1A279BE46F057E20022 /* Pods-Cinemax-acknowledgements.plist */,
+				2272989E6A156B27C94ABCCB2AA7EBD2 /* Pods-Cinemax-dummy.m */,
+				3FA65F9CCA2E6B73884EC5C8B5CDD8E1 /* Pods-Cinemax-frameworks.sh */,
+				3791C7E568E3807F146313F48D73E71D /* Pods-Cinemax-Info.plist */,
+				3B9651620EEF4E65F564BBCCAB6FB614 /* Pods-Cinemax-umbrella.h */,
+				73640015F0F5F45019DDEB73EC2F5629 /* Pods-Cinemax.debug.xcconfig */,
+				5C008AF537FF397F502E5FD90E473B71 /* Pods-Cinemax.release.xcconfig */,
+			);
+			name = "Pods-Cinemax";
+			path = "Target Support Files/Pods-Cinemax";
+			sourceTree = "<group>";
+		};
+		B9AB6EC5E9C24D8F3D67B277C95EC38F /* JXPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				20D7CC40B5C0DD3DFCE348F065ED9D18 /* Common */,
+				C7DED65398D7A213A30FF3F7429542E8 /* Jump */,
+				8BA96927AD918E49542FF080F9047E9E /* Support Files */,
+				D8D07485E43E48AE0396791E1AED5C05 /* Transform */,
+			);
+			name = JXPageControl;
+			path = JXPageControl;
+			sourceTree = "<group>";
+		};
+		C7DED65398D7A213A30FF3F7429542E8 /* Jump */ = {
+			isa = PBXGroup;
+			children = (
+				57186F176562EB76CFEB8B8CABE812C9 /* JXPageControlBoldLine.swift */,
+				DD27956A28F3EEFE5C8B74634F0C6158 /* JXPageControlEllipse.swift */,
+				4C2601467C6FCCC58E7E6C614CE006B5 /* JXPageControlJump.swift */,
+				DAC4D6D73879BBEEBEDD022E08AF9958 /* JXPageControlLine.swift */,
+			);
+			name = Jump;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				269E7FC077E82765389D2C9A08F77B8E /* Pods */,
+				D8E75CBAF336CE574B6F5C9462B4B2A3 /* Products */,
+				37F132AB5D98C648DE3E3EB9F4B513A6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8D07485E43E48AE0396791E1AED5C05 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
+				F048E815944198A870829B06A2D5C2FC /* JXPageControlChameleon.swift */,
+				F34F5C2CA0632E2E5C8299C22A710E0D /* JXPageControlExchange.swift */,
+				26E0327F41892162ADA6B6D2E71356AB /* JXPageControlFill.swift */,
+				9692ADA64FDD66ABF4C3B1F005EA23E5 /* JXPageControlScale.swift */,
+			);
+			name = Transform;
+			sourceTree = "<group>";
+		};
+		D8E75CBAF336CE574B6F5C9462B4B2A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				638D0F280C9623606B5CCC57D553565D /* JXPageControl */,
+				8EBF736C6E2EDC84013D21193ACE0641 /* Pods-Cinemax */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F0782CC4ED7ACB34EE92FE53F50CC2FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC62000FFEC92143CFCCFCBDCA289951 /* Pods-Cinemax-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F430DAD15AB097029DB3F0423C28FCD9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CAE0BA54C27D7D96B54D6B51812E580 /* JXPageControl-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		921B14088CE56B0EF803D91C369811A4 /* Pods-Cinemax */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F35084A6CD05F1E0C6C58C1B9484ACAF /* Build configuration list for PBXNativeTarget "Pods-Cinemax" */;
+			buildPhases = (
+				F0782CC4ED7ACB34EE92FE53F50CC2FE /* Headers */,
+				B6DED2664D1A100888845BACAE0B6F01 /* Sources */,
+				4694713F6A42CF5C9DC3D3EBDCFDCE8E /* Frameworks */,
+				CA3D0CE19B348927AFFA38218EB8B6A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7409A94C21625D27C97CFECF5ED5CFC /* PBXTargetDependency */,
+			);
+			name = "Pods-Cinemax";
+			productName = Pods_Cinemax;
+			productReference = 8EBF736C6E2EDC84013D21193ACE0641 /* Pods-Cinemax */;
+			productType = "com.apple.product-type.framework";
+		};
+		A4C88C2A40F178CFDA25F6F1E2C779D8 /* JXPageControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 443F3B367509F04C1785B48DF2DAB9A8 /* Build configuration list for PBXNativeTarget "JXPageControl" */;
+			buildPhases = (
+				F430DAD15AB097029DB3F0423C28FCD9 /* Headers */,
+				57A38C2971E66A85AD93FF2ADB200860 /* Sources */,
+				CBE4F0BBC24EFE6AE521CE724A758548 /* Frameworks */,
+				D4255B0EE6E10A7B54C5B00BC7A9E71A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JXPageControl;
+			productName = JXPageControl;
+			productReference = 638D0F280C9623606B5CCC57D553565D /* JXPageControl */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D8E75CBAF336CE574B6F5C9462B4B2A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4C88C2A40F178CFDA25F6F1E2C779D8 /* JXPageControl */,
+				921B14088CE56B0EF803D91C369811A4 /* Pods-Cinemax */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA3D0CE19B348927AFFA38218EB8B6A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4255B0EE6E10A7B54C5B00BC7A9E71A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57A38C2971E66A85AD93FF2ADB200860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A5F592FD92467416CF97C451357C04 /* JXPageControl-dummy.m in Sources */,
+				5397643ED2DA52DBE5F44995D91CF109 /* JXPageControlBase.swift in Sources */,
+				E61CE3C739C5252B0A43FA5C017D8680 /* JXPageControlBoldLine.swift in Sources */,
+				F2026F63B0B89FBFD2DFD1D9C2DCCD30 /* JXPageControlChameleon.swift in Sources */,
+				3EF86B5E182D6571F5C5EA73E820D257 /* JXPageControlEllipse.swift in Sources */,
+				795DFBA94968EDD51280BB2618B921FB /* JXPageControlExchange.swift in Sources */,
+				BAEF73E4843381A24ADA11672840B6D6 /* JXPageControlFill.swift in Sources */,
+				3E95D7B4F5CCE66EE13269968CDB5E66 /* JXPageControlJump.swift in Sources */,
+				0E0078B3011F85AECF0063C5399B57EE /* JXPageControlLine.swift in Sources */,
+				B39A4B94B59D4ED00B1BA97E19E56B54 /* JXPageControlScale.swift in Sources */,
+				4486BF560A8E9FFE49D2564E1AFBE47D /* JXPageControlTool.swift in Sources */,
+				7B851DF95A4BBA82600468AF26ACC496 /* JXPageControlType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6DED2664D1A100888845BACAE0B6F01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03202808CE58AE7281E7307F56446668 /* Pods-Cinemax-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7409A94C21625D27C97CFECF5ED5CFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JXPageControl;
+			target = A4C88C2A40F178CFDA25F6F1E2C779D8 /* JXPageControl */;
+			targetProxy = ED5F0D0D848797A1C52C9F4A9F875127 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		063E8569E7F05253AFF0141D8DD15D79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE115DA1C7B0A8BB9B5117075E8C2AA2 /* JXPageControl.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JXPageControl/JXPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JXPageControl/JXPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JXPageControl/JXPageControl.modulemap";
+				PRODUCT_MODULE_NAME = JXPageControl;
+				PRODUCT_NAME = JXPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1477BEA0A999000177123CA0810F7FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C008AF537FF397F502E5FD90E473B71 /* Pods-Cinemax.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cinemax/Pods-Cinemax-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cinemax/Pods-Cinemax.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		45A82D82B396A832B98BBB40999A2FE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73640015F0F5F45019DDEB73EC2F5629 /* Pods-Cinemax.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cinemax/Pods-Cinemax-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cinemax/Pods-Cinemax.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		82564EE27BE20D0006CA300821FCD30D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1900FF358AE9A6418CE4FFF5CA8F7FD0 /* JXPageControl.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JXPageControl/JXPageControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JXPageControl/JXPageControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JXPageControl/JXPageControl.modulemap";
+				PRODUCT_MODULE_NAME = JXPageControl;
+				PRODUCT_NAME = JXPageControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD85FD90473CFBE797E4264E7BBC70AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		443F3B367509F04C1785B48DF2DAB9A8 /* Build configuration list for PBXNativeTarget "JXPageControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82564EE27BE20D0006CA300821FCD30D /* Debug */,
+				063E8569E7F05253AFF0141D8DD15D79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4214E6946993DF02ED98D89047C64016 /* Debug */,
+				CD85FD90473CFBE797E4264E7BBC70AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F35084A6CD05F1E0C6C58C1B9484ACAF /* Build configuration list for PBXNativeTarget "Pods-Cinemax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A82D82B396A832B98BBB40999A2FE7 /* Debug */,
+				1477BEA0A999000177123CA0810F7FDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
