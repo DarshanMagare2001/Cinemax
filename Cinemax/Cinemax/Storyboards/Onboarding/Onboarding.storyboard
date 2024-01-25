@@ -211,6 +211,7 @@
                         <outlet property="frontImg" destination="Fwp-NQ-Zxe" id="5hG-9W-XnV"/>
                         <outlet property="frontImgView" destination="sYL-ph-576" id="DSR-gH-PQp"/>
                         <outlet property="headlineLbl" destination="Z6b-Tf-8Yc" id="MyR-Q4-tIl"/>
+                        <outlet property="pageControl" destination="wcl-Z8-Es3" id="03i-hd-95n"/>
                         <outlet property="subHeadlineLbl" destination="RgI-gS-7DX" id="B0e-Tn-ZrF"/>
                     </connections>
                 </viewController>

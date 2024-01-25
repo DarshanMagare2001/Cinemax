@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JXPageControl
 
 protocol OnboardingVCProtocol: class {
     func updateUI()
@@ -18,7 +19,8 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var frontImgView: UIView!
     @IBOutlet weak var headlineLbl: UILabel!
     @IBOutlet weak var subHeadlineLbl: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var pageControl: JXPageControlEllipse!
     
     var presenter: OnboardingVCPresenterProtocol?
     var onboardingScreenIndex = 0
@@ -27,6 +29,8 @@ class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        pageControl.isAnimation  = true
+        
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
@@ -35,6 +39,9 @@ class OnboardingVC: UIViewController {
         }
         onboardingScreenIndex += 1
         updateUI()
+        let progress = CGFloat(onboardingScreenIndex) / CGFloat(presenter?.datasource.count ?? 1)
+        pageControl.progress = progress
+        pageControl.currentPage = onboardingScreenIndex
     }
     
     
@@ -57,6 +64,7 @@ extension OnboardingVC: OnboardingVCProtocol {
             headlineLbl.text = datasource.headline
             subHeadlineLbl.text = datasource.subHeadline
         }
-        
     }
 }
+
+
