@@ -10,6 +10,7 @@ import Foundation
 protocol OnboardingVCPresenterProtocol {
     func viewDidload()
     func loadOnboardingData(completion:@escaping()->())
+    func onboardingDone()
     var datasource : [OnboardingVCEntity] { get set }
 }
 
@@ -26,10 +27,12 @@ class OnboardingVCPresenter {
 }
 
 extension OnboardingVCPresenter: OnboardingVCPresenterProtocol {
+  
+    
     func viewDidload() {
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.loadOnboardingData{
-                DispatchQueue.main.async { [weak self] in 
+                DispatchQueue.main.async { [weak self] in
                     self?.view?.updateUI()
                 }
             }
@@ -46,6 +49,12 @@ extension OnboardingVCPresenter: OnboardingVCPresenterProtocol {
                 print("Failed to load onboarding data:", error)
                 completion()
             }
+        }
+    }
+    
+    func onboardingDone(){
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .isOnboardingDone, data: "true") { bool in
+            print(bool)
         }
     }
     

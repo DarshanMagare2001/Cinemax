@@ -10,7 +10,7 @@ import Foundation
 public final class UserdefaultRepository {
     
     static let shared = UserdefaultRepository()
-    private init(){}
+    private init() {}
     
     func saveData<T>(_ data: T?, key: String?, completionhandler: @escaping (Bool) -> Void) {
         if let data = data , let key = key {
@@ -33,3 +33,4 @@ public final class UserdefaultRepository {
     }
     
 }
+

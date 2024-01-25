@@ -15,30 +15,30 @@ public final class UserdefaultRepositoryManager {
     static func fetchUserInfoFromUserdefault(type: UserInfoFromUserdefault) -> String? {
         let semaphore = DispatchSemaphore(value: 0)
         var result: String?
-        UserdefaultRepository.shared.getData(key: type.rawValue) { (dataResult: Result<String?, Error>) in
-            switch dataResult {
-            case .success(let data):
-                result = data
-            case .failure(let error):
-                print(error)
+        
+        // Use a background queue to avoid blocking the main thread
+        DispatchQueue.global().async {
+            UserdefaultRepository.shared.getData(key: type.rawValue) { (dataResult: Result<String?, Error>) in
+                switch dataResult {
+                case .success(let data):
+                    result = data
+                case .failure(let error):
+                    print(error)
+                }
+                semaphore.signal()
             }
-            semaphore.signal()
         }
+        
         semaphore.wait()
         return result
     }
     
-    static func storeUserInfoFromUserdefault<T>(type: UserInfoFromUserdefault , data: T?) -> Bool? {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: Bool?
+    static func storeUserInfoFromUserdefault<T>(type: UserInfoFromUserdefault, data: T?, completion: @escaping (Bool) -> Void) {
         if let data = data {
-            UserdefaultRepository.shared.saveData(data, key: type.rawValue) { bool in
-                result = bool
-                semaphore.signal()
-            }
+            UserdefaultRepository.shared.saveData(data, key: type.rawValue, completionhandler: completion)
+        } else {
+            completion(false)
         }
-        semaphore.wait()
-        return result
     }
     
 }
