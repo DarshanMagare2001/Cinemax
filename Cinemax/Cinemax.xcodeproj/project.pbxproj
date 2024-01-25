@@ -30,6 +30,7 @@
 		139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */; };
 		139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22982B6144110082DBDD /* OnboardingVCEntity.swift */; };
 		139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */; };
+		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,9 @@
 		139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCPresenter.swift; sourceTree = "<group>"; };
 		139C22982B6144110082DBDD /* OnboardingVCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCEntity.swift; sourceTree = "<group>"; };
 		139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCRouter.swift; sourceTree = "<group>"; };
+		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
+		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
+		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,8 @@
 			children = (
 				139C22502B6126F60082DBDD /* Cinemax */,
 				139C224F2B6126F60082DBDD /* Products */,
+				F936538B84722E4DFB238AEA /* Pods */,
+				512A217EC32A23174C44CAC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +277,24 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		512A217EC32A23174C44CAC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F936538B84722E4DFB238AEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */,
+				76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,9 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 139C22622B6126F80082DBDD /* Build configuration list for PBXNativeTarget "Cinemax" */;
 			buildPhases = (
+				11928D9AA18BD6162B31E041 /* [CP] Check Pods Manifest.lock */,
 				139C224A2B6126F60082DBDD /* Sources */,
 				139C224B2B6126F60082DBDD /* Frameworks */,
 				139C224C2B6126F60082DBDD /* Resources */,
+				57FCD0572D4DF480E75153BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,6 +369,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11928D9AA18BD6162B31E041 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cinemax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57FCD0572D4DF480E75153BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cinemax/Pods-Cinemax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cinemax/Pods-Cinemax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cinemax/Pods-Cinemax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		139C224A2B6126F60082DBDD /* Sources */ = {
@@ -496,6 +565,7 @@
 		};
 		139C22632B6126F80082DBDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -523,6 +593,7 @@
 		};
 		139C22642B6126F80082DBDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
