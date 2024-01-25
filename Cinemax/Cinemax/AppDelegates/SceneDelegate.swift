@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setUpScreens() -> UIViewController {
         if let isonboardingDone = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .isOnboardingDone){
-            
+            return LoginVCBuilder.build()
         }else{
             return OnboardingVCBuilder.build()
         }

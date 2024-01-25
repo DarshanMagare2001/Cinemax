@@ -10,7 +10,7 @@ import UIKit
 
 extension UIStoryboard {
     static let Onboarding = UIStoryboard(name: "Onboarding", bundle: nil)
-    static let Authentication = UIStoryboard(name: "Authentication", bundle: nil)
+    static let Authentication = UIStoryboard(name:"Authentication", bundle: nil)
     static let MainTab = UIStoryboard(name: "MainTab", bundle: nil)
     static let Home = UIStoryboard(name: "Home", bundle: nil)
     static let Search = UIStoryboard(name: "Search", bundle: nil)
