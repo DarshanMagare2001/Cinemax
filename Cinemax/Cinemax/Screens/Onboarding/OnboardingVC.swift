@@ -30,7 +30,6 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidload()
         pageControl.isAnimation  = true
-        
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
@@ -43,6 +42,7 @@ extension OnboardingVC: OnboardingVCProtocol {
     
     func nextOnboarding(){
         guard onboardingScreenIndex < 2 else {
+            print("Onboarding finish")
             return
         }
         onboardingScreenIndex += 1
