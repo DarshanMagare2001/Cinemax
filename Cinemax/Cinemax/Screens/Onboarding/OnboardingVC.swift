@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OnboardingVCProtocol: class {
-    
+    func updateUI()
 }
 
 class OnboardingVC: UIViewController {
@@ -23,5 +23,7 @@ class OnboardingVC: UIViewController {
 }
 
 extension OnboardingVC: OnboardingVCProtocol {
-    
+    func updateUI(){
+        print("updateUI")
+    }
 }

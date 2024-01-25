@@ -8,13 +8,16 @@
 import Foundation
 
 protocol OnboardingVCPresenterProtocol {
-   func viewDidload()
+    func viewDidload()
+    func loadOnboardingData(completion:@escaping()->())
+    var datasource : [OnboardingVCEntity] { get set }
 }
 
 class OnboardingVCPresenter {
     weak var view: OnboardingVCProtocol?
     var interactor: OnboardingVCInteractorProtocol
     var router: OnboardingVCRouterProtocol
+    var datasource = [OnboardingVCEntity]()
     init(view: OnboardingVCProtocol,interactor: OnboardingVCInteractorProtocol,router: OnboardingVCRouterProtocol){
         self.view = view
         self.interactor = interactor
@@ -24,6 +27,26 @@ class OnboardingVCPresenter {
 
 extension OnboardingVCPresenter: OnboardingVCPresenterProtocol {
     func viewDidload() {
-        print("viewDidload")
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            self?.loadOnboardingData{
+                DispatchQueue.main.async { [weak self] in 
+                    self?.view?.updateUI()
+                }
+            }
+        }
     }
+    
+    func loadOnboardingData(completion:@escaping()->()){
+        Task {
+            do {
+                let onboardingData = try await interactor.loadOnboardingData()
+                datasource = onboardingData
+                completion()
+            } catch {
+                print("Failed to load onboarding data:", error)
+                completion()
+            }
+        }
+    }
+    
 }
