@@ -35,6 +35,33 @@
             </objects>
             <point key="canvasLocation" x="132" y="64"/>
         </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="zXH-pf-C7a">
+            <objects>
+                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Ug-kw-DqM" customClass="SignUpVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kpJ-ob-vpz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUpVC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEH-R7-EhA">
+                                <rect key="frame" x="127" y="426.5" width="160.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qjR-cv-VNq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AEH-R7-EhA" firstAttribute="centerX" secondItem="kpJ-ob-vpz" secondAttribute="centerX" id="DM4-co-19F"/>
+                            <constraint firstItem="AEH-R7-EhA" firstAttribute="centerY" secondItem="kpJ-ob-vpz" secondAttribute="centerY" id="a4P-Td-AXf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5BX-Od-NCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="63"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
