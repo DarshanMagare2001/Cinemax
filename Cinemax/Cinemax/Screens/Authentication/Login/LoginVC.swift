@@ -20,6 +20,9 @@ class LoginVC: UIViewController {
         presenter?.viewDidload()
     }
   
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
 
 }
 
