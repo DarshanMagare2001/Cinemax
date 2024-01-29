@@ -765,7 +765,7 @@ Phone Number to Sign Up</string>
                                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" id="xm9-qO-fNB">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="214" height="25"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="25"/>
                                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-QV-JRW">
@@ -778,7 +778,7 @@ Phone Number to Sign Up</string>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Services " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ssd-pC-2t9">
-                                                                                                        <rect key="frame" x="107" y="0.0" width="107" height="25"/>
+                                                                                                        <rect key="frame" x="120" y="0.0" width="120" height="25"/>
                                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                                         <color key="textColor" name="AppBlue"/>
@@ -800,7 +800,7 @@ Phone Number to Sign Up</string>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FCk-H9-Y8z">
-                                                                                                        <rect key="frame" x="107" y="0.0" width="107" height="25"/>
+                                                                                                        <rect key="frame" x="120" y="0.0" width="120" height="25"/>
                                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                                         <color key="textColor" name="AppBlue"/>
@@ -935,22 +935,104 @@ Phone Number to Sign Up</string>
                                     <constraint firstAttribute="height" constant="136" id="iDP-Wz-K7r"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NgL-de-EJC">
+                                <rect key="frame" x="20" y="156" width="280" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-5s-oo5">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gx5-ho-Ypn" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6m-vv-tuF">
+                                                        <rect key="frame" x="10" y="10" width="260" height="40"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="S6m-vv-tuF" firstAttribute="top" secondItem="Gx5-ho-Ypn" secondAttribute="top" constant="10" id="D2w-QT-0Wn"/>
+                                                    <constraint firstItem="S6m-vv-tuF" firstAttribute="leading" secondItem="Gx5-ho-Ypn" secondAttribute="leading" constant="10" id="MgW-Sx-Lz9"/>
+                                                    <constraint firstAttribute="bottom" secondItem="S6m-vv-tuF" secondAttribute="bottom" constant="10" id="XH1-WF-pYS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="S6m-vv-tuF" secondAttribute="trailing" constant="10" id="yhZ-zx-B0e"/>
+                                                    <constraint firstAttribute="height" constant="60" id="z9L-8M-ylo"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemGray6Color"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-SL-mf2">
+                                                <rect key="frame" x="20" y="-10" width="120" height="18"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="mnf-CK-PYn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="O4a-SL-mf2" firstAttribute="leading" secondItem="C8j-5s-oo5" secondAttribute="leading" constant="20" id="7Uv-MG-cWp"/>
+                                            <constraint firstItem="O4a-SL-mf2" firstAttribute="top" secondItem="C8j-5s-oo5" secondAttribute="top" constant="-10" id="Xc6-SJ-AAp"/>
+                                            <constraint firstItem="Gx5-ho-Ypn" firstAttribute="leading" secondItem="C8j-5s-oo5" secondAttribute="leading" id="inb-kS-Bho"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gx5-ho-Ypn" secondAttribute="trailing" id="ni1-8Y-Z2O"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gx5-ho-Ypn" secondAttribute="bottom" id="p6V-Oq-agK"/>
+                                            <constraint firstItem="Gx5-ho-Ypn" firstAttribute="top" secondItem="C8j-5s-oo5" secondAttribute="top" id="zdP-lv-qGL"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBs-37-t6a" customClass="RoundedButton" customModule="Cinemax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="280" height="50"/>
+                                        <color key="backgroundColor" name="AppBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="lc2-ap-ewt"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Next">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HQX-AP-yoL"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DkK-fU-Dwe" firstAttribute="top" secondItem="HQX-AP-yoL" secondAttribute="top" id="2yP-eZ-Vsc"/>
+                            <constraint firstItem="NgL-de-EJC" firstAttribute="leading" secondItem="L5y-ez-ihZ" secondAttribute="leading" constant="20" id="QYc-9A-Ftk"/>
+                            <constraint firstItem="HQX-AP-yoL" firstAttribute="trailing" secondItem="NgL-de-EJC" secondAttribute="trailing" constant="20" id="VNV-0k-PHb"/>
                             <constraint firstItem="DkK-fU-Dwe" firstAttribute="leading" secondItem="L5y-ez-ihZ" secondAttribute="leading" id="Zkw-Us-33T"/>
                             <constraint firstAttribute="trailing" secondItem="DkK-fU-Dwe" secondAttribute="trailing" id="phe-6e-G1f"/>
+                            <constraint firstItem="NgL-de-EJC" firstAttribute="top" secondItem="DkK-fU-Dwe" secondAttribute="bottom" constant="20" id="vmH-LE-A8K"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBx-e3-3g4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="61"/>
+            <point key="canvasLocation" x="2085" y="60.2112676056338"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="LBs-37-t6a">
+            <size key="intrinsicContentSize" width="66.5" height="38"/>
+        </designable>
         <designable name="r2g-My-rWb">
             <size key="intrinsicContentSize" width="95" height="38"/>
         </designable>
