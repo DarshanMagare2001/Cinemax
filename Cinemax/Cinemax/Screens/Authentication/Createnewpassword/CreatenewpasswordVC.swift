@@ -8,10 +8,14 @@
 import UIKit
 
 class CreatenewpasswordVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-
+    
+    func backBtnPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
