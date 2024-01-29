@@ -403,6 +403,9 @@ Phone Number to Sign Up</string>
                                                                                         </constraints>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="plain" image="EyeBtnClose"/>
+                                                                                        <connections>
+                                                                                            <action selector="passwordShowHideBtnPressed:" destination="aHa-rY-bQg" eventType="touchUpInside" id="lqN-W6-at1"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -482,6 +485,9 @@ Phone Number to Sign Up</string>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="privacyAndPolicyBtnPressed:" destination="aHa-rY-bQg" eventType="touchUpInside" id="JgW-gR-Vol"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Terms and Services and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-zY-sAh">
                                                                                 <rect key="frame" x="40" y="26" width="435.5" height="21.5"/>
@@ -510,6 +516,7 @@ Phone Number to Sign Up</string>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="signUpBtnPressed:" destination="3Ug-kw-DqM" eventType="touchUpInside" id="JpV-Ds-Mxg"/>
+                                                                            <action selector="signUpBtnPressed:" destination="aHa-rY-bQg" eventType="touchUpInside" id="za6-aT-hM8"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -553,6 +560,14 @@ Phone Number to Sign Up</string>
                             <constraint firstItem="vev-Kk-HkQ" firstAttribute="leading" secondItem="49s-yS-6iL" secondAttribute="leading" id="kfh-zR-7F6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailaddressTxtFld" destination="DyZ-vR-FOU" id="uaB-HQ-tnT"/>
+                        <outlet property="fullNameTxtFld" destination="r6k-5w-8MU" id="MTW-1I-VgT"/>
+                        <outlet property="passwordShowHideBtn" destination="59X-JB-UQB" id="QFC-Ds-07m"/>
+                        <outlet property="passwordTxtFld" destination="343-sL-NVg" id="nag-AG-moI"/>
+                        <outlet property="privacyAndPolicyBtn" destination="ezu-2Z-tlE" id="l4M-70-aKv"/>
+                        <outlet property="termsANdConditionLbl" destination="iYX-zY-sAh" id="jLG-mg-gcj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsH-Po-3Km" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

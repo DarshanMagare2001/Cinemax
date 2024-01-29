@@ -13,7 +13,16 @@ protocol SignUpCredentialVCProtocol: class {
 
 class SignUpCredentialVC: UIViewController {
     
+    @IBOutlet weak var fullNameTxtFld: UITextField!
+    @IBOutlet weak var emailaddressTxtFld: UITextField!
+    @IBOutlet weak var passwordTxtFld: UITextField!
+    @IBOutlet weak var passwordShowHideBtn: UIButton!
+    @IBOutlet weak var privacyAndPolicyBtn: UIButton!
+    @IBOutlet weak var termsANdConditionLbl: UILabel!
+    
     var presenter: SignUpCredentialVCPresenterProtocol?
+    var isPassworShow = false
+    var isTermsAndConditionCheck = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +33,20 @@ class SignUpCredentialVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-  
+    @IBAction func passwordShowHideBtnPressed(_ sender: UIButton) {
+        isPassworShow =  isPassworShow ? false : true
+        passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
+    }
+    
+    @IBAction func privacyAndPolicyBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func signUpBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    
 }
 
 extension SignUpCredentialVC: SignUpCredentialVCProtocol {
