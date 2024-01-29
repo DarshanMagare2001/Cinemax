@@ -9,9 +9,24 @@ import UIKit
 
 class ResetPasswordVC: UIViewController {
     
+    @IBOutlet weak var resetPasswordView: UIView!
+    @IBOutlet weak var verificationView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        resetPasswordView.isHidden = false
+        verificationView.isHidden = true
+    }
+    
+    
+    @IBAction func nxtBtnPressed(_ sender: UIButton) {
+        verificationView.isHidden.toggle()
+        resetPasswordView.isHidden.toggle()
+    }
+    
+    @IBAction func resendBtnPressed(_ sender: UIButton) {
+        verificationView.isHidden.toggle()
+        resetPasswordView.isHidden.toggle()
     }
     
     func backBtnPressed(){
