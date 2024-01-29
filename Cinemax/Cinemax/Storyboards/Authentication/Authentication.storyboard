@@ -107,6 +107,9 @@ Phone Number to Sign Up</string>
                                                                 <real key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="signUpBtnPressed:" destination="3Ug-kw-DqM" eventType="touchUpInside" id="eYZ-0i-FbO"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VN-e4-wYl">
                                                         <rect key="frame" x="0.0" y="60" width="374" height="50"/>
@@ -214,6 +217,21 @@ Phone Number to Sign Up</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BX-Od-NCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800.00000000000011" y="62.946428571428569"/>
+        </scene>
+        <!--Sign Up CredentialVC-->
+        <scene sceneID="C7X-fI-MsN">
+            <objects>
+                <viewController storyboardIdentifier="SignUpCredentialVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aHa-rY-bQg" customClass="SignUpCredentialVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZZ-me-XP2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="49s-yS-6iL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jsH-Po-3Km" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="62"/>
         </scene>
     </scenes>
     <designables>

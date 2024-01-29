@@ -11,8 +11,12 @@ import UIKit
 public final class SignUpVCBuilder {
     static func build(factory:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Authentication
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
-        return factory(loginVC)
+        let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        let interactor = SignUpVCInteractor()
+        let router = SignUpVCRouter(viewController: signUpVC)
+        let presenter = SignUpVCPresenter(view: signUpVC, interactor: interactor, router: router)
+        signUpVC.presenter = presenter
+        return factory(signUpVC)
     }
 }
 

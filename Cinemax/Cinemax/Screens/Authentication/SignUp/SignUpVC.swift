@@ -7,11 +7,25 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
+protocol SignUpVCProtocol: class {
+    
+}
 
+class SignUpVC: UIViewController {
+    
+    var presenter: SignUpVCPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.viewDidload()
     }
+    
+    @IBAction func signUpBtnPressed(_ sender: UIButton) {
+        presenter?.goToSignUpCredentialVC()
+    }
+    
+}
+
+extension SignUpVC : SignUpVCProtocol {
     
 }
