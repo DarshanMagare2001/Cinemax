@@ -20,9 +20,14 @@ class OnboardingVCRouter {
 }
 
 extension OnboardingVCRouter: OnboardingVCRouterProtocol {
-    func goToLoginVC(){
-        let loginVC = LoginVCBuilder.build()
-        viewController.navigationController?.pushViewController(loginVC, animated: true)
+    func goToLoginVC() {
+        let loginVC = LoginVCBuilder.build(factory: NavigationFactory.build(rootView:))
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = loginVC
+            window.makeKeyAndVisible()
+        }
     }
 }
+
 

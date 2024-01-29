@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 public final class OnboardingVCBuilder {
-    static func build() -> UIViewController {
+    static func build(factory:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Onboarding
         let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
         let interactor = OnboardingVCInteractor()
         let router = OnboardingVCRouter(viewController: onboardingVC)
         let presenter = OnboardingVCPresenter(view: onboardingVC, interactor: interactor, router: router)
         onboardingVC.presenter = presenter
-        return onboardingVC
+        return factory(onboardingVC)
     }
 }

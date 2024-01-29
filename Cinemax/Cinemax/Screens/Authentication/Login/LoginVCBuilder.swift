@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 public final class LoginVCBuilder {
-    static func build() -> UIViewController {
+    static func build(factory:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        return loginVC
+        return factory(loginVC)
     }
 }

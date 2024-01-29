@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22512B6126F60082DBDD /* AppDelegate.swift */; };
 		139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22532B6126F60082DBDD /* SceneDelegate.swift */; };
 		139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22552B6126F60082DBDD /* MainTabVC.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		139C224E2B6126F60082DBDD /* Cinemax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinemax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139C22512B6126F60082DBDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139C22532B6126F60082DBDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		134ECC052B6766DD004BCAC2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				134ECC062B6766E6004BCAC2 /* NavigationFactory */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		134ECC062B6766E6004BCAC2 /* NavigationFactory */ = {
+			isa = PBXGroup;
+			children = (
+				134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */,
+			);
+			path = NavigationFactory;
+			sourceTree = "<group>";
+		};
 		139C22452B6126F60082DBDD = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +123,7 @@
 		139C22502B6126F60082DBDD /* Cinemax */ = {
 			isa = PBXGroup;
 			children = (
+				134ECC052B6766DD004BCAC2 /* Factory */,
 				139C22652B6127700082DBDD /* AppDelegates */,
 				139C22762B6129C10082DBDD /* Extensions */,
 				139C22912B6139310082DBDD /* Utilities */,
@@ -476,6 +495,7 @@
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
+				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
