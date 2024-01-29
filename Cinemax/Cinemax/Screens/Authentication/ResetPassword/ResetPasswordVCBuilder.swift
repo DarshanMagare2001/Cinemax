@@ -9,9 +9,22 @@ import Foundation
 import UIKit
 
 public final class ResetPasswordVCBuilder {
+    
+    static var backButtonPressedClosure : (()->())?
+    
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let resetPasswordVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+        let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
+        resetPasswordVC.navigationItem.leftBarButtonItem = backButton
+        ResetPasswordVCBuilder.backButtonPressedClosure = { [weak resetPasswordVC] in
+            resetPasswordVC?.backBtnPressed()
+        }
         return resetPasswordVC
     }
+    
+    @objc static func backButtonPressed() {
+        backButtonPressedClosure?()
+    }
+    
 }

@@ -8,11 +8,14 @@
 import UIKit
 
 class ResetPasswordVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
     }
-  
-
+    
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
