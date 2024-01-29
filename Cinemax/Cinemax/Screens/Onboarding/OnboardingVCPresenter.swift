@@ -12,6 +12,7 @@ protocol OnboardingVCPresenterProtocol {
     func loadOnboardingData(completion:@escaping()->())
     func onboardingDone()
     var datasource : [OnboardingVCEntity] { get set }
+    func goToLoginVC()
 }
 
 class OnboardingVCPresenter {
@@ -56,6 +57,10 @@ extension OnboardingVCPresenter: OnboardingVCPresenterProtocol {
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .isOnboardingDone, data: "true") { bool in
             print(bool)
         }
+    }
+    
+    func goToLoginVC(){
+        router.goToLoginVC()
     }
     
 }

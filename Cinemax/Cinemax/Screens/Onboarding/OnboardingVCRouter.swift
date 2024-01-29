@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol OnboardingVCRouterProtocol {
-    
+    func goToLoginVC()
 }
 
 class OnboardingVCRouter {
@@ -20,6 +20,9 @@ class OnboardingVCRouter {
 }
 
 extension OnboardingVCRouter: OnboardingVCRouterProtocol {
-    
+    func goToLoginVC(){
+        let loginVC = LoginVCBuilder.build()
+        viewController.navigationController?.pushViewController(loginVC, animated: true)
+    }
 }
 

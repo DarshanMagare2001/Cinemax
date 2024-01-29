@@ -41,6 +41,7 @@ extension OnboardingVC: OnboardingVCProtocol {
     
     func nextOnboarding(){
         guard onboardingScreenIndex < 2 else {
+            presenter?.goToLoginVC()
             return
         }
         onboardingScreenIndex += 1
