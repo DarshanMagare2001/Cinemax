@@ -12,6 +12,7 @@ public final class SignUpCredentialVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let signUpCredentialVC = storyboard.instantiateViewController(withIdentifier: "SignUpCredentialVC") as! SignUpCredentialVC
+        signUpCredentialVC.title = "Sign Up"
         return signUpCredentialVC
     }
 }

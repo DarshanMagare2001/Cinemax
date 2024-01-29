@@ -14,6 +14,10 @@ class NavigationFactory {
     static func build(rootView : UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootView)
         navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController.navigationBar.tintColor = .white
         return navigationController
     }
 }
+
+
