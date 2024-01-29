@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class RoundedButton: UIButton {
     // Custom corner radius value
-    
-    var cornerRadius: CGFloat = 10 {
+    @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
             setNeedsLayout()
         }
@@ -25,8 +25,6 @@ class RoundedButton: UIButton {
         layer.masksToBounds = true
     }
 }
-
-
 
 class RoundedButtonWithBorder: UIButton {
     // Custom corner radius value
