@@ -18,7 +18,7 @@ class SignUpCredentialVC: UIViewController {
     @IBOutlet weak var passwordTxtFld: UITextField!
     @IBOutlet weak var passwordShowHideBtn: UIButton!
     @IBOutlet weak var privacyAndPolicyBtn: UIButton!
-    @IBOutlet weak var termsANdConditionLbl: UILabel!
+    @IBOutlet weak var termsANdConditionLblView: UIView!
     
     var presenter: SignUpCredentialVCPresenterProtocol?
     var isPassworShow = false {

@@ -227,28 +227,28 @@ Phone Number to Sign Up</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vev-Kk-HkQ">
-                                <rect key="frame" x="0.0" y="0.0" width="515.5" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="555.5" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWA-0u-TuT">
-                                        <rect key="frame" x="0.0" y="0.0" width="515.5" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="555.5" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u17-2N-b3Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="515.5" height="603"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="555.5" height="603"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86q-yw-2tG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="515.5" height="130"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="555.5" height="130"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ONh-uE-ezV">
-                                                                <rect key="frame" x="20" y="20" width="475.5" height="90"/>
+                                                                <rect key="frame" x="20" y="20" width="515.5" height="90"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILQ-Rn-zgG">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="475.5" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="515.5" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The latest movies and series are here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYd-vK-3qa">
-                                                                        <rect key="frame" x="0.0" y="50" width="475.5" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="50" width="515.5" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -266,7 +266,7 @@ Phone Number to Sign Up</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZo-YQ-WV3">
-                                                        <rect key="frame" x="0.0" y="130" width="515.5" height="270"/>
+                                                        <rect key="frame" x="0.0" y="130" width="555.5" height="270"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-mc-PZc">
                                                                 <rect key="frame" x="20" y="20" width="881" height="230"/>
@@ -467,13 +467,13 @@ Phone Number to Sign Up</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Oq-T0-piR">
-                                                        <rect key="frame" x="0.0" y="400" width="515.5" height="203"/>
+                                                        <rect key="frame" x="0.0" y="400" width="555.5" height="203"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-QJ-Cmq">
-                                                                <rect key="frame" x="20" y="20" width="475.5" height="163"/>
+                                                                <rect key="frame" x="20" y="20" width="515.5" height="163"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kRB-rl-MCp">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="475.5" height="73"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="515.5" height="73"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-2Z-tlE">
                                                                                 <rect key="frame" x="0.0" y="21.5" width="30" height="30"/>
@@ -489,17 +489,14 @@ Phone Number to Sign Up</string>
                                                                                     <action selector="privacyAndPolicyBtnPressed:" destination="aHa-rY-bQg" eventType="touchUpInside" id="JgW-gR-Vol"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Terms and Services and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-zY-sAh">
-                                                                                <rect key="frame" x="40" y="26" width="435.5" height="21.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                                            </label>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttN-CJ-x2H">
+                                                                                <rect key="frame" x="40" y="6" width="475.5" height="61.5"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </view>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDJ-SG-Dzq" customClass="RoundedButton" customModule="Cinemax" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="113" width="475.5" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="113" width="515.5" height="50"/>
                                                                         <color key="backgroundColor" name="AppBlue"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="Ewg-SR-rzw"/>
@@ -566,7 +563,7 @@ Phone Number to Sign Up</string>
                         <outlet property="passwordShowHideBtn" destination="59X-JB-UQB" id="QFC-Ds-07m"/>
                         <outlet property="passwordTxtFld" destination="343-sL-NVg" id="nag-AG-moI"/>
                         <outlet property="privacyAndPolicyBtn" destination="ezu-2Z-tlE" id="l4M-70-aKv"/>
-                        <outlet property="termsANdConditionLbl" destination="iYX-zY-sAh" id="jLG-mg-gcj"/>
+                        <outlet property="termsANdConditionLblView" destination="ttN-CJ-x2H" id="Xnc-Pr-8PC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsH-Po-3Km" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
