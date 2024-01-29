@@ -26,7 +26,11 @@ class SignUpCredentialVC: UIViewController {
             passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
         }
     }
-    var isTermsAndConditionCheck = false
+    var isTermsAndConditionCheck = false {
+        didSet{
+            privacyAndPolicyBtn.setImage(UIImage(systemName: isTermsAndConditionCheck ? "checkmark.square" : "square"), for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,7 @@ class SignUpCredentialVC: UIViewController {
     }
     
     @IBAction func privacyAndPolicyBtnPressed(_ sender: UIButton) {
-        
+        isTermsAndConditionCheck.toggle()
     }
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {

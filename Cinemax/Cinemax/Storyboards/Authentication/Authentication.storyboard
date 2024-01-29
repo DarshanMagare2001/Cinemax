@@ -484,7 +484,7 @@ Phone Number to Sign Up</string>
                                                                                 </constraints>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="Button"/>
-                                                                                <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
+                                                                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
                                                                                 <connections>
                                                                                     <action selector="privacyAndPolicyBtnPressed:" destination="aHa-rY-bQg" eventType="touchUpInside" id="JgW-gR-Vol"/>
                                                                                 </connections>
@@ -588,7 +588,7 @@ Phone Number to Sign Up</string>
         <image name="FacebookBtn" width="69" height="69"/>
         <image name="GoogleBtn" width="69" height="69"/>
         <image name="LaunchScreenIcon" width="88" height="88"/>
-        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
