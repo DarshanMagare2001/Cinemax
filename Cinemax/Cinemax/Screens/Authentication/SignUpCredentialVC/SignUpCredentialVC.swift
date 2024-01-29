@@ -21,7 +21,11 @@ class SignUpCredentialVC: UIViewController {
     @IBOutlet weak var termsANdConditionLbl: UILabel!
     
     var presenter: SignUpCredentialVCPresenterProtocol?
-    var isPassworShow = false
+    var isPassworShow = false {
+        didSet{
+            passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
+        }
+    }
     var isTermsAndConditionCheck = false
     
     override func viewDidLoad() {
@@ -34,8 +38,7 @@ class SignUpCredentialVC: UIViewController {
     }
     
     @IBAction func passwordShowHideBtnPressed(_ sender: UIButton) {
-        isPassworShow =  isPassworShow ? false : true
-        passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
+        isPassworShow.toggle()
     }
     
     @IBAction func privacyAndPolicyBtnPressed(_ sender: UIButton) {
