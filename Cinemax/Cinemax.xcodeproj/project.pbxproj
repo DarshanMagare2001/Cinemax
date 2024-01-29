@@ -15,6 +15,9 @@
 		134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC122B6776A5004BCAC2 /* SignUpVCInteractor.swift */; };
 		134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC142B6776B1004BCAC2 /* SignUpVCPresenter.swift */; };
 		134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC162B6776C9004BCAC2 /* SignUpVCRouter.swift */; };
+		134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC182B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift */; };
+		134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC1A2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift */; };
+		134ECC1D2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC1C2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift */; };
 		139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22512B6126F60082DBDD /* AppDelegate.swift */; };
 		139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22532B6126F60082DBDD /* SceneDelegate.swift */; };
 		139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22552B6126F60082DBDD /* MainTabVC.swift */; };
@@ -54,6 +57,9 @@
 		134ECC122B6776A5004BCAC2 /* SignUpVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCInteractor.swift; sourceTree = "<group>"; };
 		134ECC142B6776B1004BCAC2 /* SignUpVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCPresenter.swift; sourceTree = "<group>"; };
 		134ECC162B6776C9004BCAC2 /* SignUpVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCRouter.swift; sourceTree = "<group>"; };
+		134ECC182B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCInteractor.swift; sourceTree = "<group>"; };
+		134ECC1A2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCPresenter.swift; sourceTree = "<group>"; };
+		134ECC1C2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCRouter.swift; sourceTree = "<group>"; };
 		139C224E2B6126F60082DBDD /* Cinemax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinemax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139C22512B6126F60082DBDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139C22532B6126F60082DBDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				134ECC0E2B67760E004BCAC2 /* SignUpCredentialVC.swift */,
+				134ECC182B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift */,
+				134ECC1A2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift */,
+				134ECC1C2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift */,
 				134ECC102B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift */,
 			);
 			path = SignUpCredentialVC;
@@ -512,14 +521,17 @@
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
+				134ECC1D2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
 				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
+				134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
 				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
 				13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */,
+				134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */,
 				134ECC0F2B67760E004BCAC2 /* SignUpCredentialVC.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,

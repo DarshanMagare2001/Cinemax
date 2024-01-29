@@ -7,11 +7,17 @@
 
 import UIKit
 
-class SignUpCredentialVC: UIViewController {
+protocol SignUpCredentialVCProtocol: class {
+    
+}
 
+class SignUpCredentialVC: UIViewController {
+    
+    var presenter: SignUpCredentialVCPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.viewDidload()
     }
     
     func backBtnPressed(){
@@ -19,4 +25,8 @@ class SignUpCredentialVC: UIViewController {
     }
     
   
+}
+
+extension SignUpCredentialVC: SignUpCredentialVCProtocol {
+    
 }

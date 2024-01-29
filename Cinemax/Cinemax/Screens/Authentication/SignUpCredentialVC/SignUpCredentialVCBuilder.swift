@@ -15,6 +15,10 @@ public final class SignUpCredentialVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let signUpCredentialVC = storyboard.instantiateViewController(withIdentifier: "SignUpCredentialVC") as! SignUpCredentialVC
+        let interactor = SignUpCredentialVCInteractor()
+        let router = SignUpCredentialVCRouter(viewController: signUpCredentialVC)
+        let presenter = SignUpCredentialVCPresenter(view: signUpCredentialVC, interactor: interactor, router: router)
+        signUpCredentialVC.presenter = presenter
         signUpCredentialVC.title = "Sign Up"
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         signUpCredentialVC.navigationItem.leftBarButtonItem = backButton
