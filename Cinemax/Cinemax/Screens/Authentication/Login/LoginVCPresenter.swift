@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginVCPresenterProtocol {
     func viewDidload()
+    func goToResetPasswordVC()
 }
 
 class LoginVCPresenter {
@@ -26,6 +27,9 @@ class LoginVCPresenter {
 extension LoginVCPresenter: LoginVCPresenterProtocol {
     func viewDidload(){
         print("viewDidload")
+    }
+    func goToResetPasswordVC(){
+        router.goToResetPasswordVC()
     }
 }
 

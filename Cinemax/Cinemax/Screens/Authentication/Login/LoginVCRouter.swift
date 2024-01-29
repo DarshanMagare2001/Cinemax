@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol LoginVCRouterProtocol {
-   
+    func goToResetPasswordVC()
 }
 
 class LoginVCRouter {
@@ -20,6 +20,9 @@ class LoginVCRouter {
 }
 
 extension LoginVCRouter: LoginVCRouterProtocol {
-    
+    func goToResetPasswordVC(){
+        let resetPasswordVC = ResetPasswordVCBuilder.build()
+        viewController.navigationController?.pushViewController(resetPasswordVC, animated: true)
+    }
 }
 

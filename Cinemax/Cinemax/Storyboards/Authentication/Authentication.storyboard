@@ -215,6 +215,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="forgetPasswordBtnPrressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="30c-1J-2CV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -893,6 +896,33 @@ Phone Number to Sign Up</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsH-Po-3Km" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1440" y="61.267605633802816"/>
+        </scene>
+        <!--Reset PasswordVC-->
+        <scene sceneID="c4d-JY-QCf">
+            <objects>
+                <viewController storyboardIdentifier="ResetPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZhM-ed-IYb" customClass="ResetPasswordVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L5y-ez-ihZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResetPasswordVC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7v-q7-mIm">
+                                <rect key="frame" x="29" y="264.5" width="262" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HQX-AP-yoL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m7v-q7-mIm" firstAttribute="centerY" secondItem="L5y-ez-ihZ" secondAttribute="centerY" id="7vn-c9-yCR"/>
+                            <constraint firstItem="m7v-q7-mIm" firstAttribute="centerX" secondItem="L5y-ez-ihZ" secondAttribute="centerX" id="ENi-Hc-Z3f"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBx-e3-3g4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="61"/>
         </scene>
     </scenes>
     <designables>

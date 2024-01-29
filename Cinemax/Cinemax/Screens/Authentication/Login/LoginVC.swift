@@ -20,6 +20,12 @@ class LoginVC: UIViewController {
         presenter?.viewDidload()
     }
   
+    
+    @IBAction func forgetPasswordBtnPrressed(_ sender: UIButton) {
+        presenter?.goToResetPasswordVC()
+    }
+    
+    
     func backBtnPressed(){
         navigationController?.popViewController(animated: true)
     }
