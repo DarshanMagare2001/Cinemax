@@ -10,6 +10,7 @@ import Foundation
 protocol SignUpVCPresenterProtocol {
     func viewDidload()
     func goToSignUpCredentialVC()
+    func goToLoginVC()
 }
 
 class SignUpVCPresenter {
@@ -30,5 +31,9 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
     
     func goToSignUpCredentialVC(){
         router.goToSignUpCredentialVC()
+    }
+    
+    func goToLoginVC(){
+        router.goToLoginVC()
     }
 }

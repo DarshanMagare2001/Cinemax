@@ -7,12 +7,22 @@
 
 import UIKit
 
+protocol LoginVCProtocol: class {
+    
+}
+
 class LoginVC: UIViewController {
+    
+    var presenter: LoginVCPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.viewDidload()
     }
   
 
+}
+
+extension LoginVC: LoginVCProtocol {
+    
 }

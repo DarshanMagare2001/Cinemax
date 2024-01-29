@@ -10,6 +10,7 @@ import UIKit
 
 protocol SignUpVCRouterProtocol {
     func goToSignUpCredentialVC()
+    func goToLoginVC()
 }
 
 class SignUpVCRouter {
@@ -24,5 +25,11 @@ extension SignUpVCRouter: SignUpVCRouterProtocol {
         let signUpCredentialVC = SignUpCredentialVCBuilder.build()
         viewController.navigationController?.pushViewController(signUpCredentialVC, animated: true)
     }
+    
+    func goToLoginVC(){
+        let loginVC = LoginVCBuilder.build()
+        viewController.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
 }
 

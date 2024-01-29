@@ -24,6 +24,11 @@ class SignUpVC: UIViewController {
         presenter?.goToSignUpCredentialVC()
     }
     
+    
+    @IBAction func loginBtnPressed(_ sender: UIButton) {
+        presenter?.goToLoginVC()
+    }
+    
 }
 
 extension SignUpVC : SignUpVCProtocol {

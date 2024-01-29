@@ -18,6 +18,9 @@
 		134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC182B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift */; };
 		134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC1A2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift */; };
 		134ECC1D2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC1C2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift */; };
+		134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC1E2B67AD84004BCAC2 /* LoginVCInteractor.swift */; };
+		134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC202B67AD8F004BCAC2 /* LoginVCPresenter.swift */; };
+		134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */; };
 		139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22512B6126F60082DBDD /* AppDelegate.swift */; };
 		139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22532B6126F60082DBDD /* SceneDelegate.swift */; };
 		139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22552B6126F60082DBDD /* MainTabVC.swift */; };
@@ -60,6 +63,9 @@
 		134ECC182B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCInteractor.swift; sourceTree = "<group>"; };
 		134ECC1A2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCPresenter.swift; sourceTree = "<group>"; };
 		134ECC1C2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentialVCRouter.swift; sourceTree = "<group>"; };
+		134ECC1E2B67AD84004BCAC2 /* LoginVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCInteractor.swift; sourceTree = "<group>"; };
+		134ECC202B67AD8F004BCAC2 /* LoginVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPresenter.swift; sourceTree = "<group>"; };
+		134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCRouter.swift; sourceTree = "<group>"; };
 		139C224E2B6126F60082DBDD /* Cinemax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinemax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139C22512B6126F60082DBDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139C22532B6126F60082DBDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -373,6 +379,9 @@
 			isa = PBXGroup;
 			children = (
 				13BA5F7B2B62961D005EDA19 /* LoginVC.swift */,
+				134ECC1E2B67AD84004BCAC2 /* LoginVCInteractor.swift */,
+				134ECC202B67AD8F004BCAC2 /* LoginVCPresenter.swift */,
+				134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */,
 				13BA5F7D2B629630005EDA19 /* LoginVCBuilder.swift */,
 			);
 			path = Login;
@@ -525,7 +534,9 @@
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
 				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
 				134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */,
+				134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
+				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
@@ -534,6 +545,7 @@
 				134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */,
 				134ECC0F2B67760E004BCAC2 /* SignUpCredentialVC.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
+				134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
 				13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */,
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
