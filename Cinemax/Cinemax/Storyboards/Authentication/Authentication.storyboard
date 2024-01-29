@@ -276,9 +276,21 @@ Phone Number to Sign Up</string>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXP-Kf-lQk" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                                                                <subviews>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6k-5w-8MU">
+                                                                                        <rect key="frame" x="10" y="10" width="260" height="40"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="r6k-5w-8MU" firstAttribute="leading" secondItem="cXP-Kf-lQk" secondAttribute="leading" constant="10" id="1sd-Jn-Au6"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="r6k-5w-8MU" secondAttribute="bottom" constant="10" id="RzO-JG-bfd"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="hr9-p2-CSB"/>
+                                                                                    <constraint firstItem="r6k-5w-8MU" firstAttribute="top" secondItem="cXP-Kf-lQk" secondAttribute="top" constant="10" id="lFc-Xd-7s0"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="r6k-5w-8MU" secondAttribute="trailing" constant="10" id="whY-sz-MEE"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -320,9 +332,21 @@ Phone Number to Sign Up</string>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRH-Sy-nW0" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                                                                <subviews>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-vR-FOU">
+                                                                                        <rect key="frame" x="10" y="10" width="260" height="40"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="DyZ-vR-FOU" firstAttribute="top" secondItem="oRH-Sy-nW0" secondAttribute="top" constant="10" id="SQT-vI-59y"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="DyZ-vR-FOU" secondAttribute="bottom" constant="10" id="ZWB-op-lxb"/>
+                                                                                    <constraint firstItem="DyZ-vR-FOU" firstAttribute="leading" secondItem="oRH-Sy-nW0" secondAttribute="leading" constant="10" id="crc-SY-p5I"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="fOD-o4-UyA"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="DyZ-vR-FOU" secondAttribute="trailing" constant="10" id="paZ-jE-3H2"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -365,9 +389,21 @@ Phone Number to Sign Up</string>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-PP-faB" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                                                                <subviews>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="343-sL-NVg">
+                                                                                        <rect key="frame" x="10" y="10" width="260" height="40"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="343-sL-NVg" firstAttribute="leading" secondItem="8Pp-PP-faB" secondAttribute="leading" constant="10" id="KHR-0h-RWk"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="343-sL-NVg" secondAttribute="bottom" constant="10" id="bBb-m8-x2t"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="geN-q2-ZSH"/>
+                                                                                    <constraint firstItem="343-sL-NVg" firstAttribute="top" secondItem="8Pp-PP-faB" secondAttribute="top" constant="10" id="uy1-qp-gAc"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="343-sL-NVg" secondAttribute="trailing" constant="10" id="vhH-d6-2kh"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

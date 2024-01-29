@@ -1,4 +1,5 @@
 PODS:
+  - IQKeyboardManagerSwift (6.5.16)
   - JXPageControl (0.1.5):
     - JXPageControl/Common (= 0.1.5)
     - JXPageControl/Jump (= 0.1.5)
@@ -10,15 +11,18 @@ PODS:
     - JXPageControl/Common
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - JXPageControl
 
 SPEC REPOS:
   trunk:
+    - IQKeyboardManagerSwift
     - JXPageControl
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXPageControl: e9487b39e2e58fc17790833214f3b8e935bef98b
 
-PODFILE CHECKSUM: 1b13b9c995f1a12979bd5d4533c6981981b91513
+PODFILE CHECKSUM: 8869d59836e1b57f1961fb654f761a46a4c1ef40
 
 COCOAPODS: 1.11.2
