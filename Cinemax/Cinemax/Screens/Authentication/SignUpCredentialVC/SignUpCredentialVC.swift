@@ -24,6 +24,7 @@ class SignUpCredentialVC: UIViewController {
     var isPassworShow = false {
         didSet{
             passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
+            passwordTxtFld.isSecureTextEntry = isPassworShow ? false : true
         }
     }
     var isTermsAndConditionCheck = false {
