@@ -13,5 +13,10 @@ class SignUpCredentialVC: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
   
 }
