@@ -47,7 +47,7 @@ class SignUpCredentialVCPresenter {
 extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     
     func viewDidload(){
-        print("Datfsdf")
+        view?.setupWarningLbls()
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
         }

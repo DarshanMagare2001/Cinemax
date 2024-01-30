@@ -13,6 +13,7 @@ import RxRelay
 protocol SignUpCredentialVCProtocol: class {
     func setupInputs()
     func setUpBinding()
+    func setupWarningLbls()
 }
 
 class SignUpCredentialVC: UIViewController {
@@ -24,6 +25,9 @@ class SignUpCredentialVC: UIViewController {
     @IBOutlet weak var privacyAndPolicyBtn: UIButton!
     @IBOutlet weak var termsANdConditionLblView: UIView!
     @IBOutlet weak var signUpBtn: RoundedButton!
+    @IBOutlet weak var fullNameWarningLbl: RoundedLabelWithBorder!
+    @IBOutlet weak var emailWarningLbl: RoundedLabelWithBorder!
+    @IBOutlet weak var passwordWarningLbl: RoundedLabelWithBorder!
     
     var presenter : SignUpCredentialVCPresenterProtocol?
     var presenterProducer : SignUpCredentialVCPresenterProtocol.Producer!
@@ -70,6 +74,13 @@ class SignUpCredentialVC: UIViewController {
 }
 
 extension SignUpCredentialVC: SignUpCredentialVCProtocol {
+    
+    func setupWarningLbls(){
+        fullNameWarningLbl.isHidden = true
+        emailWarningLbl.isHidden = true
+        passwordWarningLbl.isHidden = true
+    }
+    
     func setupInputs() {
         presenter = presenterProducer((
             email: emailaddressTxtFld.rx.text.orEmpty.asDriver(),

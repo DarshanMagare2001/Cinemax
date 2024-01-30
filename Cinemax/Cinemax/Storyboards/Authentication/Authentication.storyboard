@@ -902,10 +902,13 @@ Phone Number to Sign Up</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailWarningLbl" destination="9F2-I7-ZqJ" id="DeO-WE-aKH"/>
                         <outlet property="emailaddressTxtFld" destination="DyZ-vR-FOU" id="uaB-HQ-tnT"/>
                         <outlet property="fullNameTxtFld" destination="r6k-5w-8MU" id="MTW-1I-VgT"/>
+                        <outlet property="fullNameWarningLbl" destination="x1t-zX-IoK" id="6CV-JW-TWL"/>
                         <outlet property="passwordShowHideBtn" destination="59X-JB-UQB" id="QFC-Ds-07m"/>
                         <outlet property="passwordTxtFld" destination="343-sL-NVg" id="nag-AG-moI"/>
+                        <outlet property="passwordWarningLbl" destination="enu-4D-Nt3" id="cBk-a5-SGu"/>
                         <outlet property="privacyAndPolicyBtn" destination="ezu-2Z-tlE" id="l4M-70-aKv"/>
                         <outlet property="signUpBtn" destination="tDJ-SG-Dzq" id="bhs-ec-dF7"/>
                         <outlet property="termsANdConditionLblView" destination="ttN-CJ-x2H" id="Xnc-Pr-8PC"/>
