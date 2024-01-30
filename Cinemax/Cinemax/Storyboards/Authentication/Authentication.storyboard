@@ -566,14 +566,27 @@ Phone Number to Sign Up</string>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter name Please" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1t-zX-IoK" customClass="RoundedLabelWithBorder" customModule="Cinemax" customModuleProvider="target">
+                                                                                <rect key="frame" x="140" y="50" width="140" height="30"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="140" id="43M-kI-f3o"/>
+                                                                                    <constraint firstAttribute="height" constant="30" id="XTv-s7-c3h"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <color key="textColor" red="0.96222625120000005" green="0.126841227" blue="0.00032375610800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="cXP-Kf-lQk" secondAttribute="bottom" id="5hI-2h-ZfW"/>
                                                                             <constraint firstItem="cXP-Kf-lQk" firstAttribute="top" secondItem="5nc-9c-Lby" secondAttribute="top" id="CxZ-3K-Lzv"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="x1t-zX-IoK" secondAttribute="trailing" id="D0J-pO-qtp"/>
                                                                             <constraint firstItem="9mb-9a-8ml" firstAttribute="top" secondItem="5nc-9c-Lby" secondAttribute="top" constant="-10" id="JWb-we-eEd"/>
                                                                             <constraint firstAttribute="height" constant="60" id="Kdx-5B-oHn"/>
                                                                             <constraint firstAttribute="trailing" secondItem="cXP-Kf-lQk" secondAttribute="trailing" id="apK-Sn-B7l"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="x1t-zX-IoK" secondAttribute="bottom" constant="-20" id="nBW-OE-8xi"/>
                                                                             <constraint firstItem="cXP-Kf-lQk" firstAttribute="leading" secondItem="5nc-9c-Lby" secondAttribute="leading" id="pfX-Yl-uKm"/>
                                                                             <constraint firstItem="9mb-9a-8ml" firstAttribute="leading" secondItem="5nc-9c-Lby" secondAttribute="leading" constant="20" id="xmc-AT-tEM"/>
                                                                         </constraints>
@@ -622,11 +635,24 @@ Phone Number to Sign Up</string>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid Email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9F2-I7-ZqJ" customClass="RoundedLabelWithBorder" customModule="Cinemax" customModuleProvider="target">
+                                                                                <rect key="frame" x="160" y="50" width="120" height="30"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="30" id="7rc-kU-MgC"/>
+                                                                                    <constraint firstAttribute="width" constant="120" id="RhI-31-3Py"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <color key="textColor" red="0.96222625120000005" green="0.126841227" blue="0.00032375610800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="oRH-Sy-nW0" secondAttribute="trailing" id="7XP-Nr-1Qj"/>
                                                                             <constraint firstItem="FI2-uu-eTn" firstAttribute="leading" secondItem="Gd6-f7-zqH" secondAttribute="leading" constant="20" id="8jK-pd-X42"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="9F2-I7-ZqJ" secondAttribute="bottom" constant="-20" id="Hzw-Z2-qYq"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="9F2-I7-ZqJ" secondAttribute="trailing" id="L5k-3N-2BR"/>
                                                                             <constraint firstAttribute="height" constant="60" id="Vot-5H-QHo"/>
                                                                             <constraint firstItem="oRH-Sy-nW0" firstAttribute="leading" secondItem="Gd6-f7-zqH" secondAttribute="leading" id="XvP-6F-kTl"/>
                                                                             <constraint firstItem="oRH-Sy-nW0" firstAttribute="top" secondItem="Gd6-f7-zqH" secondAttribute="top" id="Z5p-Et-yHj"/>
@@ -692,13 +718,26 @@ Phone Number to Sign Up</string>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password must contain 6 characters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enu-4D-Nt3" customClass="RoundedLabelWithBorder" customModule="Cinemax" customModuleProvider="target">
+                                                                                <rect key="frame" x="25" y="50" width="255" height="30"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="255" id="hxr-LV-csv"/>
+                                                                                    <constraint firstAttribute="height" constant="30" id="tA7-5o-vzz"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <color key="textColor" red="0.96222625120000005" green="0.126841227" blue="0.00032375610800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="8Pp-PP-faB" firstAttribute="leading" secondItem="iP0-la-s2E" secondAttribute="leading" id="0PF-qv-uZU"/>
                                                                             <constraint firstAttribute="bottom" secondItem="8Pp-PP-faB" secondAttribute="bottom" id="3Fl-we-u2Z"/>
                                                                             <constraint firstAttribute="height" constant="60" id="5na-pj-pm6"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="enu-4D-Nt3" secondAttribute="trailing" id="RTs-ZO-HxD"/>
                                                                             <constraint firstItem="8Pp-PP-faB" firstAttribute="top" secondItem="iP0-la-s2E" secondAttribute="top" id="Uor-Ma-BX8"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="enu-4D-Nt3" secondAttribute="bottom" constant="-20" id="Vuu-bR-wD7"/>
                                                                             <constraint firstItem="aU3-Yj-pSO" firstAttribute="top" secondItem="iP0-la-s2E" secondAttribute="top" constant="-10" id="kh2-9f-dhd"/>
                                                                             <constraint firstItem="aU3-Yj-pSO" firstAttribute="leading" secondItem="iP0-la-s2E" secondAttribute="leading" constant="10" id="sDx-ST-xIk"/>
                                                                             <constraint firstAttribute="trailing" secondItem="8Pp-PP-faB" secondAttribute="trailing" id="uAS-ab-XR7"/>
