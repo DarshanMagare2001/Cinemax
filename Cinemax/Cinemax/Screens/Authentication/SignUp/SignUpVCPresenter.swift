@@ -39,6 +39,13 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
         router.goToLoginVC()
     }
     func signinWithGoogle(view: UIViewController){
-        interactor.signinWithGoogle(view: view)
+        interactor.signinWithGoogle(view: view) { result in
+            switch result {
+            case.success(let bool):
+                print(bool)
+            case.failure(let error):
+                print(error)
+            }
+        }
     }
 }
