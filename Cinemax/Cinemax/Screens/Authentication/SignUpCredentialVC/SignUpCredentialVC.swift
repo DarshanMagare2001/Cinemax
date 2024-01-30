@@ -43,8 +43,8 @@ class SignUpCredentialVC: UIViewController {
         super.viewDidLoad()
         setupInputs()
         presenter?.viewDidload()
-//        setupInputs()
-//        setUpBinding()
+        //        setupInputs()
+        //        setUpBinding()
     }
     
     func backBtnPressed(){
@@ -70,6 +70,7 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         presenter = presenterProducer((
             email : emailaddressTxtFld.rx.text.orEmpty.asDriver(),
             password : passwordTxtFld.rx.text.orEmpty.asDriver(),
+            fullName : fullNameTxtFld.rx.text.orEmpty.asDriver(),
             login:signUpBtn.rx.tap.asDriver()
         ))
     }

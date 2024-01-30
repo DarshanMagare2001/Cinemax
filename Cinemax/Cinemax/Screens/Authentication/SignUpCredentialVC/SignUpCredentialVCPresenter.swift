@@ -14,6 +14,7 @@ protocol SignUpCredentialVCPresenterProtocol {
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
+        fullName : Driver<String>,
         login:Driver<Void>
     )
     
@@ -57,7 +58,8 @@ private extension SignUpCredentialVCPresenter {
     
     static func output(input:Input) -> Output {
         let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid() )},
-                                                      input.password.map{( !$0.isEmpty && $0.isPasswordValid() )}).map{( $0 && $1 )}
+                                                      input.password.map{( !$0.isEmpty && $0.isPasswordValid())},
+                                                      input.fullName.map{(!$0.isEmpty)}).map{( $0 && $1 && $2 )}
         return (
             enableLogin:enableLoginDriver,()
         )
