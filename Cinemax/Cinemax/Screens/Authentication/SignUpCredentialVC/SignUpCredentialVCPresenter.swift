@@ -8,10 +8,11 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import FirebaseAuth
 
 protocol SignUpCredentialVCPresenterProtocol {
     func viewDidload()
-    func signUp(email: String?, password: String?)
+    func signUp(name:String?,email: String?, password: String?)
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
@@ -57,11 +58,12 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         }
     }
     
-    func signUp(email: String?, password: String?){
+    func signUp(name:String?,email: String?, password: String?){
         interactor.signUp(email: email, password: password) { result in
             switch result {
             case.success(let bool):
                 print(bool)
+                self.saveUsersDataToUserdefault(name: name, email: email, password: password)
             case.failure(let error):
                 switch error {
                 case .invalidCredentials:
@@ -72,6 +74,17 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
             }
         }
     }
+    
+    private func saveUsersDataToUserdefault(name:String?,email: String?, password: String?){
+        guard let name = name , let email = email , let password = password , let currentUid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPassword, data: password) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
+    }
+    
     
 }
 

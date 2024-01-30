@@ -10,6 +10,10 @@ import Foundation
 public final class UserdefaultRepositoryManager {
     enum UserInfoFromUserdefault: String {
         case isOnboardingDone = "isOnboardingDone"
+        case currentUsersName = "currentUsersName"
+        case currentUsersEmail = "currentUsersEmail"
+        case currentUsersPassword = "currentUsersPassword"
+        case currentUsersUid = "currentUsersUid"
     }
     
     static func fetchUserInfoFromUserdefault(type: UserInfoFromUserdefault) -> String? {
