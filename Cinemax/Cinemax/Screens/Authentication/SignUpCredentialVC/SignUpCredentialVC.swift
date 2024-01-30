@@ -24,7 +24,7 @@ class SignUpCredentialVC: UIViewController {
     @IBOutlet weak var termsANdConditionLblView: UIView!
     @IBOutlet weak var signUpBtn: RoundedButton!
     
-    var presenter: SignUpCredentialVCPresenterProtocol?
+    var presenter : SignUpCredentialVCPresenterProtocol?
     var presenterProducer : SignUpCredentialVCPresenterProtocol.Producer!
     var isPassworShow = false {
         didSet{
@@ -41,9 +41,10 @@ class SignUpCredentialVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidload()
         setupInputs()
-        setUpBinding()
+        presenter?.viewDidload()
+//        setupInputs()
+//        setUpBinding()
     }
     
     func backBtnPressed(){

@@ -11,7 +11,6 @@ import RxSwift
 
 protocol SignUpCredentialVCPresenterProtocol {
     func viewDidload()
-    static func output(input:Input) -> Output
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
@@ -48,10 +47,13 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     func viewDidload(){
         print("Datfsdf")
         DispatchQueue.main.async { [weak self] in
-            self?.view?.setupInputs()
             self?.view?.setUpBinding()
         }
     }
+    
+}
+
+private extension SignUpCredentialVCPresenter {
     
     static func output(input:Input) -> Output {
         let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid() )},
@@ -62,4 +64,3 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     }
     
 }
-
