@@ -32,6 +32,9 @@
 		1398F0B62B68BCED00D58906 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0B52B68BCED00D58906 /* FirebaseFirestoreSwift */; };
 		1398F0B82B68BCED00D58906 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0B72B68BCED00D58906 /* FirebaseStorage */; };
 		1398F0BC2B68D1F100D58906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1398F0BB2B68D1F100D58906 /* GoogleService-Info.plist */; };
+		1398F0C02B68EABC00D58906 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0BF2B68EABC00D58906 /* RxCocoa */; };
+		1398F0C22B68EABC00D58906 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0C12B68EABC00D58906 /* RxSwift */; };
+		1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398F0C32B68EBB000D58906 /* String+Extensions.swift */; };
 		139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22512B6126F60082DBDD /* AppDelegate.swift */; };
 		139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22532B6126F60082DBDD /* SceneDelegate.swift */; };
 		139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22552B6126F60082DBDD /* MainTabVC.swift */; };
@@ -86,6 +89,7 @@
 		134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCBuilder.swift; sourceTree = "<group>"; };
 		1398F0BB2B68D1F100D58906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1398F0BD2B68E1F600D58906 /* Cinemax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinemax.entitlements; sourceTree = "<group>"; };
+		1398F0C32B68EBB000D58906 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		139C224E2B6126F60082DBDD /* Cinemax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinemax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		139C22512B6126F60082DBDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139C22532B6126F60082DBDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			files = (
 				1398F0B22B68BCED00D58906 /* FirebaseDatabaseSwift in Frameworks */,
 				1398F0B02B68BCED00D58906 /* FirebaseDatabase in Frameworks */,
+				1398F0C02B68EABC00D58906 /* RxCocoa in Frameworks */,
 				1398F0B82B68BCED00D58906 /* FirebaseStorage in Frameworks */,
 				1398F0AB2B68BB9200D58906 /* GoogleSignInSwift in Frameworks */,
 				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
@@ -139,6 +144,7 @@
 				1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */,
 				1398F0B42B68BCED00D58906 /* FirebaseFirestore in Frameworks */,
 				1398F0B62B68BCED00D58906 /* FirebaseFirestoreSwift in Frameworks */,
+				1398F0C22B68EABC00D58906 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +317,7 @@
 			children = (
 				139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */,
 				139C228B2B612F780082DBDD /* UIColors+Extensions.swift */,
+				1398F0C32B68EBB000D58906 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +496,8 @@
 				1398F0B32B68BCED00D58906 /* FirebaseFirestore */,
 				1398F0B52B68BCED00D58906 /* FirebaseFirestoreSwift */,
 				1398F0B72B68BCED00D58906 /* FirebaseStorage */,
+				1398F0BF2B68EABC00D58906 /* RxCocoa */,
+				1398F0C12B68EABC00D58906 /* RxSwift */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -521,6 +530,7 @@
 			packageReferences = (
 				1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				1398F0AC2B68BCED00D58906 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -600,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */,
+				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
@@ -872,6 +883,14 @@
 				version = 9.6.0;
 			};
 		};
+		1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -914,6 +933,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1398F0AC2B68BCED00D58906 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1398F0BF2B68EABC00D58906 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		1398F0C12B68EABC00D58906 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

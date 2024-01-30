@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 public final class SignUpCredentialVCBuilder {
     
     static var backButtonPressedClosure : (()->())?
@@ -17,8 +18,9 @@ public final class SignUpCredentialVCBuilder {
         let signUpCredentialVC = storyboard.instantiateViewController(withIdentifier: "SignUpCredentialVC") as! SignUpCredentialVC
         let interactor = SignUpCredentialVCInteractor()
         let router = SignUpCredentialVCRouter(viewController: signUpCredentialVC)
-        let presenter = SignUpCredentialVCPresenter(view: signUpCredentialVC, interactor: interactor, router: router)
-        signUpCredentialVC.presenter = presenter
+        signUpCredentialVC.presenterProducer = {
+            SignUpCredentialVCPresenter(view: signUpCredentialVC, interactor: interactor, router: router, input: $0)
+        }
         signUpCredentialVC.title = "Sign Up"
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         signUpCredentialVC.navigationItem.leftBarButtonItem = backButton

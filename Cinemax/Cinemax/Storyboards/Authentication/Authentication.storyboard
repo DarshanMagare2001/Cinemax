@@ -868,6 +868,7 @@ Phone Number to Sign Up</string>
                         <outlet property="passwordShowHideBtn" destination="59X-JB-UQB" id="QFC-Ds-07m"/>
                         <outlet property="passwordTxtFld" destination="343-sL-NVg" id="nag-AG-moI"/>
                         <outlet property="privacyAndPolicyBtn" destination="ezu-2Z-tlE" id="l4M-70-aKv"/>
+                        <outlet property="signUpBtn" destination="tDJ-SG-Dzq" id="bhs-ec-dF7"/>
                         <outlet property="termsANdConditionLblView" destination="ttN-CJ-x2H" id="Xnc-Pr-8PC"/>
                     </connections>
                 </viewController>

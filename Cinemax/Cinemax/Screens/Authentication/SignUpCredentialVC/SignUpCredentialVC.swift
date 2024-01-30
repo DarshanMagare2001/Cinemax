@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 protocol SignUpCredentialVCProtocol: class {
-    
+    func setupInputs()
+    func setUpBinding()
 }
 
 class SignUpCredentialVC: UIViewController {
@@ -19,8 +22,10 @@ class SignUpCredentialVC: UIViewController {
     @IBOutlet weak var passwordShowHideBtn: UIButton!
     @IBOutlet weak var privacyAndPolicyBtn: UIButton!
     @IBOutlet weak var termsANdConditionLblView: UIView!
+    @IBOutlet weak var signUpBtn: RoundedButton!
     
     var presenter: SignUpCredentialVCPresenterProtocol?
+    var presenterProducer : SignUpCredentialVCPresenterProtocol.Producer!
     var isPassworShow = false {
         didSet{
             passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
@@ -32,10 +37,13 @@ class SignUpCredentialVC: UIViewController {
             privacyAndPolicyBtn.setImage(UIImage(systemName: isTermsAndConditionCheck ? "checkmark.square" : "square"), for: .normal)
         }
     }
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        setupInputs()
+        setUpBinding()
     }
     
     func backBtnPressed(){
@@ -54,9 +62,20 @@ class SignUpCredentialVC: UIViewController {
         
     }
     
-    
 }
 
 extension SignUpCredentialVC: SignUpCredentialVCProtocol {
+    func setupInputs() {
+        presenter = presenterProducer((
+            email : emailaddressTxtFld.rx.text.orEmpty.asDriver(),
+            password : passwordTxtFld.rx.text.orEmpty.asDriver(),
+            login:signUpBtn.rx.tap.asDriver()
+        ))
+    }
     
+    func setUpBinding(){
+        presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
+            .drive(signUpBtn.rx.isEnabled)
+            .disposed(by: bag)
+    }
 }
