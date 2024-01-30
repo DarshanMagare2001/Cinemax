@@ -418,7 +418,7 @@ Phone Number to Sign Up</string>
                                                         <rect key="frame" x="0.0" y="44" width="280" height="100"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q7H-2Y-0ol">
-                                                                <rect key="frame" x="-10" y="0.0" width="300" height="100"/>
+                                                                <rect key="frame" x="90" y="0.0" width="100" height="100"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lM-hN-ZhJ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -431,16 +431,6 @@ Phone Number to Sign Up</string>
                                                                         <connections>
                                                                             <action selector="signInWithGoogleBtnPressed:" destination="3Ug-kw-DqM" eventType="touchUpInside" id="MVI-6k-Y5g"/>
                                                                         </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjD-iI-mHh">
-                                                                        <rect key="frame" x="100" y="0.0" width="100" height="100"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" image="AppleBtn"/>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyr-7A-pcQ">
-                                                                        <rect key="frame" x="200" y="0.0" width="100" height="100"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" image="FacebookBtn"/>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -1469,9 +1459,7 @@ Phone Number to Sign Up</string>
         </designable>
     </designables>
     <resources>
-        <image name="AppleBtn" width="69" height="69"/>
         <image name="EyeBtnClose" width="24" height="24.5"/>
-        <image name="FacebookBtn" width="69" height="69"/>
         <image name="GoogleBtn" width="69" height="69"/>
         <image name="LaunchScreenIcon" width="88" height="88"/>
         <image name="square" catalog="system" width="128" height="114"/>
