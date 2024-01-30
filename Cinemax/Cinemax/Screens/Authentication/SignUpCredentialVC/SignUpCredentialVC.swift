@@ -68,7 +68,7 @@ class SignUpCredentialVC: UIViewController {
     
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
-        
+        presenter?.signUp(email: emailaddressTxtFld.text, password: passwordTxtFld.text)
     }
     
 }

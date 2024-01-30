@@ -11,6 +11,7 @@ import RxSwift
 
 protocol SignUpCredentialVCPresenterProtocol {
     func viewDidload()
+    func signUp(email: String?, password: String?)
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
@@ -53,6 +54,22 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
             self?.view?.setupWarningLbls()
+        }
+    }
+    
+    func signUp(email: String?, password: String?){
+        interactor.signUp(email: email, password: password) { result in
+            switch result {
+            case.success(let bool):
+                print(bool)
+            case.failure(let error):
+                switch error {
+                case .invalidCredentials:
+                    print("Invalid credentials")
+                case .serverError(let serverError):
+                    print("Server error: \(serverError.localizedDescription)")
+                }
+            }
         }
     }
     
