@@ -20,7 +20,10 @@ protocol SignUpCredentialVCPresenterProtocol {
     )
     
     typealias Output = (
-        enableLogin : Driver<Bool>,()
+        enableLogin : Driver<Bool>,
+        fullNameWarning: Driver<Bool>,
+        emailWarning: Driver<Bool>,
+        passwordWarning: Driver<Bool>
     )
     
     typealias Producer = (SignUpCredentialVCPresenterProtocol.Input) -> SignUpCredentialVCPresenterProtocol
@@ -47,9 +50,9 @@ class SignUpCredentialVCPresenter {
 extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     
     func viewDidload(){
-        view?.setupWarningLbls()
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
+            self?.view?.setupWarningLbls()
         }
     }
     
@@ -64,8 +67,16 @@ private extension SignUpCredentialVCPresenter {
                                                       input.isTermsAndConditionAccept.map{(
                                                         ($0 == true) ? true : false )}
         ).map{( $0 && $1 && $2 && $3 )}
+        
+        let fullNameWarningDriver = input.fullName.map { !$0.isEmpty }
+        let emailWarningDriver = input.email.map { $0.isEmailValid() }
+        let passwordWarningDriver = input.password.map { !$0.isEmpty && $0.isPasswordValid() }
+        
         return (
-            enableLogin:enableLoginDriver,()
+            enableLogin : enableLoginDriver,
+            fullNameWarning: fullNameWarningDriver,
+            emailWarning: emailWarningDriver,
+            passwordWarning: passwordWarningDriver
         )
     }
     

@@ -95,5 +95,19 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
             .drive(signUpBtn.rx.isEnabled)
             .disposed(by: bag)
+        
+        presenter?.output.fullNameWarning.debug("Enable Login Driver" , trimOutput: false)
+            .drive(fullNameWarningLbl.rx.isHidden)
+            .disposed(by: bag)
+        
+        
+        presenter?.output.emailWarning.debug("Enable Login Driver" , trimOutput: false)
+            .drive(emailWarningLbl.rx.isHidden)
+            .disposed(by: bag)
+        
+        presenter?.output.passwordWarning.debug("Enable Login Driver" , trimOutput: false)
+            .drive(passwordWarningLbl.rx.isHidden)
+            .disposed(by: bag)
     }
+    
 }
