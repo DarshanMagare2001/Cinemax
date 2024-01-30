@@ -15,6 +15,7 @@ protocol SignUpCredentialVCPresenterProtocol {
         email : Driver<String>,
         password : Driver<String>,
         fullName : Driver<String>,
+        isTermsAndConditionAccept : Driver<Bool>,
         login:Driver<Void>
     )
     
@@ -57,9 +58,12 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
 private extension SignUpCredentialVCPresenter {
     
     static func output(input:Input) -> Output {
-        let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid() )},
+        let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid())},
                                                       input.password.map{( !$0.isEmpty && $0.isPasswordValid())},
-                                                      input.fullName.map{(!$0.isEmpty)}).map{( $0 && $1 && $2 )}
+                                                      input.fullName.map{(!$0.isEmpty)},
+                                                      input.isTermsAndConditionAccept.map{(
+                                                        ($0 == true) ? true : false )}
+        ).map{( $0 && $1 && $2 && $3 )}
         return (
             enableLogin:enableLoginDriver,()
         )

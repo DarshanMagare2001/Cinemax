@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxRelay
 
 protocol SignUpCredentialVCProtocol: class {
     func setupInputs()
@@ -37,14 +38,15 @@ class SignUpCredentialVC: UIViewController {
             privacyAndPolicyBtn.setImage(UIImage(systemName: isTermsAndConditionCheck ? "checkmark.square" : "square"), for: .normal)
         }
     }
+    
+    var isTermsAndConditionCheckDriver: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInputs()
         presenter?.viewDidload()
-        //        setupInputs()
-        //        setUpBinding()
     }
     
     func backBtnPressed(){
@@ -57,7 +59,9 @@ class SignUpCredentialVC: UIViewController {
     
     @IBAction func privacyAndPolicyBtnPressed(_ sender: UIButton) {
         isTermsAndConditionCheck.toggle()
+        isTermsAndConditionCheckDriver.accept(isTermsAndConditionCheck)
     }
+    
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
         
@@ -68,10 +72,11 @@ class SignUpCredentialVC: UIViewController {
 extension SignUpCredentialVC: SignUpCredentialVCProtocol {
     func setupInputs() {
         presenter = presenterProducer((
-            email : emailaddressTxtFld.rx.text.orEmpty.asDriver(),
-            password : passwordTxtFld.rx.text.orEmpty.asDriver(),
-            fullName : fullNameTxtFld.rx.text.orEmpty.asDriver(),
-            login:signUpBtn.rx.tap.asDriver()
+            email: emailaddressTxtFld.rx.text.orEmpty.asDriver(),
+            password: passwordTxtFld.rx.text.orEmpty.asDriver(),
+            fullName: fullNameTxtFld.rx.text.orEmpty.asDriver(),
+            isTermsAndConditionAccept: isTermsAndConditionCheckDriver.asDriver(),
+            login: signUpBtn.rx.tap.asDriver()
         ))
     }
     
