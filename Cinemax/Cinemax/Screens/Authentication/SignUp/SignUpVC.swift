@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import GoogleSignIn
+import FirebaseAuth
 
 protocol SignUpVCProtocol: class {
     
@@ -18,7 +20,9 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        
     }
+    
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
         presenter?.goToSignUpCredentialVC()
@@ -27,6 +31,11 @@ class SignUpVC: UIViewController {
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         presenter?.goToLoginVC()
+    }
+    
+    
+    @IBAction func signInWithGoogleBtnPressed(_ sender: UIButton) {
+        presenter?.signinWithGoogle(view: self)
     }
     
 }

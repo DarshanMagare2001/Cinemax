@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SignUpVCPresenterProtocol {
     func viewDidload()
     func goToSignUpCredentialVC()
     func goToLoginVC()
+    func signinWithGoogle(view: UIViewController)
 }
 
 class SignUpVCPresenter {
@@ -35,5 +37,8 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
     
     func goToLoginVC(){
         router.goToLoginVC()
+    }
+    func signinWithGoogle(view: UIViewController){
+        interactor.signinWithGoogle(view: view)
     }
 }

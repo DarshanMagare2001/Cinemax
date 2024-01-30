@@ -7,6 +7,9 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,12 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return orientationLock
     }
     
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         orientationLock = .portrait
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            return true
+        }
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
         return true
     }
+    
     
     // MARK: UISceneSession Lifecycle
     
