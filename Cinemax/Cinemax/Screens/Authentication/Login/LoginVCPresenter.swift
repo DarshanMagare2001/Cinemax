@@ -50,8 +50,10 @@ class LoginVCPresenter {
 
 extension LoginVCPresenter: LoginVCPresenterProtocol {
     func viewDidload(){
-        self.view?.updateUI()
-        self.view?.setUpBinding()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.setUpBinding()
+            self?.view?.updateUI()
+        }
     }
     func goToResetPasswordVC(){
         router.goToResetPasswordVC()

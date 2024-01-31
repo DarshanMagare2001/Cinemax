@@ -147,6 +147,9 @@
                                                                                 </constraints>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain" image="EyeBtnClose"/>
+                                                                                <connections>
+                                                                                    <action selector="passwordShowHideBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JaA-Lq-Ptc"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -320,7 +323,7 @@
                         <outlet property="emailWarningLbl" destination="DBd-Fs-MCU" id="8SR-kf-6VZ"/>
                         <outlet property="headingLbl" destination="Sge-u7-v6v" id="gsV-Su-1sO"/>
                         <outlet property="logInBtn" destination="wYN-DO-oO0" id="bqi-4v-4VV"/>
-                        <outlet property="passwordShowHideBtn" destination="Jqx-hp-ELf" id="A6g-hK-23t"/>
+                        <outlet property="passwordShowHideBtn" destination="Jqx-hp-ELf" id="5xV-ML-TgB"/>
                         <outlet property="passwordTxtFld" destination="V4I-hY-UDf" id="Aim-bA-pnj"/>
                         <outlet property="passwordWarningLbl" destination="nny-N7-nX6" id="fgr-Cx-HRe"/>
                     </connections>

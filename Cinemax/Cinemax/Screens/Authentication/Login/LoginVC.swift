@@ -19,13 +19,19 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailAdressTxtFld: UITextField!
     @IBOutlet weak var emailWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var passwordTxtFld: UITextField!
-    @IBOutlet weak var passwordShowHideBtn: UIButton!
     @IBOutlet weak var passwordWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var logInBtn: RoundedButton!
+    @IBOutlet weak var passwordShowHideBtn: UIButton!
     
     var presenter : LoginVCPresenterProtocol?
     var presenterProducer : LoginVCPresenterProtocol.Producer!
     private let bag = DisposeBag()
+    var isPassworShow = false {
+        didSet{
+            passwordShowHideBtn.setImage(UIImage(named: isPassworShow ? "EyeBtnOpen" : "EyeBtnClose"), for: .normal)
+            passwordTxtFld.isSecureTextEntry = isPassworShow ? false : true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,11 @@ class LoginVC: UIViewController {
     
     @IBAction func forgetPasswordBtnPrressed(_ sender: UIButton) {
         presenter?.goToResetPasswordVC()
+    }
+    
+    
+    @IBAction func passwordShowHideBtnPressed(_ sender: UIButton) {
+        isPassworShow.toggle()
     }
     
     
