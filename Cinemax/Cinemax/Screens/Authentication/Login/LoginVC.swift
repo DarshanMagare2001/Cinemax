@@ -8,10 +8,12 @@
 import UIKit
 
 protocol LoginVCProtocol: class {
-    
+    func updateUI()
 }
 
 class LoginVC: UIViewController {
+    
+    @IBOutlet weak var headingLbl: UILabel!
     
     var presenter: LoginVCPresenterProtocol?
 
@@ -33,5 +35,11 @@ class LoginVC: UIViewController {
 }
 
 extension LoginVC: LoginVCProtocol {
+    
+    func updateUI(){
+        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName){
+            headingLbl.text = "Hi, \(name)"
+        }
+    }
     
 }

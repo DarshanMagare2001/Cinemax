@@ -26,7 +26,7 @@ class LoginVCPresenter {
 
 extension LoginVCPresenter: LoginVCPresenterProtocol {
     func viewDidload(){
-        print("viewDidload")
+        view?.updateUI()
     }
     func goToResetPasswordVC(){
         router.goToResetPasswordVC()
