@@ -11,6 +11,7 @@ import RxSwift
 protocol LoginVCProtocol: class {
     func updateUI()
     func setUpBinding()
+    func errorAlert(message:String)
 }
 
 class LoginVC: UIViewController {
@@ -51,7 +52,7 @@ class LoginVC: UIViewController {
     
     
     @IBAction func logInBtnPressed(_ sender: UIButton) {
-        
+        presenter?.signIn(email: emailAdressTxtFld.text, password: passwordTxtFld.text)
     }
     
 }
@@ -88,6 +89,10 @@ extension LoginVC: LoginVCProtocol {
             .disposed(by: bag)
     }
     
+    
+    func errorAlert(message:String){
+        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    }
     
     func backBtnPressed(){
         navigationController?.popViewController(animated: true)

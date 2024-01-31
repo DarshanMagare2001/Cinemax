@@ -11,8 +11,10 @@ import RxCocoa
 import RxSwift
 
 protocol LoginVCPresenterProtocol {
+    
     func viewDidload()
     func goToResetPasswordVC()
+    func signIn(email: String?, password: String?)
     
     typealias Input = (
         email : Driver<String>,
@@ -55,6 +57,44 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
             self?.view?.updateUI()
         }
     }
+    
+    func signIn(email: String?, password: String?){
+        showLoader()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.signIn(email: email, password: password) { result in
+                switch result {
+                case.success(let bool):
+                    print(bool)
+                    //                    self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
+                    self?.hideLoader()
+                case.failure(let error):
+                    switch error {
+                    case .invalidCredentials:
+                        print("Invalid credentials")
+                        self?.hideLoader()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+                            self?.view?.errorAlert(message: "Invalid credentials")
+                        }
+                    case .serverError(let serverError):
+                        self?.hideLoader()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+                            self?.view?.errorAlert(message: serverError.localizedDescription)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func showLoader(){
+        Loader.shared.showLoader(type: .lineScale, color: .white)
+    }
+    
+    private func hideLoader(){
+        Loader.shared.hideLoader()
+    }
+    
+    
     func goToResetPasswordVC(){
         router.goToResetPasswordVC()
     }
