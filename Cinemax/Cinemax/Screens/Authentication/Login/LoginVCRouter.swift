@@ -28,7 +28,11 @@ extension LoginVCRouter: LoginVCRouterProtocol {
     
     func goToMainTabVC(){
         let mainTabVC = MainTabVCBuilder.build()
-        viewController.navigationController?.pushViewController(mainTabVC, animated: true)
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = mainTabVC
+            window.makeKeyAndVisible()
+        }
     }
     
 }
