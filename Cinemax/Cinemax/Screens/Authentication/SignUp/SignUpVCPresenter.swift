@@ -41,16 +41,19 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
     }
     
     func signinWithGoogle(view: UIViewController){
+        showLoader()
         interactor.signinWithGoogle(view: view) { result in
             switch result {
             case.success(let bool):
                 print(bool)
+                self.hideLoader()
                 DispatchQueue.main.async { [weak self] in
                     self?.goToMainTabVC()
                 }
             case.failure(let error):
                 print(error)
-                DispatchQueue.main.async { [weak self] in
+                self.hideLoader()
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
                     self?.view?.errorAlert(message: error.localizedDescription)
                 }
             }
@@ -59,6 +62,14 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
     
     func goToMainTabVC(){
         router.goToMainTabVC()
+    }
+    
+    private func showLoader(){
+        Loader.shared.showLoader(type: .lineScale, color: .white)
+    }
+    
+    private func hideLoader(){
+        Loader.shared.hideLoader()
     }
     
 }
