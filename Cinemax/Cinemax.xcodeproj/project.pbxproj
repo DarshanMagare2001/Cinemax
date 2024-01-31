@@ -68,11 +68,8 @@
 		13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */; };
 		13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F7B2B62961D005EDA19 /* LoginVC.swift */; };
 		13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F7D2B629630005EDA19 /* LoginVCBuilder.swift */; };
-		13F5A9892B67D82800CFD18A /* CreatenewpasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A9882B67D82800CFD18A /* CreatenewpasswordVC.swift */; };
-		13F5A98B2B67D86E00CFD18A /* CreatenewpasswordVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98A2B67D86E00CFD18A /* CreatenewpasswordVCBuilder.swift */; };
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
-		13F5A9912B67D90D00CFD18A /* ResetPasswordVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A9902B67D90D00CFD18A /* ResetPasswordVCRouter.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,11 +126,8 @@
 		13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultRepositoryManager.swift; sourceTree = "<group>"; };
 		13BA5F7B2B62961D005EDA19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		13BA5F7D2B629630005EDA19 /* LoginVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCBuilder.swift; sourceTree = "<group>"; };
-		13F5A9882B67D82800CFD18A /* CreatenewpasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatenewpasswordVC.swift; sourceTree = "<group>"; };
-		13F5A98A2B67D86E00CFD18A /* CreatenewpasswordVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatenewpasswordVCBuilder.swift; sourceTree = "<group>"; };
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
-		13F5A9902B67D90D00CFD18A /* ResetPasswordVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCRouter.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,7 +216,6 @@
 				134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */,
 				13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */,
 				13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */,
-				13F5A9902B67D90D00CFD18A /* ResetPasswordVCRouter.swift */,
 				134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */,
 			);
 			path = ResetPassword;
@@ -420,7 +413,6 @@
 				13BA5F792B6295F6005EDA19 /* SignUp */,
 				134ECC0D2B6775E9004BCAC2 /* SignUpCredentialVC */,
 				134ECC242B67C00C004BCAC2 /* ResetPassword */,
-				13F5A9872B67D80C00CFD18A /* Createnewpassword */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -481,15 +473,6 @@
 				13BA5F7D2B629630005EDA19 /* LoginVCBuilder.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		13F5A9872B67D80C00CFD18A /* Createnewpassword */ = {
-			isa = PBXGroup;
-			children = (
-				13F5A9882B67D82800CFD18A /* CreatenewpasswordVC.swift */,
-				13F5A98A2B67D86E00CFD18A /* CreatenewpasswordVCBuilder.swift */,
-			);
-			path = Createnewpassword;
 			sourceTree = "<group>";
 		};
 		512A217EC32A23174C44CAC4 /* Frameworks */ = {
@@ -668,7 +651,6 @@
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
-				13F5A98B2B67D86E00CFD18A /* CreatenewpasswordVCBuilder.swift in Sources */,
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
 				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
 				13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */,
@@ -683,10 +665,8 @@
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
-				13F5A9912B67D90D00CFD18A /* ResetPasswordVCRouter.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
-				13F5A9892B67D82800CFD18A /* CreatenewpasswordVC.swift in Sources */,
 				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,

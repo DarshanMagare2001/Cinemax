@@ -16,9 +16,8 @@ public final class ResetPasswordVCBuilder {
         let storyboard = UIStoryboard.Authentication
         let resetPasswordVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
         let interactor = ResetPasswordVCInteractor()
-        let router = ResetPasswordVCRouter(viewController: resetPasswordVC)
         resetPasswordVC.presenterProducer = {
-            ResetPasswordVCPresenter(view: resetPasswordVC, interactor: interactor, router: router, input: $0)
+            ResetPasswordVCPresenter(view: resetPasswordVC, interactor: interactor, input: $0)
         }
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         resetPasswordVC.navigationItem.leftBarButtonItem = backButton

@@ -11,12 +11,12 @@ import RxSwift
 protocol ResetPasswordVCPrtocol: class {
     func updateUI()
     func setUpBinding()
+    func errorAlert(message:String)
 }
 
 class ResetPasswordVC: UIViewController {
     
     @IBOutlet weak var resetPasswordView: UIView!
-    @IBOutlet weak var verificationView: UIView!
     @IBOutlet weak var emailAddressTxtFld: UITextField!
     @IBOutlet weak var emailWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var nxtBtn: RoundedButton!
@@ -32,24 +32,7 @@ class ResetPasswordVC: UIViewController {
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
-        UIView.transition(with: view, duration: 0.5, options: .transitionFlipFromRight, animations: {
-            // Toggle visibility after animation completion
-            self.verificationView.isHidden.toggle()
-            self.resetPasswordView.isHidden.toggle()
-        }, completion: nil)
-    }
-    
-    @IBAction func resendBtnPressed(_ sender: UIButton) {
-        UIView.transition(with: view, duration: 0.5, options: .transitionFlipFromRight, animations: {
-            // Toggle visibility after animation completion
-            self.verificationView.isHidden.toggle()
-            self.resetPasswordView.isHidden.toggle()
-        }, completion: nil)
-    }
-    
-    
-    @IBAction func continueBtnPressed(_ sender: UIButton) {
-        presenter?.goToCreatenewpasswordVC()
+        resetPasswordRequest()
     }
     
     func backBtnPressed() {
@@ -60,8 +43,6 @@ class ResetPasswordVC: UIViewController {
 extension ResetPasswordVC : ResetPasswordVCPrtocol {
     
     func updateUI(){
-        resetPasswordView.isHidden = false
-        verificationView.isHidden = true
         emailWarningLbl.isHidden = true
     }
     
@@ -80,6 +61,14 @@ extension ResetPasswordVC : ResetPasswordVCPrtocol {
         presenter?.output.emailWarning.debug("Enable Login Driver" , trimOutput: false)
             .drive(emailWarningLbl.rx.isHidden)
             .disposed(by: bag)
+    }
+    
+    private func resetPasswordRequest(){
+        presenter?.resetPasswordRequest(email: emailAddressTxtFld.text)
+    }
+    
+    func errorAlert(message:String){
+        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
     }
     
 }
