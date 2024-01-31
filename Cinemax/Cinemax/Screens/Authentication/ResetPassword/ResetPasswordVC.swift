@@ -12,6 +12,7 @@ protocol ResetPasswordVCPrtocol: class {
     func updateUI()
     func setUpBinding()
     func errorAlert(message:String)
+    func successAlert(message:String)
 }
 
 class ResetPasswordVC: UIViewController {
@@ -69,6 +70,10 @@ extension ResetPasswordVC : ResetPasswordVCPrtocol {
     
     func errorAlert(message:String){
         Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    }
+    
+    func successAlert(message:String){
+        Alert.shared.alertOk(title: "Success", message: message, presentingViewController: self) { _ in}
     }
     
 }

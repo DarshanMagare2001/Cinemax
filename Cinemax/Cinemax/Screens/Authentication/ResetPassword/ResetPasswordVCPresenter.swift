@@ -60,6 +60,9 @@ extension ResetPasswordVCPresenter: ResetPasswordVCPresenterProtocol {
                 case.success(let bool):
                     print(bool)
                     self?.hideLoader()
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+                        self?.view?.successAlert(message: "Password reset link send to your email successfully, Kindly check your mailbox.")
+                    }
                 case.failure(let error):
                     switch error {
                     case .invalidCredentials:
