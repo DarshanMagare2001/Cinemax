@@ -59,21 +59,25 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     }
     
     func signUp(name:String?,email: String?, password: String?){
+        showLoader()
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.signUp(email: email, password: password) { result in
                 switch result {
                 case.success(let bool):
                     print(bool)
                     self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
+                    self?.hideLoader()
                 case.failure(let error):
                     switch error {
                     case .invalidCredentials:
                         print("Invalid credentials")
-                        DispatchQueue.main.async { [weak self] in
+                        self?.hideLoader()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
                             self?.view?.errorAlert(message: "Invalid credentials")
                         }
                     case .serverError(let serverError):
-                        DispatchQueue.main.async { [weak self] in
+                        self?.hideLoader()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
                             self?.view?.errorAlert(message: serverError.localizedDescription)
                         }
                     }
@@ -90,6 +94,14 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPassword, data: password) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
+    }
+    
+    private func showLoader(){
+        Loader.shared.showLoader(type: .lineScale, color: .white)
+    }
+    
+    private func hideLoader(){
+        Loader.shared.hideLoader()
     }
     
 }
