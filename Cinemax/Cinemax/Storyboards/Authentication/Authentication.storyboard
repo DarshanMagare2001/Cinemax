@@ -265,6 +265,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="logInBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pDj-nv-xeb"/>
                                                             <action selector="signUpBtnPressed:" destination="3Ug-kw-DqM" eventType="touchUpInside" id="k5G-R1-RsI"/>
                                                         </connections>
                                                     </button>
@@ -315,7 +316,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailAdressTxtFld" destination="h3a-BK-ntr" id="heO-Jd-u0V"/>
+                        <outlet property="emailWarningLbl" destination="DBd-Fs-MCU" id="8SR-kf-6VZ"/>
                         <outlet property="headingLbl" destination="Sge-u7-v6v" id="gsV-Su-1sO"/>
+                        <outlet property="logInBtn" destination="wYN-DO-oO0" id="bqi-4v-4VV"/>
+                        <outlet property="passwordShowHideBtn" destination="Jqx-hp-ELf" id="A6g-hK-23t"/>
+                        <outlet property="passwordTxtFld" destination="V4I-hY-UDf" id="Aim-bA-pnj"/>
+                        <outlet property="passwordWarningLbl" destination="nny-N7-nX6" id="fgr-Cx-HRe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
