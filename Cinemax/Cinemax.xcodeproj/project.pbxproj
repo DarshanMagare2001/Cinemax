@@ -12,6 +12,7 @@
 		131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */; };
 		131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */; };
 		131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3E2B6A1FFC007A4D55 /* Loader.swift */; };
+		131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */ = {isa = PBXBuildFile; fileRef = 131A9B412B6A2509007A4D55 /* LoaderTypes.gif */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -79,6 +80,7 @@
 		131A9B332B6A1469007A4D55 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderVC.swift; sourceTree = "<group>"; };
 		131A9B3E2B6A1FFC007A4D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		131A9B412B6A2509007A4D55 /* LoaderTypes.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LoaderTypes.gif; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		139C22662B61279A0082DBDD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				131A9B412B6A2509007A4D55 /* LoaderTypes.gif */,
 				139C225A2B6126F80082DBDD /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -587,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */,
+				131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */,
 				139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */,
 				139C22812B612D700082DBDD /* Download.storyboard in Resources */,
 				139C22872B612DC00082DBDD /* Common.storyboard in Resources */,
