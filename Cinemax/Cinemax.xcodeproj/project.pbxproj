@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		131A9B342B6A1469007A4D55 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B332B6A1469007A4D55 /* Alert.swift */; };
+		131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */; };
+		131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */; };
+		131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */; };
+		131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3E2B6A1FFC007A4D55 /* Loader.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -73,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		131A9B332B6A1469007A4D55 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderVC.swift; sourceTree = "<group>"; };
+		131A9B3E2B6A1FFC007A4D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -140,10 +146,12 @@
 				1398F0B02B68BCED00D58906 /* FirebaseDatabase in Frameworks */,
 				1398F0C02B68EABC00D58906 /* RxCocoa in Frameworks */,
 				1398F0B82B68BCED00D58906 /* FirebaseStorage in Frameworks */,
+				131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */,
 				1398F0AB2B68BB9200D58906 /* GoogleSignInSwift in Frameworks */,
 				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
 				1398F0A92B68BB9200D58906 /* GoogleSignIn in Frameworks */,
 				1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */,
+				131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */,
 				1398F0B42B68BCED00D58906 /* FirebaseFirestore in Frameworks */,
 				1398F0B62B68BCED00D58906 /* FirebaseFirestoreSwift in Frameworks */,
 				1398F0C22B68EABC00D58906 /* RxSwift in Frameworks */,
@@ -153,6 +161,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131A9B3C2B6A1FD9007A4D55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		131A9B3D2B6A1FE0007A4D55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				131A9B3E2B6A1FFC007A4D55 /* Loader.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		131A9B402B6A2008007A4D55 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				131A9B3C2B6A1FD9007A4D55 /* View */,
+				131A9B3D2B6A1FE0007A4D55 /* ViewModel */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		134ECC052B6766DD004BCAC2 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +425,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				131A9B402B6A2008007A4D55 /* Loader */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -501,6 +535,8 @@
 				1398F0B72B68BCED00D58906 /* FirebaseStorage */,
 				1398F0BF2B68EABC00D58906 /* RxCocoa */,
 				1398F0C12B68EABC00D58906 /* RxSwift */,
+				131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */,
+				131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -534,6 +570,7 @@
 				1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				1398F0AC2B68BCED00D58906 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -640,11 +677,13 @@
 				13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */,
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
+				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				13F5A9912B67D90D00CFD18A /* ResetPasswordVCRouter.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				13F5A9892B67D82800CFD18A /* CreatenewpasswordVC.swift in Sources */,
+				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
 				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,
@@ -871,6 +910,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.1;
+			};
+		};
 		1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -898,6 +945,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
 		1398F0A82B68BB9200D58906 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

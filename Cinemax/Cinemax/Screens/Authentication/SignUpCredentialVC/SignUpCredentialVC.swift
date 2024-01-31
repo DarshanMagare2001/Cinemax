@@ -53,6 +53,8 @@ class SignUpCredentialVC: UIViewController {
         super.viewDidLoad()
         setupInputs()
         presenter?.viewDidload()
+        
+        Loader.shared.showLoader(type: .lineScale, color: .white)
     }
     
     func backBtnPressed(){
