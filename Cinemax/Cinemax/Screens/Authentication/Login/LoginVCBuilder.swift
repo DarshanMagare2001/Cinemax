@@ -17,9 +17,9 @@ public final class LoginVCBuilder {
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let interactor = LoginVCInteractor()
         let router = LoginVCRouter(viewController: loginVC)
-        let presenter = LoginVCPresenter(view: loginVC, interactor: interactor, router: router)
-        loginVC.presenter = presenter
-        
+        loginVC.presenterProducer = {
+            LoginVCPresenter(view: loginVC, interactor: interactor, router: router, input: $0)
+        }
         loginVC.title = "Login"
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         loginVC.navigationItem.leftBarButtonItem = backButton
