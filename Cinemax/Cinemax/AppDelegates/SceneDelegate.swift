@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -53,7 +54,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setUpScreens() -> UIViewController {
         if let isonboardingDone = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .isOnboardingDone){
-            return SignUpVCBuilder.build(factory:NavigationFactory.build(rootView:))
+            if let currentUser = Auth.auth().currentUser {
+                return MainTabVCBuilder.build()
+            }else{
+                return SignUpVCBuilder.build(factory:NavigationFactory.build(rootView:))
+            }
         }else{
             return OnboardingVCBuilder.build(factory:NavigationFactory.build(rootView:))
         }
