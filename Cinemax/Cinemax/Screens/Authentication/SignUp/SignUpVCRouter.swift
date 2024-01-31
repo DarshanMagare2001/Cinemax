@@ -11,6 +11,7 @@ import UIKit
 protocol SignUpVCRouterProtocol {
     func goToSignUpCredentialVC()
     func goToLoginVC()
+    func goToMainTabVC()
 }
 
 class SignUpVCRouter {
@@ -29,6 +30,15 @@ extension SignUpVCRouter: SignUpVCRouterProtocol {
     func goToLoginVC(){
         let loginVC = LoginVCBuilder.build()
         viewController.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    func goToMainTabVC(){
+        let mainTabVC = MainTabVCBuilder.build()
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = mainTabVC
+            window.makeKeyAndVisible()
+        }
     }
     
 }

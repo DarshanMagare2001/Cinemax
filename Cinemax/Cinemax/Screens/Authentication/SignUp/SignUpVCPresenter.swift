@@ -13,6 +13,7 @@ protocol SignUpVCPresenterProtocol {
     func goToSignUpCredentialVC()
     func goToLoginVC()
     func signinWithGoogle(view: UIViewController)
+    func goToMainTabVC()
 }
 
 class SignUpVCPresenter {
@@ -38,14 +39,26 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
     func goToLoginVC(){
         router.goToLoginVC()
     }
+    
     func signinWithGoogle(view: UIViewController){
         interactor.signinWithGoogle(view: view) { result in
             switch result {
             case.success(let bool):
                 print(bool)
+                DispatchQueue.main.async { [weak self] in
+                    self?.goToMainTabVC()
+                }
             case.failure(let error):
                 print(error)
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.errorAlert(message: error.localizedDescription)
+                }
             }
         }
     }
+    
+    func goToMainTabVC(){
+        router.goToMainTabVC()
+    }
+    
 }

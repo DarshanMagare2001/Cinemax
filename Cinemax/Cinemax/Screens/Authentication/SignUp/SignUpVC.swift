@@ -10,7 +10,7 @@ import GoogleSignIn
 import FirebaseAuth
 
 protocol SignUpVCProtocol: class {
-    
+    func errorAlert(message:String)
 }
 
 class SignUpVC: UIViewController {
@@ -41,5 +41,9 @@ class SignUpVC: UIViewController {
 }
 
 extension SignUpVC : SignUpVCProtocol {
+    
+    func errorAlert(message:String){
+        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    }
     
 }
