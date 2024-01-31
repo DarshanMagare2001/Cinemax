@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +17,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pS5-5p-EXG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-PG-pon" userLabel="TabView">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
@@ -40,6 +39,9 @@
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="HomeBtn"/>
+                                                                <connections>
+                                                                    <action selector="homeBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Zf-U6-ADN"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-Z0-FMp">
                                                                 <rect key="frame" x="25" y="0.0" width="45" height="40"/>
@@ -47,13 +49,13 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="15G-nj-Hmc"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="M9u-51-wcr" firstAttribute="leading" secondItem="0AF-g3-dlf" secondAttribute="leading" constant="10" id="G92-vq-iur"/>
                                                     <constraint firstItem="M9u-51-wcr" firstAttribute="top" secondItem="0AF-g3-dlf" secondAttribute="top" constant="5" id="P09-Lp-NjR"/>
@@ -65,7 +67,7 @@
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +88,9 @@
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="SearchBtn"/>
+                                                                <connections>
+                                                                    <action selector="searchBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xCv-rz-c8b"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7F-ci-i9H">
                                                                 <rect key="frame" x="25" y="0.0" width="51.5" height="40"/>
@@ -93,13 +98,13 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="Skh-L8-Lai"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="yOz-dA-Fvq" secondAttribute="trailing" constant="10" id="UuX-xI-Ro5"/>
                                                     <constraint firstItem="yOz-dA-Fvq" firstAttribute="top" secondItem="n7d-C7-YZc" secondAttribute="top" constant="5" id="UwC-7r-H45"/>
@@ -111,7 +116,7 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
@@ -132,6 +137,9 @@
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="DownloadBtn"/>
+                                                                <connections>
+                                                                    <action selector="downloadBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PGN-D9-YMr"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9O-lo-RRH">
                                                                 <rect key="frame" x="25" y="0.0" width="73" height="40"/>
@@ -139,13 +147,13 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="ooc-eP-0uY"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="64v-Za-JcO" secondAttribute="bottom" constant="5" id="2tl-q7-kuX"/>
                                                     <constraint firstItem="64v-Za-JcO" firstAttribute="top" secondItem="Wim-wX-QLI" secondAttribute="top" constant="5" id="DEL-8i-qjD"/>
@@ -157,7 +165,7 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
@@ -178,6 +186,9 @@
                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="PersonBtn"/>
+                                                                <connections>
+                                                                    <action selector="personBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vd4-wd-kxG"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0P-83-A8j">
                                                                 <rect key="frame" x="25" y="0.0" width="48" height="40"/>
@@ -185,13 +196,13 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="P0W-3s-rAN"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="zvQ-MA-DAz" secondAttribute="trailing" constant="10" id="41h-hY-CFA"/>
                                                     <constraint firstAttribute="bottom" secondItem="zvQ-MA-DAz" secondAttribute="bottom" constant="5" id="DwZ-5b-Ssa"/>
@@ -203,7 +214,7 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
@@ -213,7 +224,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2Wi-ZM-bf1"/>
                                     <constraint firstItem="hhz-lc-CfC" firstAttribute="centerX" secondItem="Qie-PG-pon" secondAttribute="centerX" id="C71-rB-HcE"/>
@@ -235,11 +246,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="downloadBtn" destination="s58-ad-vQq" id="hnz-UA-gBs"/>
                         <outlet property="downloadBtnLbl" destination="v9O-lo-RRH" id="eQj-co-G6F"/>
+                        <outlet property="downloadBtnView" destination="Wim-wX-QLI" id="nsg-to-8Gm"/>
+                        <outlet property="homeBtn" destination="vEg-E4-QUu" id="CSY-pQ-sJj"/>
                         <outlet property="homeBtnLbl" destination="HvB-Z0-FMp" id="jNi-Uy-3J0"/>
+                        <outlet property="homeBtnView" destination="0AF-g3-dlf" id="XxR-Fy-sK7"/>
                         <outlet property="mainView" destination="pS5-5p-EXG" id="8j1-Lk-lb4"/>
+                        <outlet property="personBtn" destination="8FS-c3-45B" id="yn8-0r-1vI"/>
+                        <outlet property="personBtnView" destination="8FS-c3-45B" id="Pxf-9y-N67"/>
                         <outlet property="profileBtnLbl" destination="K0P-83-A8j" id="IYx-Km-b7L"/>
+                        <outlet property="searchBtn" destination="1oJ-S0-cEP" id="Ynv-Ni-fat"/>
                         <outlet property="searchBtnLbl" destination="L7F-ci-i9H" id="eYL-j7-Mn1"/>
+                        <outlet property="searchBtnView" destination="n7d-C7-YZc" id="7B4-1Y-bUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -252,11 +271,5 @@
         <image name="HomeBtn" width="19" height="17"/>
         <image name="PersonBtn" width="24" height="24"/>
         <image name="SearchBtn" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
