@@ -73,7 +73,9 @@ extension ResetPasswordVC : ResetPasswordVCPrtocol {
     }
     
     func successAlert(message:String){
-        Alert.shared.alertOk(title: "Success", message: message, presentingViewController: self) { _ in}
+        Alert.shared.alertOk(title: "Success", message: message, presentingViewController: self) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
