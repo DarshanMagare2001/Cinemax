@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginVCRouterProtocol {
     func goToResetPasswordVC()
+    func goToMainTabVC()
 }
 
 class LoginVCRouter {
@@ -24,5 +25,11 @@ extension LoginVCRouter: LoginVCRouterProtocol {
         let resetPasswordVC = ResetPasswordVCBuilder.build()
         viewController.navigationController?.pushViewController(resetPasswordVC, animated: true)
     }
+    
+    func goToMainTabVC(){
+        let mainTabVC = MainTabVCBuilder.build()
+        viewController.navigationController?.pushViewController(mainTabVC, animated: true)
+    }
+    
 }
 

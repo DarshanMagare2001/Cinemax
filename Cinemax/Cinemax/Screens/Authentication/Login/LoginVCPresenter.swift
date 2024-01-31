@@ -15,6 +15,7 @@ protocol LoginVCPresenterProtocol {
     func viewDidload()
     func goToResetPasswordVC()
     func signIn(email: String?, password: String?)
+    func goToMainTabVC()
     
     typealias Input = (
         email : Driver<String>,
@@ -67,6 +68,9 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
                     print(bool)
                     //                    self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
                     self?.hideLoader()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.goToMainTabVC()
+                    }
                 case.failure(let error):
                     switch error {
                     case .invalidCredentials:
@@ -97,6 +101,10 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
     
     func goToResetPasswordVC(){
         router.goToResetPasswordVC()
+    }
+    
+    func goToMainTabVC(){
+        router.goToMainTabVC()
     }
 }
 
