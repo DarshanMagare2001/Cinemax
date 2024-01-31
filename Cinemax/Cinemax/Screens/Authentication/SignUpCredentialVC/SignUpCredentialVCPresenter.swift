@@ -11,8 +11,11 @@ import RxSwift
 import FirebaseAuth
 
 protocol SignUpCredentialVCPresenterProtocol {
+    
     func viewDidload()
     func signUp(name:String?,email: String?, password: String?)
+    func goToMainTabVC()
+    
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
@@ -67,6 +70,9 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                     print(bool)
                     self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
                     self?.hideLoader()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.goToMainTabVC()
+                    }
                 case.failure(let error):
                     switch error {
                     case .invalidCredentials:
@@ -102,6 +108,10 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     
     private func hideLoader(){
         Loader.shared.hideLoader()
+    }
+    
+    func goToMainTabVC(){
+        router.goToMainTabVC()
     }
     
 }

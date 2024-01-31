@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SignUpCredentialVCRouterProtocol {
-    
+    func goToMainTabVC()
 }
 
 class SignUpCredentialVCRouter {
@@ -20,6 +20,15 @@ class SignUpCredentialVCRouter {
 }
 
 extension SignUpCredentialVCRouter: SignUpCredentialVCRouterProtocol {
+    
+    func goToMainTabVC(){
+        let mainTabVC = MainTabVCBuilder.build()
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = mainTabVC
+            window.makeKeyAndVisible()
+        }
+    }
     
 }
 
