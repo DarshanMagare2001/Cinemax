@@ -9,11 +9,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxRelay
+import SwiftUI
 
 protocol SignUpCredentialVCProtocol: class {
     func setupInputs()
     func setUpBinding()
     func setupWarningLbls()
+    func errorAlert(message:String)
 }
 
 class SignUpCredentialVC: UIViewController {
@@ -108,6 +110,10 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         presenter?.output.passwordWarning.debug("Enable Login Driver" , trimOutput: false)
             .drive(passwordWarningLbl.rx.isHidden)
             .disposed(by: bag)
+    }
+    
+    func errorAlert(message:String){
+        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
     }
     
 }

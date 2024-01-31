@@ -59,17 +59,24 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     }
     
     func signUp(name:String?,email: String?, password: String?){
-        interactor.signUp(email: email, password: password) { result in
-            switch result {
-            case.success(let bool):
-                print(bool)
-                self.saveUsersDataToUserdefault(name: name, email: email, password: password)
-            case.failure(let error):
-                switch error {
-                case .invalidCredentials:
-                    print("Invalid credentials")
-                case .serverError(let serverError):
-                    print("Server error: \(serverError.localizedDescription)")
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.signUp(email: email, password: password) { result in
+                switch result {
+                case.success(let bool):
+                    print(bool)
+                    self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
+                case.failure(let error):
+                    switch error {
+                    case .invalidCredentials:
+                        print("Invalid credentials")
+                        DispatchQueue.main.async { [weak self] in
+                            self?.view?.errorAlert(message: "Invalid credentials")
+                        }
+                    case .serverError(let serverError):
+                        DispatchQueue.main.async { [weak self] in
+                            self?.view?.errorAlert(message: serverError.localizedDescription)
+                        }
+                    }
                 }
             }
         }
@@ -84,7 +91,6 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPassword, data: password) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
     }
-    
     
 }
 
