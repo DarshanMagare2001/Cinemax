@@ -60,8 +60,38 @@ extension MainTabVC {
             view.backgroundColor = isSelectedTab ? UIColor.appDark1! : UIColor.black
             button.tintColor = isSelectedTab ? UIColor.appBlue! : UIColor.gray
             label.textColor = isSelectedTab ? UIColor.appBlue! : UIColor.black
+            setupScreens(selectedTabIndex:selectedTab.rawValue)
         }
     }
+    
+    private func setupScreens(selectedTabIndex:Int){
+        var viewController = UIViewController()
+        if selectedTabIndex == 0 {
+            viewController = HomeVCBuilder.build(factor: NavigationFactory.build(rootView:))
+        }else if selectedTabIndex == 1 {
+            viewController = SearchVCBuilder.build(factor: NavigationFactory.build(rootView:))
+        }else if selectedTabIndex == 2 {
+            viewController = DownloadVCBuilder.build(factor: NavigationFactory.build(rootView:))
+        }else if selectedTabIndex == 3 {
+            viewController = ProfileVCBuilder.build(factor: NavigationFactory.build(rootView:))
+        }
+        
+        mainView.addSubview(viewController.view)
+        // Notify the HomeVC that it has been added as a child
+        addChild(viewController)
+        // Set constraints for the HomeVC's view within mainView
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            viewController.view.topAnchor.constraint(equalTo: mainView.topAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: mainView.bottomAnchor),
+            viewController.view.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            viewController.view.trailingAnchor.constraint(equalTo: mainView.trailingAnchor)
+        ])
+        // Notify the HomeVC that it has been added
+        viewController.didMove(toParent: self)
+    }
+    
+    
 }
 
 enum Tab: Int {
