@@ -16,15 +16,27 @@ class RoundedButton: UIButton {
             setNeedsLayout()
         }
     }
-    
+
+    // Custom border color
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         // Set corner radius
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
+
+        // Set border color
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = 1.0 // You can customize the border width if needed
     }
 }
+
 
 class RoundedButtonWithBorder: UIButton {
     // Custom corner radius value

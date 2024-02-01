@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbc-xJ-kJ2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1346"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1466"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Nx-aP-b0M">
-                                                <rect key="frame" x="10" y="10" width="394" height="1326"/>
+                                                <rect key="frame" x="10" y="10" width="394" height="1446"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-uK-wOc" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
@@ -692,6 +692,38 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-BU-5ZO">
+                                                        <rect key="frame" x="0.0" y="1346" width="394" height="100"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVD-ri-yIa" customClass="RoundedButton" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="10" width="394" height="80"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" id="I2q-qG-bba"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="AppBlue"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                </buttonConfiguration>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="40"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="AppBlue"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="aVD-ri-yIa" firstAttribute="leading" secondItem="HI0-BU-5ZO" secondAttribute="leading" id="4ZL-8Q-NmV"/>
+                                                            <constraint firstItem="aVD-ri-yIa" firstAttribute="top" secondItem="HI0-BU-5ZO" secondAttribute="top" constant="10" id="G7X-l5-Fcp"/>
+                                                            <constraint firstAttribute="bottom" secondItem="aVD-ri-yIa" secondAttribute="bottom" constant="10" id="ObS-zd-T46"/>
+                                                            <constraint firstAttribute="trailing" secondItem="aVD-ri-yIa" secondAttribute="trailing" id="xed-CW-4Sa"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
