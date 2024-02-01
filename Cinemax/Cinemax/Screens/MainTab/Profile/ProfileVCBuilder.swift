@@ -12,6 +12,7 @@ public final class ProfileVCBuilder {
     static func build(factor:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Profile
         let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        profileVC.title = "Profile"
         return factor(profileVC)
     }
 }
