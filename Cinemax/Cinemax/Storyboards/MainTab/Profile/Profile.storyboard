@@ -715,6 +715,9 @@
                                                                         <color key="value" name="AppBlue"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="logOutbtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pnS-8N-hpl"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

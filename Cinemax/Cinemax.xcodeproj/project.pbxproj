@@ -76,6 +76,9 @@
 		13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DE82B6B6390009CA6DB /* DownloadVCBuilder.swift */; };
 		13C74DEB2B6B63CD009CA6DB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DEA2B6B63CD009CA6DB /* ProfileVC.swift */; };
 		13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DEC2B6B6403009CA6DB /* ProfileVCBuilder.swift */; };
+		13C74DEF2B6B973B009CA6DB /* ProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DEE2B6B973B009CA6DB /* ProfileVCInteractor.swift */; };
+		13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DF02B6B974C009CA6DB /* ProfileVCPresenter.swift */; };
+		13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DF22B6B975F009CA6DB /* ProfileVCRouter.swift */; };
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
@@ -142,6 +145,9 @@
 		13C74DE82B6B6390009CA6DB /* DownloadVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVCBuilder.swift; sourceTree = "<group>"; };
 		13C74DEA2B6B63CD009CA6DB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		13C74DEC2B6B6403009CA6DB /* ProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCBuilder.swift; sourceTree = "<group>"; };
+		13C74DEE2B6B973B009CA6DB /* ProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCInteractor.swift; sourceTree = "<group>"; };
+		13C74DF02B6B974C009CA6DB /* ProfileVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCPresenter.swift; sourceTree = "<group>"; };
+		13C74DF22B6B975F009CA6DB /* ProfileVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCRouter.swift; sourceTree = "<group>"; };
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
@@ -526,6 +532,9 @@
 			isa = PBXGroup;
 			children = (
 				13C74DEA2B6B63CD009CA6DB /* ProfileVC.swift */,
+				13C74DEE2B6B973B009CA6DB /* ProfileVCInteractor.swift */,
+				13C74DF02B6B974C009CA6DB /* ProfileVCPresenter.swift */,
+				13C74DF22B6B975F009CA6DB /* ProfileVCRouter.swift */,
 				13C74DEC2B6B6403009CA6DB /* ProfileVCBuilder.swift */,
 			);
 			path = Profile;
@@ -694,6 +703,7 @@
 			files = (
 				139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */,
 				13C74DDC2B6B621E009CA6DB /* HomeVC.swift in Sources */,
+				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
@@ -701,6 +711,7 @@
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
 				13C74DE12B6B62D9009CA6DB /* SearchVC.swift in Sources */,
 				134ECC1D2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift in Sources */,
+				13C74DEF2B6B973B009CA6DB /* ProfileVCInteractor.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
 				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
 				134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */,
@@ -727,6 +738,7 @@
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
+				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
