@@ -10,6 +10,7 @@ import Foundation
 protocol ProfileVCPresenterProtocol {
     func viewDidload()
     func currentUserLogout()
+    func goToSignupVC()
 }
 
 class ProfileVCPresenter {
@@ -24,17 +25,37 @@ class ProfileVCPresenter {
 }
 
 extension ProfileVCPresenter: ProfileVCPresenterProtocol {
+    
     func viewDidload(){
         
     }
+    
     func currentUserLogout(){
-        interactor.currentUserLogout { result in
-            switch result {
-            case.success(let bool):
-                print(bool)
-            case.failure(let error):
-                print(error)
+        Loader.shared.showLoader(type: .lineScale, color: .white)
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
+            self?.interactor.currentUserLogout { result in
+                switch result {
+                case.success(let bool):
+                    print(bool)
+                    Loader.shared.hideLoader()
+                    if bool == true {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.goToSignupVC()
+                        }
+                    }
+                case.failure(let error):
+                    print(error)
+                    Loader.shared.hideLoader()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.errorAlert(message: error.localizedDescription)
+                    }
+                }
             }
         }
     }
+    
+    func goToSignupVC(){
+        router.goToSignupVC()
+    }
+    
 }
