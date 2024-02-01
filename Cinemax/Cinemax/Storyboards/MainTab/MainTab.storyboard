@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pS5-5p-EXG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-PG-pon" userLabel="TabView">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
@@ -236,9 +237,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Qie-PG-pon" firstAttribute="top" secondItem="pS5-5p-EXG" secondAttribute="bottom" id="105-L1-DIv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Qie-PG-pon" secondAttribute="bottom" id="DTd-ki-mlh"/>
                             <constraint firstAttribute="trailing" secondItem="pS5-5p-EXG" secondAttribute="trailing" id="PAB-Gg-aC6"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pS5-5p-EXG" secondAttribute="bottom" id="Vcl-fm-PbT"/>
                             <constraint firstItem="Qie-PG-pon" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Z0N-E6-LXp"/>
                             <constraint firstItem="pS5-5p-EXG" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="bc7-Kw-YlL"/>
                             <constraint firstItem="Qie-PG-pon" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bt0-Yp-4aK"/>
@@ -271,5 +272,8 @@
         <image name="HomeBtn" width="19" height="17"/>
         <image name="PersonBtn" width="24" height="24"/>
         <image name="SearchBtn" width="24" height="24"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
