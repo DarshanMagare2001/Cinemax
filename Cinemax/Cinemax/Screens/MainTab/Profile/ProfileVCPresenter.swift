@@ -9,6 +9,7 @@ import Foundation
 
 protocol ProfileVCPresenterProtocol {
     func viewDidload()
+    func currentUserLogout()
 }
 
 class ProfileVCPresenter {
@@ -25,5 +26,15 @@ class ProfileVCPresenter {
 extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     func viewDidload(){
         
+    }
+    func currentUserLogout(){
+        interactor.currentUserLogout { result in
+            switch result {
+            case.success(let bool):
+                print(bool)
+            case.failure(let error):
+                print(error)
+            }
+        }
     }
 }

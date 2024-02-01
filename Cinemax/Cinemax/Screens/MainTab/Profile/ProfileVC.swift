@@ -22,7 +22,7 @@ class ProfileVC: UIViewController {
     }
  
     @IBAction func logOutbtnPressed(_ sender: UIButton) {
-        
+        presenter?.currentUserLogout()
     }
     
 }
