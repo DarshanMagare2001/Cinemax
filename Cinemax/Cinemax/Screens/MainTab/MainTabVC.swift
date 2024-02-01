@@ -4,7 +4,6 @@
 //
 //  Created by IPS-161 on 24/01/24.
 //
-
 import UIKit
 
 class MainTabVC: UIViewController {
@@ -23,43 +22,11 @@ class MainTabVC: UIViewController {
     @IBOutlet weak var personBtnView: RoundedCornerView!
     @IBOutlet weak var personBtn: UIButton!
     
-    var isHomeTabShow = true {
-        didSet{
-            homeBtnLbl.isHidden = isHomeTabShow ? false : true
-            homeBtnView.backgroundColor = isHomeTabShow ? UIColor.appDark1! : UIColor.black
-            homeBtn.tintColor = isHomeTabShow ? UIColor.appBlue! : UIColor.gray
-            homeBtnLbl.textColor = isHomeTabShow ? UIColor.appBlue! : UIColor.black
+    var selectedTab: Tab = .home {
+        didSet {
+            updateTabUI()
         }
     }
-    
-    
-    var isSearchTabShow = true {
-        didSet{
-            searchBtnLbl.isHidden = isSearchTabShow ? false : true
-            searchBtnView.backgroundColor = isSearchTabShow ? UIColor.appDark1! : UIColor.black
-            searchBtn.tintColor = isSearchTabShow ? UIColor.appBlue! : UIColor.gray
-            searchBtnLbl.textColor = isSearchTabShow ? UIColor.appBlue! : UIColor.black
-        }
-    }
-    
-    var isDownloadTabShow = true {
-        didSet{
-            downloadBtnLbl.isHidden = isDownloadTabShow ? false : true
-            downloadBtnView.backgroundColor = isDownloadTabShow ? UIColor.appDark1! : UIColor.black
-            downloadBtn.tintColor = isDownloadTabShow ? UIColor.appBlue! : UIColor.gray
-            downloadBtnLbl.textColor = isDownloadTabShow ? UIColor.appBlue! : UIColor.black
-        }
-    }
-    
-    var isProfileTabShow = true {
-        didSet{
-            profileBtnLbl.isHidden = isProfileTabShow ? false : true
-            personBtnView.backgroundColor = isProfileTabShow ? UIColor.appDark1! : UIColor.black
-            personBtn.tintColor = isProfileTabShow ? UIColor.appBlue! : UIColor.gray
-            profileBtnLbl.textColor = isProfileTabShow ? UIColor.appBlue! : UIColor.black
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,44 +34,36 @@ class MainTabVC: UIViewController {
     }
     
     
-    @IBAction func homeBtnPressed(_ sender: UIButton) {
-        isHomeTabShow = true
-        isSearchTabShow = false
-        isDownloadTabShow = false
-        isProfileTabShow = false
+    @IBAction func tabBtnPressed(_ sender: UIButton) {
+        selectedTab = Tab(rawValue: sender.tag) ?? .home
     }
     
-    
-    @IBAction func searchBtnPressed(_ sender: UIButton) {
-        isHomeTabShow = false
-        isSearchTabShow = true
-        isDownloadTabShow = false
-        isProfileTabShow = false
-    }
-    
-    
-    @IBAction func downloadBtnPressed(_ sender: UIButton) {
-        isHomeTabShow = false
-        isSearchTabShow = false
-        isDownloadTabShow = true
-        isProfileTabShow = false
-    }
-    
-    
-    @IBAction func personBtnPressed(_ sender: UIButton) {
-        isHomeTabShow = false
-        isSearchTabShow = false
-        isDownloadTabShow = false
-        isProfileTabShow = true
-    }
     
 }
 
 extension MainTabVC {
-    private func setUpTabs(){
-        isHomeTabShow = true
-        isSearchTabShow = false
-        isDownloadTabShow = false
-        isProfileTabShow = false
+    private func setUpTabs() {
+        selectedTab = .home
     }
+    
+    private func updateTabUI() {
+        let tabs: [(UILabel, RoundedCornerView, UIButton)] = [
+            (homeBtnLbl, homeBtnView, homeBtn),
+            (searchBtnLbl, searchBtnView, searchBtn),
+            (downloadBtnLbl, downloadBtnView, downloadBtn),
+            (profileBtnLbl, personBtnView, personBtn)
+        ]
+        
+        for (label, view, button) in tabs {
+            let isSelectedTab = button.tag == selectedTab.rawValue
+            label.isHidden = !isSelectedTab
+            view.backgroundColor = isSelectedTab ? UIColor.appDark1! : UIColor.black
+            button.tintColor = isSelectedTab ? UIColor.appBlue! : UIColor.gray
+            label.textColor = isSelectedTab ? UIColor.appBlue! : UIColor.black
+        }
+    }
+}
+
+enum Tab: Int {
+    case home = 0, search, download, profile
 }
