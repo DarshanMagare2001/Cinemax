@@ -22,14 +22,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-PG-pon" userLabel="TabView">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-lc-CfC">
-                                        <rect key="frame" x="1" y="5" width="412.5" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-lc-CfC">
+                                        <rect key="frame" x="-7" y="5" width="428" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-g3-dlf" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M9u-51-wcr">
-                                                        <rect key="frame" x="10" y="5" width="70" height="40"/>
+                                                        <rect key="frame" x="10.5" y="5" width="70" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-E4-QUu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
@@ -64,10 +64,10 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
+                                                        <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +75,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-C7-YZc" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="95" y="0.0" width="96.5" height="50"/>
+                                                <rect key="frame" x="100.5" y="0.0" width="96.5" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yOz-dA-Fvq">
                                                         <rect key="frame" x="10" y="5" width="76.5" height="40"/>
@@ -116,15 +116,15 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
+                                                        <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wim-wX-QLI" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="196.5" y="0.0" width="118" height="50"/>
+                                                <rect key="frame" x="207" y="0.0" width="118" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="64v-Za-JcO">
                                                         <rect key="frame" x="10" y="5" width="98" height="40"/>
@@ -165,15 +165,15 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
+                                                        <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piV-dY-5ph" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="319.5" y="0.0" width="93" height="50"/>
+                                                <rect key="frame" x="335" y="0.0" width="93" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zvQ-MA-DAz">
                                                         <rect key="frame" x="10" y="5" width="73" height="40"/>
@@ -214,10 +214,10 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
+                                                        <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -254,7 +254,7 @@
                         <outlet property="homeBtnView" destination="0AF-g3-dlf" id="XxR-Fy-sK7"/>
                         <outlet property="mainView" destination="pS5-5p-EXG" id="8j1-Lk-lb4"/>
                         <outlet property="personBtn" destination="8FS-c3-45B" id="yn8-0r-1vI"/>
-                        <outlet property="personBtnView" destination="8FS-c3-45B" id="Pxf-9y-N67"/>
+                        <outlet property="personBtnView" destination="piV-dY-5ph" id="El8-yz-fMc"/>
                         <outlet property="profileBtnLbl" destination="K0P-83-A8j" id="IYx-Km-b7L"/>
                         <outlet property="searchBtn" destination="1oJ-S0-cEP" id="Ynv-Ni-fat"/>
                         <outlet property="searchBtnLbl" destination="L7F-ci-i9H" id="eYL-j7-Mn1"/>

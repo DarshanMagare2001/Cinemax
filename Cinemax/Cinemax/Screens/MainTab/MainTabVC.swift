@@ -25,13 +25,42 @@ class MainTabVC: UIViewController {
     
     var isHomeTabShow = true {
         didSet{
-            homeBtnView.borderColor = isHomeTabShow ? UIColor.appBlue! : UIColor.black
+            homeBtnLbl.isHidden = isHomeTabShow ? false : true
             homeBtnView.backgroundColor = isHomeTabShow ? UIColor.appDark1! : UIColor.black
-            homeBtn.tintColor = isHomeTabShow ? UIColor.appBlue! : UIColor.black
+            homeBtn.tintColor = isHomeTabShow ? UIColor.appBlue! : UIColor.gray
             homeBtnLbl.textColor = isHomeTabShow ? UIColor.appBlue! : UIColor.black
         }
     }
-   
+    
+    
+    var isSearchTabShow = true {
+        didSet{
+            searchBtnLbl.isHidden = isSearchTabShow ? false : true
+            searchBtnView.backgroundColor = isSearchTabShow ? UIColor.appDark1! : UIColor.black
+            searchBtn.tintColor = isSearchTabShow ? UIColor.appBlue! : UIColor.gray
+            searchBtnLbl.textColor = isSearchTabShow ? UIColor.appBlue! : UIColor.black
+        }
+    }
+    
+    var isDownloadTabShow = true {
+        didSet{
+            downloadBtnLbl.isHidden = isDownloadTabShow ? false : true
+            downloadBtnView.backgroundColor = isDownloadTabShow ? UIColor.appDark1! : UIColor.black
+            downloadBtn.tintColor = isDownloadTabShow ? UIColor.appBlue! : UIColor.gray
+            downloadBtnLbl.textColor = isDownloadTabShow ? UIColor.appBlue! : UIColor.black
+        }
+    }
+    
+    var isProfileTabShow = true {
+        didSet{
+            profileBtnLbl.isHidden = isProfileTabShow ? false : true
+            personBtnView.backgroundColor = isProfileTabShow ? UIColor.appDark1! : UIColor.black
+            personBtn.tintColor = isProfileTabShow ? UIColor.appBlue! : UIColor.gray
+            profileBtnLbl.textColor = isProfileTabShow ? UIColor.appBlue! : UIColor.black
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabs()
@@ -39,22 +68,34 @@ class MainTabVC: UIViewController {
     
     
     @IBAction func homeBtnPressed(_ sender: UIButton) {
-        
+        isHomeTabShow = true
+        isSearchTabShow = false
+        isDownloadTabShow = false
+        isProfileTabShow = false
     }
     
     
     @IBAction func searchBtnPressed(_ sender: UIButton) {
-        
+        isHomeTabShow = false
+        isSearchTabShow = true
+        isDownloadTabShow = false
+        isProfileTabShow = false
     }
     
     
     @IBAction func downloadBtnPressed(_ sender: UIButton) {
-        
+        isHomeTabShow = false
+        isSearchTabShow = false
+        isDownloadTabShow = true
+        isProfileTabShow = false
     }
     
     
     @IBAction func personBtnPressed(_ sender: UIButton) {
-        
+        isHomeTabShow = false
+        isSearchTabShow = false
+        isDownloadTabShow = false
+        isProfileTabShow = true
     }
     
 }
@@ -62,9 +103,8 @@ class MainTabVC: UIViewController {
 extension MainTabVC {
     private func setUpTabs(){
         isHomeTabShow = true
-        homeBtnLbl.isHidden = false
-        searchBtnLbl.isHidden = true
-        downloadBtnLbl.isHidden = true
-        profileBtnLbl.isHidden = true
+        isSearchTabShow = false
+        isDownloadTabShow = false
+        isProfileTabShow = false
     }
 }
