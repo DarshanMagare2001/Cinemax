@@ -843,9 +843,20 @@
                                                         <rect key="frame" x="0.0" y="1.5" width="100" height="97"/>
                                                         <color key="tintColor" name="AppBlue"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiw-9r-lDF">
+                                                        <rect key="frame" x="70" y="70" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="ezb-jP-WBY"/>
+                                                            <constraint firstAttribute="width" constant="30" id="xzg-NC-Q0a"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="AppEditProfileBtn"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="kiw-9r-lDF" secondAttribute="trailing" id="9vt-wN-5iq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="kiw-9r-lDF" secondAttribute="bottom" id="CQC-8h-Fed"/>
                                                     <constraint firstAttribute="bottom" secondItem="qks-55-sh6" secondAttribute="bottom" id="k1P-og-PPg"/>
                                                     <constraint firstAttribute="trailing" secondItem="qks-55-sh6" secondAttribute="trailing" id="nAk-x8-Xa7"/>
                                                     <constraint firstItem="qks-55-sh6" firstAttribute="top" secondItem="BkN-va-mY6" secondAttribute="top" id="p3J-jF-VTT"/>
@@ -863,7 +874,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="EeS-Zr-Wf2"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                                        <color key="textColor" name="AppBlue"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiffanyjearsey@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="aip-d2-8Or">
@@ -872,7 +883,7 @@
                                                             <constraint firstAttribute="height" constant="20" id="8Qa-3q-efw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                        <color key="textColor" name="AppBlue"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -913,6 +924,7 @@
     <resources>
         <image name="AppAlertBtn" width="24" height="24"/>
         <image name="AppBanner" width="327" height="110"/>
+        <image name="AppEditProfileBtn" width="32" height="32"/>
         <image name="AppFlagBtn" width="20" height="20"/>
         <image name="AppGlobeBtn" width="24" height="24"/>
         <image name="AppLockBtn" width="20" height="20"/>
