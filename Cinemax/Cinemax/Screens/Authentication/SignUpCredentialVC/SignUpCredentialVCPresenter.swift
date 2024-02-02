@@ -68,7 +68,7 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                 switch result {
                 case.success(let bool):
                     print(bool)
-                    self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
+                    self?.interactor.saveUsersDataToUserdefault(name: name, email: email, password: password)
                     self?.saveUserDataToServer(name: name, email: email, completion: { [weak self] in
                         self?.hideLoader()
                         DispatchQueue.main.async { [weak self] in
@@ -92,16 +92,6 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                 }
             }
         }
-    }
-    
-    private func saveUsersDataToUserdefault(name:String?,email: String?, password: String?){
-        guard let name = name , let email = email , let password = password , let currentUid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPassword, data: password) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
     }
     
     private func showLoader(){
