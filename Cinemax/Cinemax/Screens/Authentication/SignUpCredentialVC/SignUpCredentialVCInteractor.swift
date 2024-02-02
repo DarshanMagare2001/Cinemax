@@ -43,7 +43,7 @@ extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
     }
     
     func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure ){
-        StoreUserServerManager.shared.storeCurrentUserDataToServer(name: name, email: email) { result in
+        StoreUserServerManager.shared.storeCurrentUserDataToServerNameAndEmail(name: name, email: email) { result in
             completion(result)
         }
     }

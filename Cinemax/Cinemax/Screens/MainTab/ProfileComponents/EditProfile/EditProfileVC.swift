@@ -62,7 +62,7 @@ extension EditProfileVC : EditProfileVCProtocol {
                 case .photo(let photo):
                     let image = photo.image
                     self?.currentUserProfileImg.image = image
-                    //                    self?.saveProfileImage(image:image)
+                    self?.presenter?.saveCurrentUserImgToFirebaseStorageAndDatabase(image: image)
                 case .video(let video):
                     break
                 }

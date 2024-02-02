@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
+import UIKit
 
 typealias EscapingResultBoolErrorClosure = (Result<Bool, Error>)->()
 
@@ -17,7 +19,7 @@ public final class StoreUserServerManager {
     
     // MARK: - Store Current UserName And Email To Server
     
-    func storeCurrentUserDataToServer(name: String?, email: String?, completion: @escaping EscapingResultBoolErrorClosure) {
+    func storeCurrentUserDataToServerNameAndEmail(name: String?, email: String?, completion: @escaping EscapingResultBoolErrorClosure) {
         guard let currentUserId = Auth.auth().currentUser?.uid, let name = name, let email = email else {
             completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
@@ -38,6 +40,61 @@ public final class StoreUserServerManager {
             }
         }
         
+    }
+    
+    // MARK: - Save Current User Image To FirebaseStorage
+    
+    func saveCurrentUserImageToFirebaseStorage(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void){
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        if let uid = Auth.auth().currentUser?.uid {
+            let profileImagesRef = storageRef.child("profile_images/\(uid)")
+            let imageFileName = "\(UUID().uuidString).jpg"
+            if let imageData = image.jpegData(compressionQuality: 0.8) {
+                let imageRef = profileImagesRef.child(imageFileName)
+                let uploadTask = imageRef.putData(imageData, metadata: nil) { metadata, error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        imageRef.downloadURL { url, error in
+                            if let downloadURL = url {
+                                completion(.success(downloadURL))
+                                print(url)
+                            } else {
+                                if let error = error {
+                                    completion(.failure(error))
+                                }
+                            }
+                        }
+                    }
+                }
+                uploadTask.observe(.progress) { snapshot in
+                }
+            }
+        }
+    }
+    
+    // MARK: - Save Current User Image To FirebaseStorage
+    
+    func saveCurrentUserImageToFirebaseStorage(url: String?, completion:@escaping(Result<Bool,Error>)->()){
+        guard let profileImgUrl = url else {
+            completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "Url error."])))
+            return
+        }
+        let db = Firestore.firestore()
+        if let currentUserId = Auth.auth().currentUser?.uid{
+            let userRef = db.collection("users").document(currentUserId)
+            // Create a dictionary with both the uid and fcmToken
+            let data: [String: Any] = ["profileImgUrl": profileImgUrl]
+            // Set the document with the combined data
+            userRef.setData(data, merge: true) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(true))
+                }
+            }
+        }
     }
     
 }

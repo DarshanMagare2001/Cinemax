@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EditProfileVCPresenterProtocol {
     func viewDidload()
+    func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage)
 }
 
 class EditProfileVCPresenter {
@@ -31,6 +33,17 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
         if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
            let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail){
             self.view?.setupUI(name: name, email: email)
+        }
+    }
+    
+    func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage){
+        interactor.saveCurrentUserImgToFirebaseStorageAndDatabase(image: image) { result in
+            switch result{
+            case.success(let bool):
+                print(bool)
+            case.failure(let error):
+                print(error)
+            }
         }
     }
 }
