@@ -8,11 +8,16 @@
 import UIKit
 
 protocol EditProfileVCProtocol : class {
-    
+    func setupUI(name:String,email:String)
 }
 
 class EditProfileVC: UIViewController {
 
+    @IBOutlet weak var fullNameTxtFld: UITextField!
+    @IBOutlet weak var fullnameWarningLbl: RoundedLabelWithBorder!
+    @IBOutlet weak var currentUserName: UILabel!
+    @IBOutlet weak var currentUserEmailLbl: UILabel!
+    
     var presenter: EditProfileVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -20,12 +25,25 @@ class EditProfileVC: UIViewController {
         presenter?.viewDidload()
     }
 
-    func backBtnPressed(){
-        navigationController?.popViewController(animated: true)
+    @IBAction func saveBtnPressed(_ sender: UIButton) {
+        
     }
-
+    
+    @IBAction func profileImgEditBtn(_ sender: UIButton) {
+        
+    }
+    
 }
 
 extension EditProfileVC : EditProfileVCProtocol {
+
+    func setupUI(name:String,email:String){
+        currentUserName.text = name
+        currentUserEmailLbl.text = email
+    }
+    
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
     
 }
