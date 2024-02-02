@@ -9,9 +9,13 @@ import UIKit
 
 protocol ProfileVCProtocol : class {
     func errorAlert(message:String)
+    func updateUI(name:String , email: String)
 }
 
 class ProfileVC: UIViewController {
+    
+    @IBOutlet weak var currentUserName: UILabel!
+    @IBOutlet weak var currentUserEmail: UILabel!
     
     var presenter : ProfileVCPresenterProtocol?
     
@@ -36,6 +40,11 @@ extension ProfileVC : ProfileVCProtocol {
     
     func errorAlert(message:String){
         Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    }
+    
+    func updateUI(name:String , email: String){
+        currentUserName.text = name
+        currentUserEmail.text = email
     }
     
 }

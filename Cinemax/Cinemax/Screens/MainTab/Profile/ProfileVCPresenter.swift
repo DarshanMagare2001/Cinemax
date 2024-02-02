@@ -27,7 +27,9 @@ class ProfileVCPresenter {
 extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     func viewDidload(){
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.updateUI()
+        }
     }
     
     func currentUserLogout(){
@@ -56,6 +58,13 @@ extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     func goToSignupVC(){
         router.goToSignupVC()
+    }
+    
+    private func updateUI(){
+        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
+           let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail){
+            self.view?.updateUI(name: name, email: email)
+        }
     }
     
 }

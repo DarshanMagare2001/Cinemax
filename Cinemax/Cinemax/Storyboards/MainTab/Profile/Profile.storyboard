@@ -758,6 +758,10 @@
                             <constraint firstItem="vCU-5h-BNe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="mNI-ag-lPf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentUserEmail" destination="pWI-83-l8m" id="nvz-RO-tMh"/>
+                        <outlet property="currentUserName" destination="oLZ-yc-sju" id="zyB-9S-loV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" id="hUF-U8-Lho">
@@ -819,6 +823,9 @@
     <designables>
         <designable name="9ix-Ff-pgW">
             <size key="intrinsicContentSize" width="48" height="38"/>
+        </designable>
+        <designable name="aVD-ri-yIa">
+            <size key="intrinsicContentSize" width="96.5" height="38"/>
         </designable>
     </designables>
     <resources>
