@@ -16,6 +16,7 @@ enum AuthenticationError : Error {
 
 protocol SignUpCredentialVCInteractorProtocol {
     func signUp(email: String?, password: String?, completion: @escaping (Result<Bool,AuthenticationError>) -> Void)
+    func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure )
 }
 
 class SignUpCredentialVCInteractor {
@@ -37,6 +38,12 @@ extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
             }
             print("Sign-up successful with email: \(email)")
             completion(.success(true))
+        }
+    }
+    
+    func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure ){
+        StoreUserServerManager.shared.storeCurrentUserDataToServer(name: name, email: email) { result in
+            completion(result)
         }
     }
     

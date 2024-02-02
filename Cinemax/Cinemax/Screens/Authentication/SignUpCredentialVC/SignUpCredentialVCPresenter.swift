@@ -69,10 +69,12 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                 case.success(let bool):
                     print(bool)
                     self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
-                    self?.hideLoader()
-                    DispatchQueue.main.async { [weak self] in
-                        self?.goToMainTabVC()
-                    }
+                    self?.saveUserDataToServer(name: name, email: email, completion: { [weak self] in
+                        self?.hideLoader()
+                        DispatchQueue.main.async { [weak self] in
+                            self?.goToMainTabVC()
+                        }
+                    })
                 case.failure(let error):
                     switch error {
                     case .invalidCredentials:
@@ -112,6 +114,19 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     
     func goToMainTabVC(){
         router.goToMainTabVC()
+    }
+    
+    func saveUserDataToServer(name: String?, email: String?,completion:@escaping()->()){
+        interactor.saveUserDataToServer(name: name, email: email) { result in
+            switch result {
+            case.success(let bool):
+                print(bool)
+                completion()
+            case.failure(let error):
+                print(error)
+                completion()
+            }
+        }
     }
     
 }
