@@ -17,7 +17,7 @@ enum AuthenticationError : Error {
 protocol SignUpCredentialVCInteractorProtocol {
     func signUp(email: String?, password: String?, completion: @escaping (Result<Bool,AuthenticationError>) -> Void)
     func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure)
-    func saveUsersDataToUserdefault(name:String?,email: String?, password: String?)
+    func saveUsersDataToUserdefault(name:String?,email: String?)
 }
 
 class SignUpCredentialVCInteractor {
@@ -48,13 +48,12 @@ extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
         }
     }
     
-    func saveUsersDataToUserdefault(name:String?,email: String?, password: String?){
-        guard let name = name , let email = email , let password = password , let currentUid = Auth.auth().currentUser?.uid else {
+    func saveUsersDataToUserdefault(name:String?,email: String?){
+        guard let name = name , let email = email, let currentUid = Auth.auth().currentUser?.uid else {
             return
         }
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPassword, data: password) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
     }
     

@@ -68,7 +68,7 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                 switch result {
                 case.success(let bool):
                     print(bool)
-                    self?.interactor.saveUsersDataToUserdefault(name: name, email: email, password: password)
+                    self?.interactor.saveUsersDataToUserdefault(name: name, email: email)
                     self?.saveUserDataToServer(name: name, email: email, completion: { [weak self] in
                         self?.hideLoader()
                         DispatchQueue.main.async { [weak self] in

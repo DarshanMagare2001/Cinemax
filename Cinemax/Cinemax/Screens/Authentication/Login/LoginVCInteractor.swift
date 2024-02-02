@@ -11,6 +11,7 @@ import FirebaseAuth
 protocol LoginVCInteractorProtocol {
     func signIn(email: String?, password: String?, completion: @escaping (Result<Bool,AuthenticationError>) -> Void)
     func fetchCurrentUserFromFirebase(completion: @escaping (Result<UserServerModel?, Error>) -> Void)
+    func saveUsersDataToUserdefault(user:UserServerModel?)
 }
 
 class LoginVCInteractor {
@@ -40,5 +41,15 @@ extension LoginVCInteractor: LoginVCInteractorProtocol {
             completion(result)
         }
     }
+    
+    func saveUsersDataToUserdefault(user:UserServerModel?){
+        guard let user = user , let name = user.name , let email = user.email , let currentUid = user.uid else {
+            return
+        }
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
+    }
+    
     
 }

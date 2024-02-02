@@ -66,11 +66,11 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
                 switch result {
                 case.success(let bool):
                     print(bool)
-                    //                    self?.saveUsersDataToUserdefault(name: name, email: email, password: password)
-                    self?.fetchCurrentUserFromFirebase()
-                    self?.hideLoader()
-                    DispatchQueue.main.async { [weak self] in
-                        self?.goToMainTabVC()
+                    self?.fetchCurrentUserFromFirebase{
+                        DispatchQueue.main.async { [weak self] in
+                            self?.hideLoader()
+                            self?.goToMainTabVC()
+                        }
                     }
                 case.failure(let error):
                     switch error {
@@ -108,13 +108,15 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
         router.goToMainTabVC()
     }
     
-    func fetchCurrentUserFromFirebase(){
+    func fetchCurrentUserFromFirebase(completion:@escaping()->()){
         interactor.fetchCurrentUserFromFirebase { result in
             switch result{
             case.success(let user):
-                print(user)
+                self.interactor.saveUsersDataToUserdefault(user: user)
+                completion()
             case.failure(let error):
                 print(error)
+                completion()
             }
         }
     }

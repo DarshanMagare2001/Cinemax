@@ -12,7 +12,6 @@ public final class UserdefaultRepositoryManager {
         case isOnboardingDone = "isOnboardingDone"
         case currentUsersName = "currentUsersName"
         case currentUsersEmail = "currentUsersEmail"
-        case currentUsersPassword = "currentUsersPassword"
         case currentUsersUid = "currentUsersUid"
     }
     
