@@ -10,6 +10,7 @@ import FirebaseAuth
 
 protocol LoginVCInteractorProtocol {
     func signIn(email: String?, password: String?, completion: @escaping (Result<Bool,AuthenticationError>) -> Void)
+    func fetchCurrentUserFromFirebase(completion: @escaping (Result<UserServerModel?, Error>) -> Void)
 }
 
 class LoginVCInteractor {
@@ -31,6 +32,12 @@ extension LoginVCInteractor: LoginVCInteractorProtocol {
             }
             print("Sign-in successful with email: \(email)")
             completion(.success(true))
+        }
+    }
+    
+    func fetchCurrentUserFromFirebase(completion: @escaping (Result<UserServerModel?, Error>) -> Void){
+        FetchUserServerManager.shared.fetchCurrentUserFromFirebase { result in
+            completion(result)
         }
     }
     

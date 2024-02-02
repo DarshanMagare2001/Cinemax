@@ -15,7 +15,7 @@ public final class StoreUserServerManager {
     static let shared = StoreUserServerManager()
     private init(){}
     
-    // MARK: - storeCurrentUserNameAndEmailToServer
+    // MARK: - Store Current UserName And Email To Server
     
     func storeCurrentUserDataToServer(name: String?, email: String?, completion: @escaping EscapingResultBoolErrorClosure) {
         guard let currentUserId = Auth.auth().currentUser?.uid, let name = name, let email = email else {
