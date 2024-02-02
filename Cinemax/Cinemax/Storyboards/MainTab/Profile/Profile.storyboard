@@ -1044,6 +1044,7 @@
                     <connections>
                         <outlet property="currentUserEmailLbl" destination="aip-d2-8Or" id="oc6-ON-XRF"/>
                         <outlet property="currentUserName" destination="qOj-Hg-gq3" id="ie7-0c-Sqz"/>
+                        <outlet property="currentUserProfileImg" destination="qks-55-sh6" id="64y-Xv-KDA"/>
                         <outlet property="fullNameTxtFld" destination="Osk-sc-mb8" id="Rc6-t2-nNB"/>
                         <outlet property="fullnameWarningLbl" destination="Crg-jg-Xw3" id="CB4-U0-HK7"/>
                     </connections>

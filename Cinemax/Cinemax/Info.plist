@@ -32,5 +32,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>we need your permission to access camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>we need your permission to access Library</string>
 </dict>
 </plist>

@@ -68,6 +68,8 @@
 		13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */; };
 		13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */; };
 		13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E64B2B6D0FFF003DD382 /* EditProfileVCPresenter.swift */; };
+		13B1E64F2B6D1D96003DD382 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 13B1E64E2B6D1D96003DD382 /* YPImagePicker */; };
+		13B1E6512B6D1E3C003DD382 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6502B6D1E3C003DD382 /* UIViewController+Extensions.swift */; };
 		13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */; };
 		13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */; };
 		13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F7B2B62961D005EDA19 /* LoginVC.swift */; };
@@ -144,6 +146,7 @@
 		13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCBuilder.swift; sourceTree = "<group>"; };
 		13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCInteractor.swift; sourceTree = "<group>"; };
 		13B1E64B2B6D0FFF003DD382 /* EditProfileVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCPresenter.swift; sourceTree = "<group>"; };
+		13B1E6502B6D1E3C003DD382 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultRepository.swift; sourceTree = "<group>"; };
 		13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultRepositoryManager.swift; sourceTree = "<group>"; };
 		13BA5F7B2B62961D005EDA19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 				1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */,
 				131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */,
 				1398F0B42B68BCED00D58906 /* FirebaseFirestore in Frameworks */,
+				13B1E64F2B6D1D96003DD382 /* YPImagePicker in Frameworks */,
 				1398F0B62B68BCED00D58906 /* FirebaseFirestoreSwift in Frameworks */,
 				1398F0C22B68EABC00D58906 /* RxSwift in Frameworks */,
 			);
@@ -389,6 +393,7 @@
 				139C22772B6129DD0082DBDD /* Storyboards+Extensions.swift */,
 				139C228B2B612F780082DBDD /* UIColors+Extensions.swift */,
 				1398F0C32B68EBB000D58906 /* String+Extensions.swift */,
+				13B1E6502B6D1E3C003DD382 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				1398F0C12B68EABC00D58906 /* RxSwift */,
 				131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */,
 				131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */,
+				13B1E64E2B6D1D96003DD382 /* YPImagePicker */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -699,6 +705,7 @@
 				1398F0AC2B68BCED00D58906 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				13B1E64D2B6D1D96003DD382 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -806,6 +813,7 @@
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
 				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
+				13B1E6512B6D1E3C003DD382 /* UIViewController+Extensions.swift in Sources */,
 				13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */,
 				134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */,
 				13C74DDE2B6B6252009CA6DB /* HomeVCBuilder.swift in Sources */,
@@ -1086,6 +1094,14 @@
 				version = 6.6.0;
 			};
 		};
+		13B1E64D2B6D1D96003DD382 /* XCRemoteSwiftPackageReference "YPImagePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yummypets/YPImagePicker.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1148,6 +1164,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		13B1E64E2B6D1D96003DD382 /* YPImagePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13B1E64D2B6D1D96003DD382 /* XCRemoteSwiftPackageReference "YPImagePicker" */;
+			productName = YPImagePicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
