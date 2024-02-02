@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileVCRouterProtocol {
     func goToSignupVC()
+    func goToEditProfileVC()
 }
 
 class ProfileVCRouter {
@@ -28,5 +29,11 @@ extension ProfileVCRouter: ProfileVCRouterProtocol {
             window.makeKeyAndVisible()
         }
     }
+    
+    func goToEditProfileVC(){
+        let editProfileVC = EditProfileVCBuilder.build()
+        viewController.navigationController?.pushViewController(editProfileVC, animated: true)
+    }
+    
 }
 

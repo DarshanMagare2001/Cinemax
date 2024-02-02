@@ -28,6 +28,10 @@ class ProfileVC: UIViewController {
         confirmBox()
     }
     
+    @IBAction func editBtnPressed(_ sender: UIButton) {
+        presenter?.goToEditProfileVC()
+    }
+    
 }
 
 extension ProfileVC : ProfileVCProtocol {

@@ -64,6 +64,10 @@
 		139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */; };
 		139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22982B6144110082DBDD /* OnboardingVCEntity.swift */; };
 		139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */; };
+		13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */; };
+		13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */; };
+		13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */; };
+		13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E64B2B6D0FFF003DD382 /* EditProfileVCPresenter.swift */; };
 		13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */; };
 		13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */; };
 		13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA5F7B2B62961D005EDA19 /* LoginVC.swift */; };
@@ -136,6 +140,10 @@
 		139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCPresenter.swift; sourceTree = "<group>"; };
 		139C22982B6144110082DBDD /* OnboardingVCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCEntity.swift; sourceTree = "<group>"; };
 		139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCRouter.swift; sourceTree = "<group>"; };
+		13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCBuilder.swift; sourceTree = "<group>"; };
+		13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCInteractor.swift; sourceTree = "<group>"; };
+		13B1E64B2B6D0FFF003DD382 /* EditProfileVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCPresenter.swift; sourceTree = "<group>"; };
 		13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultRepository.swift; sourceTree = "<group>"; };
 		13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultRepositoryManager.swift; sourceTree = "<group>"; };
 		13BA5F7B2B62961D005EDA19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -370,7 +378,7 @@
 				13C74DDA2B6B6204009CA6DB /* Home */,
 				13C74DDF2B6B62C1009CA6DB /* Search */,
 				13C74DE42B6B633C009CA6DB /* Download */,
-				13C74DE52B6B6346009CA6DB /* Profile */,
+				13B1E6432B6D0DCA003DD382 /* ProfileComponents */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
@@ -464,6 +472,26 @@
 				131A9B332B6A1469007A4D55 /* Alert.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13B1E6432B6D0DCA003DD382 /* ProfileComponents */ = {
+			isa = PBXGroup;
+			children = (
+				13C74DE52B6B6346009CA6DB /* Profile */,
+				13B1E6442B6D0DDD003DD382 /* EditProfile */,
+			);
+			path = ProfileComponents;
+			sourceTree = "<group>";
+		};
+		13B1E6442B6D0DDD003DD382 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */,
+				13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */,
+				13B1E64B2B6D0FFF003DD382 /* EditProfileVCPresenter.swift */,
+				13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		13BA5F732B627E09005EDA19 /* Repository */ = {
@@ -765,13 +793,16 @@
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
 				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
 				134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */,
+				13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */,
 				134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */,
 				134ECC282B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
+				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
 				13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */,
 				13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */,
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
+				13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
 				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
@@ -791,6 +822,7 @@
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
 				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
 				13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */,
+				13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,

@@ -11,6 +11,7 @@ protocol ProfileVCPresenterProtocol {
     func viewDidload()
     func currentUserLogout()
     func goToSignupVC()
+    func goToEditProfileVC()
 }
 
 class ProfileVCPresenter {
@@ -65,6 +66,10 @@ extension ProfileVCPresenter: ProfileVCPresenterProtocol {
            let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail){
             self.view?.updateUI(name: name, email: email)
         }
+    }
+    
+    func goToEditProfileVC(){
+        router.goToEditProfileVC()
     }
     
 }
