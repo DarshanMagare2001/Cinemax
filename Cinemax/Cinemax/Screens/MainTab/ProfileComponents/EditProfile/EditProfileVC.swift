@@ -8,9 +8,13 @@
 import UIKit
 import YPImagePicker
 import SwiftUI
+import RxSwift
 
 protocol EditProfileVCProtocol : class {
     func setupUI(name:String,email:String)
+    func setupInputs()
+    func setupWarningLbls()
+    func setUpBinding()
     func errorMsgAlert(error:String)
 }
 
@@ -21,13 +25,17 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var currentUserName: UILabel!
     @IBOutlet weak var currentUserEmailLbl: UILabel!
     @IBOutlet weak var currentUserProfileImg: CircleImageView!
+    @IBOutlet weak var saveChangesBtn: RoundedButton!
     
-    var presenter: EditProfileVCPresenterProtocol?
+    var presenter : EditProfileVCPresenterProtocol?
+    var presenterProducer : EditProfileVCPresenterProtocol.Producer!
     var config = YPImagePickerConfiguration()
     var imgPicker = YPImagePicker()
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInputs()
         presenter?.viewDidload()
     }
     
@@ -44,6 +52,27 @@ class EditProfileVC: UIViewController {
 }
 
 extension EditProfileVC : EditProfileVCProtocol {
+    
+    func setupWarningLbls(){
+        fullnameWarningLbl.isHidden = true
+    }
+    
+    func setupInputs(){
+        presenter = presenterProducer((
+            fullName: fullNameTxtFld.rx.text.orEmpty.asDriver(),
+            login: saveChangesBtn.rx.tap.asDriver()
+        ))
+    }
+    
+    func setUpBinding(){
+        presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
+            .drive(saveChangesBtn.rx.isEnabled)
+            .disposed(by: bag)
+        
+        presenter?.output.fullNameWarning.debug("Enable Login Driver" , trimOutput: false)
+            .drive(fullnameWarningLbl.rx.isHidden)
+            .disposed(by: bag)
+    }
     
     func setupUI(name:String,email:String){
         currentUserName.text = name

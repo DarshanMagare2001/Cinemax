@@ -7,25 +7,49 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
 protocol EditProfileVCPresenterProtocol {
     func viewDidload()
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage)
     func updateCurrentuseerNameInDatabase(name: String?,completion:@escaping()->())
+    
+    typealias Input = (
+        fullName : Driver<String>,
+        login:Driver<Void>
+    )
+    
+    typealias Output = (
+        enableLogin : Driver<Bool>,
+        fullNameWarning: Driver<Bool>
+    )
+    
+    typealias Producer = (EditProfileVCPresenterProtocol.Input) -> EditProfileVCPresenterProtocol
+    
+    var input : Input { get }
+    var output : Output { get }
+    
 }
 
 class EditProfileVCPresenter {
     weak var view: EditProfileVCProtocol?
     var interactor: EditProfileVCInteractorProtocol
-    init(view: EditProfileVCProtocol,interactor: EditProfileVCInteractorProtocol){
+    var input:Input
+    var output:Output
+    init(view: EditProfileVCProtocol,interactor: EditProfileVCInteractorProtocol,input:Input){
         self.view = view
         self.interactor = interactor
+        self.input = input
+        self.output = EditProfileVCPresenter.output(input: input)
     }
 }
 
 extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
+            self?.view?.setUpBinding()
+            self?.view?.setupWarningLbls()
             self?.setupUI()
         }
     }
@@ -91,3 +115,15 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     
 }
 
+private extension EditProfileVCPresenter {
+    
+    static func output(input:Input) -> Output {
+        let enableLoginDriver =  input.fullName.map { !$0.isEmpty }
+        let fullNameWarningDriver = input.fullName.map { !$0.isEmpty }
+        return (
+            enableLogin : enableLoginDriver,
+            fullNameWarning: fullNameWarningDriver
+        )
+    }
+    
+}

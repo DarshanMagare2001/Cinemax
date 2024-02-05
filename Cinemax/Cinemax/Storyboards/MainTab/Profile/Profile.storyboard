@@ -1047,6 +1047,7 @@
                         <outlet property="currentUserProfileImg" destination="qks-55-sh6" id="64y-Xv-KDA"/>
                         <outlet property="fullNameTxtFld" destination="Osk-sc-mb8" id="Rc6-t2-nNB"/>
                         <outlet property="fullnameWarningLbl" destination="Crg-jg-Xw3" id="CB4-U0-HK7"/>
+                        <outlet property="saveChangesBtn" destination="OOT-nx-LAS" id="xaA-RR-eLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVZ-DS-DGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

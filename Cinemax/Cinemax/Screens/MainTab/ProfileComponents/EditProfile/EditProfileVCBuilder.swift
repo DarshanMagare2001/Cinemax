@@ -16,8 +16,9 @@ public final class EditProfileVCBuilder {
         let storyboard = UIStoryboard.Profile
         let editProfileVC = storyboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
         let interactor = EditProfileVCInteractor()
-        let presenter = EditProfileVCPresenter(view: editProfileVC, interactor: interactor)
-        editProfileVC.presenter = presenter
+        editProfileVC.presenterProducer = {
+            EditProfileVCPresenter(view: editProfileVC, interactor: interactor, input: $0)
+        }
         editProfileVC.title = "EditProfile"
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         editProfileVC.navigationItem.leftBarButtonItem = backButton
