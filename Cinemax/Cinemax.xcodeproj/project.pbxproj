@@ -91,8 +91,10 @@
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
-		13F6EE5F2B70F38A006452E2 /* MoviesServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE5E2B70F38A006452E2 /* MoviesServiceManager.swift */; };
+		13F6EE5F2B70F38A006452E2 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE5E2B70F38A006452E2 /* MoviesService.swift */; };
 		13F6EE622B70F3E9006452E2 /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */; };
+		13F6EE642B710131006452E2 /* MoviesServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE632B710131006452E2 /* MoviesServiceManager.swift */; };
+		13F6EE662B7103B0006452E2 /* UpcomingMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,8 +173,10 @@
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
 		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		13F6EE5E2B70F38A006452E2 /* MoviesServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceManager.swift; sourceTree = "<group>"; };
+		13F6EE5E2B70F38A006452E2 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
+		13F6EE632B710131006452E2 /* MoviesServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceManager.swift; sourceTree = "<group>"; };
+		13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesModel.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -642,8 +646,9 @@
 			isa = PBXGroup;
 			children = (
 				13F6EE5C2B70F350006452E2 /* Model */,
-				13F6EE602B70F3CE006452E2 /* MoviesRouter */,
-				13F6EE5D2B70F356006452E2 /* MoviesServiceManager */,
+				13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */,
+				13F6EE5E2B70F38A006452E2 /* MoviesService.swift */,
+				13F6EE632B710131006452E2 /* MoviesServiceManager.swift */,
 			);
 			path = MoviesService;
 			sourceTree = "<group>";
@@ -651,24 +656,9 @@
 		13F6EE5C2B70F350006452E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		13F6EE5D2B70F356006452E2 /* MoviesServiceManager */ = {
-			isa = PBXGroup;
-			children = (
-				13F6EE5E2B70F38A006452E2 /* MoviesServiceManager.swift */,
-			);
-			path = MoviesServiceManager;
-			sourceTree = "<group>";
-		};
-		13F6EE602B70F3CE006452E2 /* MoviesRouter */ = {
-			isa = PBXGroup;
-			children = (
-				13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */,
-			);
-			path = MoviesRouter;
 			sourceTree = "<group>";
 		};
 		512A217EC32A23174C44CAC4 /* Frameworks */ = {
@@ -868,12 +858,14 @@
 				13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */,
 				134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */,
 				13C74DDE2B6B6252009CA6DB /* HomeVCBuilder.swift in Sources */,
+				13F6EE642B710131006452E2 /* MoviesServiceManager.swift in Sources */,
 				134ECC0F2B67760E004BCAC2 /* SignUpCredentialVC.swift in Sources */,
 				13C74DEB2B6B63CD009CA6DB /* ProfileVC.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
 				134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
 				13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */,
+				13F6EE662B7103B0006452E2 /* UpcomingMoviesModel.swift in Sources */,
 				13C74DE72B6B635C009CA6DB /* DownloadVC.swift in Sources */,
 				13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */,
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
@@ -891,7 +883,7 @@
 				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
 				134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */,
-				13F6EE5F2B70F38A006452E2 /* MoviesServiceManager.swift in Sources */,
+				13F6EE5F2B70F38A006452E2 /* MoviesService.swift in Sources */,
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
