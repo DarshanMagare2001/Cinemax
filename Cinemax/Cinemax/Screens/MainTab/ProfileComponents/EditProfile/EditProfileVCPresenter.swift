@@ -37,14 +37,29 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     }
     
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage){
-        interactor.saveCurrentUserImgToFirebaseStorageAndDatabase(image: image) { result in
-            switch result{
-            case.success(let bool):
-                print(bool)
-            case.failure(let error):
-                print(error)
+        DispatchQueue.main.async { [weak self] in
+            Loader.shared.showLoader(type: .lineScale, color: .white)
+        }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.saveCurrentUserImgToFirebaseStorageAndDatabase(image: image) { result in
+                switch result{
+                case.success(let bool):
+                    print(bool)
+                    DispatchQueue.main.async { [weak self] in
+                        Loader.shared.hideLoader()
+                    }
+                case.failure(let error):
+                    print(error)
+                    DispatchQueue.main.async { [weak self] in
+                        Loader.shared.hideLoader()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1){  [weak self] in
+                        self?.view?.errorMsgAlert(error: error.localizedDescription)
+                    }
+                }
             }
         }
     }
+    
 }
 

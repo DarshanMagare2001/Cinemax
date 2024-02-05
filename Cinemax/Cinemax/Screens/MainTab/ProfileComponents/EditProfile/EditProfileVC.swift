@@ -7,9 +7,11 @@
 
 import UIKit
 import YPImagePicker
+import SwiftUI
 
 protocol EditProfileVCProtocol : class {
     func setupUI(name:String,email:String)
+    func errorMsgAlert(error:String)
 }
 
 class EditProfileVC: UIViewController {
@@ -70,6 +72,10 @@ extension EditProfileVC : EditProfileVCProtocol {
             self?.dismiss(animated: true, completion: nil)
         }
         present(imgPicker, animated: true, completion: nil)
+    }
+    
+    func errorMsgAlert(error:String){
+        Alert.shared.alertOk(title: "Error!", message: error, presentingViewController: self) { _ in}
     }
     
 }
