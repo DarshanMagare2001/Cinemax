@@ -95,6 +95,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
                 switch result{
                 case .success(let bool):
                     print(bool)
+                    self?.updateCurrentUsernameInUserdefault(name:name)
                     DispatchQueue.main.async { [weak self] in
                         Loader.shared.hideLoader()
                         completion()
@@ -112,6 +113,9 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
         }
     }
     
+    private func updateCurrentUsernameInUserdefault(name:String?){
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+    }
     
 }
 

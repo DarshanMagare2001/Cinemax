@@ -24,6 +24,12 @@ class ProfileVC: UIViewController {
         presenter?.viewDidload()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
+    
+    
     @IBAction func logOutbtnPressed(_ sender: UIButton) {
         confirmBox()
     }

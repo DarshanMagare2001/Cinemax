@@ -9,6 +9,7 @@ import Foundation
 
 protocol ProfileVCPresenterProtocol {
     func viewDidload()
+    func viewWillAppear()
     func currentUserLogout()
     func goToSignupVC()
     func goToEditProfileVC()
@@ -28,6 +29,10 @@ class ProfileVCPresenter {
 extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     func viewDidload(){
+        
+    }
+    
+    func viewWillAppear(){
         DispatchQueue.main.async { [weak self] in
             self?.updateUI()
         }
