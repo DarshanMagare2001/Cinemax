@@ -27,7 +27,8 @@ public final class FetchUserServerManager {
                     let uid = document["uid"] as? String
                     let name = document["name"] as? String
                     let email = document["email"] as? String
-                    let user = UserServerModel(uid: uid ?? "", name: name ?? "", email: email ?? "")
+                    let profileImgUrl = document["profileImgUrl"] as? String
+                    let user = UserServerModel(uid: uid ?? "", name: name ?? "", email: email ?? "", profileImgUrl: profileImgUrl ?? "")
                     DispatchQueue.main.async {
                         completion(.success(user))
                     }

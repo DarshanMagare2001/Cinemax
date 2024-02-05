@@ -11,9 +11,11 @@ struct UserServerModel {
     var uid:String?
     var name: String?
     var email: String?
-    init(uid:String,name: String,email: String){
+    var profileImgUrl: String?
+    init(uid:String,name: String,email: String,profileImgUrl: String){
         self.uid = uid
         self.name = name
         self.email = email
+        self.profileImgUrl = profileImgUrl
     }
 }
