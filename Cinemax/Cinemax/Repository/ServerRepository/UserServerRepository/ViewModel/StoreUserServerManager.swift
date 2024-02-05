@@ -44,39 +44,63 @@ public final class StoreUserServerManager {
     
     // MARK: - Save Current User Image To FirebaseStorage
     
-    func saveCurrentUserImageToFirebaseStorage(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void){
+    func saveCurrentUserImageToFirebaseStorage(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
         let storage = Storage.storage()
         let storageRef = storage.reference()
+        
         if let uid = Auth.auth().currentUser?.uid {
             let profileImagesRef = storageRef.child("profile_images/\(uid)")
-            let imageFileName = "\(UUID().uuidString).jpg"
-            if let imageData = image.jpegData(compressionQuality: 0.8) {
-                let imageRef = profileImagesRef.child(imageFileName)
-                let uploadTask = imageRef.putData(imageData, metadata: nil) { metadata, error in
-                    if let error = error {
-                        completion(.failure(error))
-                    } else {
-                        imageRef.downloadURL { url, error in
-                            if let downloadURL = url {
-                                completion(.success(downloadURL))
-                                print(url)
-                            } else {
-                                if let error = error {
-                                    completion(.failure(error))
+            
+            // Get the existing image file name
+            profileImagesRef.listAll { (result, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                // Delete existing files
+                for item in result!.items {
+                    item.delete { error in
+                        if let error = error {
+                            completion(.failure(error))
+                            return
+                        }
+                    }
+                }
+                
+                // Store the new image
+                let imageFileName = "\(UUID().uuidString).jpg"
+                if let imageData = image.jpegData(compressionQuality: 0.8) {
+                    let imageRef = profileImagesRef.child(imageFileName)
+                    let uploadTask = imageRef.putData(imageData, metadata: nil) { metadata, error in
+                        if let error = error {
+                            completion(.failure(error))
+                        } else {
+                            imageRef.downloadURL { url, error in
+                                if let downloadURL = url {
+                                    completion(.success(downloadURL))
+                                    print(downloadURL)
+                                } else {
+                                    if let error = error {
+                                        completion(.failure(error))
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                uploadTask.observe(.progress) { snapshot in
+                    
+                    uploadTask.observe(.progress) { snapshot in
+                        // You can handle progress updates if needed
+                    }
                 }
             }
         }
     }
+
     
-    // MARK: - Save Current User Image To FirebaseStorage
+    // MARK: - Save Current User Image To FirebaseDatabase
     
-    func saveCurrentUserImageToFirebaseStorage(url: String?, completion:@escaping(Result<Bool,Error>)->()){
+    func saveCurrentUserImageToFirebaseDatabase(url: String?, completion:@escaping(Result<Bool,Error>)->()){
         guard let profileImgUrl = url else {
             completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "Url error."])))
             return

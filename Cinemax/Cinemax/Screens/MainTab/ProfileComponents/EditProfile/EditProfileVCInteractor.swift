@@ -38,7 +38,7 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
     }
     
     private func saveImgUrlToDatabase(url:String,completion:@escaping(Result<Bool,Error>)->()){
-        StoreUserServerManager.shared.saveCurrentUserImageToFirebaseStorage(url: url) { result in
+        StoreUserServerManager.shared.saveCurrentUserImageToFirebaseDatabase(url: url) { result in
             completion(result)
         }
     }
