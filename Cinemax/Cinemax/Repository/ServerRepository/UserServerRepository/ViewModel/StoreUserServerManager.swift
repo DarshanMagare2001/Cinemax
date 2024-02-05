@@ -42,6 +42,31 @@ public final class StoreUserServerManager {
         
     }
     
+    // MARK: - Update Current UserName In Database
+    
+    func updateCurrentUserNameInDatabase(name: String?, completion: @escaping EscapingResultBoolErrorClosure) {
+        guard let currentUserId = Auth.auth().currentUser?.uid, let name = name else {
+            completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in or invalid name"])))
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(currentUserId)
+        
+        // Create a dictionary with the updated name
+        let data: [String: Any] = ["name": name]
+        
+        // Set the document with the updated data
+        userRef.setData(data, merge: true) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
+
+    
     // MARK: - Save Current User Image To FirebaseStorage
     
     func saveCurrentUserImageToFirebaseStorage(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {

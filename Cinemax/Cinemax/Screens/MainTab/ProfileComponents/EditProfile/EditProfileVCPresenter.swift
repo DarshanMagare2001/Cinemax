@@ -11,6 +11,7 @@ import UIKit
 protocol EditProfileVCPresenterProtocol {
     func viewDidload()
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage)
+    func updateCurrentuseerNameInDatabase(name: String?)
 }
 
 class EditProfileVCPresenter {
@@ -60,6 +61,32 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
             }
         }
     }
+    
+    func updateCurrentuseerNameInDatabase(name: String?){
+        DispatchQueue.main.async { [weak self] in
+            Loader.shared.showLoader(type: .lineScale, color: .white)
+        }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor.updateCurrentuseerNameInDatabase(name: name) { result in
+                switch result{
+                case .success(let bool):
+                    print(bool)
+                    DispatchQueue.main.async { [weak self] in
+                        Loader.shared.hideLoader()
+                    }
+                case.failure(let error):
+                    print(error)
+                    DispatchQueue.main.async { [weak self] in
+                        Loader.shared.hideLoader()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1){  [weak self] in
+                        self?.view?.errorMsgAlert(error: error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
     
 }
 

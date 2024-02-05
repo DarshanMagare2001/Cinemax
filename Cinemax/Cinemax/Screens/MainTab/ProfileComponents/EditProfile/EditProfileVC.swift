@@ -32,7 +32,7 @@ class EditProfileVC: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
-        
+        presenter?.updateCurrentuseerNameInDatabase(name: fullNameTxtFld.text)
     }
     
     @IBAction func profileImgEditBtn(_ sender: UIButton) {

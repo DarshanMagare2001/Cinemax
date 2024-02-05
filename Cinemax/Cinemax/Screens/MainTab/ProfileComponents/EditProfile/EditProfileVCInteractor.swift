@@ -10,6 +10,7 @@ import UIKit
 
 protocol EditProfileVCInteractorProtocol {
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage,completion:@escaping(Result<Bool,Error>)->())
+    func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure)
 }
 
 class EditProfileVCInteractor {
@@ -39,6 +40,12 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
     
     private func saveImgUrlToDatabase(url:String,completion:@escaping(Result<Bool,Error>)->()){
         StoreUserServerManager.shared.saveCurrentUserImageToFirebaseDatabase(url: url) { result in
+            completion(result)
+        }
+    }
+    
+    func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure){
+        StoreUserServerManager.shared.updateCurrentUserNameInDatabase(name: name) { result in
             completion(result)
         }
     }
