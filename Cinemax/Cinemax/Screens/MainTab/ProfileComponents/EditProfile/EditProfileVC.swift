@@ -32,7 +32,9 @@ class EditProfileVC: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
-        presenter?.updateCurrentuseerNameInDatabase(name: fullNameTxtFld.text)
+        presenter?.updateCurrentuseerNameInDatabase(name: fullNameTxtFld.text){ [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func profileImgEditBtn(_ sender: UIButton) {

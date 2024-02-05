@@ -11,7 +11,7 @@ import UIKit
 protocol EditProfileVCPresenterProtocol {
     func viewDidload()
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage)
-    func updateCurrentuseerNameInDatabase(name: String?)
+    func updateCurrentuseerNameInDatabase(name: String?,completion:@escaping()->())
 }
 
 class EditProfileVCPresenter {
@@ -62,7 +62,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
         }
     }
     
-    func updateCurrentuseerNameInDatabase(name: String?){
+    func updateCurrentuseerNameInDatabase(name: String?,completion:@escaping()->()){
         DispatchQueue.main.async { [weak self] in
             Loader.shared.showLoader(type: .lineScale, color: .white)
         }
@@ -73,6 +73,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
                     print(bool)
                     DispatchQueue.main.async { [weak self] in
                         Loader.shared.hideLoader()
+                        completion()
                     }
                 case.failure(let error):
                     print(error)
