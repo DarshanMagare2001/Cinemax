@@ -8,10 +8,17 @@
 import Foundation
 
 enum MoviesRouter {
-    case upComing
-    case nowPlaying
-    case popular
-    case topRated
+    case upComing(pageCount: Int)
+    case nowPlaying(pageCount: Int)
+    case popular(pageCount: Int)
+    case topRated(pageCount: Int)
+    
+    var pageCount: Int {
+        switch self {
+        case .upComing(let count), .nowPlaying(let count), .popular(let count), .topRated(let count):
+            return count
+        }
+    }
 }
 
 extension MoviesRouter {
@@ -20,7 +27,7 @@ extension MoviesRouter {
         return "https://api.themoviedb.org/3/movie/"
     }
     
-    var path:String {
+    var path: String {
         switch self {
         case .upComing:
             return "upcoming?api_key=38a73d59546aa378980a88b645f487fc"
@@ -33,8 +40,15 @@ extension MoviesRouter {
         }
     }
     
-    var url: URL {
-        return URL(string: "\(baseUrl)\(path)")!
+    var headers: [String: String] {
+        return ["accept": "application/json"]
     }
     
+    var request: URLRequest {
+        let url = URL(string: "\(baseUrl)\(path)&language=en-US&page=\(pageCount)")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        return request
+    }
 }
