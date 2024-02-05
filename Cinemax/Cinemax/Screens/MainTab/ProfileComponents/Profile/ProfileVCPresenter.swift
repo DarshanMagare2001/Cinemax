@@ -68,8 +68,9 @@ extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     private func updateUI(){
         if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
-           let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail){
-            self.view?.updateUI(name: name, email: email)
+           let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail),
+           let profileImgUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
+            self.view?.updateUI(name: name, email: email, profileImgUrl: profileImgUrl)
         }
     }
     

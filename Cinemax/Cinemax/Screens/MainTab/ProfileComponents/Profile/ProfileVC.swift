@@ -9,13 +9,14 @@ import UIKit
 
 protocol ProfileVCProtocol : class {
     func errorAlert(message:String)
-    func updateUI(name:String , email: String)
+    func updateUI(name:String ,email: String, profileImgUrl:String)
 }
 
 class ProfileVC: UIViewController {
     
     @IBOutlet weak var currentUserName: UILabel!
     @IBOutlet weak var currentUserEmail: UILabel!
+    @IBOutlet weak var currentUserProfileImage: CircleImageView!
     
     var presenter : ProfileVCPresenterProtocol?
     
@@ -52,9 +53,10 @@ extension ProfileVC : ProfileVCProtocol {
         Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
     }
     
-    func updateUI(name:String , email: String){
+    func updateUI(name:String ,email: String, profileImgUrl:String){
         currentUserName.text = name
         currentUserEmail.text = email
+        ImageLoader.loadImage(imageView: currentUserProfileImage, imageUrl: profileImgUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
     }
     
 }
