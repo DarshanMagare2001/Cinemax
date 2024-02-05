@@ -33,7 +33,7 @@ class ImageLoader {
             }
         } else {
             // Image not cached, download it
-            DispatchQueue.global(qos: .background).async {
+            DispatchQueue.global(qos: .userInitiated).async {
                 if let imageData = try? Data(contentsOf: URL(string: imageUrl)!) {
                     if let image = UIImage(data: imageData) {
                         self.imageCache.setObject(image, forKey: imageUrl as AnyObject)
