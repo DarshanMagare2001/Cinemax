@@ -28,6 +28,7 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
                     switch urlData {
                     case.success(let bool):
                         completion(.success(bool))
+                        self.saveCurrentUserImageUrlToUserDefault(url:profileUrl)
                     case.failure(let error):
                         completion(.failure(error))
                     }
@@ -42,6 +43,10 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
         StoreUserServerManager.shared.saveCurrentUserImageToFirebaseDatabase(url: url) { result in
             completion(result)
         }
+    }
+    
+    private func saveCurrentUserImageUrlToUserDefault(url:String?){
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: url) { _ in}
     }
     
     func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure){

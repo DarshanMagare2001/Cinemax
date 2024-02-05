@@ -13,6 +13,7 @@ public final class UserdefaultRepositoryManager {
         case currentUsersName = "currentUsersName"
         case currentUsersEmail = "currentUsersEmail"
         case currentUsersUid = "currentUsersUid"
+        case currentUsersProfileImageUrl = "currentUsersProfileImageUrl"
     }
     
     static func fetchUserInfoFromUserdefault(type: UserInfoFromUserdefault) -> String? {
