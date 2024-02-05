@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-
-
 class ImageLoader {
     
     enum PlaceHolderImageTypes {
@@ -19,7 +17,7 @@ class ImageLoader {
     
     private static let imageCache = NSCache<AnyObject, UIImage>()
     
-    static func loadImage(imageView: UIImageView, imageUrl: String, placeHolderType:PlaceHolderImageTypes, placeHolderImage:String) {
+    static func loadImage(imageView: UIImageView, imageUrl: String, placeHolderType: PlaceHolderImageTypes, placeHolderImage: String) {
         
         // Show activity indicator
         let activityLoader = UIActivityIndicatorView(style: .white)
@@ -31,7 +29,7 @@ class ImageLoader {
             // Image already cached
             DispatchQueue.main.async {
                 activityLoader.removeFromSuperview()
-                imageView.image = cachedImage
+                setImageViewWithFade(imageView: imageView, image: cachedImage)
             }
         } else {
             // Image not cached, download it
@@ -41,7 +39,7 @@ class ImageLoader {
                         self.imageCache.setObject(image, forKey: imageUrl as AnyObject)
                         DispatchQueue.main.async {
                             activityLoader.removeFromSuperview()
-                            imageView.image = image
+                            setImageViewWithFade(imageView: imageView, image: image)
                         }
                     }
                 } else {
@@ -49,16 +47,22 @@ class ImageLoader {
                     DispatchQueue.main.async {
                         activityLoader.removeFromSuperview()
                         switch placeHolderType {
-                        case.systemName:
+                        case .systemName:
                             let image = UIImage(systemName: placeHolderImage)
-                            imageView.image = image
-                        case.named:
+                            setImageViewWithFade(imageView: imageView, image: image)
+                        case .named:
                             let image = UIImage(named: placeHolderImage)
-                            imageView.image = image
+                            setImageViewWithFade(imageView: imageView, image: image)
                         }
                     }
                 }
             }
         }
+    }
+    
+    private static func setImageViewWithFade(imageView: UIImageView, image: UIImage?) {
+        UIView.transition(with: imageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            imageView.image = image
+        }, completion: nil)
     }
 }
