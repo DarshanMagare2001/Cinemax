@@ -8,14 +8,21 @@
 import Foundation
 import UIKit
 
+
+
 class ImageLoader {
+    
+    enum PlaceHolderImageTypes {
+        case systemName
+        case named
+    }
     
     private static let imageCache = NSCache<AnyObject, UIImage>()
     
-    static func loadImage(imageView: UIImageView, imageUrl: String) {
+    static func loadImage(imageView: UIImageView, imageUrl: String, placeHolderType:PlaceHolderImageTypes, placeHolderImage:String) {
         
         // Show activity indicator
-        let activityLoader = UIActivityIndicatorView(style: .gray)
+        let activityLoader = UIActivityIndicatorView(style: .white)
         activityLoader.startAnimating()
         activityLoader.center = imageView.center
         imageView.addSubview(activityLoader)
@@ -41,6 +48,14 @@ class ImageLoader {
                     // Handle download failure if needed
                     DispatchQueue.main.async {
                         activityLoader.removeFromSuperview()
+                        switch placeHolderType {
+                        case.systemName:
+                            let image = UIImage(systemName: placeHolderImage)
+                            imageView.image = image
+                        case.named:
+                            let image = UIImage(named: placeHolderImage)
+                            imageView.image = image
+                        }
                     }
                 }
             }
