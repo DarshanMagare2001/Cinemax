@@ -77,6 +77,9 @@ extension EditProfileVC : EditProfileVCProtocol {
     func setupUI(name:String,email:String){
         currentUserName.text = name
         currentUserEmailLbl.text = email
+        if let profileImageUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
+            ImageLoader.loadImage(imageView: currentUserProfileImg, imageUrl: profileImageUrl)
+        }
     }
     
     func backBtnPressed(){

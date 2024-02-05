@@ -90,6 +90,7 @@
 		13C74E002B6BA09F009CA6DB /* FetchUserServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */; };
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
+		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +168,7 @@
 		13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserServerManager.swift; sourceTree = "<group>"; };
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
+		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -473,6 +475,7 @@
 		139C22912B6139310082DBDD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				13F6EE412B70B509006452E2 /* ImageLoader.swift */,
 				139C22922B61399B0082DBDD /* RoundedCorners.swift */,
 				131A9B332B6A1469007A4D55 /* Alert.swift */,
 			);
@@ -806,6 +809,7 @@
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
 				13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */,
+				13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */,
 				13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */,
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
