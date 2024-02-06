@@ -12,13 +12,32 @@ enum MoviesRouter {
     case nowPlaying(pageCount: Int)
     case trending(pageCount: Int)
     case boxOfficeMovies(pageCount: Int)
+    case moviesPoster(movieId:String)
     
     var pageCount: Int {
         switch self {
         case .upComing(let count), .nowPlaying(let count), .trending(let count), .boxOfficeMovies(let count):
             return count
+        case .moviesPoster(movieId: let movieId):
+            return 0
         }
     }
+    
+    var movieId: String {
+        switch self {
+        case .moviesPoster(let movieId):
+            return movieId
+        case .upComing(pageCount: let pageCount):
+            return ""
+        case .nowPlaying(pageCount: let pageCount):
+            return ""
+        case .trending(pageCount: let pageCount):
+            return ""
+        case .boxOfficeMovies(pageCount: let pageCount):
+            return ""
+        }
+    }
+    
 }
 
 extension MoviesRouter {
@@ -33,6 +52,8 @@ extension MoviesRouter {
             return "https://movies-tv-shows-database.p.rapidapi.com/?page="
         case .boxOfficeMovies:
             return "https://movies-tv-shows-database.p.rapidapi.com/?page="
+        case .moviesPoster:
+            return "https://movies-tv-shows-database.p.rapidapi.com/?movieid="
         }
     }
     
@@ -62,15 +83,46 @@ extension MoviesRouter {
                 "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
                 "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
             ]
+        case .moviesPoster:
+            return [
+                "Type": "get-movies-images-by-imdb",
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
         }
         
     }
     
     var request: URLRequest {
+        switch self {
+        case .upComing(let pageCount):
+            return generateRequestForMovies()
+        case .nowPlaying(let pageCount):
+            return generateRequestForMovies()
+        case .trending(let pageCount):
+            return generateRequestForMovies()
+        case .boxOfficeMovies(let pageCount):
+            return generateRequestForMovies()
+        case .moviesPoster(let movieId):
+            return generateRequestForMoviesPoster()
+        }
+        
+    }
+    
+    private func generateRequestForMovies() -> URLRequest {
         let url = URL(string: "\(path)\(pageCount)")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         return request
     }
+    
+    private func generateRequestForMoviesPoster() -> URLRequest {
+        let url = URL(string: "\(path)\(movieId)")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        return request
+    }
+    
 }
