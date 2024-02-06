@@ -183,7 +183,7 @@
                                                                             <color key="value" name="AppBlue"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
-                                                                            <integer key="value" value="3"/>
+                                                                            <integer key="value" value="0"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="size" keyPath="inactiveSize">
                                                                             <size key="value" width="10" height="10"/>
@@ -191,6 +191,7 @@
                                                                         <userDefinedRuntimeAttribute type="size" keyPath="activeSize">
                                                                             <size key="value" width="35" height="10"/>
                                                                         </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isAnimation" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                             </subviews>
