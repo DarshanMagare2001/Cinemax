@@ -21,6 +21,7 @@
 		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
 		13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */; };
+		13305D4B2B724A41007B74D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13305D4A2B724A41007B74D4 /* Kingfisher */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -210,6 +211,7 @@
 				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
 				1398F0A92B68BB9200D58906 /* GoogleSignIn in Frameworks */,
 				1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */,
+				13305D4B2B724A41007B74D4 /* Kingfisher in Frameworks */,
 				131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */,
 				1398F0B42B68BCED00D58906 /* FirebaseFirestore in Frameworks */,
 				13B1E64F2B6D1D96003DD382 /* YPImagePicker in Frameworks */,
@@ -747,6 +749,7 @@
 				131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */,
 				131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */,
 				13B1E64E2B6D1D96003DD382 /* YPImagePicker */,
+				13305D4A2B724A41007B74D4 /* Kingfisher */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -782,6 +785,7 @@
 				1398F0BE2B68EABC00D58906 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				13B1E64D2B6D1D96003DD382 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
+				13305D492B724A40007B74D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -1158,6 +1162,14 @@
 				version = 5.1.1;
 			};
 		};
+		13305D492B724A40007B74D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.9.1;
+			};
+		};
 		1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1202,6 +1214,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorViewExtended;
+		};
+		13305D4A2B724A41007B74D4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13305D492B724A40007B74D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		1398F0A82B68BB9200D58906 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

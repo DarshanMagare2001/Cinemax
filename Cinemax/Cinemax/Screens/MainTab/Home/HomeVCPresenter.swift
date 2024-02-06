@@ -35,7 +35,7 @@ class HomeVCPresenter {
 extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func viewDidload(){
-        
+        loadDataSource()
     }
     
     func viewWillAppear(){
