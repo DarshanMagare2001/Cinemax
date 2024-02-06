@@ -34,9 +34,15 @@ class HomeVCPresenter {
 extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func viewDidload(){
-        loadDataSource()
+        setupUI()
     }
     
+    private func setupUI(){
+        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
+           let profileImgUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
+            self.view?.setupUI(name: name, profileImgUrl: profileImgUrl)
+        }
+    }
     
     func loadDataSource(){
         
