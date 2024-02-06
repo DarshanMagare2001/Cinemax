@@ -104,42 +104,117 @@
                                     <constraint firstItem="3B7-cp-igu" firstAttribute="top" secondItem="3eF-I7-RIy" secondAttribute="top" constant="10" id="v8m-An-qPd"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-Ci-mCs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-Ci-mCs">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="224" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="224"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="373" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="373"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L73-Vu-V5k" id="qbb-Df-7bc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="971-id-evJ" customClass="FSPagerView" customModule="FSPagerView">
-                                                    <rect key="frame" x="20" y="21" width="374" height="182"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="6Bx-vs-gAc"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="size" keyPath="itemSize">
-                                                            <size key="value" width="300" height="180"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ccd-8D-qbk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k24-YK-4EE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Titles" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EUV-Qx-GIT">
+                                                                    <rect key="frame" x="10" y="0.0" width="394" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="7Jq-9H-lm4"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                    <color key="textColor" name="AppBlue"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="EUV-Qx-GIT" secondAttribute="trailing" constant="10" id="9eW-ne-d7O"/>
+                                                                <constraint firstAttribute="bottom" secondItem="EUV-Qx-GIT" secondAttribute="bottom" id="K0A-iq-eHj"/>
+                                                                <constraint firstItem="EUV-Qx-GIT" firstAttribute="leading" secondItem="k24-YK-4EE" secondAttribute="leading" constant="10" id="ThA-7B-3xB"/>
+                                                                <constraint firstItem="EUV-Qx-GIT" firstAttribute="top" secondItem="k24-YK-4EE" secondAttribute="top" id="f3z-WU-TCX"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zV-fR-SkQ">
+                                                            <rect key="frame" x="0.0" y="60" width="414" height="253"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="971-id-evJ" customClass="FSPagerView" customModule="FSPagerView">
+                                                                    <rect key="frame" x="10" y="0.0" width="394" height="253"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="180" id="IpS-5v-awL"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                                                                            <real key="value" value="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="size" keyPath="itemSize">
+                                                                            <size key="value" width="300" height="180"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="971-id-evJ" firstAttribute="top" secondItem="9zV-fR-SkQ" secondAttribute="top" id="GgC-5Y-4fv"/>
+                                                                <constraint firstItem="971-id-evJ" firstAttribute="leading" secondItem="9zV-fR-SkQ" secondAttribute="leading" constant="10" id="MYk-Yf-QLx"/>
+                                                                <constraint firstAttribute="bottom" secondItem="971-id-evJ" secondAttribute="bottom" id="ObU-cR-ekQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="971-id-evJ" secondAttribute="trailing" constant="10" id="sWp-ra-1pK"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-N5-Oo7">
+                                                            <rect key="frame" x="0.0" y="323" width="414" height="50"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-b7-NQc" customClass="JXPageControlEllipse" customModule="JXPageControl">
+                                                                    <rect key="frame" x="157" y="0.0" width="100" height="50"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="100" id="ReQ-6y-Lf6"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                                            <color key="value" name="AppBlue2"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                                            <color key="value" name="AppBlue"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                                                            <integer key="value" value="3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="size" keyPath="inactiveSize">
+                                                                            <size key="value" width="10" height="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="size" keyPath="activeSize">
+                                                                            <size key="value" width="35" height="10"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="Q5l-b7-NQc" firstAttribute="top" secondItem="jp4-N5-Oo7" secondAttribute="top" id="Uko-tl-zqF"/>
+                                                                <constraint firstItem="Q5l-b7-NQc" firstAttribute="centerX" secondItem="jp4-N5-Oo7" secondAttribute="centerX" id="Yqk-Ot-RLr"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Q5l-b7-NQc" secondAttribute="bottom" id="hPi-Fk-QhI"/>
+                                                                <constraint firstAttribute="height" constant="50" id="udT-a1-G8V"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="971-id-evJ" secondAttribute="trailing" id="1RP-9A-N9k"/>
-                                                <constraint firstItem="971-id-evJ" firstAttribute="top" secondItem="qbb-Df-7bc" secondAttribute="topMargin" constant="10" id="5tl-FZ-wPH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="971-id-evJ" secondAttribute="bottom" constant="10" id="GfK-dP-lea"/>
-                                                <constraint firstItem="971-id-evJ" firstAttribute="leading" secondItem="qbb-Df-7bc" secondAttribute="leadingMargin" id="wEP-sW-vqi"/>
+                                                <constraint firstItem="Ccd-8D-qbk" firstAttribute="top" secondItem="qbb-Df-7bc" secondAttribute="top" id="6Rt-Vv-veU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ccd-8D-qbk" secondAttribute="trailing" id="Bvj-qT-liH"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ccd-8D-qbk" secondAttribute="bottom" id="X10-yt-w9N"/>
+                                                <constraint firstItem="Ccd-8D-qbk" firstAttribute="leading" secondItem="qbb-Df-7bc" secondAttribute="leading" id="vwC-vy-chi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="pageControl" destination="Q5l-b7-NQc" id="LdB-PK-tKA"/>
                                             <outlet property="pagerViewOutlet" destination="971-id-evJ" id="Wgs-F0-XX8"/>
                                         </connections>
                                     </tableViewCell>
@@ -177,6 +252,9 @@
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBlue2">
+            <color red="0.090196078431372548" green="0.52941176470588236" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppDark1">
             <color red="0.14509803921568629" green="0.15686274509803921" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,6 +8,7 @@
 import UIKit
 import FSPagerView
 import Kingfisher
+import JXPageControl
 
 class UpcomingMoviesCell: UITableViewCell  {
     
@@ -18,8 +19,23 @@ class UpcomingMoviesCell: UITableViewCell  {
             self.pagerViewOutlet.transformer = FSPagerViewTransformer(type: .overlap)
         }
     }
+    @IBOutlet weak var pageControl: JXPageControlEllipse!
     
-    var cellData = [MasterMoviesModel]()
+    var indexpath = 0 {
+        didSet{
+            let progress = CGFloat(indexpath) / CGFloat(cellData.count)
+            pageControl.progress = progress
+            pageControl.currentPage = indexpath
+        }
+    }
+    
+    var cellData = [MasterMoviesModel]() {
+        didSet{
+            let progress = CGFloat(indexpath) / CGFloat(cellData.count)
+            pageControl.progress = progress
+            pageControl.currentPage = indexpath
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,7 +79,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         // Customize UILabels (set text, font, color, etc.)
         cellMovieTitleLbl.text = cellData[index].movieModel.title
         cellMovieReleaseDateLbl.text = cellData[index].movieModel.releaseDate
-        cellMovieTitleLbl.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0)
+        cellMovieTitleLbl.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
         cellMovieTitleLbl.textColor = UIColor.appBlue
         cellMovieReleaseDateLbl.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
         cellMovieReleaseDateLbl.textColor = UIColor.appBlue
@@ -96,6 +112,11 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         
         return cell
     }
+    
+}
 
+extension UpcomingMoviesCell  {
+   
+    
     
 }
