@@ -24,6 +24,11 @@ class HomeVC: UIViewController {
         presenter?.viewDidload()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
+    
 }
 
 extension HomeVC: HomeVCProtocol {

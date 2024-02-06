@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeVCPresenterProtocol {
     func viewDidload()
+    func viewWillAppear()
     var upcomingMovies:[MasterMoviesModel] { get set }
     var nowplayingMovies:[MasterMoviesModel] { get set }
     var trendingMovies:[MasterMoviesModel] { get set }
@@ -34,8 +35,13 @@ class HomeVCPresenter {
 extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func viewDidload(){
+        
+    }
+    
+    func viewWillAppear(){
         setupUI()
     }
+    
     
     private func setupUI(){
         if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
