@@ -17,6 +17,7 @@ class MoviesService{
     static let shared = MoviesService()
     func fetchData<T:Decodable>(router:MoviesRouter,model:T.Type,completion:@escaping(Result<T?,ServerError>)->()) {
         let request = router.request
+        print(request)
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if let error = error {

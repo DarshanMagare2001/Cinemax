@@ -13,6 +13,7 @@
 		131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */; };
 		131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3E2B6A1FFC007A4D55 /* Loader.swift */; };
 		131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */ = {isa = PBXBuildFile; fileRef = 131A9B412B6A2509007A4D55 /* LoaderTypes.gif */; };
+		13305D382B71F644007B74D4 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D372B71F644007B74D4 /* MoviesModel.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -94,7 +95,6 @@
 		13F6EE5F2B70F38A006452E2 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE5E2B70F38A006452E2 /* MoviesService.swift */; };
 		13F6EE622B70F3E9006452E2 /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */; };
 		13F6EE642B710131006452E2 /* MoviesServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE632B710131006452E2 /* MoviesServiceManager.swift */; };
-		13F6EE662B7103B0006452E2 /* UpcomingMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +103,7 @@
 		131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderVC.swift; sourceTree = "<group>"; };
 		131A9B3E2B6A1FFC007A4D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		131A9B412B6A2509007A4D55 /* LoaderTypes.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LoaderTypes.gif; sourceTree = "<group>"; };
+		13305D372B71F644007B74D4 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -176,7 +177,6 @@
 		13F6EE5E2B70F38A006452E2 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		13F6EE612B70F3E9006452E2 /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
 		13F6EE632B710131006452E2 /* MoviesServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceManager.swift; sourceTree = "<group>"; };
-		13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesModel.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -656,7 +656,7 @@
 		13F6EE5C2B70F350006452E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				13F6EE652B7103B0006452E2 /* UpcomingMoviesModel.swift */,
+				13305D372B71F644007B74D4 /* MoviesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -862,10 +862,10 @@
 				134ECC0F2B67760E004BCAC2 /* SignUpCredentialVC.swift in Sources */,
 				13C74DEB2B6B63CD009CA6DB /* ProfileVC.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
+				13305D382B71F644007B74D4 /* MoviesModel.swift in Sources */,
 				134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
 				13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */,
-				13F6EE662B7103B0006452E2 /* UpcomingMoviesModel.swift in Sources */,
 				13C74DE72B6B635C009CA6DB /* DownloadVC.swift in Sources */,
 				13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */,
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,

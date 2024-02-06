@@ -11,8 +11,16 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        MoviesServiceManager.shared.fetchMoviesData(router: MoviesRouter.boxOfficeMovies(pageCount: 1), model: MoviesModel.self) { result in
+            switch result{
+            case.success(let data):
+                print(data)
+            case.failure(let error):
+                print(error)
+            }
+        }
     }
-
+    
+    
     
 }

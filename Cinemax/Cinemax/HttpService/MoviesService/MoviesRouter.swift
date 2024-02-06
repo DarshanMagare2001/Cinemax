@@ -10,12 +10,12 @@ import Foundation
 enum MoviesRouter {
     case upComing(pageCount: Int)
     case nowPlaying(pageCount: Int)
-    case popular(pageCount: Int)
-    case topRated(pageCount: Int)
+    case trending(pageCount: Int)
+    case boxOfficeMovies(pageCount: Int)
     
     var pageCount: Int {
         switch self {
-        case .upComing(let count), .nowPlaying(let count), .popular(let count), .topRated(let count):
+        case .upComing(let count), .nowPlaying(let count), .trending(let count), .boxOfficeMovies(let count):
             return count
         }
     }
@@ -23,29 +23,51 @@ enum MoviesRouter {
 
 extension MoviesRouter {
     
-    var baseUrl: String {
-        return "https://api.themoviedb.org/3/movie/"
-    }
-    
     var path: String {
         switch self {
         case .upComing:
-            return "upcoming?api_key=38a73d59546aa378980a88b645f487fc"
+            return "https://movies-tv-shows-database.p.rapidapi.com/?page="
         case .nowPlaying:
-            return "now_playing?api_key=38a73d59546aa378980a88b645f487fc"
-        case .popular:
-            return "popular?api_key=38a73d59546aa378980a88b645f487fc"
-        case .topRated:
-            return "top_rated?api_key=38a73d59546aa378980a88b645f487fc"
+            return "https://movies-tv-shows-database.p.rapidapi.com/?page="
+        case .trending:
+            return "https://movies-tv-shows-database.p.rapidapi.com/?page="
+        case .boxOfficeMovies:
+            return "https://movies-tv-shows-database.p.rapidapi.com/?page="
         }
     }
     
     var headers: [String: String] {
-        return ["accept": "application/json"]
+        switch self {
+        case .upComing:
+            return [
+                "Type": "get-upcoming-movies",
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
+        case .nowPlaying:
+            return [
+                "Type": "get-nowplaying-movies",
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
+        case .trending:
+            return [
+                "Type": "get-trending-movies",
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
+        case .boxOfficeMovies:
+            return [
+                "Type": "get-boxoffice-movies",
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
+        }
+        
     }
     
     var request: URLRequest {
-        let url = URL(string: "\(baseUrl)\(path)&language=en-US&page=\(pageCount)")!
+        let url = URL(string: "\(path)\(pageCount)")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
