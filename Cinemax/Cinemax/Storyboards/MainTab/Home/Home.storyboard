@@ -108,15 +108,15 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="373" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="373"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="361" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="361"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L73-Vu-V5k" id="qbb-Df-7bc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="361"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ccd-8D-qbk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="361"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k24-YK-4EE">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -127,7 +127,7 @@
                                                                         <constraint firstAttribute="height" constant="50" id="7Jq-9H-lm4"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                    <color key="textColor" name="AppBlue"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -140,10 +140,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zV-fR-SkQ">
-                                                            <rect key="frame" x="0.0" y="60" width="414" height="253"/>
+                                                            <rect key="frame" x="0.0" y="60" width="414" height="241"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="971-id-evJ" customClass="FSPagerView" customModule="FSPagerView">
-                                                                    <rect key="frame" x="10" y="0.0" width="394" height="253"/>
+                                                                    <rect key="frame" x="10" y="0.0" width="394" height="241"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="180" id="IpS-5v-awL"/>
@@ -167,7 +167,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-N5-Oo7">
-                                                            <rect key="frame" x="0.0" y="323" width="414" height="50"/>
+                                                            <rect key="frame" x="0.0" y="311" width="414" height="50"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-b7-NQc" customClass="JXPageControlEllipse" customModule="JXPageControl">
                                                                     <rect key="frame" x="157" y="0.0" width="100" height="50"/>
