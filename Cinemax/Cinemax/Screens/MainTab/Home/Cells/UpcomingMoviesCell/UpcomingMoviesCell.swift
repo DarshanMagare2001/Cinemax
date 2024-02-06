@@ -50,7 +50,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         let imageUrl = cellData[index].moviesPosterModel.poster
         
         // Set corner radius for imageView
-        cell.imageView?.layer.cornerRadius = 10
+        cell.imageView?.layer.cornerRadius = 20
         cell.imageView?.layer.masksToBounds = true
         
         if var urlComponents = URLComponents(string: imageUrl) {
