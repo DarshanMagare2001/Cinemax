@@ -31,6 +31,7 @@ class UpcomingMoviesCell: UITableViewCell  {
     
     var cellData = [MasterMoviesModel]() {
         didSet{
+            pageControl.numberOfPages = cellData.count
             let progress = CGFloat(indexpath) / CGFloat(cellData.count)
             pageControl.progress = progress
             pageControl.currentPage = indexpath
@@ -61,6 +62,10 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         return cellData.count
     }
     
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int){
+        indexpath = targetIndex
+    }
+   
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         let imageUrl = cellData[index].moviesPosterModel.poster
@@ -115,8 +120,3 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
     
 }
 
-extension UpcomingMoviesCell  {
-   
-    
-    
-}
