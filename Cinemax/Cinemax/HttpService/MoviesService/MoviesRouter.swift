@@ -12,13 +12,16 @@ enum MoviesRouter {
     case nowPlaying(pageCount: Int)
     case trending(pageCount: Int)
     case boxOfficeMovies(pageCount: Int)
-    case moviesPoster(movieId:String)
+    case movieDetails(movieId: String)
+    case moviesPoster(movieId: String)
     
     var pageCount: Int {
         switch self {
         case .upComing(let count), .nowPlaying(let count), .trending(let count), .boxOfficeMovies(let count):
             return count
-        case .moviesPoster(movieId: let movieId):
+        case .moviesPoster(let movieId):
+            return 0
+        case .movieDetails(let movieId):
             return 0
         }
     }
@@ -27,13 +30,15 @@ enum MoviesRouter {
         switch self {
         case .moviesPoster(let movieId):
             return movieId
-        case .upComing(pageCount: let pageCount):
+        case .movieDetails(let movieId):
+            return movieId
+        case .upComing(let pageCount):
             return ""
-        case .nowPlaying(pageCount: let pageCount):
+        case .nowPlaying(let pageCount):
             return ""
-        case .trending(pageCount: let pageCount):
+        case .trending( let pageCount):
             return ""
-        case .boxOfficeMovies(pageCount: let pageCount):
+        case .boxOfficeMovies(let pageCount):
             return ""
         }
     }
@@ -53,6 +58,8 @@ extension MoviesRouter {
         case .boxOfficeMovies:
             return "https://movies-tv-shows-database.p.rapidapi.com/?page="
         case .moviesPoster:
+            return "https://movies-tv-shows-database.p.rapidapi.com/?movieid="
+        case .movieDetails:
             return "https://movies-tv-shows-database.p.rapidapi.com/?movieid="
         }
     }
@@ -85,28 +92,34 @@ extension MoviesRouter {
             ]
         case .moviesPoster:
             return [
-                "Type": "get-movies-images-by-imdb",
+                "Type": "get-movies-images-by-imdb",  // Corrected header for moviesPoster
+                "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
+            ]
+        case .movieDetails:
+            return [
+                "Type": "get-movie-details",
                 "X-RapidAPI-Key": "021108c3cdmshf759245e646191bp1ef32ejsn38795d85e69c",
                 "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com"
             ]
         }
-        
     }
     
     var request: URLRequest {
         switch self {
-        case .upComing(let pageCount):
+        case .upComing:
             return generateRequestForMovies()
-        case .nowPlaying(let pageCount):
+        case .nowPlaying:
             return generateRequestForMovies()
-        case .trending(let pageCount):
+        case .trending:
             return generateRequestForMovies()
-        case .boxOfficeMovies(let pageCount):
+        case .boxOfficeMovies:
             return generateRequestForMovies()
-        case .moviesPoster(let movieId):
+        case .moviesPoster:
+            return generateRequestForMoviesPoster()
+        case .movieDetails:
             return generateRequestForMoviesPoster()
         }
-        
     }
     
     private func generateRequestForMovies() -> URLRequest {
@@ -119,9 +132,11 @@ extension MoviesRouter {
     
     private func generateRequestForMoviesPoster() -> URLRequest {
         let url = URL(string: "\(path)\(movieId)")!
+        print(url)
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
+        print(headers)
         return request
     }
     

@@ -15,6 +15,7 @@
 		131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */ = {isa = PBXBuildFile; fileRef = 131A9B412B6A2509007A4D55 /* LoaderTypes.gif */; };
 		13305D382B71F644007B74D4 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D372B71F644007B74D4 /* MoviesModel.swift */; };
 		13305D3A2B71F94D007B74D4 /* MoviesPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */; };
+		13305D3C2B71FE69007B74D4 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3B2B71FE69007B74D4 /* MovieModel.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -106,6 +107,7 @@
 		131A9B412B6A2509007A4D55 /* LoaderTypes.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LoaderTypes.gif; sourceTree = "<group>"; };
 		13305D372B71F644007B74D4 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPosterModel.swift; sourceTree = "<group>"; };
+		13305D3B2B71FE69007B74D4 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			children = (
 				13305D372B71F644007B74D4 /* MoviesModel.swift */,
 				13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */,
+				13305D3B2B71FE69007B74D4 /* MovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				134ECC152B6776B1004BCAC2 /* SignUpVCPresenter.swift in Sources */,
 				139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */,
 				13B1E6512B6D1E3C003DD382 /* UIViewController+Extensions.swift in Sources */,
+				13305D3C2B71FE69007B74D4 /* MovieModel.swift in Sources */,
 				13BA5F7E2B629630005EDA19 /* LoginVCBuilder.swift in Sources */,
 				134ECC1B2B679AF2004BCAC2 /* SignUpCredentialVCPresenter.swift in Sources */,
 				13C74DDE2B6B6252009CA6DB /* HomeVCBuilder.swift in Sources */,

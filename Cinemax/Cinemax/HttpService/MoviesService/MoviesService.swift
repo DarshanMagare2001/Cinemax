@@ -10,7 +10,7 @@ import Foundation
 
 enum ServerError: Error {
     case serverError(Error)
-    case dataDecodingError(String)
+    case dataDecodingError(Error)
 }
 
 class MoviesService{
@@ -30,11 +30,12 @@ class MoviesService{
                 }
                 if let data = data {
                     let jsonDecoder = JSONDecoder()
+                    print(String(data: data, encoding: .utf8) ?? "Unable to convert data to string")
                     do{
                         let decodedData = try jsonDecoder.decode(T.self, from: data)
                         completion(.success(decodedData))
                     }catch let error{
-                        completion(.failure(ServerError.dataDecodingError("Data decoding Error.")))
+                        completion(.failure(ServerError.dataDecodingError(error)))
                     }
                 }
             }
