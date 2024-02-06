@@ -16,6 +16,10 @@
 		13305D382B71F644007B74D4 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D372B71F644007B74D4 /* MoviesModel.swift */; };
 		13305D3A2B71F94D007B74D4 /* MoviesPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */; };
 		13305D3C2B71FE69007B74D4 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3B2B71FE69007B74D4 /* MovieModel.swift */; };
+		13305D3E2B7216AC007B74D4 /* MasterMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3D2B7216AC007B74D4 /* MasterMoviesModel.swift */; };
+		13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */; };
+		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
+		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -108,6 +112,10 @@
 		13305D372B71F644007B74D4 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPosterModel.swift; sourceTree = "<group>"; };
 		13305D3B2B71FE69007B74D4 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		13305D3D2B7216AC007B74D4 /* MasterMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterMoviesModel.swift; sourceTree = "<group>"; };
+		13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCInteractor.swift; sourceTree = "<group>"; };
+		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
+		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -560,6 +568,9 @@
 			isa = PBXGroup;
 			children = (
 				13C74DDB2B6B621E009CA6DB /* HomeVC.swift */,
+				13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */,
+				13305D412B721750007B74D4 /* HomeVCPresenter.swift */,
+				13305D432B721760007B74D4 /* HomeVCRouter.swift */,
 				13C74DDD2B6B6252009CA6DB /* HomeVCBuilder.swift */,
 			);
 			path = Home;
@@ -660,6 +671,7 @@
 		13F6EE5C2B70F350006452E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13305D3D2B7216AC007B74D4 /* MasterMoviesModel.swift */,
 				13305D372B71F644007B74D4 /* MoviesModel.swift */,
 				13305D392B71F94D007B74D4 /* MoviesPosterModel.swift */,
 				13305D3B2B71FE69007B74D4 /* MovieModel.swift */,
@@ -832,14 +844,17 @@
 			files = (
 				139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */,
 				13C74DDC2B6B621E009CA6DB /* HomeVC.swift in Sources */,
+				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
 				13F6EE622B70F3E9006452E2 /* MoviesRouter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
+				13305D3E2B7216AC007B74D4 /* MasterMoviesModel.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
 				13C74DE32B6B630C009CA6DB /* SearchVCBuilder.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
 				13C74DE12B6B62D9009CA6DB /* SearchVC.swift in Sources */,
+				13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */,
 				134ECC1D2B679B05004BCAC2 /* SignUpCredentialVCRouter.swift in Sources */,
 				13C74E002B6BA09F009CA6DB /* FetchUserServerManager.swift in Sources */,
 				13C74DEF2B6B973B009CA6DB /* ProfileVCInteractor.swift in Sources */,
@@ -870,6 +885,7 @@
 				134ECC0F2B67760E004BCAC2 /* SignUpCredentialVC.swift in Sources */,
 				13C74DEB2B6B63CD009CA6DB /* ProfileVC.swift in Sources */,
 				139C22542B6126F60082DBDD /* SceneDelegate.swift in Sources */,
+				13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */,
 				13305D382B71F644007B74D4 /* MoviesModel.swift in Sources */,
 				134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
