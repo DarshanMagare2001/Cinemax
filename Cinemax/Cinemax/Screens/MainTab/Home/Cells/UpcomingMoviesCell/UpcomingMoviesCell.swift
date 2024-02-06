@@ -48,18 +48,20 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         let imageUrl = cellData[index].moviesPosterModel.poster
+        
+        // Set corner radius for imageView
+        cell.imageView?.layer.cornerRadius = 10
+        cell.imageView?.layer.masksToBounds = true
+        
         if var urlComponents = URLComponents(string: imageUrl) {
             urlComponents.scheme = "https"
             if let httpsUrl = urlComponents.url {
                 ImageLoader.loadImage(imageView: cell.imageView!, imageUrl: httpsUrl.absoluteString, placeHolderType: .systemName, placeHolderImage: "person.fill")
             }
         }
-        cell.textLabel?.text = cellData[index].movieModel.title
-        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         return cell
     }
-    
+
     
 }
