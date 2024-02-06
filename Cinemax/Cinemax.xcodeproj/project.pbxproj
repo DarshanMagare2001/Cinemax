@@ -22,6 +22,10 @@
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
 		13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */; };
 		13305D4B2B724A41007B74D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13305D4A2B724A41007B74D4 /* Kingfisher */; };
+		13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D4D2B7263D7007B74D4 /* MoviesCell.swift */; };
+		13305D502B7263D7007B74D4 /* MoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13305D4E2B7263D7007B74D4 /* MoviesCell.xib */; };
+		13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */; };
+		13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -119,6 +123,10 @@
 		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
 		13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesCell.swift; sourceTree = "<group>"; };
+		13305D4D2B7263D7007B74D4 /* MoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCell.swift; sourceTree = "<group>"; };
+		13305D4E2B7263D7007B74D4 /* MoviesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCell.xib; sourceTree = "<group>"; };
+		13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -262,6 +270,25 @@
 				13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */,
 			);
 			path = UpcomingMoviesCell;
+			sourceTree = "<group>";
+		};
+		13305D4C2B7263B7007B74D4 /* MoviesCell */ = {
+			isa = PBXGroup;
+			children = (
+				13305D512B726551007B74D4 /* MoviesCollectionViewCell */,
+				13305D4D2B7263D7007B74D4 /* MoviesCell.swift */,
+				13305D4E2B7263D7007B74D4 /* MoviesCell.xib */,
+			);
+			path = MoviesCell;
+			sourceTree = "<group>";
+		};
+		13305D512B726551007B74D4 /* MoviesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */,
+				13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */,
+			);
+			path = MoviesCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		134ECC052B6766DD004BCAC2 /* Factory */ = {
@@ -508,6 +535,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				13305D4C2B7263B7007B74D4 /* MoviesCell */,
 				131A9B402B6A2008007A4D55 /* Loader */,
 			);
 			path = Common;
@@ -804,11 +832,13 @@
 				139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */,
 				131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */,
 				139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */,
+				13305D502B7263D7007B74D4 /* MoviesCell.xib in Resources */,
 				139C22812B612D700082DBDD /* Download.storyboard in Resources */,
 				139C22872B612DC00082DBDD /* Common.storyboard in Resources */,
 				139C226B2B6128500082DBDD /* Onboarding.storyboard in Resources */,
 				139C227B2B612D270082DBDD /* Home.storyboard in Resources */,
 				139C227E2B612D4C0082DBDD /* Search.storyboard in Resources */,
+				13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */,
 				139C22842B612D8D0082DBDD /* Profile.storyboard in Resources */,
 				1398F0BC2B68D1F100D58906 /* GoogleService-Info.plist in Resources */,
 				139C225E2B6126F80082DBDD /* LaunchScreen.storyboard in Resources */,
@@ -871,6 +901,7 @@
 				13F6EE622B70F3E9006452E2 /* MoviesRouter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				13305D3E2B7216AC007B74D4 /* MasterMoviesModel.swift in Sources */,
+				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
@@ -891,6 +922,7 @@
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
 				13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */,
+				13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */,
 				13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */,
 				13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */,
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
