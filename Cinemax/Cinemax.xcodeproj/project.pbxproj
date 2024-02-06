@@ -20,6 +20,7 @@
 		13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */; };
 		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
+		13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -116,6 +117,7 @@
 		13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCInteractor.swift; sourceTree = "<group>"; };
 		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
+		13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesCell.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -242,6 +244,22 @@
 				131A9B3D2B6A1FE0007A4D55 /* ViewModel */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		13305D452B723EF2007B74D4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				13305D462B723F04007B74D4 /* UpcomingMoviesCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		13305D462B723F04007B74D4 /* UpcomingMoviesCell */ = {
+			isa = PBXGroup;
+			children = (
+				13305D472B723F29007B74D4 /* UpcomingMoviesCell.swift */,
+			);
+			path = UpcomingMoviesCell;
 			sourceTree = "<group>";
 		};
 		134ECC052B6766DD004BCAC2 /* Factory */ = {
@@ -567,6 +585,7 @@
 		13C74DDA2B6B6204009CA6DB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				13305D452B723EF2007B74D4 /* Cells */,
 				13C74DDB2B6B621E009CA6DB /* HomeVC.swift */,
 				13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */,
 				13305D412B721750007B74D4 /* HomeVCPresenter.swift */,
@@ -908,6 +927,7 @@
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
 				134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */,
 				13F6EE5F2B70F38A006452E2 /* MoviesService.swift in Sources */,
+				13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */,
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,

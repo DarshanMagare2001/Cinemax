@@ -8,5 +8,6 @@ target 'Cinemax' do
   # Pods for Cinemax
   pod 'JXPageControl'
   pod 'IQKeyboardManagerSwift'
+  pod 'FSPagerView'
 
 end
