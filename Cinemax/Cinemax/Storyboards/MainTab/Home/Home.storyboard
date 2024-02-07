@@ -170,7 +170,7 @@
                                                             <rect key="frame" x="0.0" y="311" width="414" height="50"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-b7-NQc" customClass="JXPageControlEllipse" customModule="JXPageControl">
-                                                                    <rect key="frame" x="157" y="0.0" width="100" height="50"/>
+                                                                    <rect key="frame" x="10" y="0.0" width="394" height="50"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="100" id="ReQ-6y-Lf6"/>
@@ -197,9 +197,11 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="Q5l-b7-NQc" secondAttribute="trailing" constant="10" id="O0D-IF-iW7"/>
                                                                 <constraint firstItem="Q5l-b7-NQc" firstAttribute="top" secondItem="jp4-N5-Oo7" secondAttribute="top" id="Uko-tl-zqF"/>
                                                                 <constraint firstItem="Q5l-b7-NQc" firstAttribute="centerX" secondItem="jp4-N5-Oo7" secondAttribute="centerX" id="Yqk-Ot-RLr"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Q5l-b7-NQc" secondAttribute="bottom" id="hPi-Fk-QhI"/>
+                                                                <constraint firstItem="Q5l-b7-NQc" firstAttribute="leading" secondItem="jp4-N5-Oo7" secondAttribute="leading" constant="10" id="pOW-6d-JVV"/>
                                                                 <constraint firstAttribute="height" constant="50" id="udT-a1-G8V"/>
                                                             </constraints>
                                                         </view>
