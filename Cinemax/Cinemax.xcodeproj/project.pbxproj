@@ -42,6 +42,7 @@
 		134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */; };
 		134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */; };
 		134ECC282B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */; };
+		139531CD2B97403300B2BCAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 139531CC2B97403300B2BCAA /* Alamofire */; };
 		1398F0A92B68BB9200D58906 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0A82B68BB9200D58906 /* GoogleSignIn */; };
 		1398F0AB2B68BB9200D58906 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0AA2B68BB9200D58906 /* GoogleSignInSwift */; };
 		1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1398F0AD2B68BCED00D58906 /* FirebaseAuth */; };
@@ -219,6 +220,7 @@
 				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
 				1398F0A92B68BB9200D58906 /* GoogleSignIn in Frameworks */,
 				1398F0AE2B68BCED00D58906 /* FirebaseAuth in Frameworks */,
+				139531CD2B97403300B2BCAA /* Alamofire in Frameworks */,
 				13305D4B2B724A41007B74D4 /* Kingfisher in Frameworks */,
 				131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */,
 				1398F0B42B68BCED00D58906 /* FirebaseFirestore in Frameworks */,
@@ -330,6 +332,14 @@
 			path = ResetPassword;
 			sourceTree = "<group>";
 		};
+		139531CE2B97404400B2BCAA /* HttpUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				13F6EE462B70E042006452E2 /* HttpService */,
+			);
+			path = HttpUtilities;
+			sourceTree = "<group>";
+		};
 		139C22452B6126F60082DBDD = {
 			isa = PBXGroup;
 			children = (
@@ -356,7 +366,7 @@
 				134ECC052B6766DD004BCAC2 /* Factory */,
 				139C22762B6129C10082DBDD /* Extensions */,
 				139C22912B6139310082DBDD /* Utilities */,
-				13F6EE462B70E042006452E2 /* HttpService */,
+				139531CE2B97404400B2BCAA /* HttpUtilities */,
 				13BA5F732B627E09005EDA19 /* Repository */,
 				139C22672B6127A80082DBDD /* Storyboards */,
 				139C22722B6129270082DBDD /* Screens */,
@@ -778,6 +788,7 @@
 				131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */,
 				13B1E64E2B6D1D96003DD382 /* YPImagePicker */,
 				13305D4A2B724A41007B74D4 /* Kingfisher */,
+				139531CC2B97403300B2BCAA /* Alamofire */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -814,6 +825,7 @@
 				131A9B352B6A1760007A4D55 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				13B1E64D2B6D1D96003DD382 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 				13305D492B724A40007B74D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				139531CB2B97403300B2BCAA /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -1202,6 +1214,14 @@
 				version = 7.9.1;
 			};
 		};
+		139531CB2B97403300B2BCAA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		1398F0A72B68BB9200D58906 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1251,6 +1271,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13305D492B724A40007B74D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		139531CC2B97403300B2BCAA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 139531CB2B97403300B2BCAA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		1398F0A82B68BB9200D58906 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
