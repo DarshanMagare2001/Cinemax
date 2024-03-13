@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 protocol HomeVCProtocol: class {
     func setupUI(name:String,profileImgUrl:String)
@@ -21,14 +22,31 @@ class HomeVC: UIViewController {
     
     var presenter: HomeVCPresenterProtocol?
     var moviesManager : MoviesServiceManagerProtocol?
+    var upcomingMoviesDatasource = PublishSubject<MasterMovieModel>()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
         moviesManager = MoviesServiceManager.shared
-        moviesManager?.fetchToprated(completionHandler: { result in
-            
-        })
+        moviesManager?.fetchMovieUpcoming(page: 1)
+            .subscribe({ data in
+                switch data {
+                case.success(let movieData):
+                    print(movieData)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.upcomingMoviesDatasource.onNext(movieData)
+                    }
+                case.failure(let error):
+                    print(error)
+                }
+            }).disposed(by: disposeBag)
+        
+        upcomingMoviesDatasource
+            .subscribe({ data in
+                print(data)
+            }).disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
