@@ -27,7 +27,7 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
     
     func fetchToprated(completionHandler:@escaping MoviesClosureResultError){
         do {
-            try MoviesRouter.movieUpcoming.request(service: movieService)
+            try MoviesRouter.movieSearch(searchText: "Ironman", page: 1).request(service: movieService)
                 .response(completionHandler: { response in
                     switch response.result {
                     case .success(let data):

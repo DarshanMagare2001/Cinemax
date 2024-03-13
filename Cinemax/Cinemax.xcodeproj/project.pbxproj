@@ -374,7 +374,6 @@
 		139531CE2B97404400B2BCAA /* HttpUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				13CE21F02BA088630077D0E1 /* Test */,
 				139531CF2B9746ED00B2BCAA /* HttpService */,
 				139531D42B9746FC00B2BCAA /* MoviesService */,
 			);
@@ -777,13 +776,6 @@
 				13C74DF72B6B9F8A009CA6DB /* ViewModel */,
 			);
 			path = UserServerRepository;
-			sourceTree = "<group>";
-		};
-		13CE21F02BA088630077D0E1 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		512A217EC32A23174C44CAC4 /* Frameworks */ = {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 protocol HomeVCProtocol: class {
     func setupUI(name:String,profileImgUrl:String)
@@ -20,10 +20,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moviesTableViewOutlet: UITableView!
     
     var presenter: HomeVCPresenterProtocol?
+    var moviesManager : MoviesServiceManagerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        moviesManager = MoviesServiceManager.shared
+        moviesManager?.fetchToprated(completionHandler: { result in
+            
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +44,10 @@ class HomeVC: UIViewController {
     
     private func testAPI(){
         let url = "https://api.themoviedb.org/3/movie/now_playing?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
-        
+        AF.request(url)
+            .response { data in
+                print(data)
+            }
     }
     
     

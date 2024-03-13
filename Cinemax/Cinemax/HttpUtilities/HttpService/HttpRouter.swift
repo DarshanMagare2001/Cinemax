@@ -19,16 +19,18 @@ protocol HttpRouterProtocol: URLRequestConvertible {
 }
 
 extension HttpRouterProtocol {
+    
     func asURLRequest() throws -> URLRequest {
         let url = try baseUrlString.asURL()
-        let urlWithPath = url.appendingPathComponent(path)
+        let urlWithPath = "\(url)\(path)"
+        print(urlWithPath)
         var urlRequest = try URLRequest(url: urlWithPath, method: method, headers: headers)
         urlRequest.httpBody = try body()
-        print(urlRequest)
         return urlRequest
     }
     
     func request(service: HttpServiceProtocol) throws -> DataRequest {
         return try service.request(urlRequest: asURLRequest())
     }
+    
 }
