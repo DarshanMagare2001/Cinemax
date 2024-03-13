@@ -67,7 +67,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        let imageUrl = cellData?.results[index].posterPath ?? ""
+        let imageUrl = "https://image.tmdb.org/t/p/w500\(cellData?.results[index].posterPath ?? "")"
         
         // Set corner radius for imageView
         cell.imageView?.layer.cornerRadius = 20
@@ -107,6 +107,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         ])
         
         DispatchQueue.main.async { [weak self] in
+            print(imageUrl)
             ImageLoader.loadImage(imageView: cell.imageView!, imageUrl: imageUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
         }
         
