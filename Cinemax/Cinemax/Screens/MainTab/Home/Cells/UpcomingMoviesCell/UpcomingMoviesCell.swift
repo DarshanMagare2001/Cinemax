@@ -12,7 +12,6 @@ import JXPageControl
 
 class UpcomingMoviesCell: UITableViewCell  {
     
-    
     @IBOutlet weak var pagerViewOutlet: FSPagerView! {
         didSet{
             self.pagerViewOutlet.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -29,7 +28,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         }
     }
     
-    var cellData : MoviesModel? {
+    var cellData : MasterMovieModel? {
         didSet{
             pageControl.numberOfPages = cellData?.results.count ?? 0
             let progress = CGFloat(indexpath) / CGFloat(cellData?.results.count ?? 0)
@@ -49,7 +48,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         
     }
     
-    func configureCell(dataSource: MoviesModel?){
+    func configureCell(dataSource: MasterMovieModel?){
         cellData = dataSource
         pagerViewOutlet.reloadData()
     }

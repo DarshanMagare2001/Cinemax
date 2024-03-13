@@ -11,20 +11,20 @@ import RxSwift
 protocol HomeVCPresenterProtocol {
     func viewDidload()
     func viewWillAppear()
-    var movieUpcomingDatasource : PublishSubject<MasterMovieModel> { get set }
-    var movieNowPlayingDatasource : PublishSubject<MasterMovieModel> { get set }
-    var movieTopRatedDatasource : PublishSubject<MasterMovieModel> { get set }
-    var moviePopularDatasource : PublishSubject<MasterMovieModel> { get set }
+    var movieUpcomingDatasource : MasterMovieModel? { get set }
+    var movieNowPlayingDatasource : MasterMovieModel? { get set }
+    var movieTopRatedDatasource : MasterMovieModel? { get set }
+    var moviePopularDatasource : MasterMovieModel? { get set }
 }
 
 class HomeVCPresenter {
     weak var view: HomeVCProtocol?
     var interactor: HomeVCInteractorProtocol
     var router: HomeVCRouterProtocol
-    var movieUpcomingDatasource = PublishSubject<MasterMovieModel>()
-    var movieNowPlayingDatasource = PublishSubject<MasterMovieModel>()
-    var movieTopRatedDatasource = PublishSubject<MasterMovieModel>()
-    var moviePopularDatasource = PublishSubject<MasterMovieModel>()
+    var movieUpcomingDatasource : MasterMovieModel?
+    var movieNowPlayingDatasource : MasterMovieModel?
+    var movieTopRatedDatasource : MasterMovieModel?
+    var moviePopularDatasource : MasterMovieModel?
     var dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
@@ -86,7 +86,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
             .subscribe({ response in
                 switch response {
                 case.success(let movieData):
-                    self.movieUpcomingDatasource.onNext(movieData)
+                    self.movieUpcomingDatasource = movieData
                 case.failure(let error):
                     print(error)
                 }
@@ -99,7 +99,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
             .subscribe({ response in
                 switch response {
                 case.success(let movieData):
-                    self.movieNowPlayingDatasource.onNext(movieData)
+                    self.movieNowPlayingDatasource = movieData
                 case.failure(let error):
                     print(error)
                 }
@@ -112,7 +112,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
             .subscribe({ response in
                 switch response {
                 case.success(let movieData):
-                    self.movieTopRatedDatasource.onNext(movieData)
+                    self.movieTopRatedDatasource = movieData
                 case.failure(let error):
                     print(error)
                 }
@@ -125,7 +125,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
             .subscribe({ response in
                 switch response {
                 case.success(let movieData):
-                    self.moviePopularDatasource.onNext(movieData)
+                    self.moviePopularDatasource = movieData
                 case.failure(let error):
                     print(error)
                 }
