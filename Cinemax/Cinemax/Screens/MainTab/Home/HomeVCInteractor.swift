@@ -1,7 +1,7 @@
 import Foundation
 
 protocol HomeVCInteractorProtocol {
-    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MasterMoviesModel]?,Error>)->())
+    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MoviesModel]?,Error>)->())
 }
 
 class HomeVCInteractor {
@@ -13,10 +13,10 @@ class HomeVCInteractor {
 
 extension HomeVCInteractor: HomeVCInteractorProtocol {
     
-    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MasterMoviesModel]?,Error>)->()){
-        moviesServiceManager?.fetchUpcomingMovies(pageCount: pageCount, completion: { result in
-            completion(result)
-        })
+    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MoviesModel]?,Error>)->()){
+//        moviesServiceManager?.fetchUpcomingMovies(pageCount: pageCount, completion: { result in
+//            completion(result)
+//        })
     }
     
 }

@@ -23,16 +23,16 @@ class UpcomingMoviesCell: UITableViewCell  {
     
     var indexpath = 0 {
         didSet{
-            let progress = CGFloat(indexpath) / CGFloat(cellData.count)
+            let progress = CGFloat(indexpath) / CGFloat(cellData?.results.count ?? 0)
             pageControl.progress = progress
             pageControl.currentPage = indexpath
         }
     }
     
-    var cellData = [MasterMoviesModel]() {
+    var cellData : MoviesModel? {
         didSet{
-            pageControl.numberOfPages = cellData.count
-            let progress = CGFloat(indexpath) / CGFloat(cellData.count)
+            pageControl.numberOfPages = cellData?.results.count ?? 0
+            let progress = CGFloat(indexpath) / CGFloat(cellData?.results.count ?? 0)
             pageControl.progress = progress
             pageControl.currentPage = indexpath
         }
@@ -49,7 +49,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         
     }
     
-    func configureCell(dataSource:[MasterMoviesModel]){
+    func configureCell(dataSource: MoviesModel?){
         cellData = dataSource
         pagerViewOutlet.reloadData()
     }
@@ -59,16 +59,16 @@ class UpcomingMoviesCell: UITableViewCell  {
 extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return cellData.count
+        return cellData?.results.count ?? 0
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int){
         indexpath = targetIndex
     }
-   
+    
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        let imageUrl = cellData[index].moviesPosterModel.poster
+        let imageUrl = cellData?.results[index].posterPath ?? ""
         
         // Set corner radius for imageView
         cell.imageView?.layer.cornerRadius = 20
@@ -82,8 +82,8 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         let cellMovieReleaseDateLbl = UILabel()
         
         // Customize UILabels (set text, font, color, etc.)
-        cellMovieTitleLbl.text = cellData[index].movieModel.title
-        cellMovieReleaseDateLbl.text = cellData[index].movieModel.releaseDate
+        cellMovieTitleLbl.text = cellData?.results[index].title
+        cellMovieReleaseDateLbl.text = cellData?.results[index].releaseDate
         cellMovieTitleLbl.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
         cellMovieTitleLbl.textColor = UIColor.appBlue
         cellMovieReleaseDateLbl.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
@@ -107,12 +107,8 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
             stackView.bottomAnchor.constraint(equalTo: cell.imageView!.bottomAnchor, constant: -30)
         ])
         
-        // Load image using ImageLoader (adjust placeholder as needed)
-        if var urlComponents = URLComponents(string: imageUrl) {
-            urlComponents.scheme = "https"
-            if let httpsUrl = urlComponents.url {
-                ImageLoader.loadImage(imageView: cell.imageView!, imageUrl: httpsUrl.absoluteString, placeHolderType: .systemName, placeHolderImage: "person.fill")
-            }
+        DispatchQueue.main.async { [weak self] in
+            ImageLoader.loadImage(imageView: cell.imageView!, imageUrl: imageUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
         }
         
         return cell

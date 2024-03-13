@@ -10,20 +10,20 @@ import Foundation
 protocol HomeVCPresenterProtocol {
     func viewDidload()
     func viewWillAppear()
-    var upcomingMovies:[MasterMoviesModel] { get set }
-    var nowplayingMovies:[MasterMoviesModel] { get set }
-    var trendingMovies:[MasterMoviesModel] { get set }
-    var boxofficeMovies:[MasterMoviesModel] { get set }
+    var upcomingMovies:[MoviesModel] { get set }
+    var nowplayingMovies:[MoviesModel] { get set }
+    var trendingMovies:[MoviesModel] { get set }
+    var boxofficeMovies:[MoviesModel] { get set }
 }
 
 class HomeVCPresenter {
     weak var view: HomeVCProtocol?
     var interactor: HomeVCInteractorProtocol
     var router: HomeVCRouterProtocol
-    var upcomingMovies = [MasterMoviesModel]()
-    var nowplayingMovies = [MasterMoviesModel]()
-    var trendingMovies = [MasterMoviesModel]()
-    var boxofficeMovies = [MasterMoviesModel]()
+    var upcomingMovies = [MoviesModel]()
+    var nowplayingMovies = [MoviesModel]()
+    var trendingMovies = [MoviesModel]()
+    var boxofficeMovies = [MoviesModel]()
     var dispatchGroup = DispatchGroup()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
         self.view = view

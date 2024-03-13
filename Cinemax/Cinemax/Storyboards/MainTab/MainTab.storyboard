@@ -22,8 +22,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-PG-pon" userLabel="TabView">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-lc-CfC">
-                                        <rect key="frame" x="-7" y="5" width="428" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-lc-CfC">
+                                        <rect key="frame" x="-14.5" y="5" width="443" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-g3-dlf" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="50"/>
@@ -75,7 +75,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-C7-YZc" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="100.5" y="0.0" width="96.5" height="50"/>
+                                                <rect key="frame" x="105.5" y="0.0" width="96.5" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yOz-dA-Fvq">
                                                         <rect key="frame" x="10" y="5" width="76.5" height="40"/>
@@ -124,7 +124,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wim-wX-QLI" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="207" y="0.0" width="118" height="50"/>
+                                                <rect key="frame" x="217" y="0.0" width="118" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="64v-Za-JcO">
                                                         <rect key="frame" x="10" y="5" width="98" height="40"/>
@@ -173,7 +173,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piV-dY-5ph" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="335" y="0.0" width="93" height="50"/>
+                                                <rect key="frame" x="350" y="0.0" width="93" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zvQ-MA-DAz">
                                                         <rect key="frame" x="10" y="5" width="73" height="40"/>

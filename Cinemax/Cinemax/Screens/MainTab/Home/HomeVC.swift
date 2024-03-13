@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol HomeVCProtocol: class {
     func setupUI(name:String,profileImgUrl:String)
     func updateUI()
@@ -36,6 +37,12 @@ class HomeVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    private func testAPI(){
+        let url = "https://api.themoviedb.org/3/movie/now_playing?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
+        
+    }
+    
+    
 }
 
 extension HomeVC: HomeVCProtocol {
@@ -60,9 +67,9 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
         DispatchQueue.main.async { [weak self] in
-            if let upcomingMovies = self?.presenter?.upcomingMovies {
-                cell.configureCell(dataSource: upcomingMovies)
-            }
+//            if let upcomingMovies = self?.presenter?.topRated {
+//                cell.configureCell(dataSource: upcomingMovies)
+//            }
         }
         return cell
     }
