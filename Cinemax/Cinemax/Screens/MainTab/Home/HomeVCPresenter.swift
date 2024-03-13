@@ -6,25 +6,27 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol HomeVCPresenterProtocol {
     func viewDidload()
     func viewWillAppear()
-    var upcomingMovies:[MoviesModel] { get set }
-    var nowplayingMovies:[MoviesModel] { get set }
-    var trendingMovies:[MoviesModel] { get set }
-    var boxofficeMovies:[MoviesModel] { get set }
+    var movieUpcomingDatasource : PublishSubject<MasterMovieModel> { get set }
+    var movieNowPlayingDatasource : PublishSubject<MasterMovieModel> { get set }
+    var movieTopRatedDatasource : PublishSubject<MasterMovieModel> { get set }
+    var moviePopularDatasource : PublishSubject<MasterMovieModel> { get set }
 }
 
 class HomeVCPresenter {
     weak var view: HomeVCProtocol?
     var interactor: HomeVCInteractorProtocol
     var router: HomeVCRouterProtocol
-    var upcomingMovies = [MoviesModel]()
-    var nowplayingMovies = [MoviesModel]()
-    var trendingMovies = [MoviesModel]()
-    var boxofficeMovies = [MoviesModel]()
+    var movieUpcomingDatasource = PublishSubject<MasterMovieModel>()
+    var movieNowPlayingDatasource = PublishSubject<MasterMovieModel>()
+    var movieTopRatedDatasource = PublishSubject<MasterMovieModel>()
+    var moviePopularDatasource = PublishSubject<MasterMovieModel>()
     var dispatchGroup = DispatchGroup()
+    let disposeBag = DisposeBag()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
         self.view = view
         self.interactor = interactor
@@ -53,99 +55,82 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     }
     
     func loadDataSource(){
+        dispatchGroup.enter()
+        fetchMovieUpcoming { [weak self] in
+            self?.dispatchGroup.leave()
+        }
         
         dispatchGroup.enter()
-        fetchUpcomingMoviesData { [weak self] in
+        fetchMovieNowPlaying { [weak self] in
             self?.dispatchGroup.leave()
         }
+        
         dispatchGroup.enter()
-        fetchNowplayingMoviesData { [weak self] in
+        fetchMovieTopRated { [weak self] in
             self?.dispatchGroup.leave()
         }
+        
         dispatchGroup.enter()
-        fetchTrendingMoviesData { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        fetchBoxofficeMoviesData { [weak self] in
+        fetchMoviePopular { [weak self] in
             self?.dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main){ [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.view?.updateUI()
-            }
+            self?.view?.updateUI()
         }
         
     }
     
-    func fetchUpcomingMoviesData(completion:@escaping()->()){
-        DispatchQueue.global(qos: .background).async{ [weak self] in
-            self?.interactor.fetchUpcomingMovies(pageCount: 1) { result in
-                switch result {
-                case.success(let data):
-                    print(data)
-                    if let data = data {
-                        self?.upcomingMovies = data
-                    }
-                    completion()
+    private func fetchMovieUpcoming(completionHandler:@escaping()->()){
+        interactor.fetchMovieUpcoming(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let movieData):
+                    self.movieUpcomingDatasource.onNext(movieData)
                 case.failure(let error):
                     print(error)
-                    completion()
                 }
-            }
-        }
+                completionHandler()
+            }).disposed(by: disposeBag)
     }
     
-    func fetchNowplayingMoviesData(completion:@escaping()->()){
-        DispatchQueue.global(qos: .background).async{ [weak self] in
-            self?.interactor.fetchUpcomingMovies(pageCount: 1) { result in
-                switch result {
-                case.success(let data):
-                    if let data = data {
-                        self?.nowplayingMovies = data
-                    }
-                    completion()
+    private func fetchMovieNowPlaying(completionHandler:@escaping()->()){
+        interactor.fetchMovieNowPlaying(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let movieData):
+                    self.movieNowPlayingDatasource.onNext(movieData)
                 case.failure(let error):
                     print(error)
-                    completion()
                 }
-            }
-        }
+                completionHandler()
+            }).disposed(by: disposeBag)
     }
     
-    func fetchTrendingMoviesData(completion:@escaping()->()){
-        DispatchQueue.global(qos: .background).async{ [weak self] in
-            self?.interactor.fetchUpcomingMovies(pageCount: 1) { result in
-                switch result {
-                case.success(let data):
-                    if let data = data {
-                        self?.trendingMovies = data
-                    }
-                    completion()
+    private func fetchMovieTopRated(completionHandler:@escaping()->()){
+        interactor.fetchMovieTopRated(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let movieData):
+                    self.movieTopRatedDatasource.onNext(movieData)
                 case.failure(let error):
                     print(error)
-                    completion()
                 }
-            }
-        }
+                completionHandler()
+            }).disposed(by: disposeBag)
     }
     
-    func fetchBoxofficeMoviesData(completion:@escaping()->()){
-        DispatchQueue.global(qos: .background).async{ [weak self] in
-            self?.interactor.fetchUpcomingMovies(pageCount: 1) { result in
-                switch result {
-                case.success(let data):
-                    if let data = data {
-                        self?.boxofficeMovies = data
-                    }
-                    completion()
+    private func fetchMoviePopular(completionHandler:@escaping()->()){
+        interactor.fetchMoviePopular(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let movieData):
+                    self.moviePopularDatasource.onNext(movieData)
                 case.failure(let error):
                     print(error)
-                    completion()
                 }
-            }
-        }
+                completionHandler()
+            }).disposed(by: disposeBag)
     }
     
 }

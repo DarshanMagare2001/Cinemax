@@ -1,23 +1,32 @@
 import Foundation
+import RxSwift
 
 protocol HomeVCInteractorProtocol {
-    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MoviesModel]?,Error>)->())
+    func fetchMovieUpcoming(page:Int) -> Single<MasterMovieModel>
+    func fetchMovieNowPlaying(page:Int) -> Single<MasterMovieModel>
+    func fetchMovieTopRated(page:Int) -> Single<MasterMovieModel>
+    func fetchMoviePopular(page:Int) -> Single<MasterMovieModel>
 }
 
 class HomeVCInteractor {
-    var moviesServiceManager : MoviesServiceManagerProtocol?
+    var moviesServiceManager : MoviesServiceManagerProtocol
     init(moviesServiceManager : MoviesServiceManagerProtocol){
         self.moviesServiceManager = moviesServiceManager
     }
 }
 
 extension HomeVCInteractor: HomeVCInteractorProtocol {
-    
-    func fetchUpcomingMovies(pageCount: Int,completion:@escaping(Result<[MoviesModel]?,Error>)->()){
-//        moviesServiceManager?.fetchUpcomingMovies(pageCount: pageCount, completion: { result in
-//            completion(result)
-//        })
+    func fetchMovieUpcoming(page:Int) -> Single<MasterMovieModel> {
+        return moviesServiceManager.fetchMovieUpcoming(page: page)
     }
-    
+    func fetchMovieNowPlaying(page:Int) -> Single<MasterMovieModel> {
+        return moviesServiceManager.fetchMovieNowPlaying(page: page)
+    }
+    func fetchMovieTopRated(page:Int) -> Single<MasterMovieModel> {
+        return moviesServiceManager.fetchMovieTopRated(page: page)
+    }
+    func fetchMoviePopular(page:Int) -> Single<MasterMovieModel> {
+        return moviesServiceManager.fetchMoviePopular(page: page)
+    }
 }
 

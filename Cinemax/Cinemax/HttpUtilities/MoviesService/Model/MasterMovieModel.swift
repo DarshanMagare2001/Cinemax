@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - MasterMovieModel
 struct MasterMovieModel: Codable {
-    let dates: Dates
+    let dates: Dates?
     let page: Int
     let results: [MasterMovieModelResult]
     let totalPages, totalResults: Int
