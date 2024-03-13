@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 typealias MoviesClosureResultError = (Result<MoviesModel?, Error>) -> ()
 
@@ -27,28 +28,15 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
     
     func fetchToprated(completionHandler:@escaping MoviesClosureResultError){
         do {
-            try MoviesRouter.movieSearch(searchText: "Ironman", page: 1).request(service: movieService)
-                .response(completionHandler: { response in
+            try MoviesRouter.movieSimilar(similarId: 201485, page:1).request(service: movieService)
+                .responseDecodable(of: MovieResultModel.self, queue: DispatchQueue.global(qos: .utility),completionHandler:{ response in
                     switch response.result {
                     case .success(let data):
-                        if let responseData = data {
-                            print(String(data: responseData, encoding: .utf8))
-                        } else {
-                            print("Response data is nil")
-                        }
+                        print(data)
                     case .failure(let error):
                         print("Error: \(error)")
                     }
                 })
-//                .responseDecodable(of: MoviesModel.self, queue: DispatchQueue.global(qos: .utility),  completionHandler: { data in
-//                    print(data.result)
-//                    switch data.result {
-//                    case.success(let movies):
-//                        completionHandler(.success(movies))
-//                    case.failure(let error):
-//                        completionHandler(.failure(error))
-//                    }
-//                })
         }catch let error {
             print(error)
             completionHandler(.failure(error))
