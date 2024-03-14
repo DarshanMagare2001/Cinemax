@@ -92,6 +92,11 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     cell.configureCell(dataSource: upcomingMovies)
                 }
             }
+            
+            cell.cellTappedClosure = { [weak self] data in
+                
+            }
+            
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell

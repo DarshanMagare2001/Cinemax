@@ -23,6 +23,8 @@
 		13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */; };
 		13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */; };
 		13374AEA2BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */; };
+		13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AF52BA33591005E2BCA /* DetailVC.swift */; };
+		13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */; };
 		133AD5742BA07BF7007A45C5 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AD5732BA07BF6007A45C5 /* DataTests.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
@@ -153,6 +155,8 @@
 		13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderWithKingfisher.swift; sourceTree = "<group>"; };
+		13374AF52BA33591005E2BCA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCBuilder.swift; sourceTree = "<group>"; };
 		133AD56C2BA07BF6007A45C5 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		133AD5732BA07BF6007A45C5 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
@@ -332,6 +336,15 @@
 				13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */,
 			);
 			path = MoviesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		13374AF42BA33525005E2BCA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				13374AF52BA33591005E2BCA /* DetailVC.swift */,
+				13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		133AD5722BA07BF6007A45C5 /* DataTests */ = {
@@ -627,6 +640,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				13374AF42BA33525005E2BCA /* Detail */,
 				13305D4C2B7263B7007B74D4 /* MoviesCell */,
 				131A9B402B6A2008007A4D55 /* Loader */,
 			);
@@ -1007,6 +1021,7 @@
 				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
+				13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				139531DA2B97496A00B2BCAA /* MoviesServiceManager.swift in Sources */,
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
@@ -1060,6 +1075,7 @@
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
+				13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */,
 				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
 				13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */,
 				13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */,

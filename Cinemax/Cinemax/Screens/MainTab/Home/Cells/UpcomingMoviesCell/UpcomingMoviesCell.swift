@@ -44,6 +44,8 @@ class UpcomingMoviesCell: UITableViewCell  {
         }
     }
     
+    var cellTappedClosure : ((MasterMovieModelResult)->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         pagerViewOutlet.dataSource = self
@@ -70,7 +72,7 @@ class UpcomingMoviesCell: UITableViewCell  {
                 self.movieTitle.transform = .identity
             })
         }
-
+        
         // Animate the movieReleaseDateLbl label
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
             self.movieReleaseDateLbl.transform = CGAffineTransform(translationX: -self.movieReleaseDateLbl.bounds.width, y: 0)
@@ -81,8 +83,8 @@ class UpcomingMoviesCell: UITableViewCell  {
             })
         }
     }
-
-  
+    
+    
 }
 
 extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
@@ -109,7 +111,17 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
             cell.imageView?.loadImage(urlString: imageUrl, placeholder: "frame.fill")
         }
         
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        cell.imageView?.isUserInteractionEnabled = true
+        cell.imageView?.addGestureRecognizer(tapgesture)
+        
         return cell
+    }
+    
+    @objc func cellTapped(){
+        if let data = cellData?.results[indexpath] {
+            cellTappedClosure?(data)
+        }
     }
     
 }
