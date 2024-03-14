@@ -22,6 +22,7 @@
 		13305D502B7263D7007B74D4 /* MoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13305D4E2B7263D7007B74D4 /* MoviesCell.xib */; };
 		13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */; };
 		13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */; };
+		13374AEA2BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */; };
 		133AD5742BA07BF7007A45C5 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AD5732BA07BF6007A45C5 /* DataTests.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
@@ -151,6 +152,7 @@
 		13305D4E2B7263D7007B74D4 /* MoviesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCell.xib; sourceTree = "<group>"; };
 		13305D522B726571007B74D4 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		13305D532B726571007B74D4 /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
+		13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderWithKingfisher.swift; sourceTree = "<group>"; };
 		133AD56C2BA07BF6007A45C5 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		133AD5732BA07BF6007A45C5 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				13F6EE412B70B509006452E2 /* ImageLoader.swift */,
 				139C22922B61399B0082DBDD /* RoundedCorners.swift */,
 				131A9B332B6A1469007A4D55 /* Alert.swift */,
+				13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				13C74E002B6BA09F009CA6DB /* FetchUserServerManager.swift in Sources */,
 				13C74DEF2B6B973B009CA6DB /* ProfileVCInteractor.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
+				13374AEA2BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift in Sources */,
 				139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */,
 				134ECC192B679AE6004BCAC2 /* SignUpCredentialVCInteractor.swift in Sources */,
 				13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */,

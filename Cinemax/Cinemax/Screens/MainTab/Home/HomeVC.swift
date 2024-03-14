@@ -60,7 +60,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
         DispatchQueue.main.async { [weak self] in
-            if let upcomingMovies = self?.presenter?.movieTopRatedDatasource {
+            if let upcomingMovies = self?.presenter?.movieUpcomingDatasource {
                 cell.configureCell(dataSource: upcomingMovies)
             }
         }

@@ -11,6 +11,9 @@ import Kingfisher
 
 class UpcomingMoviesCell: UITableViewCell  {
     
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieReleaseDateLbl: UILabel!
+    
     @IBOutlet weak var pagerViewOutlet: FSPagerView! {
         didSet{
             self.pagerViewOutlet.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -20,11 +23,23 @@ class UpcomingMoviesCell: UITableViewCell  {
     
     var indexpath = 0 {
         didSet{
+            DispatchQueue.main.async { [weak self] in
+                if let data = self?.cellData?.results[self?.indexpath ?? 0] {
+                    self?.movieTitle.text = data.originalTitle
+                    self?.movieReleaseDateLbl.text = data.releaseDate
+                }
+            }
         }
     }
     
     var cellData : MasterMovieModel? {
         didSet{
+            DispatchQueue.main.async { [weak self] in
+                if let data = self?.cellData?.results[0] {
+                    self?.movieTitle.text = data.originalTitle
+                    self?.movieReleaseDateLbl.text = data.releaseDate
+                }
+            }
         }
     }
     
@@ -66,8 +81,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         cell.imageView?.layer.borderColor = UIColor.white.cgColor  // Set borderColor to UIColor.white.cgColor
         
         DispatchQueue.main.async { [weak self] in
-            print(imageUrl)
-            ImageLoader.loadImage(imageView: cell.imageView!, imageUrl: imageUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
+            cell.imageView?.loadImage(urlString: imageUrl, placeholder: "frame.fill")
         }
         
         return cell

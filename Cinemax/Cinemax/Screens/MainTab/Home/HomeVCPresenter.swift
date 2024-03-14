@@ -78,7 +78,6 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
         dispatchGroup.notify(queue: .main){ [weak self] in
             self?.view?.updateUI()
         }
-        
     }
     
     private func fetchMovieUpcoming(completionHandler:@escaping()->()){
