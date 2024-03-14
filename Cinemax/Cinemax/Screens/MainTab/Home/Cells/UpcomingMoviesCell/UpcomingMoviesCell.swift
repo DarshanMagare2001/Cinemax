@@ -67,8 +67,9 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         return cellData?.results.count ?? 0
     }
     
-    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int){
-        indexpath = targetIndex
+    func pagerViewDidScroll(_ pagerView: FSPagerView){
+        let currentIndex = pagerView.currentIndex
+        indexpath = currentIndex
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
