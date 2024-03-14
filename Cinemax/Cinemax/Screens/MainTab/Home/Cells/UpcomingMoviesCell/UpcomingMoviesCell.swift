@@ -27,6 +27,7 @@ class UpcomingMoviesCell: UITableViewCell  {
                 if let data = self?.cellData?.results[self?.indexpath ?? 0] {
                     self?.movieTitle.text = data.originalTitle
                     self?.movieReleaseDateLbl.text = data.releaseDate
+                    self?.animateLabels()
                 }
             }
         }
@@ -59,6 +60,29 @@ class UpcomingMoviesCell: UITableViewCell  {
         pagerViewOutlet.reloadData()
     }
     
+    func animateLabels() {
+        // Animate the movieTitle label
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.movieTitle.transform = CGAffineTransform(translationX: -self.movieTitle.bounds.width, y: 0)
+        }) { _ in
+            // Completion block
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+                self.movieTitle.transform = .identity
+            })
+        }
+
+        // Animate the movieReleaseDateLbl label
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
+            self.movieReleaseDateLbl.transform = CGAffineTransform(translationX: -self.movieReleaseDateLbl.bounds.width, y: 0)
+        }) { _ in
+            // Completion block
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+                self.movieReleaseDateLbl.transform = .identity
+            })
+        }
+    }
+
+  
 }
 
 extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
@@ -87,7 +111,6 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         
         return cell
     }
-    
     
 }
 
