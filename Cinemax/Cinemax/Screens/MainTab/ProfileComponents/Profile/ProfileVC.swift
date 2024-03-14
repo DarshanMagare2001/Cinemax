@@ -56,7 +56,7 @@ extension ProfileVC : ProfileVCProtocol {
     func updateUI(name:String ,email: String, profileImgUrl:String){
         currentUserName.text = name
         currentUserEmail.text = email
-        ImageLoader.loadImage(imageView: currentUserProfileImage, imageUrl: profileImgUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
+        currentUserProfileImage.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
     }
     
 }

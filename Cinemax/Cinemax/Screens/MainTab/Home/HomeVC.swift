@@ -55,7 +55,7 @@ extension HomeVC: HomeVCProtocol {
     
     func setupUI(name:String,profileImgUrl:String){
         userNameLbl.text = name
-        ImageLoader.loadImage(imageView: userImg, imageUrl: profileImgUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
+        userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
     }
     
     func updateUI(){
