@@ -25,7 +25,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         didSet{
             DispatchQueue.main.async { [weak self] in
                 if let data = self?.cellData?.results[self?.indexpath ?? 0] {
-                    self?.movieTitle.text = data.originalTitle
+                    self?.movieTitle.text = data.title
                     self?.movieReleaseDateLbl.text = data.releaseDate
                     self?.animateLabels()
                 }
@@ -37,7 +37,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         didSet{
             DispatchQueue.main.async { [weak self] in
                 if let data = self?.cellData?.results[0] {
-                    self?.movieTitle.text = data.originalTitle
+                    self?.movieTitle.text = data.title
                     self?.movieReleaseDateLbl.text = data.releaseDate
                 }
             }

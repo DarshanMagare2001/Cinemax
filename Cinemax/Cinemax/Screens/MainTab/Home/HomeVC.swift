@@ -10,6 +10,7 @@ import UIKit
 protocol HomeVCProtocol: class {
     func setupUI(name:String,profileImgUrl:String)
     func updateUI()
+    func registerXib()
 }
 
 class HomeVC: UIViewController {
@@ -49,22 +50,42 @@ extension HomeVC: HomeVCProtocol {
         moviesTableViewOutlet.reloadData()
     }
     
+    func registerXib(){
+        let nib = UINib(nibName: "MoviesCell", bundle: nil)
+        moviesTableViewOutlet.register(nib, forCellReuseIdentifier: "MoviesCell")
+    }
+    
 }
 
 extension HomeVC : UITableViewDelegate , UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
-        DispatchQueue.main.async { [weak self] in
-            if let upcomingMovies = self?.presenter?.movieUpcomingDatasource {
-                cell.configureCell(dataSource: upcomingMovies)
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
+            DispatchQueue.main.async { [weak self] in
+                if let upcomingMovies = self?.presenter?.movieUpcomingDatasource {
+                    cell.configureCell(dataSource: upcomingMovies)
+                }
             }
+            return cell
+        }else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+            DispatchQueue.main.async { [weak self] in
+                if let movieTopRated = self?.presenter?.movieTopRatedDatasource {
+                    cell.dataSource = movieTopRated
+                }
+            }
+            return cell
         }
-        return cell
+        return UITableViewCell()
     }
     
 }

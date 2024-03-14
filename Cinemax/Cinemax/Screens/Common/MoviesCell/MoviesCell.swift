@@ -8,9 +8,14 @@
 import UIKit
 
 class MoviesCell: UITableViewCell {
-
+    
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
+    var dataSource : MasterMovieModel? {
+        didSet{
+            collectionViewOutlet.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,10 +24,10 @@ class MoviesCell: UITableViewCell {
         let nib = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
         collectionViewOutlet.register(nib, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
     
@@ -34,10 +39,15 @@ class MoviesCell: UITableViewCell {
 
 extension MoviesCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return dataSource?.results.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as! MoviesCollectionViewCell
+        guard let cellData = dataSource?.results[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.configure(movie: cellData)
+        return cell
     }
 }

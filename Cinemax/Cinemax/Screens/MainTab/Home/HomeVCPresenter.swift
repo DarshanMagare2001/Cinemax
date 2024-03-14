@@ -38,6 +38,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func viewDidload(){
         loadDataSource()
+        view?.registerXib()
     }
     
     func viewWillAppear(){
