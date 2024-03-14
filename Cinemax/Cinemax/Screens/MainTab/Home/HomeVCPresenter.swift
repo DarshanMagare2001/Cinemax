@@ -11,6 +11,7 @@ import RxSwift
 protocol HomeVCPresenterProtocol {
     func viewDidload()
     func viewWillAppear()
+    func loadDataSource()
     var movieUpcomingDatasource : MasterMovieModel? { get set }
     var movieNowPlayingDatasource : MasterMovieModel? { get set }
     var movieTopRatedDatasource : MasterMovieModel? { get set }
@@ -39,6 +40,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     func viewDidload(){
         loadDataSource()
         view?.registerXib()
+        view?.addRefreshcontroToTableview()
     }
     
     func viewWillAppear(){

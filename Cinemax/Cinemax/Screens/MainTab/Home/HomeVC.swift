@@ -11,6 +11,7 @@ protocol HomeVCProtocol: class {
     func setupUI(name:String,profileImgUrl:String)
     func updateUI()
     func registerXib()
+    func addRefreshcontroToTableview()
 }
 
 class HomeVC: UIViewController {
@@ -20,6 +21,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moviesTableViewOutlet: UITableView!
     
     var presenter: HomeVCPresenterProtocol?
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.transform = CGAffineTransform(scaleX: 1, y: 1)
+        refreshControl.tintColor = .white
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +45,10 @@ class HomeVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        presenter?.loadDataSource()
+    }
+    
 }
 
 extension HomeVC: HomeVCProtocol {
@@ -47,12 +59,17 @@ extension HomeVC: HomeVCProtocol {
     }
     
     func updateUI(){
+        self.refreshControl.perform(#selector(UIRefreshControl.endRefreshing), with: nil, afterDelay: 0)
         moviesTableViewOutlet.reloadData()
     }
     
     func registerXib(){
         let nib = UINib(nibName: "MoviesCell", bundle: nil)
         moviesTableViewOutlet.register(nib, forCellReuseIdentifier: "MoviesCell")
+    }
+    
+    func addRefreshcontroToTableview(){
+        moviesTableViewOutlet.addSubview(refreshControl)
     }
     
 }
