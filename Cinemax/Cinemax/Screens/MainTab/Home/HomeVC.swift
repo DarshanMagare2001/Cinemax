@@ -60,7 +60,7 @@ extension HomeVC: HomeVCProtocol {
 extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,7 +86,35 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.seeAllBtnPressedClosure = { [weak self] in
-              print("seeAllBtnPressedClosure")
+                print("seeAllBtnPressedClosure")
+            }
+            
+            return cell
+        }else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+            DispatchQueue.main.async { [weak self] in
+                if let movieNowPlaying = self?.presenter?.movieNowPlayingDatasource {
+                    cell.dataSource = movieNowPlaying
+                    cell.cellTitleData = "NOWPLAYING"
+                }
+            }
+            
+            cell.seeAllBtnPressedClosure = { [weak self] in
+                print("seeAllBtnPressedClosure")
+            }
+            
+            return cell
+        }else if indexPath.section == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+            DispatchQueue.main.async { [weak self] in
+                if let moviePopular = self?.presenter?.moviePopularDatasource {
+                    cell.dataSource = moviePopular
+                    cell.cellTitleData = "POPULAR"
+                }
+            }
+            
+            cell.seeAllBtnPressedClosure = { [weak self] in
+                print("seeAllBtnPressedClosure")
             }
             
             return cell
