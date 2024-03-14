@@ -11,6 +11,15 @@ class MoviesCell: UITableViewCell {
     
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
+    
+    var seeAllBtnPressedClosure : (()->())?
+    
+    var cellTitleData : String? {
+        didSet{
+            self.cellTitle.text = cellTitleData
+        }
+    }
+    
     var dataSource : MasterMovieModel? {
         didSet{
             collectionViewOutlet.reloadData()
@@ -32,7 +41,7 @@ class MoviesCell: UITableViewCell {
     
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
-        
+        seeAllBtnPressedClosure?()
     }
     
 }

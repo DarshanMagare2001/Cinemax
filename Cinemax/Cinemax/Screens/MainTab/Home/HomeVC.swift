@@ -81,8 +81,14 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             DispatchQueue.main.async { [weak self] in
                 if let movieTopRated = self?.presenter?.movieTopRatedDatasource {
                     cell.dataSource = movieTopRated
+                    cell.cellTitleData = "TOPRATED"
                 }
             }
+            
+            cell.seeAllBtnPressedClosure = { [weak self] in
+              print("seeAllBtnPressedClosure")
+            }
+            
             return cell
         }
         return UITableViewCell()
