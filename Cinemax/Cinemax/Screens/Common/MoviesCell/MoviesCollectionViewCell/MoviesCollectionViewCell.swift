@@ -12,6 +12,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImg: UIImageView!
     @IBOutlet weak var movieNameLbl: UILabel!
     @IBOutlet weak var movieGenereLbl: UILabel!
+    @IBOutlet weak var moviesRatingLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +25,10 @@ class MoviesCollectionViewCell: UICollectionViewCell {
             self?.movieImg.loadImage(urlString: movieImgUrl, placeholder: "frame.fill")
             let movieName = movie.title
             let movieLanguage = movie.originalLanguage
+            let movieRating = String(format: "%.1f", movie.voteAverage)
             self?.movieNameLbl.text = movieName
             self?.movieGenereLbl.text = movieLanguage
+            self?.moviesRatingLbl.text = "\(movieRating)"
         }
     }
     
