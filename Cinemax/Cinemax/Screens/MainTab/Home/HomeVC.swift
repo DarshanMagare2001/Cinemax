@@ -94,7 +94,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.cellTappedClosure = { [weak self] data in
-                
+                self?.presenter?.gotoDetailVC(movieData:data)
             }
             
             return cell

@@ -44,7 +44,7 @@ class UpcomingMoviesCell: UITableViewCell  {
         }
     }
     
-    var cellTappedClosure : ((MasterMovieModelResult)->())?
+    var cellTappedClosure : ((MasterMovieModelResult?)->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()

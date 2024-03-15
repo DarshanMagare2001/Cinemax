@@ -12,19 +12,18 @@ public final class DetailVCBuilder {
     
     static var backButtonPressedClosure : (()->())?
     
-    static func build() -> UIViewController {
+    static func build(movieData: MasterMovieModelResult?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
-        //        let interactor = EditProfileVCInteractor()
-        //        editProfileVC.presenterProducer = {
-        //            EditProfileVCPresenter(view: editProfileVC, interactor: interactor, input: $0)
-        //        }
-        //        editProfileVC.title = "EditProfile"
-        //        let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
-        //        editProfileVC.navigationItem.leftBarButtonItem = backButton
-        //        EditProfileVCBuilder.backButtonPressedClosure = { [weak editProfileVC] in
-        //            editProfileVC?.backBtnPressed()
-        //        }
+        let interactor = DetailVCInteractor()
+        let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, movieData: movieData)
+        detailVC.presenter = presenter
+        detailVC.title = "DetailVC"
+        let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
+        detailVC.navigationItem.leftBarButtonItem = backButton
+        DetailVCBuilder.backButtonPressedClosure = { [weak detailVC] in
+            detailVC?.backBtnPressed()
+        }
         return detailVC
     }
     

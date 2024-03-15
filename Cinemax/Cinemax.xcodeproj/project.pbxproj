@@ -13,6 +13,8 @@
 		131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */; };
 		131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B3E2B6A1FFC007A4D55 /* Loader.swift */; };
 		131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */ = {isa = PBXBuildFile; fileRef = 131A9B412B6A2509007A4D55 /* LoaderTypes.gif */; };
+		13297AEC2BA4556D0039F0B8 /* DetailVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */; };
+		13297AEE2BA4557D0039F0B8 /* DetailVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */; };
 		13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */; };
 		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
@@ -146,6 +148,8 @@
 		131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderVC.swift; sourceTree = "<group>"; };
 		131A9B3E2B6A1FFC007A4D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		131A9B412B6A2509007A4D55 /* LoaderTypes.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LoaderTypes.gif; sourceTree = "<group>"; };
+		13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCInteractor.swift; sourceTree = "<group>"; };
+		13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCPresenter.swift; sourceTree = "<group>"; };
 		13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCInteractor.swift; sourceTree = "<group>"; };
 		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				13374AF52BA33591005E2BCA /* DetailVC.swift */,
+				13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */,
+				13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */,
 				13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */,
 			);
 			path = Detail;
@@ -1016,6 +1022,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13297AEE2BA4557D0039F0B8 /* DetailVCPresenter.swift in Sources */,
 				139C22562B6126F60082DBDD /* MainTabVC.swift in Sources */,
 				13C74DDC2B6B621E009CA6DB /* HomeVC.swift in Sources */,
 				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
 				13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */,
+				13297AEC2BA4556D0039F0B8 /* DetailVCInteractor.swift in Sources */,
 				139531D82B97489100B2BCAA /* MoviesService.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				13C713A32BA1C54A009DA2A5 /* MovieDetailsModel.swift in Sources */,
