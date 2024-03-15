@@ -13,7 +13,7 @@ protocol DetailVCProtocol : AnyObject {
 
 class DetailVC: UIViewController {
     
-    @IBOutlet weak var movieImg: UIImageView!
+    @IBOutlet weak var movieBackgroundImg: UIImageView!
     var presenter : DetailVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -30,7 +30,8 @@ class DetailVC: UIViewController {
 extension DetailVC : DetailVCProtocol {
     
     func updateUI(movieDetail:MovieDetailsModel){
-        print(movieDetail.overview)
+        let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath)"
+        movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
     }
     
 }

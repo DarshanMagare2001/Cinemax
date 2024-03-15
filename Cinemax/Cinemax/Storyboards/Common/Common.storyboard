@@ -91,7 +91,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="movieImg" destination="B3k-4J-KzU" id="ZjU-jf-zwG"/>
+                        <outlet property="movieBackgroundImg" destination="B3k-4J-KzU" id="ZjU-jf-zwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYP-td-9NY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
