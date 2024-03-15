@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailVCProtocol : AnyObject {
-    func updateUI(movieImgUrl:String)
+    func updateUI(movieDetail:MovieDetailsModel)
 }
 
 class DetailVC: UIViewController {
@@ -29,8 +29,8 @@ class DetailVC: UIViewController {
 
 extension DetailVC : DetailVCProtocol {
     
-    func updateUI(movieImgUrl:String){
-        movieImg.loadImage(urlString: movieImgUrl, placeholder: "person.fill")
+    func updateUI(movieDetail:MovieDetailsModel){
+        print(movieDetail.overview)
     }
     
 }

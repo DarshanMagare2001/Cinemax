@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,14 +61,23 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3k-4J-KzU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="627"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CL8-ls-F2n">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="627"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="CL8-ls-F2n" firstAttribute="top" secondItem="KpL-UT-Lb0" secondAttribute="top" id="1q9-Pj-7te"/>
                                     <constraint firstItem="B3k-4J-KzU" firstAttribute="leading" secondItem="KpL-UT-Lb0" secondAttribute="leading" id="ClG-zg-lBy"/>
+                                    <constraint firstAttribute="trailing" secondItem="CL8-ls-F2n" secondAttribute="trailing" id="Nm2-R5-RP1"/>
                                     <constraint firstAttribute="trailing" secondItem="B3k-4J-KzU" secondAttribute="trailing" id="RFA-aJ-68G"/>
                                     <constraint firstItem="B3k-4J-KzU" firstAttribute="top" secondItem="KpL-UT-Lb0" secondAttribute="top" id="Xgz-O3-xiL"/>
                                     <constraint firstAttribute="bottom" secondItem="B3k-4J-KzU" secondAttribute="bottom" id="gAW-4D-z56"/>
+                                    <constraint firstItem="CL8-ls-F2n" firstAttribute="leading" secondItem="KpL-UT-Lb0" secondAttribute="leading" id="nT2-0f-cmn"/>
+                                    <constraint firstAttribute="bottom" secondItem="CL8-ls-F2n" secondAttribute="bottom" id="zpb-DH-UGP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -91,9 +99,4 @@
             <point key="canvasLocation" x="779.71014492753625" y="63.616071428571423"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

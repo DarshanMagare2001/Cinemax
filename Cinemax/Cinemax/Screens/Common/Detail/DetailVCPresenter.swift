@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol DetailVCPresenterProtocol {
     func viewDidload()
@@ -15,6 +16,7 @@ class DetailVCPresenter {
     weak var view : DetailVCProtocol?
     var interactor : DetailVCInteractorProtocol
     var movieData : MasterMovieModelResult?
+    let disposeBag = DisposeBag()
     init(view : DetailVCProtocol,interactor : DetailVCInteractorProtocol, movieData : MasterMovieModelResult?){
         self.view = view
         self.interactor = interactor
@@ -23,12 +25,25 @@ class DetailVCPresenter {
 }
 
 extension DetailVCPresenter : DetailVCPresenterProtocol {
+    
     func viewDidload(){
-        DispatchQueue.main.async {
-            if let data = self.movieData{
-                let movieimgUrl = "https://image.tmdb.org/t/p/w500\(data.posterPath)"
-                self.view?.updateUI(movieImgUrl:movieimgUrl)
-            }
+        loadDatasource()
+    }
+    
+    func loadDatasource(){
+        if let data = self.movieData{
+            interactor.fetchMovieDetail(movieId: data.id)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        DispatchQueue.main.async { [weak self] in
+                            self?.view?.updateUI(movieDetail: movieData)
+                        }
+                    case.failure(let error):
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
         }
     }
+    
 }
