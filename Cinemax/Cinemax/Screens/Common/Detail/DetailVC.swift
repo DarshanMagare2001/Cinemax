@@ -25,6 +25,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var similarMoviesCollectionviewOutlet: UICollectionView!
     @IBOutlet weak var similarMoviesCollectionViewsOtletView: RoundedCornerView!
     @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
+    @IBOutlet weak var movieStatus: UILabel!
     
     var presenter : DetailVCPresenterProtocol?
     
@@ -56,13 +57,15 @@ extension DetailVC : DetailVCProtocol {
            let duration = movieDetail.runtime,
            let genere = movieDetail.genres?[0],
            let rating = movieDetail.voteAverage,
-           let overView = movieDetail.overview {
+           let overView = movieDetail.overview,
+           let status = movieDetail.status{
             movieReleasedateLbl.text = "\(releaseDate)"
             movieDurationLbl.text = "\(duration) mins"
             movieGenereLbl.text = "\(genere.name ?? "")"
             let movieRating = String(format: "%.1f",rating)
             movieRatingLbl.text = movieRating
             movieOverviewlbl.text = overView
+            movieStatus.text = "Satus:- \(status)"
         }
     }
     
