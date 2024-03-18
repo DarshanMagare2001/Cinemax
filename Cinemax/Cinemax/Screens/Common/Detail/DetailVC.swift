@@ -24,6 +24,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieOverviewlbl: UILabel!
     @IBOutlet weak var similarMoviesCollectionviewOutlet: UICollectionView!
     @IBOutlet weak var similarMoviesCollectionViewsOtletView: RoundedCornerView!
+    @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
+    
     var presenter : DetailVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -46,6 +48,7 @@ extension DetailVC : DetailVCProtocol {
     
     func updateUI(movieDetail:MovieDetailsModel){
         similarMoviesCollectionViewsOtletView.isHidden = true
+        productionHouseCollectionViewOutlet.reloadData()
         let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
         movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
         movieForegroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
@@ -83,17 +86,32 @@ extension DetailVC : DetailVCProtocol {
 
 extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.similarMovies?.results?.count ?? 0
+        if collectionView == similarMoviesCollectionViewsOtletView {
+            return presenter?.similarMovies?.results?.count ?? 0
+        }else if collectionView == productionHouseCollectionViewOutlet {
+            return presenter?.movieProductionHouses.count ?? 0
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
-        MoviesCollectionViewCell
-        guard let cellData = presenter?.similarMovies?.results?[indexPath.row] else {
-            return UICollectionViewCell()
+        if collectionView == similarMoviesCollectionViewsOtletView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
+            MoviesCollectionViewCell
+            guard let cellData = presenter?.similarMovies?.results?[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(movie: cellData)
+            return cell
+        }else if collectionView == productionHouseCollectionViewOutlet {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductionHouseCollectionViewCell", for: indexPath) as! ProductionHouseCollectionViewCell
+            guard let cellData = presenter?.movieProductionHouses[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(productionCompany: cellData)
+            return cell
         }
-        cell.configure(movie: cellData)
-        return cell
+        return UICollectionViewCell()
     }
 }
 

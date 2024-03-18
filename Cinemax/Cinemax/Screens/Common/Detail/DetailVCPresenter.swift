@@ -11,6 +11,7 @@ import RxSwift
 protocol DetailVCPresenterProtocol {
     func viewDidload()
     var similarMovies : MovieResultModel? { get set }
+    var movieProductionHouses : [ProductionCompany] { get set }
 }
 
 class DetailVCPresenter {
@@ -18,6 +19,7 @@ class DetailVCPresenter {
     var interactor : DetailVCInteractorProtocol
     var movieData : MasterMovieModelResult?
     var similarMovies : MovieResultModel?
+    var movieProductionHouses = [ProductionCompany]()
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view : DetailVCProtocol,interactor : DetailVCInteractorProtocol, movieData : MasterMovieModelResult?){
@@ -55,6 +57,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     switch response {
                     case.success(let movieData):
                         print(movieData)
+                        self.movieProductionHouses = movieData.productionCompanies?.compactMap { $0.logoPath != nil ? $0 : nil } ?? []
                         DispatchQueue.main.async { [weak self] in
                             self?.view?.updateUI(movieDetail: movieData)
                         }
