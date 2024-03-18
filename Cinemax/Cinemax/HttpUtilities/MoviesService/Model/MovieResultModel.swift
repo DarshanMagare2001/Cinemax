@@ -11,7 +11,7 @@ import Foundation
 // MARK: - MovieResultModel
 struct MovieResultModel: Codable {
     let page: Int
-    let results: [MovieResult]
+    let results: [MovieResult]?
     let totalPages, totalResults: Int
     
     enum CodingKeys: String, CodingKey {

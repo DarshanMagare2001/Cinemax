@@ -386,6 +386,10 @@
                                                                                                     </collectionViewCellContentView>
                                                                                                 </collectionViewCell>
                                                                                             </cells>
+                                                                                            <connections>
+                                                                                                <outlet property="dataSource" destination="A1G-Lu-jC8" id="tFq-vn-Zfr"/>
+                                                                                                <outlet property="delegate" destination="A1G-Lu-jC8" id="iv2-ch-w1S"/>
+                                                                                            </connections>
                                                                                         </collectionView>
                                                                                     </subviews>
                                                                                 </stackView>
@@ -482,6 +486,7 @@
                         <outlet property="movieOverviewlbl" destination="jg5-Lf-7w2" id="vPy-CI-F8C"/>
                         <outlet property="movieRatingLbl" destination="MKr-8H-xER" id="pXn-Hx-NhC"/>
                         <outlet property="movieReleasedateLbl" destination="aYF-eL-W9N" id="dSq-8b-tls"/>
+                        <outlet property="similarMoviesCollectionviewOutlet" destination="HDM-Iq-SlZ" id="kOx-9X-h2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYP-td-9NY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

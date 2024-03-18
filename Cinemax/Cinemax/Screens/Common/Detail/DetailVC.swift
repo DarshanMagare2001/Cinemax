@@ -9,6 +9,8 @@ import UIKit
 
 protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
+    func registerXibs()
+    func updateSimilarMoviesCollectionviewOutlet()
 }
 
 class DetailVC: UIViewController {
@@ -20,6 +22,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieGenereLbl: UILabel!
     @IBOutlet weak var movieRatingLbl: UILabel!
     @IBOutlet weak var movieOverviewlbl: UILabel!
+    @IBOutlet weak var similarMoviesCollectionviewOutlet: UICollectionView!
     
     var presenter : DetailVCPresenterProtocol?
     
@@ -54,4 +57,23 @@ extension DetailVC : DetailVCProtocol {
         }
     }
     
+    func registerXibs(){
+        
+    }
+    
+    func updateSimilarMoviesCollectionviewOutlet(){
+        similarMoviesCollectionviewOutlet.reloadData()
+    }
+    
 }
+
+extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+}
+
