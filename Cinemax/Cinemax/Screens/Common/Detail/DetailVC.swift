@@ -58,7 +58,10 @@ extension DetailVC : DetailVCProtocol {
     }
     
     func registerXibs(){
-        
+        similarMoviesCollectionviewOutlet.delegate = self
+        similarMoviesCollectionviewOutlet.dataSource = self
+        let nib = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
+        similarMoviesCollectionviewOutlet.register(nib, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
     }
     
     func updateSimilarMoviesCollectionviewOutlet(){
@@ -69,11 +72,17 @@ extension DetailVC : DetailVCProtocol {
 
 extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return presenter?.similarMovies?.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
+        MoviesCollectionViewCell
+        guard let cellData = presenter?.similarMovies?.results?[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.configure(movie: cellData)
+        return cell
     }
 }
 

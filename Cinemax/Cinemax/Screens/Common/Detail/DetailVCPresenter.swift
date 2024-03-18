@@ -10,6 +10,7 @@ import RxSwift
 
 protocol DetailVCPresenterProtocol {
     func viewDidload()
+    var similarMovies : MovieResultModel? { get set }
 }
 
 class DetailVCPresenter {
@@ -29,8 +30,8 @@ class DetailVCPresenter {
 extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func viewDidload(){
-        loadDatasource()
         view?.registerXibs()
+        loadDatasource()
     }
     
     func loadDatasource(){
