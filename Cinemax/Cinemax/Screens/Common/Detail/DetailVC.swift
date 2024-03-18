@@ -83,9 +83,7 @@ extension DetailVC : DetailVCProtocol {
     
     func updateSimilarMoviesCollectionviewOutlet(){
         similarMoviesCollectionviewOutlet.reloadData()
-        if let similarMoviesdata = presenter?.similarMovies,
-           let result = similarMoviesdata.results,
-           (similarMoviesdata != nil && !result.isEmpty){
+        if let result = presenter?.similarMovies?.results, !result.isEmpty {
             similarMoviesCollectionViewsOtletView.isHidden = false
         }
     }
@@ -93,17 +91,21 @@ extension DetailVC : DetailVCProtocol {
 }
 
 extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == similarMoviesCollectionViewsOtletView {
+        switch collectionView {
+        case similarMoviesCollectionviewOutlet:
             return presenter?.similarMovies?.results?.count ?? 0
-        }else if collectionView == productionHouseCollectionViewOutlet {
+        case productionHouseCollectionViewOutlet:
             return presenter?.movieProductionHouses.count ?? 0
+        default:
+            return 0
         }
-        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == similarMoviesCollectionViewsOtletView {
+        switch collectionView {
+        case similarMoviesCollectionviewOutlet:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
             MoviesCollectionViewCell
             guard let cellData = presenter?.similarMovies?.results?[indexPath.row] else {
@@ -111,15 +113,17 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             cell.configure(movie: cellData)
             return cell
-        }else if collectionView == productionHouseCollectionViewOutlet {
+        case productionHouseCollectionViewOutlet:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductionHouseCollectionViewCell", for: indexPath) as! ProductionHouseCollectionViewCell
             guard let cellData = presenter?.movieProductionHouses[indexPath.row] else {
                 return UICollectionViewCell()
             }
             cell.configure(productionCompany: cellData)
             return cell
+        default:
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
     }
+    
 }
 
