@@ -26,12 +26,14 @@ class DetailVC: UIViewController {
     @IBOutlet weak var similarMoviesCollectionViewsOtletView: RoundedCornerView!
     @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var movieStatus: UILabel!
+    @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
     
     var presenter : DetailVCPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        productionHouseCollectionViewOutletView.isHidden = true
     }
     
     func backBtnPressed(){
@@ -49,6 +51,9 @@ extension DetailVC : DetailVCProtocol {
     
     func updateUI(movieDetail:MovieDetailsModel){
         similarMoviesCollectionViewsOtletView.isHidden = true
+        if let productionHouseCollectionViewData = presenter?.movieProductionHouses, !(productionHouseCollectionViewData.isEmpty){
+            productionHouseCollectionViewOutletView.isHidden = false
+        }
         productionHouseCollectionViewOutlet.reloadData()
         let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
         movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")

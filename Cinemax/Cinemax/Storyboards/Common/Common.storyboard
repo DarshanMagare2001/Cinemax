@@ -630,6 +630,7 @@
                         <outlet property="movieReleasedateLbl" destination="aYF-eL-W9N" id="dSq-8b-tls"/>
                         <outlet property="movieStatus" destination="drB-a3-ZWH" id="zLe-gX-fPe"/>
                         <outlet property="productionHouseCollectionViewOutlet" destination="Biy-CR-TiP" id="tH6-rV-1zl"/>
+                        <outlet property="productionHouseCollectionViewOutletView" destination="KSj-gR-h3T" id="BNm-ZN-jFd"/>
                         <outlet property="similarMoviesCollectionViewsOtletView" destination="C24-8H-QXd" id="6cv-BC-ZXi"/>
                         <outlet property="similarMoviesCollectionviewOutlet" destination="HDM-Iq-SlZ" id="vSQ-rL-Ej8"/>
                     </connections>
