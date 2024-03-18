@@ -36,6 +36,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
+                        print(movieData)
                         DispatchQueue.main.async { [weak self] in
                             self?.view?.updateUI(movieDetail: movieData)
                         }

@@ -18,7 +18,9 @@ public final class DetailVCBuilder {
         let interactor = DetailVCInteractor(moviesServiceManager: MoviesServiceManager.shared)
         let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, movieData: movieData)
         detailVC.presenter = presenter
-        detailVC.title = "DetailVC"
+        if let movieData = movieData {
+            detailVC.title = movieData.title
+        }
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         detailVC.navigationItem.leftBarButtonItem = backButton
         DetailVCBuilder.backButtonPressedClosure = { [weak detailVC] in

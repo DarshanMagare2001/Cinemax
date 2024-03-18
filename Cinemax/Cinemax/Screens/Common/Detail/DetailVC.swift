@@ -14,6 +14,12 @@ protocol DetailVCProtocol : AnyObject {
 class DetailVC: UIViewController {
     
     @IBOutlet weak var movieBackgroundImg: UIImageView!
+    @IBOutlet weak var movieForegroundImg: UIImageView!
+    @IBOutlet weak var movieReleasedateLbl: UILabel!
+    @IBOutlet weak var movieDurationLbl: UILabel!
+    @IBOutlet weak var movieGenereLbl: UILabel!
+    
+    
     var presenter : DetailVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -30,8 +36,16 @@ class DetailVC: UIViewController {
 extension DetailVC : DetailVCProtocol {
     
     func updateUI(movieDetail:MovieDetailsModel){
-        let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath)"
+        let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
         movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
+        movieForegroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
+        if let releaseDate = movieDetail.releaseDate,
+           let duration = movieDetail.runtime,
+           let genere = movieDetail.genres?[0]{
+            movieReleasedateLbl.text = "\(releaseDate)"
+            movieDurationLbl.text = "\(duration) mins"
+            movieGenereLbl.text = "\(genere.name ?? "")"
+        }
     }
     
 }
