@@ -19,6 +19,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieDurationLbl: UILabel!
     @IBOutlet weak var movieGenereLbl: UILabel!
     @IBOutlet weak var movieRatingLbl: UILabel!
+    @IBOutlet weak var movieOverviewlbl: UILabel!
     
     var presenter : DetailVCPresenterProtocol?
     
@@ -42,12 +43,14 @@ extension DetailVC : DetailVCProtocol {
         if let releaseDate = movieDetail.releaseDate,
            let duration = movieDetail.runtime,
            let genere = movieDetail.genres?[0],
-           let rating = movieDetail.voteAverage {
+           let rating = movieDetail.voteAverage,
+           let overView = movieDetail.overview {
             movieReleasedateLbl.text = "\(releaseDate)"
             movieDurationLbl.text = "\(duration) mins"
             movieGenereLbl.text = "\(genere.name ?? "")"
             let movieRating = String(format: "%.1f",rating)
             movieRatingLbl.text = movieRating
+            movieOverviewlbl.text = overView
         }
     }
     
