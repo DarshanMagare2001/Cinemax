@@ -23,7 +23,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieRatingLbl: UILabel!
     @IBOutlet weak var movieOverviewlbl: UILabel!
     @IBOutlet weak var similarMoviesCollectionviewOutlet: UICollectionView!
-    
+    @IBOutlet weak var similarMoviesCollectionViewsOtletView: RoundedCornerView!
     var presenter : DetailVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -35,11 +35,17 @@ class DetailVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func seeAllBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    
 }
 
 extension DetailVC : DetailVCProtocol {
     
     func updateUI(movieDetail:MovieDetailsModel){
+        similarMoviesCollectionViewsOtletView.isHidden = true
         let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
         movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
         movieForegroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
@@ -66,6 +72,11 @@ extension DetailVC : DetailVCProtocol {
     
     func updateSimilarMoviesCollectionviewOutlet(){
         similarMoviesCollectionviewOutlet.reloadData()
+        if let similarMoviesdata = presenter?.similarMovies,
+           let result = similarMoviesdata.results,
+           (similarMoviesdata != nil && !result.isEmpty){
+            similarMoviesCollectionViewsOtletView.isHidden = false
+        }
     }
     
 }
