@@ -111,6 +111,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 print("seeAllBtnPressedClosure")
             }
             
+            cell.cellTappedClosure = { [weak self] data in
+                self?.presenter?.gotoDetailVC(movieData:data)
+            }
+            
             return cell
         }else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
@@ -125,6 +129,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 print("seeAllBtnPressedClosure")
             }
             
+            cell.cellTappedClosure = { [weak self] data in
+                self?.presenter?.gotoDetailVC(movieData:data)
+            }
+            
             return cell
         }else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
@@ -137,6 +145,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             
             cell.seeAllBtnPressedClosure = { [weak self] in
                 print("seeAllBtnPressedClosure")
+            }
+            
+            cell.cellTappedClosure = { [weak self] data in
+                self?.presenter?.gotoDetailVC(movieData:data)
             }
             
             return cell

@@ -13,6 +13,7 @@ class MoviesCell: UITableViewCell {
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
     var seeAllBtnPressedClosure : (()->())?
+    var cellTappedClosure : ((MasterMovieModelResult?)->())?
     
     var cellTitleData : String? {
         didSet{
@@ -59,4 +60,11 @@ extension MoviesCell : UICollectionViewDelegate , UICollectionViewDataSource , U
         cell.configure(movie: cellData)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cellData = dataSource?.results[indexPath.row]{
+            cellTappedClosure?(cellData)
+        }
+    }
+    
 }
