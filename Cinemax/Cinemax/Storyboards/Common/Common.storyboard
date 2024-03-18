@@ -297,7 +297,7 @@
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYP-Kx-vJH">
-                                                                                    <rect key="frame" x="10" y="5" width="374" height="190"/>
+                                                                                    <rect key="frame" x="10" y="10" width="374" height="180"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pb-K3-Q9A">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -308,8 +308,11 @@
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jg5-Lf-7w2">
-                                                                                            <rect key="frame" x="0.0" y="35" width="374" height="155"/>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg5-Lf-7w2">
+                                                                                            <rect key="frame" x="0.0" y="35" width="374" height="145"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="IRZ-TL-cGh"/>
+                                                                                            </constraints>
                                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
@@ -320,9 +323,9 @@
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="dYP-Kx-vJH" firstAttribute="leading" secondItem="4Mx-3W-whd" secondAttribute="leading" constant="10" id="MZm-1O-P4E"/>
-                                                                                <constraint firstItem="dYP-Kx-vJH" firstAttribute="top" secondItem="4Mx-3W-whd" secondAttribute="top" constant="5" id="Ug5-Gi-i2d"/>
+                                                                                <constraint firstItem="dYP-Kx-vJH" firstAttribute="top" secondItem="4Mx-3W-whd" secondAttribute="top" constant="10" id="Ug5-Gi-i2d"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="dYP-Kx-vJH" secondAttribute="trailing" constant="10" id="aPb-Jc-UHQ"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="dYP-Kx-vJH" secondAttribute="bottom" constant="5" id="j7p-pb-vyP"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="dYP-Kx-vJH" secondAttribute="bottom" constant="10" id="j7p-pb-vyP"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <blurEffect style="regular"/>
@@ -333,7 +336,6 @@
                                                                     <constraint firstItem="djF-Pt-fSg" firstAttribute="leading" secondItem="tfp-v9-5Nx" secondAttribute="leading" id="3DW-V4-cCQ"/>
                                                                     <constraint firstAttribute="bottom" secondItem="djF-Pt-fSg" secondAttribute="bottom" id="CF7-Eg-QJR"/>
                                                                     <constraint firstItem="djF-Pt-fSg" firstAttribute="top" secondItem="tfp-v9-5Nx" secondAttribute="top" id="c6a-HZ-FIR"/>
-                                                                    <constraint firstAttribute="height" constant="200" id="i9Y-KR-VHW"/>
                                                                     <constraint firstAttribute="trailing" secondItem="djF-Pt-fSg" secondAttribute="trailing" id="wtF-lv-zHL"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
