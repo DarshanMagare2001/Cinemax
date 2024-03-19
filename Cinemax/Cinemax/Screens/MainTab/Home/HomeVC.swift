@@ -98,7 +98,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.seeAllBtnpressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC()
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieUpcoming)
             }
             
             return cell
@@ -112,7 +112,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.seeAllBtnPressedClosure = { [weak self] in
-                print("seeAllBtnPressedClosure")
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated)
             }
             
             cell.cellTappedClosure = { [weak self] data in
@@ -130,7 +130,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.seeAllBtnPressedClosure = { [weak self] in
-                print("seeAllBtnPressedClosure")
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying)
             }
             
             cell.cellTappedClosure = { [weak self] data in
@@ -148,7 +148,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
             cell.seeAllBtnPressedClosure = { [weak self] in
-                print("seeAllBtnPressedClosure")
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular)
             }
             
             cell.cellTappedClosure = { [weak self] data in

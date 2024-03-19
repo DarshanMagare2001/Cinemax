@@ -12,12 +12,16 @@ public final class SeeAllVCBuilder {
     
     static var backButtonPressedClosure : (()->())?
     
-    static func build() -> UIViewController {
+    static func build(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let seeAllVC = storyboard.instantiateViewController(withIdentifier: "SeeAllVC") as! SeeAllVC
         let interactor = SeeAllVCInteractor(movieServiceManager: MoviesServiceManager.shared)
         let router = SeeAllVCRouter(viewController: seeAllVC)
         let presenter = SeeAllVCPresenter(view: seeAllVC, interactor: interactor, router: router)
+        presenter.page = page
+        presenter.searchText = searchText
+        presenter.movieId = movieId
+        presenter.seeAllVCInputs = seeAllVCInputs
         seeAllVC.presenter = presenter
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         seeAllVC.navigationItem.leftBarButtonItem = backButton

@@ -10,7 +10,7 @@ import UIKit
 
 protocol HomeVCRouterProtocol {
     func gotoDetailVC(movieData: MasterMovieModelResult?)
-    func gotoSeeAllVC()
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
 }
 
 class HomeVCRouter {
@@ -25,8 +25,8 @@ extension HomeVCRouter: HomeVCRouterProtocol {
         let detailVC = DetailVCBuilder.build(movieData: movieData)
         viewController.navigationController?.pushViewController(detailVC, animated: false)
     }
-    func gotoSeeAllVC(){
-        let seeAllVC = SeeAllVCBuilder.build()
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
+        let seeAllVC = SeeAllVCBuilder.build(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
         viewController.navigationController?.pushViewController(seeAllVC, animated: false)
     }
 }
