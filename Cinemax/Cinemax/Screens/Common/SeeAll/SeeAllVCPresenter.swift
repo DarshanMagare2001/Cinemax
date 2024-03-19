@@ -33,7 +33,9 @@ class SeeAllVCPresenter {
 extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func viewDidload(){
-        loadDatasource(seeAllVCInputs: seeAllVCInputs, movieId: movieId, searchText: searchText, page: page)
+        DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
+            self?.loadDatasource(seeAllVCInputs: self?.seeAllVCInputs, movieId: self?.movieId, searchText: self?.searchText, page: self?.page)
+        }
     }
     
     func loadDatasource(seeAllVCInputs: SeeAllVCInputs?,movieId: Int?,searchText: String?,page: Int?){
@@ -45,10 +47,12 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 switch data {
                 case.success(let movieData):
                     print(movieData)
+                    self.moviesDatasource.append(contentsOf: movieData)
                 case.failure(let error):
                     print(error)
                 }
             }).disposed(by: disposeBag)
+        self.page = (page + 1)
     }
     
 }
