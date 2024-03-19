@@ -93,7 +93,12 @@ extension SeeAllVC : SeeAllVCProtocol {
 
 extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.moviesDatasource.count ?? 0
+        if isGridLayout {
+            return presenter?.moviesDatasource.count ?? 0
+        }else{
+            return presenter?.moviesDatasourceIndetail.count ?? 0
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -107,19 +112,9 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
-            if let movieId = presenter?.moviesDatasource[indexPath.row].id {
-                DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-                    self?.presenter?.fetchMovieDetail(movieId: movieId)
-                        .subscribe{ data in
-                            switch data {
-                            case.success(let movie):
-                                DispatchQueue.main.async { [weak self] in
-                                    cell.configure(movie: movie)
-                                }
-                            case.failure(let error):
-                                print(error)
-                            }
-                        }.disposed(by: self!.disposeBag)
+            if let movie = presenter?.moviesDatasourceIndetail[indexPath.row] {
+                DispatchQueue.main.async { [weak self] in
+                    cell.configure(movie: movie)
                 }
             }
             return cell

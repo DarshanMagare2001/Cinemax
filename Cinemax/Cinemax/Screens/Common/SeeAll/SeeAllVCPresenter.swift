@@ -12,7 +12,7 @@ protocol SeeAllVCPresenterProtocol {
     func viewDidload()
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
-    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
+    var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
 }
 
 class SeeAllVCPresenter {
@@ -20,7 +20,8 @@ class SeeAllVCPresenter {
     var interactor: SeeAllVCInteractorProtocol
     var router: SeeAllVCRouterProtocol
     var moviesHeadline : String?
-    var moviesDatasource = [MasterMovieModelResult]() {
+    var moviesDatasource = [MasterMovieModelResult]()
+    var moviesDatasourceIndetail = [MovieDetailsModel](){
         didSet{
             DispatchQueue.main.async { [weak self] in
                 self?.view?.updateCollectionView()
@@ -69,20 +70,19 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         self.page = (page + 1)
     }
     
-    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel> {
-        return interactor.fetchMovieDetail(movieId: movieId)
-    }
-    
-    func fetchAllMoviesPagewiseInDetail(movies: [MasterMovieModelResult]){
-        interactor.fetchAllMoviesPagewiseInDetail(movies:movies)
-            .subscribe({ data in
-                switch data {
-                case.success(let movieData):
-                    print(movieData)
-                case.failure(let error):
-                    print(error)
-                }
-            }).disposed(by: disposeBag)
+    func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]){
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            self?.interactor.fetchAllMoviesPagewiseInDetail(movies:movies)
+                .subscribe({ data in
+                    switch data {
+                    case.success(let movieData):
+                        print(movieData)
+                        self?.moviesDatasourceIndetail.append(contentsOf:movieData)
+                    case.failure(let error):
+                        print(error)
+                    }
+                }).disposed(by: self!.disposeBag)
+        }
     }
     
 }

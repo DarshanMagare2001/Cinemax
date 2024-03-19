@@ -19,7 +19,6 @@ enum SeeAllVCInputs:String {
 
 protocol SeeAllVCInteractorProtocol {
     func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?) -> Single<[MasterMovieModelResult]>
-    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
     func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]) -> Single<[MovieDetailsModel]>
 }
 
@@ -138,10 +137,6 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
             }
             return disposable
         }
-    }
-    
-    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>{
-        return movieServiceManager.fetchMovieDetail(movieId: movieId)
     }
     
 }
