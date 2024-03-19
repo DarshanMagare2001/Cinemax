@@ -646,13 +646,110 @@
                     <view key="view" contentMode="scaleToFill" id="rSg-H4-icU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhq-SB-Ao1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="95"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Li1-8B-RqB">
+                                        <rect key="frame" x="10" y="20" width="394" height="75"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tF6-Ex-MQu">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-MM-tRa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="50"/>
+                                                        <color key="backgroundColor" name="AppBlue"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="5" id="1Hr-Tq-J4m"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e31-lY-TBh">
+                                                        <rect key="frame" x="15" y="0.0" width="259" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwM-nj-cfx">
+                                                        <rect key="frame" x="284" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="75R-TR-Cj9"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="gridLayoutBtnPressed:" destination="V6n-Yc-beM" eventType="touchUpInside" id="OsP-uc-hf5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmy-F3-SgX">
+                                                        <rect key="frame" x="344" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="r38-K8-enJ"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="slider.vertical.3" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="sortedBtnPressed:" destination="V6n-Yc-beM" eventType="touchUpInside" id="KOz-CS-wea"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="CuT-H8-Snh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ht6-0j-dXy">
+                                                <rect key="frame" x="0.0" y="55" width="394" height="20"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iL8-Ve-NGP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="20"/>
+                                                        <color key="backgroundColor" name="AppBlue"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="5" id="rij-1T-uLm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorted by Rating" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biF-LC-bGD">
+                                                        <rect key="frame" x="15" y="0.0" width="379" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="g55-iX-1iM"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Li1-8B-RqB" secondAttribute="trailing" constant="10" id="AlT-Q2-eCN"/>
+                                    <constraint firstItem="Li1-8B-RqB" firstAttribute="leading" secondItem="Dhq-SB-Ao1" secondAttribute="leading" constant="10" id="Q9S-YR-RFR"/>
+                                    <constraint firstItem="Li1-8B-RqB" firstAttribute="top" secondItem="Dhq-SB-Ao1" secondAttribute="top" constant="20" id="sQD-BN-UE8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Li1-8B-RqB" secondAttribute="bottom" id="t1g-1v-djm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Uys-da-sud"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uys-da-sud" firstAttribute="trailing" secondItem="Dhq-SB-Ao1" secondAttribute="trailing" id="I2D-BH-fmn"/>
+                            <constraint firstItem="Dhq-SB-Ao1" firstAttribute="leading" secondItem="Uys-da-sud" secondAttribute="leading" id="ifp-ng-3kq"/>
+                            <constraint firstItem="Dhq-SB-Ao1" firstAttribute="top" secondItem="Uys-da-sud" secondAttribute="top" id="tBg-hm-HJ7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sortByLbl" destination="biF-LC-bGD" id="0eC-8y-2jK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGS-ha-sZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="60"/>
+            <point key="canvasLocation" x="1424.6376811594205" y="59.598214285714285"/>
         </scene>
     </scenes>
     <resources>
@@ -660,6 +757,11 @@
         <image name="AppClock" width="16" height="16"/>
         <image name="AppFIlmRil" width="16" height="16"/>
         <image name="AppRatingIcon" width="16" height="16"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
+        <image name="slider.vertical.3" catalog="system" width="128" height="111"/>
+        <namedColor name="AppBlue">
+            <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppOrange">
             <color red="1" green="0.52941176470588236" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
