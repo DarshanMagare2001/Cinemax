@@ -8,11 +8,11 @@
 import Foundation
 import RxSwift
 
-enum SeeAllVCInputs {
-    case fetchMovieUpcoming
-    case fetchMovieNowPlaying
-    case fetchMovieTopRated
-    case fetchMoviePopular
+enum SeeAllVCInputs:String {
+    case fetchMovieUpcoming = "UPCOMING"
+    case fetchMovieNowPlaying = "NOWPLAYING"
+    case fetchMovieTopRated = "TOPRATED"
+    case fetchMoviePopular = "POPULAR"
     case fetchMovieSimilar
     case fetchMovieSearch
 }

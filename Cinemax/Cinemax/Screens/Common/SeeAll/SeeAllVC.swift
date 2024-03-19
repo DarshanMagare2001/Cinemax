@@ -8,6 +8,7 @@
 import UIKit
 
 protocol SeeAllVCProtocol: AnyObject {
+    func updateUI()
     func registerXibs()
     func updateCollectionView()
 }
@@ -43,13 +44,22 @@ class SeeAllVC: UIViewController {
 }
 
 extension SeeAllVC : SeeAllVCProtocol {
+    
+    func updateUI(){
+        if let moviesHeadline = presenter?.moviesHeadline {
+            moviesHeadlineLbl.text =  moviesHeadline
+        }
+    }
+    
     func registerXibs(){
         let nib = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
         moviesCollectionviewOutlet.register(nib, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
     }
+    
     func updateCollectionView(){
         moviesCollectionviewOutlet.reloadData()
     }
+    
     private func showSortingMenu(sender:UIButton){
         // Define actions for sorting
         let sortByRatingAction = UIAction(title: "Rating", image: UIImage(systemName: "star.fill")) { _ in

@@ -10,6 +10,7 @@ import RxSwift
 
 protocol SeeAllVCPresenterProtocol {
     func viewDidload()
+    var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
 }
 
@@ -17,6 +18,7 @@ class SeeAllVCPresenter {
     weak var view: SeeAllVCProtocol?
     var interactor: SeeAllVCInteractorProtocol
     var router: SeeAllVCRouterProtocol
+    var moviesHeadline : String?
     var moviesDatasource = [MasterMovieModelResult]() {
         didSet{
             DispatchQueue.main.async { [weak self] in
@@ -40,6 +42,9 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func viewDidload(){
         view?.registerXibs()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.updateUI()
+        }
         DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
             self?.loadDatasource(seeAllVCInputs: self?.seeAllVCInputs, movieId: self?.movieId, searchText: self?.searchText, page: self?.page)
         }

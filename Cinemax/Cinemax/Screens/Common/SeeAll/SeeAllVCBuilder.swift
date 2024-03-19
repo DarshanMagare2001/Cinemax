@@ -22,6 +22,9 @@ public final class SeeAllVCBuilder {
         presenter.searchText = searchText
         presenter.movieId = movieId
         presenter.seeAllVCInputs = seeAllVCInputs
+        if let seeAllVCInputs = seeAllVCInputs {
+            presenter.moviesHeadline = seeAllVCInputs.rawValue
+        }
         seeAllVC.presenter = presenter
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         seeAllVC.navigationItem.leftBarButtonItem = backButton
