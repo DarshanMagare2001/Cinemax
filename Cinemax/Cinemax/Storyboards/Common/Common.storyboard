@@ -744,6 +744,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="moviesHeadlineLbl" destination="e31-lY-TBh" id="xHN-RI-n2Q"/>
                         <outlet property="sortByLbl" destination="biF-LC-bGD" id="0eC-8y-2jK"/>
                     </connections>
                 </viewController>

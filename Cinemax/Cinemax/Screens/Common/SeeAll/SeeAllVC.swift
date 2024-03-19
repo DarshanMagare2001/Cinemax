@@ -7,17 +7,24 @@
 
 import UIKit
 
+protocol SeeAllVCProtocol: AnyObject {
+    
+}
+
 class SeeAllVC: UIViewController {
     
+    @IBOutlet weak var moviesHeadlineLbl: UILabel!
     @IBOutlet weak var sortByLbl: UILabel!
     var sortByString : String? {
         didSet{
             sortByLbl.text = sortByString ?? ""
         }
     }
+    var presenter: SeeAllVCPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidload()
     }
     
     @IBAction func gridLayoutBtnPressed(_ sender: UIButton) {
@@ -50,4 +57,8 @@ class SeeAllVC: UIViewController {
         menuButton.showsMenuAsPrimaryAction = true
         menuButton.menu = sortingMenu
     }
+}
+
+extension SeeAllVC : SeeAllVCProtocol {
+    
 }

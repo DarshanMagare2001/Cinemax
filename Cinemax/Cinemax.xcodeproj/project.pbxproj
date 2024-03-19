@@ -18,6 +18,9 @@
 		13297AEC2BA4556D0039F0B8 /* DetailVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */; };
 		13297AEE2BA4557D0039F0B8 /* DetailVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */; };
 		132C2B232BA95E75000A00F4 /* SeeAllVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B222BA95E75000A00F4 /* SeeAllVCBuilder.swift */; };
+		132C2B252BA96C25000A00F4 /* SeeAllVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B242BA96C25000A00F4 /* SeeAllVCInteractor.swift */; };
+		132C2B272BA96C32000A00F4 /* SeeAllVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B262BA96C32000A00F4 /* SeeAllVCPresenter.swift */; };
+		132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B282BA96F57000A00F4 /* SeeAllVCRouter.swift */; };
 		13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */; };
 		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
@@ -156,6 +159,9 @@
 		13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCInteractor.swift; sourceTree = "<group>"; };
 		13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCPresenter.swift; sourceTree = "<group>"; };
 		132C2B222BA95E75000A00F4 /* SeeAllVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCBuilder.swift; sourceTree = "<group>"; };
+		132C2B242BA96C25000A00F4 /* SeeAllVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCInteractor.swift; sourceTree = "<group>"; };
+		132C2B262BA96C32000A00F4 /* SeeAllVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCPresenter.swift; sourceTree = "<group>"; };
+		132C2B282BA96F57000A00F4 /* SeeAllVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCRouter.swift; sourceTree = "<group>"; };
 		13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCInteractor.swift; sourceTree = "<group>"; };
 		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
@@ -325,6 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				131C6C112BA87D9500EEFCEA /* SeeAllVC.swift */,
+				132C2B242BA96C25000A00F4 /* SeeAllVCInteractor.swift */,
+				132C2B262BA96C32000A00F4 /* SeeAllVCPresenter.swift */,
+				132C2B282BA96F57000A00F4 /* SeeAllVCRouter.swift */,
 				132C2B222BA95E75000A00F4 /* SeeAllVCBuilder.swift */,
 			);
 			path = SeeAll;
@@ -1076,6 +1085,7 @@
 				139531D32B9746ED00B2BCAA /* HttpService.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
+				132C2B252BA96C25000A00F4 /* SeeAllVCInteractor.swift in Sources */,
 				13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */,
 				13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */,
 				13C713A12BA1C3E6009DA2A5 /* MovieResultModel.swift in Sources */,
@@ -1117,6 +1127,7 @@
 				13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
+				132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
@@ -1125,6 +1136,7 @@
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
 				134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */,
 				13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */,
+				132C2B272BA96C32000A00F4 /* SeeAllVCPresenter.swift in Sources */,
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
