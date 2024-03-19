@@ -20,6 +20,7 @@ enum SeeAllVCInputs:String {
 protocol SeeAllVCInteractorProtocol {
     func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?) -> Single<[MasterMovieModelResult]>
     func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
+    func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]) -> Single<[MovieDetailsModel]>
 }
 
 class SeeAllVCInteractor {
@@ -109,6 +110,31 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                         }
                     }).disposed(by: self.disposeBag)
                 
+            }
+            return disposable
+        }
+    }
+    
+    func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]) -> Single<[MovieDetailsModel]> {
+        return Single.create { (single) -> Disposable in
+            let disposable = Disposables.create()
+            var tempArray = [MovieDetailsModel]()
+            let dispatchGroup = DispatchGroup()
+            for movie in movies {
+                dispatchGroup.enter()
+                self.movieServiceManager.fetchMovieDetail(movieId: movie.id)
+                    .subscribe(onSuccess: { movieDetails in
+                        tempArray.append(movieDetails)
+                        dispatchGroup.leave()
+                    }, onFailure: { error in
+                        print(error)
+                        // Handle error if needed
+                        dispatchGroup.leave()
+                    })
+                    .disposed(by: self.disposeBag)
+            }
+            dispatchGroup.notify(queue: .global()) {
+                single(.success(tempArray))
             }
             return disposable
         }

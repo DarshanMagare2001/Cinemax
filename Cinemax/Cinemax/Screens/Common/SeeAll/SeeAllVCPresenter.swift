@@ -61,6 +61,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 case.success(let movieData):
                     print(movieData)
                     self.moviesDatasource.append(contentsOf: movieData)
+                    self.fetchAllMoviesPagewiseInDetail(movies:movieData)
                 case.failure(let error):
                     print(error)
                 }
@@ -70,6 +71,18 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel> {
         return interactor.fetchMovieDetail(movieId: movieId)
+    }
+    
+    func fetchAllMoviesPagewiseInDetail(movies: [MasterMovieModelResult]){
+        interactor.fetchAllMoviesPagewiseInDetail(movies:movies)
+            .subscribe({ data in
+                switch data {
+                case.success(let movieData):
+                    print(movieData)
+                case.failure(let error):
+                    print(error)
+                }
+            }).disposed(by: disposeBag)
     }
     
 }
