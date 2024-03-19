@@ -12,6 +12,7 @@ protocol SeeAllVCPresenterProtocol {
     func viewDidload()
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
+    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
 }
 
 class SeeAllVCPresenter {
@@ -65,6 +66,10 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 }
             }).disposed(by: disposeBag)
         self.page = (page + 1)
+    }
+    
+    func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel> {
+        return interactor.fetchMovieDetail(movieId: movieId)
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol SeeAllVCProtocol: AnyObject {
     func updateUI()
@@ -23,7 +24,15 @@ class SeeAllVC: UIViewController {
             sortByLbl.text = sortByString ?? ""
         }
     }
+    var isGridLayout : Bool = true {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.moviesCollectionviewOutlet.reloadData()
+            }
+        }
+    }
     var presenter: SeeAllVCPresenterProtocol?
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +40,7 @@ class SeeAllVC: UIViewController {
     }
     
     @IBAction func gridLayoutBtnPressed(_ sender: UIButton) {
-        // Implement grid layout button action
+        isGridLayout.toggle()
     }
     
     @IBAction func sortedBtnPressed(_ sender: UIButton) {
@@ -52,8 +61,10 @@ extension SeeAllVC : SeeAllVCProtocol {
     }
     
     func registerXibs(){
-        let nib = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
-        moviesCollectionviewOutlet.register(nib, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
+        let nib1 = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
+        let nib2 = UINib(nibName: "MoviesCollectionViewDetailCell", bundle: nil)
+        moviesCollectionviewOutlet.register(nib1, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
+        moviesCollectionviewOutlet.register(nib2, forCellWithReuseIdentifier: "MoviesCollectionViewDetailCell")
     }
     
     func updateCollectionView(){
@@ -86,12 +97,33 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
-        MoviesCollectionViewCell
-        guard let cellData = presenter?.moviesDatasource[indexPath.row] else {
-            return UICollectionViewCell()
+        if isGridLayout {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
+            MoviesCollectionViewCell
+            guard let cellData = presenter?.moviesDatasource[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(movie: cellData)
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
+            if let movieId = presenter?.moviesDatasource[indexPath.row].id {
+                DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+                    self?.presenter?.fetchMovieDetail(movieId: movieId)
+                        .subscribe{ data in
+                            switch data {
+                            case.success(let movie):
+                                DispatchQueue.main.async { [weak self] in
+                                    cell.configure(movie: movie)
+                                }
+                            case.failure(let error):
+                                print(error)
+                            }
+                        }.disposed(by: self!.disposeBag)
+                }
+            }
+            return cell
         }
-        cell.configure(movie: cellData)
-        return cell
+        return UICollectionViewCell()
     }
 }

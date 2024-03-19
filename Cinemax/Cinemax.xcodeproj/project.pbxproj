@@ -21,6 +21,8 @@
 		132C2B252BA96C25000A00F4 /* SeeAllVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B242BA96C25000A00F4 /* SeeAllVCInteractor.swift */; };
 		132C2B272BA96C32000A00F4 /* SeeAllVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B262BA96C32000A00F4 /* SeeAllVCPresenter.swift */; };
 		132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B282BA96F57000A00F4 /* SeeAllVCRouter.swift */; };
+		132C2B2D2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C2B2B2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift */; };
+		132C2B2E2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132C2B2C2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib */; };
 		13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */; };
 		13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D412B721750007B74D4 /* HomeVCPresenter.swift */; };
 		13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13305D432B721760007B74D4 /* HomeVCRouter.swift */; };
@@ -162,6 +164,8 @@
 		132C2B242BA96C25000A00F4 /* SeeAllVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCInteractor.swift; sourceTree = "<group>"; };
 		132C2B262BA96C32000A00F4 /* SeeAllVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCPresenter.swift; sourceTree = "<group>"; };
 		132C2B282BA96F57000A00F4 /* SeeAllVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVCRouter.swift; sourceTree = "<group>"; };
+		132C2B2B2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewDetailCell.swift; sourceTree = "<group>"; };
+		132C2B2C2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewDetailCell.xib; sourceTree = "<group>"; };
 		13305D3F2B721746007B74D4 /* HomeVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCInteractor.swift; sourceTree = "<group>"; };
 		13305D412B721750007B74D4 /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		13305D432B721760007B74D4 /* HomeVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCRouter.swift; sourceTree = "<group>"; };
@@ -339,6 +343,15 @@
 			path = SeeAll;
 			sourceTree = "<group>";
 		};
+		132C2B2A2BA99158000A00F4 /* MoviesCollectionViewDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				132C2B2B2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift */,
+				132C2B2C2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib */,
+			);
+			path = MoviesCollectionViewDetailCell;
+			sourceTree = "<group>";
+		};
 		13305D452B723EF2007B74D4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +371,7 @@
 		13305D4C2B7263B7007B74D4 /* MoviesCell */ = {
 			isa = PBXGroup;
 			children = (
+				132C2B2A2BA99158000A00F4 /* MoviesCollectionViewDetailCell */,
 				13305D512B726551007B74D4 /* MoviesCollectionViewCell */,
 				13305D4D2B7263D7007B74D4 /* MoviesCell.swift */,
 				13305D4E2B7263D7007B74D4 /* MoviesCell.xib */,
@@ -990,6 +1004,7 @@
 				139C22872B612DC00082DBDD /* Common.storyboard in Resources */,
 				139C226B2B6128500082DBDD /* Onboarding.storyboard in Resources */,
 				139C227B2B612D270082DBDD /* Home.storyboard in Resources */,
+				132C2B2E2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib in Resources */,
 				139C227E2B612D4C0082DBDD /* Search.storyboard in Resources */,
 				13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */,
 				139C22842B612D8D0082DBDD /* Profile.storyboard in Resources */,
@@ -1134,6 +1149,7 @@
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
 				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
+				132C2B2D2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift in Sources */,
 				134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */,
 				13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */,
 				132C2B272BA96C32000A00F4 /* SeeAllVCPresenter.swift in Sources */,
