@@ -8,12 +8,14 @@
 import UIKit
 
 protocol SeeAllVCProtocol: AnyObject {
-    
+    func registerXibs()
+    func updateCollectionView()
 }
 
 class SeeAllVC: UIViewController {
     
     @IBOutlet weak var moviesHeadlineLbl: UILabel!
+    @IBOutlet weak var moviesCollectionviewOutlet: UICollectionView!
     @IBOutlet weak var sortByLbl: UILabel!
     var sortByString : String? {
         didSet{
@@ -38,7 +40,16 @@ class SeeAllVC: UIViewController {
     func backBtnPressed(){
         navigationController?.popViewController(animated: true)
     }
-    
+}
+
+extension SeeAllVC : SeeAllVCProtocol {
+    func registerXibs(){
+        let nib = UINib(nibName: "MoviesCollectionViewCell", bundle: nil)
+        moviesCollectionviewOutlet.register(nib, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
+    }
+    func updateCollectionView(){
+        moviesCollectionviewOutlet.reloadData()
+    }
     private func showSortingMenu(sender:UIButton){
         // Define actions for sorting
         let sortByRatingAction = UIAction(title: "Rating", image: UIImage(systemName: "star.fill")) { _ in
@@ -59,6 +70,18 @@ class SeeAllVC: UIViewController {
     }
 }
 
-extension SeeAllVC : SeeAllVCProtocol {
+extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter?.moviesDatasource.count ?? 0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
+        MoviesCollectionViewCell
+        guard let cellData = presenter?.moviesDatasource[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.configure(movie: cellData)
+        return cell
+    }
 }

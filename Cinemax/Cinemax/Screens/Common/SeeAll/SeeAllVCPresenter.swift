@@ -17,7 +17,13 @@ class SeeAllVCPresenter {
     weak var view: SeeAllVCProtocol?
     var interactor: SeeAllVCInteractorProtocol
     var router: SeeAllVCRouterProtocol
-    var moviesDatasource = [MasterMovieModelResult]()
+    var moviesDatasource = [MasterMovieModelResult]() {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.updateCollectionView()
+            }
+        }
+    }
     var seeAllVCInputs: SeeAllVCInputs?
     var movieId: Int?
     var searchText: String?
@@ -33,6 +39,7 @@ class SeeAllVCPresenter {
 extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func viewDidload(){
+        view?.registerXibs()
         DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
             self?.loadDatasource(seeAllVCInputs: self?.seeAllVCInputs, movieId: self?.movieId, searchText: self?.searchText, page: self?.page)
         }
