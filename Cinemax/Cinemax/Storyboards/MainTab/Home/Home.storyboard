@@ -133,7 +133,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPCOMING" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EUV-Qx-GIT">
-                                                                            <rect key="frame" x="15" y="0.0" width="379" height="50"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="269" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="50" id="7Jq-9H-lm4"/>
                                                                             </constraints>
@@ -141,6 +141,20 @@
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZD-mb-ZUA">
+                                                                            <rect key="frame" x="294" y="0.0" width="100" height="50"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="100" id="a9F-Tn-HBz"/>
+                                                                            </constraints>
+                                                                            <color key="tintColor" name="AppBlue"/>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" title="SeeAll">
+                                                                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                            </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="seeAllBtnpressed:" destination="L73-Vu-V5k" eventType="touchUpInside" id="lSz-Qq-jxm"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>

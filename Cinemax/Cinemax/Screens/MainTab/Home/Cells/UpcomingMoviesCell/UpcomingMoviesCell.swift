@@ -13,7 +13,6 @@ class UpcomingMoviesCell: UITableViewCell  {
     
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieReleaseDateLbl: UILabel!
-    
     @IBOutlet weak var pagerViewOutlet: FSPagerView! {
         didSet{
             self.pagerViewOutlet.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -45,6 +44,7 @@ class UpcomingMoviesCell: UITableViewCell  {
     }
     
     var cellTappedClosure : ((MasterMovieModelResult?)->())?
+    var seeAllBtnpressedClosure : (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,6 +57,10 @@ class UpcomingMoviesCell: UITableViewCell  {
         
     }
     
+    @IBAction func seeAllBtnpressed(_ sender: UIButton) {
+        seeAllBtnpressedClosure?()
+    }
+   
     func configureCell(dataSource: MasterMovieModel?){
         cellData = dataSource
         pagerViewOutlet.reloadData()

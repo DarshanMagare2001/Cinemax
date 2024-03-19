@@ -639,6 +639,21 @@
             </objects>
             <point key="canvasLocation" x="779.71014492753625" y="63.616071428571423"/>
         </scene>
+        <!--See AllVC-->
+        <scene sceneID="buU-dB-pIw">
+            <objects>
+                <viewController storyboardIdentifier="SeeAllVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V6n-Yc-beM" customClass="SeeAllVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rSg-H4-icU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Uys-da-sud"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGS-ha-sZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426" y="60"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppCalender" width="16" height="16"/>

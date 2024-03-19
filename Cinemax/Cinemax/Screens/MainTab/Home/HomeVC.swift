@@ -97,6 +97,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 self?.presenter?.gotoDetailVC(movieData:data)
             }
             
+            cell.seeAllBtnpressedClosure = { [weak self] in
+                self?.presenter?.gotoSeeAllVC()
+            }
+            
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
