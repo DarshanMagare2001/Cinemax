@@ -30,7 +30,12 @@ class SeeAllVC: UIViewController {
         didSet{
             DispatchQueue.main.async { [weak self] in
                 self?.setupFlowlayout()
-                self?.moviesCollectionviewOutlet.reloadData()
+                UIView.transition(with: self!.moviesCollectionviewOutlet,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                    self?.moviesCollectionviewOutlet.reloadData()
+                },completion: nil)
                 self?.gridBtn.setImage(UIImage(systemName: (self!.isGridLayout ? "square.grid.3x3.fill":"line.3.horizontal")), for: .normal)
             }
         }
