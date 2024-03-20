@@ -94,7 +94,12 @@ extension SeeAllVC : SeeAllVCProtocol {
     }
     
     func updateCollectionView(){
-        moviesCollectionviewOutlet.reloadData()
+        UIView.transition(with: moviesCollectionviewOutlet,
+                          duration: 0.1,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.moviesCollectionviewOutlet.reloadData()
+        },completion: nil)
     }
     
     private func showSortingMenu(sender:UIButton){

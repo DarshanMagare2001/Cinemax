@@ -52,6 +52,8 @@
 		134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */; };
 		134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */; };
 		134ECC282B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */; };
+		1371E5412BAAE486005246D6 /* CollectionViewLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371E53F2BAAE486005246D6 /* CollectionViewLoadingCell.swift */; };
+		1371E5422BAAE486005246D6 /* CollectionViewLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1371E5402BAAE486005246D6 /* CollectionViewLoadingCell.xib */; };
 		139531CD2B97403300B2BCAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 139531CC2B97403300B2BCAA /* Alamofire */; };
 		139531D22B9746ED00B2BCAA /* HttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D02B9746ED00B2BCAA /* HttpRouter.swift */; };
 		139531D32B9746ED00B2BCAA /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D12B9746ED00B2BCAA /* HttpService.swift */; };
@@ -195,6 +197,8 @@
 		134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCRouter.swift; sourceTree = "<group>"; };
 		134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCBuilder.swift; sourceTree = "<group>"; };
+		1371E53F2BAAE486005246D6 /* CollectionViewLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLoadingCell.swift; sourceTree = "<group>"; };
+		1371E5402BAAE486005246D6 /* CollectionViewLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewLoadingCell.xib; sourceTree = "<group>"; };
 		139531D02B9746ED00B2BCAA /* HttpRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRouter.swift; sourceTree = "<group>"; };
 		139531D12B9746ED00B2BCAA /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		139531D52B97471E00B2BCAA /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
@@ -447,6 +451,15 @@
 			path = ResetPassword;
 			sourceTree = "<group>";
 		};
+		1371E53E2BAAE35A005246D6 /* CollectionViewLoadingCell */ = {
+			isa = PBXGroup;
+			children = (
+				1371E53F2BAAE486005246D6 /* CollectionViewLoadingCell.swift */,
+				1371E5402BAAE486005246D6 /* CollectionViewLoadingCell.xib */,
+			);
+			path = CollectionViewLoadingCell;
+			sourceTree = "<group>";
+		};
 		139531CE2B97404400B2BCAA /* HttpUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +706,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1371E53E2BAAE35A005246D6 /* CollectionViewLoadingCell */,
 				131C6C102BA87D6700EEFCEA /* SeeAll */,
 				13374AF42BA33525005E2BCA /* Detail */,
 				13305D4C2B7263B7007B74D4 /* MoviesCell */,
@@ -999,6 +1013,7 @@
 				139C226E2B61288C0082DBDD /* Authentication.storyboard in Resources */,
 				131A9B422B6A2509007A4D55 /* LoaderTypes.gif in Resources */,
 				139C22712B6128A80082DBDD /* MainTab.storyboard in Resources */,
+				1371E5422BAAE486005246D6 /* CollectionViewLoadingCell.xib in Resources */,
 				13305D502B7263D7007B74D4 /* MoviesCell.xib in Resources */,
 				139C22812B612D700082DBDD /* Download.storyboard in Resources */,
 				139C22872B612DC00082DBDD /* Common.storyboard in Resources */,
@@ -1098,6 +1113,7 @@
 				134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */,
 				134ECC282B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift in Sources */,
 				139531D32B9746ED00B2BCAA /* HttpService.swift in Sources */,
+				1371E5412BAAE486005246D6 /* CollectionViewLoadingCell.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
 				132C2B252BA96C25000A00F4 /* SeeAllVCInteractor.swift in Sources */,
