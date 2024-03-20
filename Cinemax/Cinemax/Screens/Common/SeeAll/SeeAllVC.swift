@@ -20,6 +20,7 @@ class SeeAllVC: UIViewController {
     @IBOutlet weak var moviesHeadlineLbl: UILabel!
     @IBOutlet weak var moviesCollectionviewOutlet: UICollectionView!
     @IBOutlet weak var sortByLbl: UILabel!
+    @IBOutlet weak var gridBtn: UIButton!
     var sortByString : String? {
         didSet{
             sortByLbl.text = sortByString ?? ""
@@ -30,6 +31,7 @@ class SeeAllVC: UIViewController {
             DispatchQueue.main.async { [weak self] in
                 self?.setupFlowlayout()
                 self?.moviesCollectionviewOutlet.reloadData()
+                self?.gridBtn.setImage(UIImage(systemName: (self!.isGridLayout ? "square.grid.3x3.fill":"line.3.horizontal")), for: .normal)
             }
         }
     }
@@ -81,7 +83,7 @@ extension SeeAllVC : SeeAllVCProtocol {
             let cellWidth = moviesCollectionviewOutlet.frame.size.width - 5
             flowLayout.itemSize = CGSize(width: cellWidth, height: 300)
             flowLayout.minimumInteritemSpacing = 0
-            flowLayout.minimumLineSpacing = 10
+            flowLayout.minimumLineSpacing = 15
             moviesCollectionviewOutlet.collectionViewLayout = flowLayout
         }
     }
