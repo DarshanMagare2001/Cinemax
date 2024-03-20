@@ -106,12 +106,15 @@ extension SeeAllVC : SeeAllVCProtocol {
         // Define actions for sorting
         let sortByRatingAction = UIAction(title: "Rating", image: UIImage(systemName: "star.fill")) { _ in
             self.sortByString = "Sort by Rating"
+            self.presenter?.sortMovies(sortBy: SortMovies.byRating)
         }
         let sortByNameAZAction = UIAction(title: "Name A-Z", image: UIImage(systemName: "abc")) { _ in
             self.sortByString = "Sort by Name A-Z"
+            self.presenter?.sortMovies(sortBy: SortMovies.byNameAZ)
         }
         let sortByNameZAAction = UIAction(title: "Name Z-A", image: UIImage(systemName: "abc")) { _ in
             self.sortByString = "Sort by Name Z-A"
+            self.presenter?.sortMovies(sortBy: SortMovies.byNameZA)
         }
         // Create a menu with sorting options
         let sortingMenu = UIMenu(title: "Sort By", children: [sortByRatingAction, sortByNameAZAction,sortByNameZAAction])
