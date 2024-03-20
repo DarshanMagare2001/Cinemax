@@ -11,6 +11,7 @@ import RxSwift
 protocol SeeAllVCProtocol: AnyObject {
     func updateUI()
     func registerXibs()
+    func setupFlowlayout()
     func updateCollectionView()
 }
 
@@ -27,6 +28,7 @@ class SeeAllVC: UIViewController {
     var isGridLayout : Bool = true {
         didSet{
             DispatchQueue.main.async { [weak self] in
+                self?.setupFlowlayout()
                 self?.moviesCollectionviewOutlet.reloadData()
             }
         }
@@ -65,6 +67,23 @@ extension SeeAllVC : SeeAllVCProtocol {
         let nib2 = UINib(nibName: "MoviesCollectionViewDetailCell", bundle: nil)
         moviesCollectionviewOutlet.register(nib1, forCellWithReuseIdentifier: "MoviesCollectionViewCell")
         moviesCollectionviewOutlet.register(nib2, forCellWithReuseIdentifier: "MoviesCollectionViewDetailCell")
+    }
+    
+    func setupFlowlayout(){
+        let flowLayout = UICollectionViewFlowLayout()
+        if isGridLayout {
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumLineSpacing = 15
+            let cellWidth = (moviesCollectionviewOutlet.frame.size.width / 2) - 8
+            flowLayout.itemSize = CGSize(width: cellWidth, height: 300)
+            moviesCollectionviewOutlet.collectionViewLayout = flowLayout
+        }else{
+            let cellWidth = moviesCollectionviewOutlet.frame.size.width - 5
+            flowLayout.itemSize = CGSize(width: cellWidth, height: 300)
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumLineSpacing = 10
+            moviesCollectionviewOutlet.collectionViewLayout = flowLayout
+        }
     }
     
     func updateCollectionView(){
