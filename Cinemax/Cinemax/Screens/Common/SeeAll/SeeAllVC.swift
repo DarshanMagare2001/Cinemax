@@ -147,4 +147,15 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         }
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        print(presenter?.moviesDatasource.count ?? 0)
+        if indexPath.row == ((presenter?.moviesDatasource.count ?? 0) - 1 ) {
+            presenter?.loadPaginatedData()
+        } else {
+            print("Not reached to limit")
+        }
+    }
+    
 }

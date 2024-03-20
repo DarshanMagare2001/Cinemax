@@ -10,6 +10,7 @@ import RxSwift
 
 protocol SeeAllVCPresenterProtocol {
     func viewDidload()
+    func loadPaginatedData()
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
     var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
@@ -48,6 +49,12 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         DispatchQueue.main.async { [weak self] in
             self?.view?.updateUI()
         }
+        DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
+            self?.loadDatasource(seeAllVCInputs: self?.seeAllVCInputs, movieId: self?.movieId, searchText: self?.searchText, page: self?.page)
+        }
+    }
+    
+    func loadPaginatedData(){
         DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
             self?.loadDatasource(seeAllVCInputs: self?.seeAllVCInputs, movieId: self?.movieId, searchText: self?.searchText, page: self?.page)
         }
