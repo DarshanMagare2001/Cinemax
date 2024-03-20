@@ -32,7 +32,7 @@ class SeeAllVC: UIViewController {
                 self?.setupFlowlayout()
                 UIView.transition(with: self!.moviesCollectionviewOutlet,
                                   duration: 0.5,
-                                  options: .transitionCrossDissolve,
+                                  options: .transitionFlipFromLeft,
                                   animations: {
                     self?.moviesCollectionviewOutlet.reloadData()
                 },completion: nil)
