@@ -16,6 +16,7 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
     @IBOutlet weak var movieGenereLbl: UILabel!
     @IBOutlet weak var movieLanguageLbl: UILabel!
     @IBOutlet weak var movieOverviewLbl: UILabel!
+    @IBOutlet weak var movieRatingLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,8 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
            let movieDuration = movie.runtime,
            let movieGenere = movie.genres?[0].name,
            let movieLanguage = movie.originalLanguage,
-           let movieOverview = movie.overview{
+           let movieOverview = movie.overview,
+           let movieVoteAverage = movie.voteAverage {
             let imgUrl = "https://image.tmdb.org/t/p/w500\(movieImgUrl)"
             self.movieImg.loadImage(urlString: imgUrl, placeholder: "frame.fill")
             self.movieNameLbl.text = movieName
@@ -37,6 +39,8 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
             self.movieGenereLbl.text = movieGenere
             self.movieLanguageLbl.text = movieLanguage
             self.movieOverviewLbl.text = movieOverview
+            let movieRating = String(format: "%.1f",movieVoteAverage)
+            self.movieRatingLbl.text = movieRating
         }
     }
     
