@@ -23,11 +23,11 @@ class HomeVCRouter {
 extension HomeVCRouter: HomeVCRouterProtocol {
     func gotoDetailVC(movieData: MasterMovieModelResult?){
         let detailVC = DetailVCBuilder.build(movieData: movieData)
-        viewController.navigationController?.pushViewController(detailVC, animated: false)
+        viewController.navigationController?.pushViewController(detailVC, animated: true)
     }
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
         let seeAllVC = SeeAllVCBuilder.build(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
-        viewController.navigationController?.pushViewController(seeAllVC, animated: false)
+        viewController.navigationController?.pushViewController(seeAllVC, animated: true)
     }
 }
 

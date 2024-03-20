@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SeeAllVCRouterProtocol {
-    
+    func gotoDetailVC(movieData: MasterMovieModelResult?)
 }
 
 class SeeAllVCRouter {
@@ -20,5 +20,8 @@ class SeeAllVCRouter {
 }
 
 extension SeeAllVCRouter: SeeAllVCRouterProtocol {
-    
+    func gotoDetailVC(movieData: MasterMovieModelResult?){
+        let detailVC = DetailVCBuilder.build(movieData: movieData)
+        viewController.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

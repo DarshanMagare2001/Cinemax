@@ -156,6 +156,12 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cellData = presenter?.moviesDatasource[indexPath.row]{
+            presenter?.gotoDetailVC(movieData: cellData)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         print(indexPath.row)
         print(presenter?.moviesDatasource.count ?? 0)

@@ -18,6 +18,7 @@ protocol SeeAllVCPresenterProtocol {
     func viewDidload()
     func loadPaginatedData()
     func sortMovies(sortBy:SortMovies)
+    func gotoDetailVC(movieData: MasterMovieModelResult?)
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
     var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
@@ -115,6 +116,10 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
             moviesDatasource.sort{ $0.title ?? "" > $1.title ?? "" }
             moviesDatasourceIndetail.sort { $0.title ?? "" > $1.title ?? "" }
         }
+    }
+    
+    func gotoDetailVC(movieData: MasterMovieModelResult?){
+        router.gotoDetailVC(movieData: movieData)
     }
     
 }
