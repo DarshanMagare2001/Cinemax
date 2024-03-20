@@ -45,11 +45,6 @@ class HomeVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
-    
     @objc func refresh(_ refreshControl: UIRefreshControl) {
         presenter?.loadDataSource()
     }

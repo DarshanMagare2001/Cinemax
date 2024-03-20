@@ -16,10 +16,11 @@ public final class DetailVCBuilder {
         let storyboard = UIStoryboard.Common
         let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         let interactor = DetailVCInteractor(moviesServiceManager: MoviesServiceManager.shared)
-        let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, movieData: movieData)
+        let router = DetailVCRouter(viewController: detailVC)
+        let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, router: router, movieData: movieData)
         detailVC.presenter = presenter
         if let movieData = movieData {
-            DispatchQueue.main.async { 
+            DispatchQueue.main.async {
                 detailVC.title = movieData.title
             }
         }

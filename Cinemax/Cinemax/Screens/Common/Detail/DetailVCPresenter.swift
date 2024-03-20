@@ -10,6 +10,9 @@ import RxSwift
 
 protocol DetailVCPresenterProtocol {
     func viewDidload()
+    func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
+    var movieData : MasterMovieModelResult? { get set }
     var similarMovies : MovieResultModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
 }
@@ -17,15 +20,17 @@ protocol DetailVCPresenterProtocol {
 class DetailVCPresenter {
     weak var view : DetailVCProtocol?
     var interactor : DetailVCInteractorProtocol
+    var router: DetailVCRouterProtocol
     var movieData : MasterMovieModelResult?
     var similarMovies : MovieResultModel?
     var movieProductionHouses = [ProductionCompany]()
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
-    init(view : DetailVCProtocol,interactor : DetailVCInteractorProtocol, movieData : MasterMovieModelResult?){
+    init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieData: MasterMovieModelResult?){
         self.view = view
         self.interactor = interactor
         self.movieData = movieData
+        self.router = router
     }
 }
 
@@ -83,6 +88,14 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     completionHandler()
                 }).disposed(by: disposeBag)
         }
+    }
+    
+    func gotoDetailVC(movieData: MasterMovieModelResult?){
+        router.gotoDetailVC(movieData: movieData)
+    }
+    
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
+        router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
     }
     
 }

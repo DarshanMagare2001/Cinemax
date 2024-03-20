@@ -13,8 +13,8 @@ enum SeeAllVCInputs:String {
     case fetchMovieNowPlaying = "NOWPLAYING"
     case fetchMovieTopRated = "TOPRATED"
     case fetchMoviePopular = "POPULAR"
-    case fetchMovieSimilar
-    case fetchMovieSearch
+    case fetchMovieSimilar = "SimilarMovies"
+    case fetchMovieSearch = "Search"
 }
 
 protocol SeeAllVCInteractorProtocol {

@@ -41,9 +41,10 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
-        
+        if let movieData = presenter?.movieData{
+            presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar)
+        }
     }
-    
     
 }
 
@@ -122,6 +123,19 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return cell
         default:
             return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case similarMoviesCollectionviewOutlet:
+            if let movieData = presenter?.similarMovies?.results?[indexPath.row]{
+                presenter?.gotoDetailVC(movieData: movieData)
+            }
+        case productionHouseCollectionViewOutlet:
+            print("Production House Tapped")
+        default:
+            print("Nothing")
         }
     }
     
