@@ -53,8 +53,8 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func viewDidload(){
         view?.registerXibs()
-        view?.setupFlowlayout()
         DispatchQueue.main.async { [weak self] in
+            self?.view?.setupFlowlayout()
             self?.view?.updateUI()
         }
         DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
