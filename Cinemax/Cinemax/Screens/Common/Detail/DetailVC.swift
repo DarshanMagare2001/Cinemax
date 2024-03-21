@@ -126,18 +126,18 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch collectionView {
-//        case similarMoviesCollectionviewOutlet:
-//            if let movieData = presenter?.similarMovies?.results?[indexPath.row]{
-//                presenter?.gotoDetailVC(movieData: movieData)
-//            }
-//        case productionHouseCollectionViewOutlet:
-//            print("Production House Tapped")
-//        default:
-//            print("Nothing")
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case similarMoviesCollectionviewOutlet:
+            if let movieData = presenter?.similarMovies?.results?[indexPath.row]{
+                presenter?.gotoDetailVC(movieData: movieData)
+            }
+        case productionHouseCollectionViewOutlet:
+            print("Production House Tapped")
+        default:
+            print("Nothing")
+        }
+    }
     
 }
 
