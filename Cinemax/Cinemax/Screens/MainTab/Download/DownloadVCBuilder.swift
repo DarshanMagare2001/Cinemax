@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 public final class DownloadVCBuilder {
-    static func build(factor:NavigationFactoryClosure) -> UIViewController {
+    static func build() -> UIViewController {
         let storyboard = UIStoryboard.Download
         let downloadVC = storyboard.instantiateViewController(withIdentifier: "DownloadVC") as! DownloadVC
-        return factor(downloadVC)
+        return downloadVC
     }
 }
 

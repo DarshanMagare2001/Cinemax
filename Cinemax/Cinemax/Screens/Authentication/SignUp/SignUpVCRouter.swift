@@ -33,7 +33,7 @@ extension SignUpVCRouter: SignUpVCRouterProtocol {
     }
     
     func goToMainTabVC(){
-        let mainTabVC = MainTabVCBuilder.build()
+        let mainTabVC = MainTabVCBuilder.build(factor:NavigationFactory.build(rootView:))
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
             window.rootViewController = mainTabVC

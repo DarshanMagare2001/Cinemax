@@ -127,7 +127,6 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                         dispatchGroup.leave()
                     }, onFailure: { error in
                         print(error)
-                        // Handle error if needed
                         dispatchGroup.leave()
                     })
                     .disposed(by: self.disposeBag)

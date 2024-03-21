@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 public final class MainTabVCBuilder {
-    static func build() -> UIViewController {
+    static func build(factor:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.MainTab
         let mainTabVC = storyboard.instantiateViewController(withIdentifier: "MainTabVC") as! MainTabVC
-        return mainTabVC
+        return factor(mainTabVC)
     }
 }

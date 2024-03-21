@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public final class ProfileVCBuilder {
-    static func build(factor:NavigationFactoryClosure) -> UIViewController {
+    static func build() -> UIViewController {
         let storyboard = UIStoryboard.Profile
         let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         let interactor = ProfileVCInteractor()
@@ -17,6 +17,6 @@ public final class ProfileVCBuilder {
         let presenter = ProfileVCPresenter(view: profileVC, interactor: interactor, router: router)
         profileVC.presenter = presenter
         profileVC.title = "Profile"
-        return factor(profileVC)
+        return profileVC
     }
 }
