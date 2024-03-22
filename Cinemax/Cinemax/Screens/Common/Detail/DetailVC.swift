@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
@@ -27,6 +28,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
+    @IBOutlet weak var movieTrailerView: YouTubePlayerView!
     
     var presenter : DetailVCPresenterProtocol?
     
@@ -34,21 +36,38 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
+        playMovieTrailer()
     }
-    
-    func backBtnPressed(){
-        navigationController?.popViewController(animated: true)
-    }
-    
+   
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
         if let movieData = presenter?.movieData{
             presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar)
         }
     }
     
+    @IBAction func seeMoreBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func playBtnPressed(_ sender: UIButton) {
+        movieTrailerView.play()
+    }
+    
+    @IBAction func pauseBtnPressed(_ sender: UIButton) {
+        movieTrailerView.pause()
+    }
+    
+    @IBAction func stopBtnPressed(_ sender: UIButton) {
+        movieTrailerView.stop()
+    }
+    
 }
 
 extension DetailVC : DetailVCProtocol {
+    
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
     
     func updateUI(movieDetail:MovieDetailsModel){
         similarMoviesCollectionViewsOtletView.isHidden = true
@@ -86,6 +105,12 @@ extension DetailVC : DetailVCProtocol {
         similarMoviesCollectionviewOutlet.reloadData()
         if let result = presenter?.similarMovies?.results, !result.isEmpty {
             similarMoviesCollectionViewsOtletView.isHidden = false
+        }
+    }
+    
+    func playMovieTrailer(){
+        if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=_inKs4eeHiI"){
+            movieTrailerView.loadVideoURL(myVideoURL)
         }
     }
     

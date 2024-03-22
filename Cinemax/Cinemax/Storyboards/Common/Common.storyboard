@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-Kj-Kec">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1461.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1891.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-UT-Lb0">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="531.5"/>
@@ -217,7 +217,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-W2-feF">
-                                                <rect key="frame" x="0.0" y="531.5" width="414" height="930"/>
+                                                <rect key="frame" x="0.0" y="531.5" width="414" height="1360"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-U5-XFH">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -286,7 +286,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-oi-oDR">
-                                                        <rect key="frame" x="10" y="60" width="394" height="870"/>
+                                                        <rect key="frame" x="10" y="60" width="394" height="1300"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfp-v9-5Nx" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
@@ -348,8 +348,182 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SS2-IZ-B8i" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="210" width="394" height="50"/>
+                                                                <subviews>
+                                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pct-Cq-b7r">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WvG-Gg-bD5">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9y-fA-QD3">
+                                                                                    <rect key="frame" x="10" y="10" width="384" height="30"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-7J-9de">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
+                                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lx-PY-Jwi">
+                                                                                            <rect key="frame" x="264" y="0.0" width="120" height="30"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="120" id="cSU-Ln-inZ"/>
+                                                                                            </constraints>
+                                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" title="See more">
+                                                                                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                                            </buttonConfiguration>
+                                                                                            <connections>
+                                                                                                <action selector="seeMoreBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="eO5-O2-Q4y"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="trailing" secondItem="M9y-fA-QD3" secondAttribute="trailing" id="b9W-e6-10w"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="M9y-fA-QD3" secondAttribute="bottom" constant="10" id="fW7-L4-Frl"/>
+                                                                                <constraint firstItem="M9y-fA-QD3" firstAttribute="top" secondItem="WvG-Gg-bD5" secondAttribute="top" constant="10" id="gXv-od-6cQ"/>
+                                                                                <constraint firstItem="M9y-fA-QD3" firstAttribute="leading" secondItem="WvG-Gg-bD5" secondAttribute="leading" constant="10" id="qTs-dK-7WE"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <blurEffect style="regular"/>
+                                                                    </visualEffectView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="pct-Cq-b7r" firstAttribute="top" secondItem="SS2-IZ-B8i" secondAttribute="top" id="D5s-NQ-19e"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="pct-Cq-b7r" secondAttribute="bottom" id="FxH-1x-5gk"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="pct-Cq-b7r" secondAttribute="trailing" id="H7o-ug-Cgg"/>
+                                                                    <constraint firstItem="pct-Cq-b7r" firstAttribute="leading" secondItem="SS2-IZ-B8i" secondAttribute="leading" id="YcM-BT-3Yr"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="wnf-5b-j5A"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4s-ei-L14" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="270" width="394" height="300"/>
+                                                                <subviews>
+                                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9U-xy-5DM">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NPj-eR-ZYW">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pm-2c-Dt0" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="2pm-2c-Dt0" firstAttribute="top" secondItem="NPj-eR-ZYW" secondAttribute="top" id="5ZC-SS-z8j"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="2pm-2c-Dt0" secondAttribute="bottom" id="AVT-5v-0Js"/>
+                                                                                <constraint firstItem="2pm-2c-Dt0" firstAttribute="leading" secondItem="NPj-eR-ZYW" secondAttribute="leading" id="KvD-iB-P8R"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="2pm-2c-Dt0" secondAttribute="trailing" id="f46-uI-p0y"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <blurEffect style="regular"/>
+                                                                    </visualEffectView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="N9U-xy-5DM" firstAttribute="leading" secondItem="O4s-ei-L14" secondAttribute="leading" id="Kuj-f3-Qeo"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="N9U-xy-5DM" secondAttribute="bottom" id="ZP0-yo-3Gj"/>
+                                                                    <constraint firstItem="N9U-xy-5DM" firstAttribute="top" secondItem="O4s-ei-L14" secondAttribute="top" id="qFT-xu-wlV"/>
+                                                                    <constraint firstAttribute="height" constant="300" id="vXY-Er-acQ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="N9U-xy-5DM" secondAttribute="trailing" id="xg1-b8-KfG"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfG-xo-gWZ" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="580" width="394" height="50"/>
+                                                                <subviews>
+                                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-pY-k66">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VVm-q1-tPF">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-Yz-TM8">
+                                                                                    <rect key="frame" x="10" y="10" width="120" height="30"/>
+                                                                                    <subviews>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-ak-wRh">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="40" id="MNw-3z-Pl7"/>
+                                                                                            </constraints>
+                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" image="play.circle.fill" catalog="system"/>
+                                                                                            <connections>
+                                                                                                <action selector="playBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="JCX-K7-0LM"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-in-vOx">
+                                                                                            <rect key="frame" x="40" y="0.0" width="40" height="30"/>
+                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" image="pause.circle.fill" catalog="system"/>
+                                                                                            <connections>
+                                                                                                <action selector="pauseBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="LOO-K6-dnx"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-TA-wmL">
+                                                                                            <rect key="frame" x="80" y="0.0" width="40" height="30"/>
+                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" image="stop.circle.fill" catalog="system"/>
+                                                                                            <connections>
+                                                                                                <action selector="stopBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="02Z-GC-96c"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="QSN-Yz-TM8" firstAttribute="top" secondItem="VVm-q1-tPF" secondAttribute="top" constant="10" id="AkK-tr-kFg"/>
+                                                                                <constraint firstItem="QSN-Yz-TM8" firstAttribute="leading" secondItem="VVm-q1-tPF" secondAttribute="leading" constant="10" id="RiP-bb-WBl"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="QSN-Yz-TM8" secondAttribute="bottom" constant="10" id="TUV-uW-tbb"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <blurEffect style="regular"/>
+                                                                    </visualEffectView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="sDc-pY-k66" secondAttribute="trailing" id="2sr-mb-DCt"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="sDc-pY-k66" secondAttribute="bottom" id="QTU-4Z-Bam"/>
+                                                                    <constraint firstItem="sDc-pY-k66" firstAttribute="top" secondItem="lfG-xo-gWZ" secondAttribute="top" id="ecU-cW-9jD"/>
+                                                                    <constraint firstItem="sDc-pY-k66" firstAttribute="leading" secondItem="lfG-xo-gWZ" secondAttribute="leading" id="gVO-z7-jK6"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="kiK-0i-qHm"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSj-gR-h3T" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="210" width="394" height="270"/>
+                                                                <rect key="frame" x="0.0" y="640" width="394" height="270"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtI-od-VT5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
@@ -470,7 +644,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C24-8H-QXd" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="490" width="394" height="380"/>
+                                                                <rect key="frame" x="0.0" y="920" width="394" height="380"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dte-il-xq3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="380"/>
@@ -629,6 +803,7 @@
                         <outlet property="movieRatingLbl" destination="MKr-8H-xER" id="pXn-Hx-NhC"/>
                         <outlet property="movieReleasedateLbl" destination="aYF-eL-W9N" id="dSq-8b-tls"/>
                         <outlet property="movieStatus" destination="drB-a3-ZWH" id="zLe-gX-fPe"/>
+                        <outlet property="movieTrailerView" destination="2pm-2c-Dt0" id="1AE-Ib-K2E"/>
                         <outlet property="productionHouseCollectionViewOutlet" destination="Biy-CR-TiP" id="tH6-rV-1zl"/>
                         <outlet property="productionHouseCollectionViewOutletView" destination="KSj-gR-h3T" id="BNm-ZN-jFd"/>
                         <outlet property="similarMoviesCollectionViewsOtletView" destination="C24-8H-QXd" id="6cv-BC-ZXi"/>
@@ -801,8 +976,11 @@
         <image name="AppClock" width="16" height="16"/>
         <image name="AppFIlmRil" width="16" height="16"/>
         <image name="AppRatingIcon" width="16" height="16"/>
+        <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="slider.vertical.3" catalog="system" width="128" height="111"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
+        <image name="stop.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

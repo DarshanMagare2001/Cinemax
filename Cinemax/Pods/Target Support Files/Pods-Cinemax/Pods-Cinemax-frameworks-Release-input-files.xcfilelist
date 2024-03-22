@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-Cinemax/Pods-Cinemax-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/JXPageControl/JXPageControl.framework
+${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework
