@@ -306,7 +306,7 @@
                                                                                                 <constraint firstAttribute="height" constant="30" id="c1V-J8-4mr"/>
                                                                                             </constraints>
                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="textColor" name="AppBlue"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg5-Lf-7w2">
@@ -363,7 +363,7 @@
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-7J-9de">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="textColor" name="AppBlue"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lx-PY-Jwi">
@@ -371,7 +371,7 @@
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="120" id="cSU-Ln-inZ"/>
                                                                                             </constraints>
-                                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="tintColor" name="AppBlue"/>
                                                                                             <state key="normal" title="Button"/>
                                                                                             <buttonConfiguration key="configuration" style="plain" title="See more">
                                                                                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -495,9 +495,32 @@
                                                                                                 </button>
                                                                                             </subviews>
                                                                                         </stackView>
-                                                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-vQ-6a3">
-                                                                                            <rect key="frame" x="-2" y="42.5" width="378" height="38.5"/>
-                                                                                        </slider>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-pe-kqG">
+                                                                                            <rect key="frame" x="0.0" y="42.5" width="374" height="37.5"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URl-Du-PdQ">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="37.5"/>
+                                                                                                    <constraints>
+                                                                                                        <constraint firstAttribute="width" constant="50" id="H7B-ex-uex"/>
+                                                                                                    </constraints>
+                                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-vQ-6a3">
+                                                                                                    <rect key="frame" x="58" y="0.0" width="258" height="38.5"/>
+                                                                                                </slider>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQa-e6-nlO">
+                                                                                                    <rect key="frame" x="324" y="0.0" width="50" height="37.5"/>
+                                                                                                    <constraints>
+                                                                                                        <constraint firstAttribute="width" constant="50" id="rJg-tQ-bM1"/>
+                                                                                                    </constraints>
+                                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                             </subviews>
@@ -546,7 +569,7 @@
                                                                                                 <constraint firstAttribute="height" constant="30" id="2Yf-nX-fvK"/>
                                                                                             </constraints>
                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="textColor" name="AppBlue"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Biy-CR-TiP">
