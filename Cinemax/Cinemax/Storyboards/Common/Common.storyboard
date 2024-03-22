@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-Kj-Kec">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1891.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1941.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-UT-Lb0">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="531.5"/>
@@ -217,7 +217,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-W2-feF">
-                                                <rect key="frame" x="0.0" y="531.5" width="414" height="1360"/>
+                                                <rect key="frame" x="0.0" y="531.5" width="414" height="1410"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-U5-XFH">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -286,7 +286,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-oi-oDR">
-                                                        <rect key="frame" x="10" y="60" width="394" height="1300"/>
+                                                        <rect key="frame" x="10" y="60" width="394" height="1350"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfp-v9-5Nx" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
@@ -452,54 +452,60 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfG-xo-gWZ" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="580" width="394" height="50"/>
+                                                                <rect key="frame" x="0.0" y="580" width="394" height="100"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-pY-k66">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VVm-q1-tPF">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-Yz-TM8">
-                                                                                    <rect key="frame" x="10" y="10" width="120" height="30"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yCW-Qc-vAh">
+                                                                                    <rect key="frame" x="10" y="10" width="374" height="80"/>
                                                                                     <subviews>
-                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-ak-wRh">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="40" id="MNw-3z-Pl7"/>
-                                                                                            </constraints>
-                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                            <state key="normal" title="Button"/>
-                                                                                            <buttonConfiguration key="configuration" style="plain" image="play.circle.fill" catalog="system"/>
-                                                                                            <connections>
-                                                                                                <action selector="playBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="JCX-K7-0LM"/>
-                                                                                            </connections>
-                                                                                        </button>
-                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-in-vOx">
-                                                                                            <rect key="frame" x="40" y="0.0" width="40" height="30"/>
-                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                            <state key="normal" title="Button"/>
-                                                                                            <buttonConfiguration key="configuration" style="plain" image="pause.circle.fill" catalog="system"/>
-                                                                                            <connections>
-                                                                                                <action selector="pauseBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="LOO-K6-dnx"/>
-                                                                                            </connections>
-                                                                                        </button>
-                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-TA-wmL">
-                                                                                            <rect key="frame" x="80" y="0.0" width="40" height="30"/>
-                                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                            <state key="normal" title="Button"/>
-                                                                                            <buttonConfiguration key="configuration" style="plain" image="stop.circle.fill" catalog="system"/>
-                                                                                            <connections>
-                                                                                                <action selector="stopBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="02Z-GC-96c"/>
-                                                                                            </connections>
-                                                                                        </button>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-Yz-TM8">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="37.5"/>
+                                                                                            <subviews>
+                                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYX-ak-wRh">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="37.5"/>
+                                                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                    <state key="normal" title="Button"/>
+                                                                                                    <buttonConfiguration key="configuration" style="plain" image="play.circle.fill" catalog="system"/>
+                                                                                                    <connections>
+                                                                                                        <action selector="playBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="JCX-K7-0LM"/>
+                                                                                                    </connections>
+                                                                                                </button>
+                                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-in-vOx">
+                                                                                                    <rect key="frame" x="124.5" y="0.0" width="125" height="37.5"/>
+                                                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                    <state key="normal" title="Button"/>
+                                                                                                    <buttonConfiguration key="configuration" style="plain" image="pause.circle.fill" catalog="system"/>
+                                                                                                    <connections>
+                                                                                                        <action selector="pauseBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="LOO-K6-dnx"/>
+                                                                                                    </connections>
+                                                                                                </button>
+                                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-TA-wmL">
+                                                                                                    <rect key="frame" x="249.5" y="0.0" width="124.5" height="37.5"/>
+                                                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                    <state key="normal" title="Button"/>
+                                                                                                    <buttonConfiguration key="configuration" style="plain" image="stop.circle.fill" catalog="system"/>
+                                                                                                    <connections>
+                                                                                                        <action selector="stopBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="02Z-GC-96c"/>
+                                                                                                    </connections>
+                                                                                                </button>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-vQ-6a3">
+                                                                                            <rect key="frame" x="-2" y="42.5" width="378" height="38.5"/>
+                                                                                        </slider>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstItem="QSN-Yz-TM8" firstAttribute="top" secondItem="VVm-q1-tPF" secondAttribute="top" constant="10" id="AkK-tr-kFg"/>
-                                                                                <constraint firstItem="QSN-Yz-TM8" firstAttribute="leading" secondItem="VVm-q1-tPF" secondAttribute="leading" constant="10" id="RiP-bb-WBl"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="QSN-Yz-TM8" secondAttribute="bottom" constant="10" id="TUV-uW-tbb"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="yCW-Qc-vAh" secondAttribute="trailing" constant="10" id="0yQ-uD-ee0"/>
+                                                                                <constraint firstItem="yCW-Qc-vAh" firstAttribute="top" secondItem="VVm-q1-tPF" secondAttribute="top" constant="10" id="7Ht-QJ-Fxw"/>
+                                                                                <constraint firstItem="yCW-Qc-vAh" firstAttribute="leading" secondItem="VVm-q1-tPF" secondAttribute="leading" constant="10" id="G0E-NY-vgk"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="yCW-Qc-vAh" secondAttribute="bottom" constant="10" id="oHA-kb-T93"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <blurEffect style="regular"/>
@@ -511,7 +517,7 @@
                                                                     <constraint firstAttribute="bottom" secondItem="sDc-pY-k66" secondAttribute="bottom" id="QTU-4Z-Bam"/>
                                                                     <constraint firstItem="sDc-pY-k66" firstAttribute="top" secondItem="lfG-xo-gWZ" secondAttribute="top" id="ecU-cW-9jD"/>
                                                                     <constraint firstItem="sDc-pY-k66" firstAttribute="leading" secondItem="lfG-xo-gWZ" secondAttribute="leading" id="gVO-z7-jK6"/>
-                                                                    <constraint firstAttribute="height" constant="50" id="kiK-0i-qHm"/>
+                                                                    <constraint firstAttribute="height" constant="100" id="kiK-0i-qHm"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -523,7 +529,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSj-gR-h3T" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="640" width="394" height="270"/>
+                                                                <rect key="frame" x="0.0" y="690" width="394" height="270"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtI-od-VT5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
@@ -644,7 +650,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C24-8H-QXd" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="920" width="394" height="380"/>
+                                                                <rect key="frame" x="0.0" y="970" width="394" height="380"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dte-il-xq3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="380"/>
