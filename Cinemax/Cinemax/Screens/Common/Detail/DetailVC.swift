@@ -32,6 +32,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
     @IBOutlet weak var movieTrailerView: YouTubePlayerView!
+    @IBOutlet weak var movieTrailerSectionView: UIView!
+    
     
     var presenter : DetailVCPresenterProtocol?
     let disposeBag = DisposeBag()
@@ -40,6 +42,7 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
+        movieTrailerSectionView.isHidden = true
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
@@ -113,10 +116,13 @@ extension DetailVC : DetailVCProtocol {
     
     func playMovieTrailer(){
         if let movieVideosData = presenter?.movieVideos?.results {
-            if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
-               let trailerVideoKey = trailerVideo.key{
-                if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
-                    movieTrailerView.loadVideoURL(myVideoURL)
+            DispatchQueue.main.async { [weak self] in
+                self?.movieTrailerSectionView.isHidden = false
+                if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
+                   let trailerVideoKey = trailerVideo.key{
+                    if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
+                        self?.movieTrailerView.loadVideoURL(myVideoURL)
+                    }
                 }
             }
         }
