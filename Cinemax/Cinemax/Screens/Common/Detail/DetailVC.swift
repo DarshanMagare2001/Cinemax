@@ -14,6 +14,7 @@ protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
     func registerXibs()
     func updateSimilarMoviesCollectionviewOutlet()
+    func playMovieTrailer()
 }
 
 class DetailVC: UIViewController {
@@ -45,7 +46,6 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
-        playMovieTrailer()
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
@@ -128,9 +128,14 @@ extension DetailVC : DetailVCProtocol {
     }
     
     func playMovieTrailer(){
-        if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=_inKs4eeHiI"){
-            movieTrailerView.loadVideoURL(myVideoURL)
-            updateDuration()
+        if let movieVideosData = presenter?.movieVideos?.results {
+            if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
+               let trailerVideoKey = trailerVideo.key{
+                if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
+                    movieTrailerView.loadVideoURL(myVideoURL)
+                    updateDuration()
+                }
+            }
         }
     }
     

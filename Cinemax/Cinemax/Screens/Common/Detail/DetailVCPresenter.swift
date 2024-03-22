@@ -14,6 +14,7 @@ protocol DetailVCPresenterProtocol {
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     var movieData : MasterMovieModelResult? { get set }
     var similarMovies : MovieResultModel? { get set }
+    var movieVideos : MovieVideosResponseModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
 }
 
@@ -23,6 +24,13 @@ class DetailVCPresenter {
     var router: DetailVCRouterProtocol
     var movieData : MasterMovieModelResult?
     var similarMovies : MovieResultModel?
+    var movieVideos : MovieVideosResponseModel? {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.playMovieTrailer()
+            }
+        }
+    }
     var movieProductionHouses = [ProductionCompany]()
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
@@ -101,6 +109,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     switch response {
                     case.success(let movieData):
                         print(movieData)
+                        self.movieVideos = movieData
                     case.failure(let error):
                         print(error)
                     }
