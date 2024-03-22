@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-Kj-Kec">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1891.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2151.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-UT-Lb0">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="531.5"/>
@@ -217,7 +217,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-W2-feF">
-                                                <rect key="frame" x="0.0" y="531.5" width="414" height="1360"/>
+                                                <rect key="frame" x="0.0" y="531.5" width="414" height="1620"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-U5-XFH">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -286,7 +286,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-oi-oDR">
-                                                        <rect key="frame" x="10" y="60" width="394" height="1300"/>
+                                                        <rect key="frame" x="10" y="60" width="394" height="1560"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfp-v9-5Nx" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
@@ -349,10 +349,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-1a-eXS">
-                                                                <rect key="frame" x="0.0" y="210" width="394" height="420"/>
+                                                                <rect key="frame" x="0.0" y="210" width="394" height="680"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-iO-Icd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="420"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="680"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SS2-IZ-B8i" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
@@ -367,25 +367,11 @@
                                                                                                     <rect key="frame" x="10" y="10" width="384" height="30"/>
                                                                                                     <subviews>
                                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-7J-9de">
-                                                                                                            <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
                                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                                                             <color key="textColor" name="AppBlue"/>
                                                                                                             <nil key="highlightedColor"/>
                                                                                                         </label>
-                                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lx-PY-Jwi">
-                                                                                                            <rect key="frame" x="264" y="0.0" width="120" height="30"/>
-                                                                                                            <constraints>
-                                                                                                                <constraint firstAttribute="width" constant="120" id="cSU-Ln-inZ"/>
-                                                                                                            </constraints>
-                                                                                                            <color key="tintColor" name="AppBlue"/>
-                                                                                                            <state key="normal" title="Button"/>
-                                                                                                            <buttonConfiguration key="configuration" style="plain" title="See more">
-                                                                                                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                                                                            </buttonConfiguration>
-                                                                                                            <connections>
-                                                                                                                <action selector="seeMoreBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="eO5-O2-Q4y"/>
-                                                                                                            </connections>
-                                                                                                        </button>
                                                                                                     </subviews>
                                                                                                 </stackView>
                                                                                             </subviews>
@@ -526,6 +512,140 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhU-17-ZBT" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="430" width="394" height="250"/>
+                                                                                <subviews>
+                                                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbW-hY-cuU">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="250"/>
+                                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4JS-wH-Ulx">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="250"/>
+                                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                            <subviews>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s6v-TV-Rg9">
+                                                                                                    <rect key="frame" x="10" y="10" width="374" height="230"/>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Gallery" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T7-aw-XjG">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                            <constraints>
+                                                                                                                <constraint firstAttribute="height" constant="30" id="19F-rE-6mS"/>
+                                                                                                            </constraints>
+                                                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                                                            <color key="textColor" name="AppBlue"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l8e-Kr-fAd">
+                                                                                                            <rect key="frame" x="0.0" y="40" width="374" height="190"/>
+                                                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bpb-b9-ypk">
+                                                                                                                <size key="itemSize" width="317" height="181"/>
+                                                                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                                                            </collectionViewFlowLayout>
+                                                                                                            <cells>
+                                                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesGalleryCollectionViewCell" id="Y3u-nr-1cd" customClass="MoviesGalleryCollectionViewCell" customModule="Cinemax" customModuleProvider="target">
+                                                                                                                    <rect key="frame" x="0.0" y="4.5" width="317" height="181"/>
+                                                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yvO-9j-wla">
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="181"/>
+                                                                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                                                                        <subviews>
+                                                                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-8h-AML">
+                                                                                                                                <rect key="frame" x="0.0" y="0.0" width="317" height="181"/>
+                                                                                                                                <subviews>
+                                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-V3-kIu" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="146"/>
+                                                                                                                                        <subviews>
+                                                                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsv-wI-P9h" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                                                                                                                                <rect key="frame" x="0.0" y="0.0" width="317" height="146"/>
+                                                                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                                            </view>
+                                                                                                                                        </subviews>
+                                                                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                                        <constraints>
+                                                                                                                                            <constraint firstAttribute="bottom" secondItem="vsv-wI-P9h" secondAttribute="bottom" id="Ean-xf-NQV"/>
+                                                                                                                                            <constraint firstItem="vsv-wI-P9h" firstAttribute="leading" secondItem="YdP-V3-kIu" secondAttribute="leading" id="Xc2-0U-zlY"/>
+                                                                                                                                            <constraint firstItem="vsv-wI-P9h" firstAttribute="top" secondItem="YdP-V3-kIu" secondAttribute="top" id="ZPX-CC-hkv"/>
+                                                                                                                                            <constraint firstAttribute="trailing" secondItem="vsv-wI-P9h" secondAttribute="trailing" id="gq7-nc-O9Q"/>
+                                                                                                                                        </constraints>
+                                                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                                                                <real key="value" value="20"/>
+                                                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                                                        </userDefinedRuntimeAttributes>
+                                                                                                                                    </view>
+                                                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-xi-q7B">
+                                                                                                                                        <rect key="frame" x="0.0" y="151" width="317" height="30"/>
+                                                                                                                                        <constraints>
+                                                                                                                                            <constraint firstAttribute="height" constant="30" id="4W3-hB-JAv"/>
+                                                                                                                                        </constraints>
+                                                                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                                        <nil key="highlightedColor"/>
+                                                                                                                                    </label>
+                                                                                                                                </subviews>
+                                                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="width" constant="200" id="4CF-kz-Kt3"/>
+                                                                                                                                    <constraint firstAttribute="height" constant="200" id="vUH-yV-PrI"/>
+                                                                                                                                </constraints>
+                                                                                                                            </stackView>
+                                                                                                                        </subviews>
+                                                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstAttribute="bottom" secondItem="S2x-8h-AML" secondAttribute="bottom" id="HGp-K5-lSd"/>
+                                                                                                                            <constraint firstItem="S2x-8h-AML" firstAttribute="leading" secondItem="yvO-9j-wla" secondAttribute="leading" id="YOI-0M-J4f"/>
+                                                                                                                            <constraint firstItem="S2x-8h-AML" firstAttribute="top" secondItem="yvO-9j-wla" secondAttribute="top" id="odR-eQ-FxU"/>
+                                                                                                                            <constraint firstAttribute="trailing" secondItem="S2x-8h-AML" secondAttribute="trailing" id="v41-0a-rFm"/>
+                                                                                                                        </constraints>
+                                                                                                                    </collectionViewCellContentView>
+                                                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                    <size key="customSize" width="317" height="181"/>
+                                                                                                                    <connections>
+                                                                                                                        <outlet property="movieVideoTitleLbl" destination="Ds7-xi-q7B" id="1ik-HK-eBK"/>
+                                                                                                                        <outlet property="movieVideoView" destination="vsv-wI-P9h" id="5hM-sd-wYj"/>
+                                                                                                                    </connections>
+                                                                                                                </collectionViewCell>
+                                                                                                            </cells>
+                                                                                                            <connections>
+                                                                                                                <outlet property="dataSource" destination="A1G-Lu-jC8" id="vxT-3e-C2H"/>
+                                                                                                                <outlet property="delegate" destination="A1G-Lu-jC8" id="k1h-WH-oG7"/>
+                                                                                                            </connections>
+                                                                                                        </collectionView>
+                                                                                                    </subviews>
+                                                                                                </stackView>
+                                                                                            </subviews>
+                                                                                            <constraints>
+                                                                                                <constraint firstItem="s6v-TV-Rg9" firstAttribute="leading" secondItem="4JS-wH-Ulx" secondAttribute="leading" constant="10" id="1Si-Fp-neY"/>
+                                                                                                <constraint firstAttribute="trailing" secondItem="s6v-TV-Rg9" secondAttribute="trailing" constant="10" id="Qvi-hx-ipH"/>
+                                                                                                <constraint firstAttribute="bottom" secondItem="s6v-TV-Rg9" secondAttribute="bottom" constant="10" id="asd-DD-5OI"/>
+                                                                                                <constraint firstItem="s6v-TV-Rg9" firstAttribute="top" secondItem="4JS-wH-Ulx" secondAttribute="top" constant="10" id="m9C-pD-PmK"/>
+                                                                                            </constraints>
+                                                                                        </view>
+                                                                                        <blurEffect style="regular"/>
+                                                                                    </visualEffectView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="250" id="3Za-mn-py6"/>
+                                                                                    <constraint firstItem="fbW-hY-cuU" firstAttribute="top" secondItem="XhU-17-ZBT" secondAttribute="top" id="cLk-gk-7su"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="fbW-hY-cuU" secondAttribute="bottom" id="dXS-7G-4gm"/>
+                                                                                    <constraint firstItem="fbW-hY-cuU" firstAttribute="leading" secondItem="XhU-17-ZBT" secondAttribute="leading" id="jfg-5z-lCi"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="fbW-hY-cuU" secondAttribute="trailing" id="zQb-xk-ly1"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="20"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </stackView>
@@ -539,7 +659,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSj-gR-h3T" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="640" width="394" height="270"/>
+                                                                <rect key="frame" x="0.0" y="900" width="394" height="270"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtI-od-VT5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="270"/>
@@ -660,7 +780,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C24-8H-QXd" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="920" width="394" height="380"/>
+                                                                <rect key="frame" x="0.0" y="1180" width="394" height="380"/>
                                                                 <subviews>
                                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dte-il-xq3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="380"/>
@@ -814,6 +934,7 @@
                         <outlet property="movieBackgroundImg" destination="B3k-4J-KzU" id="ZjU-jf-zwG"/>
                         <outlet property="movieDurationLbl" destination="LLz-5Z-QPa" id="ZCL-xP-ceb"/>
                         <outlet property="movieForegroundImg" destination="ylb-08-GJk" id="AON-r1-PXl"/>
+                        <outlet property="movieGalleryCollectionViewOutlet" destination="l8e-Kr-fAd" id="P1U-rc-jGG"/>
                         <outlet property="movieGenereLbl" destination="0jD-rg-A1F" id="aHx-eD-vgA"/>
                         <outlet property="movieOverviewlbl" destination="jg5-Lf-7w2" id="vPy-CI-F8C"/>
                         <outlet property="movieRatingLbl" destination="MKr-8H-xER" id="pXn-Hx-NhC"/>

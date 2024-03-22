@@ -126,6 +126,7 @@
 		13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DFD2B6BA08B009CA6DB /* StoreUserServerManager.swift */; };
 		13C74E002B6BA09F009CA6DB /* FetchUserServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */; };
 		13D9FE442BAD94A1008550AB /* MovieVideoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */; };
+		13D9FE472BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9FE462BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift */; };
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
@@ -262,6 +263,7 @@
 		13C74DFD2B6BA08B009CA6DB /* StoreUserServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUserServerManager.swift; sourceTree = "<group>"; };
 		13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserServerManager.swift; sourceTree = "<group>"; };
 		13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideoResponseModel.swift; sourceTree = "<group>"; };
+		13D9FE462BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
 		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 		13374AF42BA33525005E2BCA /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				13D9FE452BADB37B008550AB /* MoviesGalleryCollectionViewCell */,
 				131C6C0D2BA8692000EEFCEA /* ProductionHouseCollectionViewCell */,
 				13374AF52BA33591005E2BCA /* DetailVC.swift */,
 				13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */,
@@ -879,6 +882,14 @@
 			path = UserServerRepository;
 			sourceTree = "<group>";
 		};
+		13D9FE452BADB37B008550AB /* MoviesGalleryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				13D9FE462BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift */,
+			);
+			path = MoviesGalleryCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		512A217EC32A23174C44CAC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1167,7 @@
 				13C74DE72B6B635C009CA6DB /* DownloadVC.swift in Sources */,
 				13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */,
 				134ECC112B67763F004BCAC2 /* SignUpCredentialVCBuilder.swift in Sources */,
+				13D9FE472BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift in Sources */,
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
 				13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */,

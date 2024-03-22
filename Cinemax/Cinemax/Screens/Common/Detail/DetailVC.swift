@@ -33,6 +33,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
     @IBOutlet weak var movieTrailerView: YouTubePlayerView!
     @IBOutlet weak var movieTrailerSectionView: UIView!
+    @IBOutlet weak var movieGalleryCollectionViewOutlet: UICollectionView!
     
     
     var presenter : DetailVCPresenterProtocol?
@@ -51,9 +52,7 @@ class DetailVC: UIViewController {
         }
     }
     
-    @IBAction func seeMoreBtnPressed(_ sender: UIButton) {
-        
-    }
+    
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
         movieTrailerView.play()
@@ -118,6 +117,7 @@ extension DetailVC : DetailVCProtocol {
         if let movieVideosData = presenter?.movieVideos?.results {
             DispatchQueue.main.async { [weak self] in
                 self?.movieTrailerSectionView.isHidden = false
+                self?.movieGalleryCollectionViewOutlet.reloadData()
                 if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
                    let trailerVideoKey = trailerVideo.key{
                     if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
@@ -138,6 +138,8 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return presenter?.similarMovies?.results?.count ?? 0
         case productionHouseCollectionViewOutlet:
             return presenter?.movieProductionHouses.count ?? 0
+        case movieGalleryCollectionViewOutlet:
+            return presenter?.movieVideos?.results?.count ?? 0
         default:
             return 0
         }
@@ -159,6 +161,13 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
                 return UICollectionViewCell()
             }
             cell.configure(productionCompany: cellData)
+            return cell
+        case movieGalleryCollectionViewOutlet:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesGalleryCollectionViewCell", for: indexPath) as! MoviesGalleryCollectionViewCell
+            guard let cellData = presenter?.movieVideos?.results?[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(trailer: cellData)
             return cell
         default:
             return UICollectionViewCell()
