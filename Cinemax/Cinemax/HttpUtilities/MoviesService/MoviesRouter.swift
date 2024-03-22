@@ -12,13 +12,14 @@ import Alamofire
 
 enum MoviesRouter: HttpRouterProtocol {
     
-    case movieUpcoming(page:Int)
-    case movieNowPlaying(page:Int)
-    case movieTopRated(page:Int)
-    case moviePopular(page:Int)
+    case moviesUpcoming(page:Int)
+    case moviesNowPlaying(page:Int)
+    case moviesTopRated(page:Int)
+    case moviesPopular(page:Int)
     case movieDetail(movieId:Int)
     case movieSimilar(similarId:Int,page:Int)
     case movieSearch(searchText: String,page:Int)
+    case movieVideos(movieId:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -26,13 +27,13 @@ enum MoviesRouter: HttpRouterProtocol {
     
     var path: String {
         switch self {
-        case .movieUpcoming(let page):
+        case .moviesUpcoming(let page):
             return "/movie/upcoming?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
-        case .movieNowPlaying(let page):
+        case .moviesNowPlaying(let page):
             return "/movie/now_playing?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
-        case .movieTopRated(let page):
+        case .moviesTopRated(let page):
             return "/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
-        case .moviePopular(let page):
+        case .moviesPopular(let page):
             return "/movie/popular?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
         case .movieDetail(let movieId):
             return "/movie/\(movieId)?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
@@ -40,6 +41,8 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/movie/\(similarId)/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
         case .movieSearch(let searchText , let page):
             return "/search/movie?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)&query=\(searchText)"
+        case .movieVideos(let movieId):
+            return "/movie/\(movieId)/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
         }
     }
     

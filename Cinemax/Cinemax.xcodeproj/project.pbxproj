@@ -125,6 +125,7 @@
 		13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DF92B6B9FE4009CA6DB /* UserServerModel.swift */; };
 		13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DFD2B6BA08B009CA6DB /* StoreUserServerManager.swift */; };
 		13C74E002B6BA09F009CA6DB /* FetchUserServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */; };
+		13D9FE442BAD94A1008550AB /* MovieVideoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */; };
 		13F5A98D2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */; };
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
@@ -260,6 +261,7 @@
 		13C74DF92B6B9FE4009CA6DB /* UserServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServerModel.swift; sourceTree = "<group>"; };
 		13C74DFD2B6BA08B009CA6DB /* StoreUserServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUserServerManager.swift; sourceTree = "<group>"; };
 		13C74DFF2B6BA09F009CA6DB /* FetchUserServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserServerManager.swift; sourceTree = "<group>"; };
+		13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideoResponseModel.swift; sourceTree = "<group>"; };
 		13F5A98C2B67D8F300CFD18A /* ResetPasswordVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCInteractor.swift; sourceTree = "<group>"; };
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
 		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				13C7139E2BA1C1D2009DA2A5 /* MasterMovieModel.swift */,
 				13C713A02BA1C3E6009DA2A5 /* MovieResultModel.swift */,
 				13C713A22BA1C54A009DA2A5 /* MovieDetailsModel.swift */,
+				13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1160,6 +1163,7 @@
 				13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */,
 				131C6C0F2BA8694900EEFCEA /* ProductionHouseCollectionViewCell.swift in Sources */,
 				13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */,
+				13D9FE442BAD94A1008550AB /* MovieVideoResponseModel.swift in Sources */,
 				13BA5F762B627E43005EDA19 /* UserdefaultRepository.swift in Sources */,
 				134ECC172B6776C9004BCAC2 /* SignUpVCRouter.swift in Sources */,
 				132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */,

@@ -50,6 +50,10 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         fetchSimilarMovies{ [weak self] in
             self?.dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        fetchMovieVideos{ [weak self] in
+            self?.dispatchGroup.leave()
+        }
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.view?.updateSimilarMoviesCollectionviewOutlet()
         }
@@ -82,6 +86,21 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     case.success(let movieData):
                         print(movieData)
                         self.similarMovies = movieData
+                    case.failure(let error):
+                        print(error)
+                    }
+                    completionHandler()
+                }).disposed(by: disposeBag)
+        }
+    }
+    
+    func fetchMovieVideos(completionHandler:@escaping()->()){
+        if let data = self.movieData{
+            interactor.fetchMovieVideos(movieId: data.id)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        print(movieData)
                     case.failure(let error):
                         print(error)
                     }

@@ -17,6 +17,7 @@ protocol MoviesServiceManagerProtocol {
     func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
     func fetchMovieSimilar(movieId:Int,page: Int) -> Single<MovieResultModel>
     func fetchMovieSearch(searchText:String,page: Int) -> Single<MovieResultModel>
+    func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel>
 }
 
 final class MoviesServiceManager {
@@ -31,7 +32,7 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
         return Single.create(subscribe:{ (single) -> Disposable in
             let disposables = Disposables.create()
             do{
-                try MoviesRouter.movieUpcoming(page: page).request(service: self.movieService)
+                try MoviesRouter.moviesUpcoming(page: page).request(service: self.movieService)
                     .responseDecodable(of: MasterMovieModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
@@ -51,7 +52,7 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
         return Single.create(subscribe:{ (single) -> Disposable in
             let disposables = Disposables.create()
             do{
-                try MoviesRouter.movieNowPlaying(page: page).request(service: self.movieService)
+                try MoviesRouter.moviesNowPlaying(page: page).request(service: self.movieService)
                     .responseDecodable(of: MasterMovieModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
@@ -71,7 +72,7 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
         return Single.create(subscribe:{ (single) -> Disposable in
             let disposables = Disposables.create()
             do{
-                try MoviesRouter.movieTopRated(page: page).request(service: self.movieService)
+                try MoviesRouter.moviesTopRated(page: page).request(service: self.movieService)
                     .responseDecodable(of: MasterMovieModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
@@ -91,7 +92,7 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
         return Single.create(subscribe:{ (single) -> Disposable in
             let disposables = Disposables.create()
             do{
-                try MoviesRouter.moviePopular(page: page).request(service: self.movieService)
+                try MoviesRouter.moviesPopular(page: page).request(service: self.movieService)
                     .responseDecodable(of: MasterMovieModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
@@ -153,6 +154,26 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
             do{
                 try MoviesRouter.movieSearch(searchText: searchText, page:page).request(service: self.movieService)
                     .responseDecodable(of: MovieResultModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
+                        switch response.result {
+                        case .success(let data):
+                            single(.success(data))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    })
+            } catch let error{
+                single(.failure(error))
+            }
+            return disposables
+        })
+    }
+    
+    func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel> {
+        return Single.create(subscribe:{ (single) -> Disposable in
+            let disposables = Disposables.create()
+            do{
+                try MoviesRouter.movieVideos(movieId: movieId).request(service: self.movieService)
+                    .responseDecodable(of: MovieVideosResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
                             single(.success(data))

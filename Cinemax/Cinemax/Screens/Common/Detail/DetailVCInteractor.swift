@@ -11,6 +11,7 @@ import RxSwift
 protocol DetailVCInteractorProtocol {
     func fetchMovieDetail(movieId:Int) -> Single<MovieDetailsModel>
     func fetchMovieSimilar(movieId:Int,page: Int) -> Single<MovieResultModel>
+    func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel>
 }
 
 class DetailVCInteractor {
@@ -26,5 +27,8 @@ extension DetailVCInteractor : DetailVCInteractorProtocol {
     }
     func fetchMovieSimilar(movieId:Int,page: Int) -> Single<MovieResultModel>{
         return moviesServiceManager.fetchMovieSimilar(movieId: movieId, page: page)
+    }
+    func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel>{
+        return moviesServiceManager.fetchMovieVideos(movieId: movieId)
     }
 }
