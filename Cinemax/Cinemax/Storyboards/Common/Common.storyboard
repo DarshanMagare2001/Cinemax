@@ -824,6 +824,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentTimeShowLbl" destination="URl-Du-PdQ" id="qoC-D5-SXb"/>
                         <outlet property="movieBackgroundImg" destination="B3k-4J-KzU" id="ZjU-jf-zwG"/>
                         <outlet property="movieDurationLbl" destination="LLz-5Z-QPa" id="ZCL-xP-ceb"/>
                         <outlet property="movieForegroundImg" destination="ylb-08-GJk" id="AON-r1-PXl"/>
@@ -837,6 +838,8 @@
                         <outlet property="productionHouseCollectionViewOutletView" destination="KSj-gR-h3T" id="BNm-ZN-jFd"/>
                         <outlet property="similarMoviesCollectionViewsOtletView" destination="C24-8H-QXd" id="6cv-BC-ZXi"/>
                         <outlet property="similarMoviesCollectionviewOutlet" destination="HDM-Iq-SlZ" id="vSQ-rL-Ej8"/>
+                        <outlet property="totalTimeShowLbl" destination="OQa-e6-nlO" id="Br6-w8-Iyj"/>
+                        <outlet property="videoProgressSlider" destination="S1C-vQ-6a3" id="1qq-2V-RUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYP-td-9NY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

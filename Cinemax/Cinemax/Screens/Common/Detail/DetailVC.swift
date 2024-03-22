@@ -7,6 +7,8 @@
 
 import UIKit
 import YouTubePlayer
+import RxSwift
+import RxCocoa
 
 protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
@@ -29,8 +31,15 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
     @IBOutlet weak var movieTrailerView: YouTubePlayerView!
+    @IBOutlet weak var currentTimeShowLbl: UILabel!
+    @IBOutlet weak var totalTimeShowLbl: UILabel!
+    @IBOutlet weak var videoProgressSlider: UISlider!
     
     var presenter : DetailVCPresenterProtocol?
+    var videoDurationPublisher = BehaviorSubject<Double>(value: 00.00)
+    var timer: Timer?
+    let interval: TimeInterval = 1
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +60,23 @@ class DetailVC: UIViewController {
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
         movieTrailerView.play()
+        movieTrailerView.getDuration { durationInSeconds in
+            if let durationInSeconds = durationInSeconds {
+                let totalMinutes = Int(durationInSeconds) / 60
+                let totalSeconds = Int(durationInSeconds) % 60
+                let totalTimeString = String(format: "%02d:%02d", totalMinutes, totalSeconds)
+                DispatchQueue.main.async {
+                    self.totalTimeShowLbl.text = totalTimeString
+                }
+            }
+        }
+
+//        movieTrailerView.getCurrentTime { duration in
+//            print(duration)
+//            if let duration = duration {
+//                self.videoDurationPublisher.onNext(duration)
+//            }
+//        }
     }
     
     @IBAction func pauseBtnPressed(_ sender: UIButton) {
@@ -111,7 +137,14 @@ extension DetailVC : DetailVCProtocol {
     func playMovieTrailer(){
         if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=_inKs4eeHiI"){
             movieTrailerView.loadVideoURL(myVideoURL)
+            updateDuration()
         }
+    }
+    
+    func updateDuration(){
+        videoDurationPublisher.subscribe({
+           print($0)
+        }).disposed(by: disposeBag)
     }
     
 }
