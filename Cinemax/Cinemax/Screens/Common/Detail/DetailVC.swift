@@ -32,14 +32,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
     @IBOutlet weak var movieTrailerView: YouTubePlayerView!
-    @IBOutlet weak var currentTimeShowLbl: UILabel!
-    @IBOutlet weak var totalTimeShowLbl: UILabel!
-    @IBOutlet weak var videoProgressSlider: UISlider!
     
     var presenter : DetailVCPresenterProtocol?
-    var videoDurationPublisher = BehaviorSubject<Double>(value: 00.00)
-    var timer: Timer?
-    let interval: TimeInterval = 0.1
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -59,25 +53,15 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        startUpdatingCurrentTime()
         movieTrailerView.play()
-        movieTrailerView.getDuration { durationInSeconds in
-            if let durationInSeconds = durationInSeconds {
-                DispatchQueue.main.async {
-                    self.totalTimeShowLbl.toMins(duration: (durationInSeconds - 1.0))
-                }
-            }
-        }
     }
     
     @IBAction func pauseBtnPressed(_ sender: UIButton) {
-        stopUpdatingCurrentTime()
         movieTrailerView.pause()
     }
     
     @IBAction func stopBtnPressed(_ sender: UIButton) {
         movieTrailerView.stop()
-        stopUpdatingCurrentTime()
     }
     
 }
@@ -133,39 +117,9 @@ extension DetailVC : DetailVCProtocol {
                let trailerVideoKey = trailerVideo.key{
                 if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
                     movieTrailerView.loadVideoURL(myVideoURL)
-                    updateDuration()
                 }
             }
         }
-    }
-    
-    func startUpdatingCurrentTime() {
-        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
-            self?.updateCurrentTime()
-        }
-    }
-    
-    func updateCurrentTime() {
-        movieTrailerView.getCurrentTime { [weak self] durationInSeconds in
-            if let durationInSeconds = durationInSeconds {
-                DispatchQueue.main.async {
-                    self?.currentTimeShowLbl.toMins(duration: durationInSeconds)
-                    self?.videoProgressSlider.value = Float(durationInSeconds)
-                }
-            }
-        }
-    }
-    
-    func updateDuration(){
-        videoDurationPublisher.subscribe(onNext: { [weak self] duration in
-            self?.currentTimeShowLbl.toMins(duration:duration)
-            self?.videoProgressSlider.value = Float(duration)
-        }).disposed(by: disposeBag)
-    }
-    
-    func stopUpdatingCurrentTime(){
-        timer?.invalidate()
-        timer = nil
     }
     
 }
