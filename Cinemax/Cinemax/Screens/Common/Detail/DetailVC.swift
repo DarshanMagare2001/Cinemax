@@ -46,8 +46,9 @@ class DetailVC: UIViewController {
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
         playMovieTrailer()
+        startUpdatingCurrentTime()
     }
-   
+    
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
         if let movieData = presenter?.movieData{
             presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar)
@@ -62,29 +63,23 @@ class DetailVC: UIViewController {
         movieTrailerView.play()
         movieTrailerView.getDuration { durationInSeconds in
             if let durationInSeconds = durationInSeconds {
-                let totalMinutes = Int(durationInSeconds) / 60
-                let totalSeconds = Int(durationInSeconds) % 60
-                let totalTimeString = String(format: "%02d:%02d", totalMinutes, totalSeconds)
                 DispatchQueue.main.async {
-                    self.totalTimeShowLbl.text = totalTimeString
+                    self.totalTimeShowLbl.toMins(duration: durationInSeconds)
                 }
             }
         }
-
-//        movieTrailerView.getCurrentTime { duration in
-//            print(duration)
-//            if let duration = duration {
-//                self.videoDurationPublisher.onNext(duration)
-//            }
-//        }
+        stopUpdatingCurrentTime()
+        startUpdatingCurrentTime()
     }
     
     @IBAction func pauseBtnPressed(_ sender: UIButton) {
         movieTrailerView.pause()
+        stopUpdatingCurrentTime()
     }
     
     @IBAction func stopBtnPressed(_ sender: UIButton) {
         movieTrailerView.stop()
+        stopUpdatingCurrentTime()
     }
     
 }
@@ -141,10 +136,32 @@ extension DetailVC : DetailVCProtocol {
         }
     }
     
+    func startUpdatingCurrentTime() {
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+            self?.updateCurrentTime()
+        }
+    }
+    
+    func updateCurrentTime() {
+        movieTrailerView.getCurrentTime { [weak self] durationInSeconds in
+            if let durationInSeconds = durationInSeconds {
+                DispatchQueue.main.async {
+                    self?.currentTimeShowLbl.toMins(duration: durationInSeconds)
+                    self?.videoProgressSlider.value = Float(durationInSeconds)
+                }
+            }
+        }
+    }
+    
     func updateDuration(){
         videoDurationPublisher.subscribe({
-           print($0)
+            print($0)
         }).disposed(by: disposeBag)
+    }
+    
+    func stopUpdatingCurrentTime(){
+        timer?.invalidate()
+        timer = nil
     }
     
 }
@@ -199,3 +216,11 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
 }
 
+private extension UILabel {
+    func toMins(duration: Double){
+        let totalMinutes = Int(duration) / 60
+        let totalSeconds = Int(duration) % 60
+        let totalTimeString = String(format: "%02d:%02d", totalMinutes, totalSeconds)
+        self.text = totalTimeString
+    }
+}
