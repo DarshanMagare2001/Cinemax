@@ -38,7 +38,7 @@ class DetailVC: UIViewController {
     var presenter : DetailVCPresenterProtocol?
     var videoDurationPublisher = BehaviorSubject<Double>(value: 00.00)
     var timer: Timer?
-    let interval: TimeInterval = 1
+    let interval: TimeInterval = 0.1
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -46,7 +46,6 @@ class DetailVC: UIViewController {
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
         playMovieTrailer()
-        startUpdatingCurrentTime()
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
@@ -60,21 +59,20 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
+        startUpdatingCurrentTime()
         movieTrailerView.play()
         movieTrailerView.getDuration { durationInSeconds in
             if let durationInSeconds = durationInSeconds {
                 DispatchQueue.main.async {
-                    self.totalTimeShowLbl.toMins(duration: durationInSeconds)
+                    self.totalTimeShowLbl.toMins(duration: (durationInSeconds - 1.0))
                 }
             }
         }
-        stopUpdatingCurrentTime()
-        startUpdatingCurrentTime()
     }
     
     @IBAction func pauseBtnPressed(_ sender: UIButton) {
-        movieTrailerView.pause()
         stopUpdatingCurrentTime()
+        movieTrailerView.pause()
     }
     
     @IBAction func stopBtnPressed(_ sender: UIButton) {
@@ -154,8 +152,9 @@ extension DetailVC : DetailVCProtocol {
     }
     
     func updateDuration(){
-        videoDurationPublisher.subscribe({
-            print($0)
+        videoDurationPublisher.subscribe(onNext: { [weak self] duration in
+            self?.currentTimeShowLbl.toMins(duration:duration)
+            self?.videoProgressSlider.value = Float(duration)
         }).disposed(by: disposeBag)
     }
     
