@@ -21,6 +21,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moviesTableViewOutlet: UITableView!
     @IBOutlet weak var moviesBtn: RoundedButton!
     @IBOutlet weak var tvShowsBtn: UIButton!
+    @IBOutlet weak var tvShowsView: UIView!
+    @IBOutlet weak var mainContentView: UIView!
     
     var presenter: HomeVCPresenterProtocol?
     lazy var refreshControl: UIRefreshControl = {
@@ -52,27 +54,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func contentToggleBtn(_ sender: UIButton) {
-        if sender.tag == 0 {
-            UIView.transition(with: self.moviesBtn,
-                              duration: 0.3,
-                              options: .transitionFlipFromRight,
-                              animations: {
-                self.moviesBtn.backgroundColor = .appBlue
-                self.moviesBtn.isUserInteractionEnabled = false
-                self.tvShowsBtn.isUserInteractionEnabled = true
-                self.tvShowsBtn.backgroundColor = .clear
-            },completion: nil)
-        }else{
-            UIView.transition(with: self.tvShowsBtn,
-                              duration: 0.3,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-                self.tvShowsBtn.backgroundColor = .appBlue
-                self.moviesBtn.isUserInteractionEnabled = true
-                self.tvShowsBtn.isUserInteractionEnabled = false
-                self.moviesBtn.backgroundColor = .clear
-            },completion: nil)
-        }
+        toggleContent(tag:sender.tag)
     }
     
 }
@@ -84,6 +66,7 @@ extension HomeVC: HomeVCProtocol {
         userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
         self.moviesBtn.isUserInteractionEnabled = false
         self.tvShowsBtn.isUserInteractionEnabled = true
+        self.tvShowsView.isHidden = false
     }
     
     func updateUI(){
@@ -98,6 +81,44 @@ extension HomeVC: HomeVCProtocol {
     
     func addRefreshcontroToTableview(){
         moviesTableViewOutlet.addSubview(refreshControl)
+    }
+    
+    private func toggleContent(tag:Int){
+        if tag == 0 {
+            UIView.transition(with: self.moviesBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = false
+                self.tvShowsBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.backgroundColor = .clear
+            },completion: nil)
+            UIView.transition(with: self.mainContentView,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesTableViewOutlet.isHidden = false
+                self.tvShowsView.isHidden = true
+            },completion: nil)
+        }else{
+            UIView.transition(with: self.tvShowsBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.tvShowsBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.isUserInteractionEnabled = false
+                self.moviesBtn.backgroundColor = .clear
+            },completion: nil)
+            UIView.transition(with: self.mainContentView,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.moviesTableViewOutlet.isHidden = true
+                self.tvShowsView.isHidden = false
+            },completion: nil)
+        }
     }
     
 }
