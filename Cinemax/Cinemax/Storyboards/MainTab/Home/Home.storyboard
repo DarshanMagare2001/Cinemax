@@ -104,8 +104,74 @@
                                     <constraint firstItem="3B7-cp-igu" firstAttribute="top" secondItem="3eF-I7-RIy" secondAttribute="top" constant="10" id="v8m-An-qPd"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYg-pV-paO">
+                                <rect key="frame" x="0.0" y="144" width="414" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDD-Rj-XLX" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="15" width="394" height="70"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-pb-0qh">
+                                                <rect key="frame" x="10" y="10" width="374" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3i-aO-8K1" customClass="RoundedButton" customModule="Cinemax" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="184.5" height="50"/>
+                                                        <color key="backgroundColor" name="AppBlue"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Movies">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDi-l8-J2H">
+                                                        <rect key="frame" x="189.5" y="0.0" width="184.5" height="50"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="TV-Shows">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="5WT-pb-0qh" secondAttribute="bottom" constant="10" id="3mj-4X-S9R"/>
+                                            <constraint firstAttribute="trailing" secondItem="5WT-pb-0qh" secondAttribute="trailing" constant="10" id="Gvv-hg-FDu"/>
+                                            <constraint firstItem="5WT-pb-0qh" firstAttribute="top" secondItem="DDD-Rj-XLX" secondAttribute="top" constant="10" id="Lcu-Hr-9Sy"/>
+                                            <constraint firstItem="5WT-pb-0qh" firstAttribute="leading" secondItem="DDD-Rj-XLX" secondAttribute="leading" constant="10" id="fYm-Nv-dW8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="AppBlue"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Jh-zw-9jC"/>
+                                    <constraint firstAttribute="bottom" secondItem="DDD-Rj-XLX" secondAttribute="bottom" constant="15" id="SPu-3x-Vim"/>
+                                    <constraint firstItem="DDD-Rj-XLX" firstAttribute="top" secondItem="eYg-pV-paO" secondAttribute="top" constant="15" id="e2a-W4-soO"/>
+                                    <constraint firstAttribute="trailing" secondItem="DDD-Rj-XLX" secondAttribute="trailing" constant="10" id="usv-cC-7Y4"/>
+                                    <constraint firstItem="DDD-Rj-XLX" firstAttribute="leading" secondItem="eYg-pV-paO" secondAttribute="leading" constant="10" id="v5Y-2W-ibL"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-Ci-mCs">
-                                <rect key="frame" x="0.0" y="154" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="244" width="414" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="576" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
@@ -263,12 +329,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eYg-pV-paO" secondAttribute="trailing" id="8Tr-7D-ehh"/>
+                            <constraint firstItem="eYg-pV-paO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="BFy-Xv-YDh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Zv5-Ci-mCs" secondAttribute="bottom" id="GCp-P7-jQc"/>
                             <constraint firstItem="3eF-I7-RIy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Hsd-Id-P5N"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3eF-I7-RIy" secondAttribute="trailing" id="T1y-cw-dzC"/>
                             <constraint firstItem="3eF-I7-RIy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Ttc-Tk-vbG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zv5-Ci-mCs" secondAttribute="trailing" id="WZZ-zk-kQi"/>
-                            <constraint firstItem="Zv5-Ci-mCs" firstAttribute="top" secondItem="3eF-I7-RIy" secondAttribute="bottom" constant="10" id="XVD-7l-phK"/>
+                            <constraint firstItem="eYg-pV-paO" firstAttribute="top" secondItem="3eF-I7-RIy" secondAttribute="bottom" id="cyS-qw-eBb"/>
+                            <constraint firstItem="Zv5-Ci-mCs" firstAttribute="top" secondItem="eYg-pV-paO" secondAttribute="bottom" id="wj5-Hg-waU"/>
                             <constraint firstItem="Zv5-Ci-mCs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yn1-CG-GNr"/>
                         </constraints>
                     </view>
