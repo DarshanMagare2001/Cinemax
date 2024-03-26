@@ -58,6 +58,8 @@ class HomeVC: UIViewController {
                               options: .transitionFlipFromRight,
                               animations: {
                 self.moviesBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = false
+                self.tvShowsBtn.isUserInteractionEnabled = true
                 self.tvShowsBtn.backgroundColor = .clear
             },completion: nil)
         }else{
@@ -66,6 +68,8 @@ class HomeVC: UIViewController {
                               options: .transitionFlipFromLeft,
                               animations: {
                 self.tvShowsBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.isUserInteractionEnabled = false
                 self.moviesBtn.backgroundColor = .clear
             },completion: nil)
         }
@@ -78,6 +82,8 @@ extension HomeVC: HomeVCProtocol {
     func setupUI(name:String,profileImgUrl:String){
         userNameLbl.text = name
         userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
+        self.moviesBtn.isUserInteractionEnabled = false
+        self.tvShowsBtn.isUserInteractionEnabled = true
     }
     
     func updateUI(){
