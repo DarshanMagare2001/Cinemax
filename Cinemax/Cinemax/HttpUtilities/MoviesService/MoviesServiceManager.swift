@@ -18,6 +18,8 @@ protocol MoviesServiceManagerProtocol {
     func fetchMovieSimilar(movieId:Int,page: Int) -> Single<MovieResultModel>
     func fetchMovieSearch(searchText:String,page: Int) -> Single<MovieResultModel>
     func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel>
+    func fetchTVShows(page:Int) -> Single<TVShowsResponseModel>
+    func fetchTVShowDetails(showId:Int) -> Single<TVShowDetailsResponseModel>
 }
 
 final class MoviesServiceManager {
@@ -174,6 +176,46 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
             do{
                 try MoviesRouter.movieVideos(movieId: movieId).request(service: self.movieService)
                     .responseDecodable(of: MovieVideosResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
+                        switch response.result {
+                        case .success(let data):
+                            single(.success(data))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    })
+            } catch let error{
+                single(.failure(error))
+            }
+            return disposables
+        })
+    }
+    
+    func fetchTVShows(page:Int) -> Single<TVShowsResponseModel> {
+        return Single.create(subscribe:{ (single) -> Disposable in
+            let disposables = Disposables.create()
+            do{
+                try MoviesRouter.tvShows(page: page).request(service: self.movieService)
+                    .responseDecodable(of: TVShowsResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
+                        switch response.result {
+                        case .success(let data):
+                            single(.success(data))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    })
+            } catch let error{
+                single(.failure(error))
+            }
+            return disposables
+        })
+    }
+    
+    func fetchTVShowDetails(showId:Int) -> Single<TVShowDetailsResponseModel> {
+        return Single.create(subscribe:{ (single) -> Disposable in
+            let disposables = Disposables.create()
+            do{
+                try MoviesRouter.tvShowDetails(showId: showId).request(service: self.movieService)
+                    .responseDecodable(of: TVShowDetailsResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
                             single(.success(data))

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13197DFE2BB2D64C00463D4B /* TVShowsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13197DFD2BB2D64C00463D4B /* TVShowsResponseModel.swift */; };
+		13197E002BB2D75200463D4B /* TVShowDetailsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13197DFF2BB2D75200463D4B /* TVShowDetailsResponseModel.swift */; };
 		131A9B342B6A1469007A4D55 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A9B332B6A1469007A4D55 /* Alert.swift */; };
 		131A9B372B6A1760007A4D55 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 131A9B362B6A1760007A4D55 /* NVActivityIndicatorView */; };
 		131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 131A9B382B6A1760007A4D55 /* NVActivityIndicatorViewExtended */; };
@@ -157,6 +159,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		13197DFD2BB2D64C00463D4B /* TVShowsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsResponseModel.swift; sourceTree = "<group>"; };
+		13197DFF2BB2D75200463D4B /* TVShowDetailsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsResponseModel.swift; sourceTree = "<group>"; };
 		131A9B332B6A1469007A4D55 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		131A9B3A2B6A1AE2007A4D55 /* LoaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderVC.swift; sourceTree = "<group>"; };
 		131A9B3E2B6A1FFC007A4D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
@@ -504,6 +508,8 @@
 				13C713A02BA1C3E6009DA2A5 /* MovieResultModel.swift */,
 				13C713A22BA1C54A009DA2A5 /* MovieDetailsModel.swift */,
 				13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */,
+				13197DFD2BB2D64C00463D4B /* TVShowsResponseModel.swift */,
+				13197DFF2BB2D75200463D4B /* TVShowDetailsResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1172,6 +1178,7 @@
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
 				13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */,
 				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
+				13197DFE2BB2D64C00463D4B /* TVShowsResponseModel.swift in Sources */,
 				13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */,
 				131C6C0F2BA8694900EEFCEA /* ProductionHouseCollectionViewCell.swift in Sources */,
 				13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */,
@@ -1181,6 +1188,7 @@
 				132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
+				13197E002BB2D75200463D4B /* TVShowDetailsResponseModel.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
 				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,

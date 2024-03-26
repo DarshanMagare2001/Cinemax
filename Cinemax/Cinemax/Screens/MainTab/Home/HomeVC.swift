@@ -23,6 +23,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tvShowsBtn: UIButton!
     @IBOutlet weak var tvShowsView: UIView!
     @IBOutlet weak var mainContentView: UIView!
+    @IBOutlet weak var tvShowBackgroundImg: UIImageView!
+    @IBOutlet weak var tvShowForegroundImg: UIImageView!
     
     var presenter: HomeVCPresenterProtocol?
     lazy var refreshControl: UIRefreshControl = {
@@ -67,6 +69,12 @@ extension HomeVC: HomeVCProtocol {
         self.moviesBtn.isUserInteractionEnabled = false
         self.tvShowsBtn.isUserInteractionEnabled = true
         self.tvShowsView.isHidden = false
+        if let tvShows = presenter?.tvShowsDatasource?.results[0]{
+            let tvShowBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShows.backdropPath)"
+            let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShows.posterPath)"
+            tvShowBackgroundImg.loadImage(urlString: tvShowBackgroundImgUrl, placeholder: "frame.fill")
+            tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
+        }
     }
     
     func updateUI(){

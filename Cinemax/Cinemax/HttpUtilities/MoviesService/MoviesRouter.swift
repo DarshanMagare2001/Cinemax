@@ -20,6 +20,8 @@ enum MoviesRouter: HttpRouterProtocol {
     case movieSimilar(similarId:Int,page:Int)
     case movieSearch(searchText: String,page:Int)
     case movieVideos(movieId:Int)
+    case tvShows(page:Int)
+    case tvShowDetails(showId:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -43,6 +45,10 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/search/movie?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)&query=\(searchText)"
         case .movieVideos(let movieId):
             return "/movie/\(movieId)/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
+        case .tvShows(let page):
+            return "/tv/on_the_air?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
+        case .tvShowDetails(let showId):
+            return "/tv/\(showId)?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
         }
     }
     
@@ -66,3 +72,7 @@ enum MoviesRouter: HttpRouterProtocol {
 
 // "https://api.themoviedb.org/3/movie/1011985/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US")!
 //        let trailerURL = URL(string: "https://www.youtube.com/watch?v=69yHznzqCEI")!
+
+//https://api.themoviedb.org/3/tv/on_the_air?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1
+
+//https://api.themoviedb.org/3/tv/5579?api_key=38a73d59546aa378980a88b645f487fc&language=en-US

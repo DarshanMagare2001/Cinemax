@@ -18,6 +18,7 @@ protocol HomeVCPresenterProtocol {
     var movieNowPlayingDatasource : MasterMovieModel? { get set }
     var movieTopRatedDatasource : MasterMovieModel? { get set }
     var moviePopularDatasource : MasterMovieModel? { get set }
+    var tvShowsDatasource : TVShowsResponseModel? { get set }
 }
 
 class HomeVCPresenter {
@@ -28,6 +29,7 @@ class HomeVCPresenter {
     var movieNowPlayingDatasource : MasterMovieModel?
     var movieTopRatedDatasource : MasterMovieModel?
     var moviePopularDatasource : MasterMovieModel?
+    var tvShowsDatasource : TVShowsResponseModel?
     var dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
@@ -60,6 +62,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     }
     
     func loadDataSource(){
+        
         dispatchGroup.enter()
         fetchMovieUpcoming { [weak self] in
             self?.dispatchGroup.leave()
@@ -77,6 +80,11 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
         
         dispatchGroup.enter()
         fetchMoviePopular { [weak self] in
+            self?.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        fetchTVShows { [weak self] in
             self?.dispatchGroup.leave()
         }
         
@@ -130,6 +138,19 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
                 switch response {
                 case.success(let movieData):
                     self.moviePopularDatasource = movieData
+                case.failure(let error):
+                    print(error)
+                }
+                completionHandler()
+            }).disposed(by: disposeBag)
+    }
+    
+    private func fetchTVShows(completionHandler:@escaping()->()){
+        interactor.fetchTVShows(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let showsData):
+                    self.tvShowsDatasource = showsData
                 case.failure(let error):
                     print(error)
                 }
