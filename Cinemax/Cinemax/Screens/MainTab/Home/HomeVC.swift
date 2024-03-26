@@ -25,6 +25,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var tvShowBackgroundImg: UIImageView!
     @IBOutlet weak var tvShowForegroundImg: UIImageView!
+    @IBOutlet weak var tvShowNameLbl: UILabel!
+    @IBOutlet weak var tvShowDescriptionLbl: UILabel!
     
     var presenter: HomeVCPresenterProtocol?
     lazy var refreshControl: UIRefreshControl = {
@@ -74,6 +76,8 @@ extension HomeVC: HomeVCProtocol {
             let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShows.posterPath)"
             tvShowBackgroundImg.loadImage(urlString: tvShowBackgroundImgUrl, placeholder: "frame.fill")
             tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
+            tvShowNameLbl.text = tvShows.name
+            tvShowDescriptionLbl.text = tvShows.overview
         }
     }
     
