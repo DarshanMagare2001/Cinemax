@@ -129,14 +129,28 @@
                                                                 <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="contentToggleBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RUE-XB-5eg"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDi-l8-J2H">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDi-l8-J2H" customClass="RoundedButton" customModule="Cinemax" customModuleProvider="target">
                                                         <rect key="frame" x="189.5" y="0.0" width="184.5" height="50"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="TV-Shows">
                                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="contentToggleBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0WQ-tw-pPc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -342,7 +356,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="moviesBtn" destination="Q3i-aO-8K1" id="L3l-Zi-G9q"/>
                         <outlet property="moviesTableViewOutlet" destination="Zv5-Ci-mCs" id="fK0-Uj-7Et"/>
+                        <outlet property="tvShowsBtn" destination="PDi-l8-J2H" id="1aS-hO-wfT"/>
                         <outlet property="userImg" destination="Eah-5h-lfM" id="noq-bX-wmw"/>
                         <outlet property="userNameLbl" destination="zXa-8u-zvy" id="hdG-fC-B4G"/>
                     </connections>

@@ -19,6 +19,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var userImg: CircleImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var moviesTableViewOutlet: UITableView!
+    @IBOutlet weak var moviesBtn: RoundedButton!
+    @IBOutlet weak var tvShowsBtn: UIButton!
     
     var presenter: HomeVCPresenterProtocol?
     lazy var refreshControl: UIRefreshControl = {
@@ -47,6 +49,26 @@ class HomeVC: UIViewController {
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {
         presenter?.loadDataSource()
+    }
+    
+    @IBAction func contentToggleBtn(_ sender: UIButton) {
+        if sender.tag == 0 {
+            UIView.transition(with: self.moviesBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesBtn.backgroundColor = .appBlue
+                self.tvShowsBtn.backgroundColor = .clear
+            },completion: nil)
+        }else{
+            UIView.transition(with: self.tvShowsBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.tvShowsBtn.backgroundColor = .appBlue
+                self.moviesBtn.backgroundColor = .clear
+            },completion: nil)
+        }
     }
     
 }
