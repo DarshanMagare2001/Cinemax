@@ -23,10 +23,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tvShowsBtn: UIButton!
     @IBOutlet weak var tvShowsView: UIView!
     @IBOutlet weak var mainContentView: UIView!
-    @IBOutlet weak var tvShowBackgroundImg: UIImageView!
-    @IBOutlet weak var tvShowForegroundImg: UIImageView!
-    @IBOutlet weak var tvShowNameLbl: UILabel!
-    @IBOutlet weak var tvShowDescriptionLbl: UILabel!
     @IBOutlet weak var tvShowTableViewOutlet: UITableView!
     
     var presenter: HomeVCPresenterProtocol?
@@ -72,14 +68,6 @@ extension HomeVC: HomeVCProtocol {
         self.moviesBtn.isUserInteractionEnabled = false
         self.tvShowsBtn.isUserInteractionEnabled = true
         self.tvShowsView.isHidden = false
-        if let tvShows = presenter?.tvShowsDatasource?.results[0]{
-            let tvShowBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShows.backdropPath)"
-            let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShows.posterPath)"
-            tvShowBackgroundImg.loadImage(urlString: tvShowBackgroundImgUrl, placeholder: "frame.fill")
-            tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
-            tvShowNameLbl.text = tvShows.name
-            tvShowDescriptionLbl.text = tvShows.overview
-        }
     }
     
     func updateUI(){
@@ -144,7 +132,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         case moviesTableViewOutlet:
             return 4
         case tvShowTableViewOutlet:
-            return 1
+            return 2
         default:
             return 0
         }
@@ -155,7 +143,11 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
         case moviesTableViewOutlet:
             return 1
         case tvShowTableViewOutlet:
-            return presenter?.tvShowsDatasource?.results.count ?? 0
+            if section == 0 {
+                return 1
+            }else{
+                return presenter?.tvShowsDatasource?.results.count ?? 0
+            }
         default:
             return 0
         }
@@ -238,12 +230,22 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
         case tvShowTableViewOutlet:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell", for: indexPath) as! TVShowsTableViewCell
-            guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
-                return  UITableViewCell()
+            if indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell1", for: indexPath) as!
+                TVShowsTableViewCell1
+                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                    return  UITableViewCell()
+                }
+                cell.configure(tvShow: cellData)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell2", for: indexPath) as! TVShowsTableViewCell2
+                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                    return  UITableViewCell()
+                }
+                cell.configure(tvShow: cellData)
+                return cell
             }
-            cell.configure(tvShow: cellData)
-            return cell
         default:
             return UITableViewCell()
         }

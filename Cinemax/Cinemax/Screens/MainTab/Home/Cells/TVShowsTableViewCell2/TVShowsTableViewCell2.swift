@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TVShowsTableViewCell: UITableViewCell {
+class TVShowsTableViewCell2: UITableViewCell {
     @IBOutlet weak var tvShowPosterImgView: UIImageView!
     @IBOutlet weak var tvShowNameLbl: UILabel!
     @IBOutlet weak var tvShowRatingLbl: UILabel!
