@@ -3,9 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -366,7 +366,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="wbh-X2-0wG" firstAttribute="height" secondItem="dDk-EA-d1Q" secondAttribute="height" multiplier="0.7" id="oDB-p3-6NF"/>
+                                                                    <constraint firstItem="wbh-X2-0wG" firstAttribute="height" secondItem="dDk-EA-d1Q" secondAttribute="height" multiplier="0.7" id="uze-FW-lez"/>
                                                                 </constraints>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-LQ-GeK">
@@ -382,12 +382,28 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="182" height="247.5"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </imageView>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvr-OX-hRB">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="247.5"/>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <state key="normal" title="Button"/>
+                                                                                        <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                                                                            <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large"/>
+                                                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large">
+                                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                                                            </preferredSymbolConfiguration>
+                                                                                        </buttonConfiguration>
+                                                                                    </button>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="trailing" secondItem="OFz-s8-gOR" secondAttribute="trailing" id="EpC-hG-gHz"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="lvr-OX-hRB" secondAttribute="trailing" id="GSc-Sw-U1I"/>
+                                                                                    <constraint firstItem="lvr-OX-hRB" firstAttribute="top" secondItem="45E-rl-in6" secondAttribute="top" id="bVq-S4-d0S"/>
                                                                                     <constraint firstItem="OFz-s8-gOR" firstAttribute="top" secondItem="45E-rl-in6" secondAttribute="top" id="eNL-vd-zEu"/>
+                                                                                    <constraint firstItem="lvr-OX-hRB" firstAttribute="leading" secondItem="45E-rl-in6" secondAttribute="leading" id="gCX-Nr-a4S"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="OFz-s8-gOR" secondAttribute="bottom" id="ngU-4M-02I"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="lvr-OX-hRB" secondAttribute="bottom" id="xhv-Oe-mjC"/>
                                                                                     <constraint firstItem="OFz-s8-gOR" firstAttribute="leading" secondItem="45E-rl-in6" secondAttribute="leading" id="xwa-fV-PY9"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
@@ -532,14 +548,12 @@
     </scenes>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppDark1">
             <color red="0.14509803921568629" green="0.15686274509803921" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
