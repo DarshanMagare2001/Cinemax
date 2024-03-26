@@ -238,8 +238,12 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             }
             
         case tvShowTableViewOutlet:
-            return  UITableViewCell()
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell", for: indexPath) as! TVShowsTableViewCell
+            guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                return  UITableViewCell()
+            }
+            cell.configure(tvShow: cellData)
+            return cell
         default:
             return UITableViewCell()
         }
