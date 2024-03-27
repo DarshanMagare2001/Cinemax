@@ -19,6 +19,8 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowRatingLbl: UILabel!
     @IBOutlet weak var tvShowsEpisodesLbl: UILabel!
     @IBOutlet weak var tvShowsReleaseDateLbl: UILabel!
+    @IBOutlet weak var tvShowOverviewLbl: UILabel!
+    @IBOutlet weak var tvShowsSeasonsTBLViewOutlet: UITableView!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
     
@@ -43,6 +45,17 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         tvShowRatingLbl.text = tvShowRating
         tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes)"
         tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate.extractYearFromDateString() ?? ""
+        tvShowOverviewLbl.text = tvShowDetails.overview ?? ""
     }
     
+}
+
+extension TVShowDetailsVC: UITableViewDelegate , UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }
