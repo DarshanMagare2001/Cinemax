@@ -46,16 +46,25 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes)"
         tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate.extractYearFromDateString() ?? ""
         tvShowOverviewLbl.text = tvShowDetails.overview ?? ""
+        tvShowsSeasonsTBLViewOutlet.reloadData()
     }
     
 }
 
 extension TVShowDetailsVC: UITableViewDelegate , UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter?.tvShowDetails?.seasons.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowSeasonsCell", for: indexPath) as! TVShowSeasonsCell
+        guard let cellData = presenter?.tvShowDetails?.seasons[indexPath.row],
+              let defaultPosterPath = presenter?.tvShow?.posterPath else {
+                  return UITableViewCell()
+              }
+        cell.configure(season: cellData, defaultPosterPath: defaultPosterPath)
+        return cell
     }
+    
 }
