@@ -65,6 +65,7 @@
 		1389E54E2BB4241F00884FF3 /* TVShowDetailsVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E54D2BB4241F00884FF3 /* TVShowDetailsVCPresenter.swift */; };
 		1389E5502BB4242B00884FF3 /* TVShowDetailsVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E54F2BB4242B00884FF3 /* TVShowDetailsVCRouter.swift */; };
 		1389E5532BB446CD00884FF3 /* TVShowSeasonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E5522BB446CD00884FF3 /* TVShowSeasonsCell.swift */; };
+		1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */; };
 		139531CD2B97403300B2BCAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 139531CC2B97403300B2BCAA /* Alamofire */; };
 		139531D22B9746ED00B2BCAA /* HttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D02B9746ED00B2BCAA /* HttpRouter.swift */; };
 		139531D32B9746ED00B2BCAA /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D12B9746ED00B2BCAA /* HttpService.swift */; };
@@ -223,6 +224,7 @@
 		1389E54D2BB4241F00884FF3 /* TVShowDetailsVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsVCPresenter.swift; sourceTree = "<group>"; };
 		1389E54F2BB4242B00884FF3 /* TVShowDetailsVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsVCRouter.swift; sourceTree = "<group>"; };
 		1389E5522BB446CD00884FF3 /* TVShowSeasonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSeasonsCell.swift; sourceTree = "<group>"; };
+		1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCastResponseModel.swift; sourceTree = "<group>"; };
 		139531D02B9746ED00B2BCAA /* HttpRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRouter.swift; sourceTree = "<group>"; };
 		139531D12B9746ED00B2BCAA /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		139531D52B97471E00B2BCAA /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				13D9FE432BAD94A1008550AB /* MovieVideoResponseModel.swift */,
 				13197DFD2BB2D64C00463D4B /* TVShowsResponseModel.swift */,
 				13197DFF2BB2D75200463D4B /* TVShowDetailsResponseModel.swift */,
+				1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				13C74DDC2B6B621E009CA6DB /* HomeVC.swift in Sources */,
 				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
+				1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */,
 				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
 				13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,

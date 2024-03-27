@@ -1123,14 +1123,14 @@
             <objects>
                 <viewController storyboardIdentifier="TVShowDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AF1-78-xaJ" customClass="TVShowDetailsVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qcu-ke-Xgn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pp-da-JS0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1156"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1356"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOz-HW-Cg5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1056.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1071.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xXr-WF-YSY">
                                                 <rect key="frame" x="10" y="20" width="394" height="450"/>
@@ -1408,10 +1408,10 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-Qo-4BE">
-                                                <rect key="frame" x="10" y="646.5" width="394" height="400"/>
+                                                <rect key="frame" x="10" y="646.5" width="394" height="350"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7ny-5Y-Y6d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="400"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="350"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowSeasonsCell" rowHeight="188" id="sDZ-U6-rcI" customClass="TVShowSeasonsCell" customModule="Cinemax" customModuleProvider="target">
@@ -1525,25 +1525,52 @@
                                                     <constraint firstItem="7ny-5Y-Y6d" firstAttribute="leading" secondItem="1oY-Qo-4BE" secondAttribute="leading" id="3X6-QM-RmP"/>
                                                     <constraint firstAttribute="trailing" secondItem="7ny-5Y-Y6d" secondAttribute="trailing" id="7jt-Df-GUB"/>
                                                     <constraint firstItem="7ny-5Y-Y6d" firstAttribute="top" secondItem="1oY-Qo-4BE" secondAttribute="top" id="KU0-0y-6Ll"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7ny-5Y-Y6d" secondAttribute="bottom" id="OQQ-wX-Lqg"/>
-                                                    <constraint firstAttribute="height" constant="400" id="YDS-Y6-NNo"/>
+                                                    <constraint firstAttribute="height" constant="350" id="YDS-Y6-NNo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7ny-5Y-Y6d" secondAttribute="bottom" id="xBy-5C-TCP"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hKV-Mc-R3Y">
+                                                <rect key="frame" x="10" y="1011.5" width="394" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2r-dZ-QG0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="50"/>
+                                                        <color key="backgroundColor" name="AppBlue"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="5" id="uRd-Gw-Y0l"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-CZ-i4G">
+                                                        <rect key="frame" x="15" y="0.0" width="379" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="SZP-FV-YXd"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="3e6-XI-R1q" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="17r-1i-VsX"/>
                                             <constraint firstAttribute="trailing" secondItem="3e6-XI-R1q" secondAttribute="trailing" constant="10" id="4wr-hb-7kd"/>
                                             <constraint firstItem="iom-JL-15w" firstAttribute="top" secondItem="xXr-WF-YSY" secondAttribute="bottom" constant="15" id="BMj-Kp-Fvk"/>
+                                            <constraint firstAttribute="bottom" secondItem="hKV-Mc-R3Y" secondAttribute="bottom" constant="10" id="Drv-VY-ZQp"/>
+                                            <constraint firstItem="hKV-Mc-R3Y" firstAttribute="top" secondItem="1oY-Qo-4BE" secondAttribute="bottom" constant="15" id="EqP-BQ-Vyd"/>
                                             <constraint firstAttribute="trailing" secondItem="xXr-WF-YSY" secondAttribute="trailing" constant="10" id="IZZ-ke-9lo"/>
                                             <constraint firstItem="1oY-Qo-4BE" firstAttribute="top" secondItem="3e6-XI-R1q" secondAttribute="bottom" constant="10" id="NMV-yg-rop"/>
-                                            <constraint firstAttribute="bottom" secondItem="1oY-Qo-4BE" secondAttribute="bottom" constant="10" id="O1E-va-QyA"/>
+                                            <constraint firstAttribute="bottom" secondItem="hKV-Mc-R3Y" secondAttribute="bottom" constant="10" id="P4T-Xv-GRX"/>
                                             <constraint firstAttribute="trailing" secondItem="1oY-Qo-4BE" secondAttribute="trailing" constant="10" id="Q4u-5E-dAO"/>
                                             <constraint firstItem="3e6-XI-R1q" firstAttribute="top" secondItem="Aax-52-VSA" secondAttribute="bottom" constant="15" id="QEt-bk-1qb"/>
                                             <constraint firstItem="iom-JL-15w" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="Z8K-zC-rZ7"/>
+                                            <constraint firstAttribute="trailing" secondItem="hKV-Mc-R3Y" secondAttribute="trailing" constant="10" id="cOA-ux-gdQ"/>
                                             <constraint firstItem="Aax-52-VSA" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="hGo-zp-G8F"/>
+                                            <constraint firstItem="hKV-Mc-R3Y" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="ilK-d4-SGy"/>
                                             <constraint firstItem="xXr-WF-YSY" firstAttribute="top" secondItem="VOz-HW-Cg5" secondAttribute="top" constant="20" id="j7r-SQ-6vT"/>
+                                            <constraint firstAttribute="trailing" secondItem="hKV-Mc-R3Y" secondAttribute="trailing" constant="10" id="jy8-lF-VAb"/>
                                             <constraint firstItem="1oY-Qo-4BE" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="lj4-QZ-WU8"/>
+                                            <constraint firstItem="hKV-Mc-R3Y" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="nPc-Jo-qHR"/>
                                             <constraint firstItem="xXr-WF-YSY" firstAttribute="leading" secondItem="VOz-HW-Cg5" secondAttribute="leading" constant="10" id="ve1-YR-tEL"/>
                                             <constraint firstAttribute="trailing" secondItem="iom-JL-15w" secondAttribute="trailing" constant="10" id="wVX-oS-7zr"/>
                                             <constraint firstAttribute="trailing" secondItem="Aax-52-VSA" secondAttribute="trailing" constant="10" id="x9C-9s-DR3"/>
@@ -1570,7 +1597,7 @@
                             <constraint firstItem="7Pp-da-JS0" firstAttribute="leading" secondItem="YjI-hu-MhU" secondAttribute="leading" id="yPI-T4-OIs"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="1200"/>
+                    <size key="freeformSize" width="414" height="1400"/>
                     <connections>
                         <outlet property="tvShowForegroundImg" destination="rbl-Js-z6o" id="dOQ-Cp-c7a"/>
                         <outlet property="tvShowOverviewLbl" destination="Aax-52-VSA" id="uce-LJ-uez"/>
@@ -1583,7 +1610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Th-FQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073.913043478261" y="61.607142857142854"/>
+            <point key="canvasLocation" x="2096" y="191"/>
         </scene>
     </scenes>
     <resources>
