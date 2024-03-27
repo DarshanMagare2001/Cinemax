@@ -14,9 +14,14 @@ public final class TVShowDetailsVCBuilder {
     static var tvShowDetailsVCStack: [TVShowDetailsVC] = []
     static var backButtonPressedClosure : (()->())?
     
-    static func build() -> UIViewController {
+    static func build(tvShow: TVShowsResponseModelResult?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let tvShowDetailsVC = storyboard.instantiateViewController(withIdentifier: "TVShowDetailsVC") as! TVShowDetailsVC
+        let interactor = TVShowDetailsVCInteractor(moviesServiceManager: MoviesServiceManager.shared)
+        let router = TVShowDetailsVCRouter(viewController: tvShowDetailsVC)
+        let presenter = TVShowDetailsVCPresenter(view: tvShowDetailsVC, interactor: interactor, router: router)
+        tvShowDetailsVC.presenter = presenter
+        presenter.tvShow = tvShow
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         tvShowDetailsVC.navigationItem.leftBarButtonItem = backButton
         TVShowDetailsVCBuilder.backButtonPressedClosure = { [weak tvShowDetailsVC] in

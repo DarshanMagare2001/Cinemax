@@ -1125,13 +1125,27 @@
                     <view key="view" contentMode="scaleToFill" id="Qcu-ke-Xgn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1gU-aN-LjT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YjI-hu-MhU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1gU-aN-LjT" firstAttribute="top" secondItem="Qcu-ke-Xgn" secondAttribute="top" id="0qc-79-iJL"/>
+                            <constraint firstAttribute="bottom" secondItem="1gU-aN-LjT" secondAttribute="bottom" id="53G-J1-aEc"/>
+                            <constraint firstItem="YjI-hu-MhU" firstAttribute="trailing" secondItem="1gU-aN-LjT" secondAttribute="trailing" id="Hpy-fI-uS7"/>
+                            <constraint firstItem="1gU-aN-LjT" firstAttribute="leading" secondItem="YjI-hu-MhU" secondAttribute="leading" id="sh1-NO-TXf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tvShowBackgroundImg" destination="1gU-aN-LjT" id="DTk-Ry-JhL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Th-FQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2075" y="62"/>
+            <point key="canvasLocation" x="2073.913043478261" y="61.607142857142854"/>
         </scene>
     </scenes>
     <resources>
@@ -1150,9 +1164,6 @@
         <namedColor name="AppOrange">
             <color red="1" green="0.52941176470588236" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

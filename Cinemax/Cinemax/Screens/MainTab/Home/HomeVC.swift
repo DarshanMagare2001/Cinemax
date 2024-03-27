@@ -238,7 +238,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 cell.configure(tvShow: cellData)
                 cell.playBtnPressedClosure = { [weak self] in
-                    self?.presenter?.gotoTVShowDetailsVC()
+                    self?.presenter?.gotoTVShowDetailsVC(tvShow: cellData)
                 }
                 return cell
             }else{
@@ -248,7 +248,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 cell.configure(tvShow: cellData)
                 cell.playBtnPressedClosure = { [weak self] in
-                    self?.presenter?.gotoTVShowDetailsVC()
+                    self?.presenter?.gotoTVShowDetailsVC(tvShow: cellData)
                 }
                 return cell
             }
