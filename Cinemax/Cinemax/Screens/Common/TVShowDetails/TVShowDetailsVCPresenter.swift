@@ -11,6 +11,7 @@ import RxSwift
 protocol TVShowDetailsVCPresenterProtocol {
     func viewDidload()
     var tvShow: TVShowsResponseModelResult? { get set }
+    var tvShowDetails: TVShowDetailsResponseModel? { get set }
 }
 
 class TVShowDetailsVCPresenter {
@@ -18,6 +19,15 @@ class TVShowDetailsVCPresenter {
     var interactor: TVShowDetailsVCInteractorProtocol
     var router: TVShowDetailsVCRouterProtocol
     var tvShow: TVShowsResponseModelResult?
+    var tvShowDetails: TVShowDetailsResponseModel? {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                if let tvShowDetails = self?.tvShowDetails {
+                    self?.view?.updateUI(tvShowDetails: tvShowDetails)
+                }
+            }
+        }
+    }
     let disposeBag = DisposeBag()
     init(view: TVShowDetailsVCProtocol,interactor: TVShowDetailsVCInteractorProtocol,router: TVShowDetailsVCRouterProtocol){
         self.view = view
@@ -39,6 +49,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
                     switch response {
                     case.success(let showsData):
                         print(showsData)
+                        self.tvShowDetails = showsData
                     case.failure(let error):
                         print(error)
                     }
