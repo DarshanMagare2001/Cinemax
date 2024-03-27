@@ -13,7 +13,7 @@ class TVShowsTableViewCell1: UITableViewCell {
     @IBOutlet weak var tvShowForegroundImg: UIImageView!
     @IBOutlet weak var tvShowNameLbl: UILabel!
     @IBOutlet weak var tvShowDescriptionLbl: UILabel!
-    
+    var playBtnPressedClosure : (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class TVShowsTableViewCell1: UITableViewCell {
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        
+        playBtnPressedClosure?()
     }
     
     func configure(tvShow:TVShowsResponseModelResult){

@@ -11,6 +11,12 @@ import YouTubePlayer
 class MoviesGalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieVideoView: YouTubePlayerView!
     @IBOutlet weak var movieVideoTitleLbl: UILabel!
+    
+    override func prepareForReuse(){
+        movieVideoView.clear()
+        movieVideoTitleLbl.text = nil
+    }
+    
     func configure(trailer:Trailer){
         if let trailerKey = trailer.key , let trailerTitle = trailer.name {
             if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerKey)") {
@@ -21,4 +27,5 @@ class MoviesGalleryCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
 }

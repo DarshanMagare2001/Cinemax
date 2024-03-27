@@ -237,6 +237,9 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     return  UITableViewCell()
                 }
                 cell.configure(tvShow: cellData)
+                cell.playBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoTVShowDetailsVC()
+                }
                 return cell
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell2", for: indexPath) as! TVShowsTableViewCell2
@@ -244,6 +247,9 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     return  UITableViewCell()
                 }
                 cell.configure(tvShow: cellData)
+                cell.playBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoTVShowDetailsVC()
+                }
                 return cell
             }
         default:

@@ -14,6 +14,7 @@ protocol HomeVCPresenterProtocol {
     func loadDataSource()
     func gotoDetailVC(movieData: MasterMovieModelResult?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
+    func gotoTVShowDetailsVC()
     var movieUpcomingDatasource : MasterMovieModel? { get set }
     var movieNowPlayingDatasource : MasterMovieModel? { get set }
     var movieTopRatedDatasource : MasterMovieModel? { get set }
@@ -164,6 +165,10 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
         router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
+    }
+    
+    func gotoTVShowDetailsVC(){
+        router.gotoTVShowDetailsVC()
     }
     
 }

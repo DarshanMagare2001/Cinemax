@@ -1118,6 +1118,21 @@
             </objects>
             <point key="canvasLocation" x="1424.6376811594205" y="59.598214285714285"/>
         </scene>
+        <!--Show DetailsVC-->
+        <scene sceneID="Erg-Jb-gP0">
+            <objects>
+                <viewController storyboardIdentifier="TVShowDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AF1-78-xaJ" customClass="TVShowDetailsVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qcu-ke-Xgn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YjI-hu-MhU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Th-FQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2075" y="62"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppCalender" width="16" height="16"/>
@@ -1135,6 +1150,9 @@
         <namedColor name="AppOrange">
             <color red="1" green="0.52941176470588236" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
