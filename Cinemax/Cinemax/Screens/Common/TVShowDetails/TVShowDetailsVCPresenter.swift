@@ -13,6 +13,7 @@ protocol TVShowDetailsVCPresenterProtocol {
     var tvShow: TVShowsResponseModelResult? { get set }
     var tvShowDetails: TVShowDetailsResponseModel? { get set }
     var tvShowCast: TVShowCastResponseModel? { get set }
+    var tvShowTrailer: MovieVideosResponseModel? { get set}
 }
 
 class TVShowDetailsVCPresenter {
@@ -22,6 +23,7 @@ class TVShowDetailsVCPresenter {
     var tvShow: TVShowsResponseModelResult?
     var tvShowDetails: TVShowDetailsResponseModel?
     var tvShowCast: TVShowCastResponseModel?
+    var tvShowTrailer: MovieVideosResponseModel?
     let disposeBag = DisposeBag()
     let dispatchGroup = DispatchGroup()
     init(view: TVShowDetailsVCProtocol,interactor: TVShowDetailsVCInteractorProtocol,router: TVShowDetailsVCRouterProtocol){
@@ -94,7 +96,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
                 .subscribe({ response in
                     switch response {
                     case.success(let tvShowVideosData):
-                        print(tvShowVideosData)
+                        self.tvShowTrailer = tvShowVideosData
                     case.failure(let error):
                         print(error)
                     }

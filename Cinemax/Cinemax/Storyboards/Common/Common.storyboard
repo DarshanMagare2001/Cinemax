@@ -1606,7 +1606,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-fN-mHw">
                                                 <rect key="frame" x="10" y="1356.5" width="394" height="360"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeB-VX-zqu">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeB-VX-zqu" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
                                                         <color key="backgroundColor" name="AppDark1"/>
                                                         <constraints>
@@ -1628,8 +1628,11 @@
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                             </preferredSymbolConfiguration>
                                                                         </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="playPauseAndStopBtnPressed:" destination="AF1-78-xaJ" eventType="touchUpInside" id="DIn-hA-JtR"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-P0-hFn">
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-P0-hFn">
                                                                         <rect key="frame" x="131.5" y="0.0" width="131" height="50"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
@@ -1638,8 +1641,11 @@
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                             </preferredSymbolConfiguration>
                                                                         </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="playPauseAndStopBtnPressed:" destination="AF1-78-xaJ" eventType="touchUpInside" id="RSH-mg-elY"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywn-uc-XPB">
+                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywn-uc-XPB">
                                                                         <rect key="frame" x="262.5" y="0.0" width="131.5" height="50"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Button"/>
@@ -1648,6 +1654,9 @@
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                             </preferredSymbolConfiguration>
                                                                         </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="playPauseAndStopBtnPressed:" destination="AF1-78-xaJ" eventType="touchUpInside" id="zuK-0l-v2F"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -1725,6 +1734,7 @@
                         <outlet property="tvShowOverviewLbl" destination="Aax-52-VSA" id="uce-LJ-uez"/>
                         <outlet property="tvShowRatingLbl" destination="fiP-pr-ssa" id="ukV-fm-n87"/>
                         <outlet property="tvShowTitleLbl" destination="fUy-Zu-OnX" id="Ng7-UG-Qca"/>
+                        <outlet property="tvShowTrailerPlayerView" destination="EeB-VX-zqu" id="elj-ml-9ID"/>
                         <outlet property="tvShowsEpisodesLbl" destination="tQ8-NU-3BR" id="zVz-ej-gj3"/>
                         <outlet property="tvShowsReleaseDateLbl" destination="Zcm-fR-03O" id="1Pa-l4-b6E"/>
                         <outlet property="tvShowsSeasonsTBLViewOutlet" destination="7ny-5Y-Y6d" id="NzO-qQ-fK2"/>

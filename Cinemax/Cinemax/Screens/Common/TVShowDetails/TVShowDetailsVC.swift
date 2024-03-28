@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 protocol TVShowDetailsVCProtocol: AnyObject {
     func updateUI(tvShowDetails: TVShowDetailsResponseModel)
@@ -22,12 +23,18 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowOverviewLbl: UILabel!
     @IBOutlet weak var tvShowsSeasonsTBLViewOutlet: UITableView!
     @IBOutlet weak var tvShowActorsCollectionViewOutlet: UICollectionView!
+    @IBOutlet weak var tvShowTrailerPlayerView: YouTubePlayerView!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+    }
+    
+    
+    @IBAction func playPauseAndStopBtnPressed(_ sender: UIButton) {
+        manageVideoState(tag:sender.tag)
     }
     
 }
@@ -66,6 +73,36 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         tvShowOverviewLbl.text = tvShowDetails.overview ?? ""
         tvShowsSeasonsTBLViewOutlet.reloadData()
         tvShowActorsCollectionViewOutlet.reloadData()
+        setupTVShowTrailer()
+    }
+    
+    func setupTVShowTrailer(){
+        if let tvShowTrailer = presenter?.tvShowTrailer,
+           let results = tvShowTrailer.results,
+           !results.isEmpty,
+           let trailerKey = results[0].key {
+            if let tvShowTrailerUrl = URL(string: "https://www.youtube.com/watch?v=\(trailerKey)") {
+                DispatchQueue.main.async { [weak self] in
+                    self?.tvShowTrailerPlayerView.loadVideoURL(tvShowTrailerUrl)
+                }
+            }
+        }else{
+            if let tvShowTrailerUrl = URL(string: "https://www.youtube.com/watch?v=") {
+                DispatchQueue.main.async { [weak self] in
+                    self?.tvShowTrailerPlayerView.loadVideoURL(tvShowTrailerUrl)
+                }
+            }
+        }
+    }
+    
+    private func manageVideoState(tag:Int){
+        if tag == 0 {
+            tvShowTrailerPlayerView.play()
+        }else if tag == 1 {
+            tvShowTrailerPlayerView.pause()
+        }else if tag == 2 {
+            tvShowTrailerPlayerView.stop()
+        }
     }
     
 }
