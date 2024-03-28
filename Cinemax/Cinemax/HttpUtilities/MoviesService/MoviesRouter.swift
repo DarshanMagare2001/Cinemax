@@ -74,8 +74,7 @@ enum MoviesRouter: HttpRouterProtocol {
     
 }
 
-<<<<<<< HEAD
-=======
+
 // "https://api.themoviedb.org/3/movie/1011985/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US")!
 
 //        let trailerURL = URL(string: "https://www.youtube.com/watch?v=69yHznzqCEI")!
@@ -89,4 +88,4 @@ enum MoviesRouter: HttpRouterProtocol {
 //https://api.themoviedb.org/3/tv/5579/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US
 
 //"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
->>>>>>> New_Changes
+
