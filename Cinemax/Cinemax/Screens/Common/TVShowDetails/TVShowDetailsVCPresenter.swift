@@ -47,6 +47,10 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
         fetchTVShowCast{
             self.dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        fetchTVShowVideos{
+            self.dispatchGroup.leave()
+        }
         dispatchGroup.notify(queue: .main){ [weak self] in
             if let tvShowDetails = self?.tvShowDetails {
                 self?.view?.updateUI(tvShowDetails: tvShowDetails)
@@ -75,8 +79,22 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
                 .subscribe({ response in
                     switch response {
                     case.success(let castData):
-                        print(castData)
                         self.tvShowCast = castData
+                    case.failure(let error):
+                        print(error)
+                    }
+                    completion()
+                }).disposed(by: disposeBag)
+        }
+    }
+    
+    func fetchTVShowVideos(completion:@escaping ()->()){
+        if let tvShow = tvShow {
+            interactor.fetchTVShowVideos(showId: tvShow.id)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let tvShowVideosData):
+                        print(tvShowVideosData)
                     case.failure(let error):
                         print(error)
                     }

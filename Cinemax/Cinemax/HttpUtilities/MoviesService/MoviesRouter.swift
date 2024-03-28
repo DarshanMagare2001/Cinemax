@@ -23,6 +23,7 @@ enum MoviesRouter: HttpRouterProtocol {
     case tvShows(page:Int)
     case tvShowDetails(showId:Int)
     case tvShowsCast(showId:Int)
+    case tvShowsVideos(showId:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -52,6 +53,8 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/tv/\(showId)?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
         case .tvShowsCast(let showId):
             return "/tv/\(showId)/credits?api_key=38a73d59546aa378980a88b645f487fc"
+        case .tvShowsVideos(let showId):
+            return "/tv/\(showId)/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
         }
     }
     
@@ -81,3 +84,5 @@ enum MoviesRouter: HttpRouterProtocol {
 //https://api.themoviedb.org/3/tv/5579?api_key=38a73d59546aa378980a88b645f487fc&language=en-US
 
 //https://api.themoviedb.org/3/tv/5583/credits?api_key=38a73d59546aa378980a88b645f487fc
+
+//https://api.themoviedb.org/3/tv/5579/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US

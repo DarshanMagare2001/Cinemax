@@ -11,6 +11,7 @@ import RxSwift
 protocol TVShowDetailsVCInteractorProtocol {
     func fetchTVShowDetails(showId:Int) -> Single<TVShowDetailsResponseModel>
     func fetchTVShowCast(showId:Int) -> Single<TVShowCastResponseModel>
+    func fetchTVShowVideos(showId:Int) -> Single<MovieVideosResponseModel>
 }
 
 class TVShowDetailsVCInteractor {
@@ -26,5 +27,8 @@ extension TVShowDetailsVCInteractor: TVShowDetailsVCInteractorProtocol {
     }
     func fetchTVShowCast(showId:Int) -> Single<TVShowCastResponseModel>{
         return moviesServiceManager.fetchTVShowCast(showId: showId)
+    }
+    func fetchTVShowVideos(showId:Int) -> Single<MovieVideosResponseModel>{
+        return moviesServiceManager.fetchTVShowVideos(showId: showId)
     }
 }

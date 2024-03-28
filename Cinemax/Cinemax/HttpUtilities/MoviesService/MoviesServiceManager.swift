@@ -21,6 +21,7 @@ protocol MoviesServiceManagerProtocol {
     func fetchTVShows(page:Int) -> Single<TVShowsResponseModel>
     func fetchTVShowDetails(showId:Int) -> Single<TVShowDetailsResponseModel>
     func fetchTVShowCast(showId:Int) -> Single<TVShowCastResponseModel>
+    func fetchTVShowVideos(showId:Int) -> Single<MovieVideosResponseModel>
 }
 
 final class MoviesServiceManager {
@@ -237,6 +238,26 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
             do{
                 try MoviesRouter.tvShowsCast(showId: showId).request(service: self.movieService)
                     .responseDecodable(of: TVShowCastResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
+                        switch response.result {
+                        case .success(let data):
+                            single(.success(data))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    })
+            } catch let error{
+                single(.failure(error))
+            }
+            return disposables
+        })
+    }
+    
+    func fetchTVShowVideos(showId:Int) -> Single<MovieVideosResponseModel>{
+        return Single.create(subscribe:{ (single) -> Disposable in
+            let disposables = Disposables.create()
+            do{
+                try MoviesRouter.tvShowsVideos(showId: showId).request(service: self.movieService)
+                    .responseDecodable(of:MovieVideosResponseModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
                             single(.success(data))

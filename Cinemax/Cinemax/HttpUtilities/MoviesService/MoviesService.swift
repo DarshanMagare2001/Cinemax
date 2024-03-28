@@ -12,11 +12,8 @@ class MoviesService: HttpServiceProtocol {
     var sessionManager: Session
     
     init() {
-        let serverTrustManager = ServerTrustManager(evaluators: ["api.themoviedb.org": DisabledTrustEvaluator()])
-        let configuration = URLSessionConfiguration.af.default
-        configuration.timeoutIntervalForRequest = 30
-        configuration.timeoutIntervalForResource = 30
-        self.sessionManager = Session(configuration: configuration, serverTrustManager: serverTrustManager)
+        let manager = ServerTrustManager(evaluators: ["api.themoviedb.org": DisabledTrustEvaluator()])
+        self.sessionManager = Session(serverTrustManager: manager)
     }
     
     func request(urlRequest: URLRequestConvertible) -> DataRequest {
