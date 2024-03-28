@@ -8,8 +8,14 @@
 import Foundation
 import Alamofire
 
-class MoviesService : HttpServiceProtocol {
-    var sessionManager: Session = Session.default
+class MoviesService: HttpServiceProtocol {
+    var sessionManager: Session
+    
+    init() {
+        let manager = ServerTrustManager(evaluators: ["api.themoviedb.org": DisabledTrustEvaluator()])
+        self.sessionManager = Session(serverTrustManager: manager)
+    }
+    
     func request(urlRequest: URLRequestConvertible) -> DataRequest {
         return sessionManager.request(urlRequest)
     }

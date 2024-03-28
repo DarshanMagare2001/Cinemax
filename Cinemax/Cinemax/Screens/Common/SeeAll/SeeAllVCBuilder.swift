@@ -10,6 +10,7 @@ import UIKit
 
 public final class SeeAllVCBuilder {
     
+    static var seeAllVCStack: [SeeAllVC] = []
     static var backButtonPressedClosure : (()->())?
     
     static func build(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?) -> UIViewController {
@@ -29,8 +30,11 @@ public final class SeeAllVCBuilder {
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         seeAllVC.navigationItem.leftBarButtonItem = backButton
         SeeAllVCBuilder.backButtonPressedClosure = { [weak seeAllVC] in
-            seeAllVC?.backBtnPressed()
+            if let lastSeeAllVC = seeAllVCStack.popLast(){
+                lastSeeAllVC.backBtnPressed()
+            }
         }
+        seeAllVCStack.append(seeAllVC)
         return seeAllVC
     }
     

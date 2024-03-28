@@ -14,10 +14,12 @@ protocol HomeVCPresenterProtocol {
     func loadDataSource()
     func gotoDetailVC(movieData: MasterMovieModelResult?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
     var movieUpcomingDatasource : MasterMovieModel? { get set }
     var movieNowPlayingDatasource : MasterMovieModel? { get set }
     var movieTopRatedDatasource : MasterMovieModel? { get set }
     var moviePopularDatasource : MasterMovieModel? { get set }
+    var tvShowsDatasource : TVShowsResponseModel? { get set }
 }
 
 class HomeVCPresenter {
@@ -28,6 +30,7 @@ class HomeVCPresenter {
     var movieNowPlayingDatasource : MasterMovieModel?
     var movieTopRatedDatasource : MasterMovieModel?
     var moviePopularDatasource : MasterMovieModel?
+    var tvShowsDatasource : TVShowsResponseModel?
     var dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
@@ -60,6 +63,7 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     }
     
     func loadDataSource(){
+        
         dispatchGroup.enter()
         fetchMovieUpcoming { [weak self] in
             self?.dispatchGroup.leave()
@@ -77,6 +81,11 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
         
         dispatchGroup.enter()
         fetchMoviePopular { [weak self] in
+            self?.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        fetchTVShows { [weak self] in
             self?.dispatchGroup.leave()
         }
         
@@ -137,12 +146,29 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
             }).disposed(by: disposeBag)
     }
     
+    private func fetchTVShows(completionHandler:@escaping()->()){
+        interactor.fetchTVShows(page: 1)
+            .subscribe({ response in
+                switch response {
+                case.success(let showsData):
+                    self.tvShowsDatasource = showsData
+                case.failure(let error):
+                    print(error)
+                }
+                completionHandler()
+            }).disposed(by: disposeBag)
+    }
+    
     func gotoDetailVC(movieData: MasterMovieModelResult?){
         router.gotoDetailVC(movieData: movieData)
     }
     
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
         router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
+    }
+    
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
+        router.gotoTVShowDetailsVC(tvShow: tvShow)
     }
     
 }

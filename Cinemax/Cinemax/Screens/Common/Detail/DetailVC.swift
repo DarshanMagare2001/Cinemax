@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import YouTubePlayer
+import RxSwift
+import RxCocoa
 
 protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
     func registerXibs()
     func updateSimilarMoviesCollectionviewOutlet()
+    func playMovieTrailer()
 }
 
 class DetailVC: UIViewController {
@@ -27,17 +31,19 @@ class DetailVC: UIViewController {
     @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
+    @IBOutlet weak var movieTrailerView: YouTubePlayerView!
+    @IBOutlet weak var movieTrailerSectionView: UIView!
+    @IBOutlet weak var movieGalleryCollectionViewOutlet: UICollectionView!
+    
     
     var presenter : DetailVCPresenterProtocol?
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
-    }
-    
-    func backBtnPressed(){
-        navigationController?.popViewController(animated: true)
+        movieTrailerSectionView.isHidden = true
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
@@ -46,9 +52,27 @@ class DetailVC: UIViewController {
         }
     }
     
+    
+    
+    @IBAction func playBtnPressed(_ sender: UIButton) {
+        movieTrailerView.play()
+    }
+    
+    @IBAction func pauseBtnPressed(_ sender: UIButton) {
+        movieTrailerView.pause()
+    }
+    
+    @IBAction func stopBtnPressed(_ sender: UIButton) {
+        movieTrailerView.stop()
+    }
+    
 }
 
 extension DetailVC : DetailVCProtocol {
+    
+    func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
     
     func updateUI(movieDetail:MovieDetailsModel){
         similarMoviesCollectionViewsOtletView.isHidden = true
@@ -89,6 +113,21 @@ extension DetailVC : DetailVCProtocol {
         }
     }
     
+    func playMovieTrailer(){
+        if let movieVideosData = presenter?.movieVideos?.results {
+            DispatchQueue.main.async { [weak self] in
+                self?.movieTrailerSectionView.isHidden = false
+                self?.movieGalleryCollectionViewOutlet.reloadData()
+                if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
+                   let trailerVideoKey = trailerVideo.key{
+                    if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
+                        self?.movieTrailerView.loadVideoURL(myVideoURL)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -99,6 +138,8 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return presenter?.similarMovies?.results?.count ?? 0
         case productionHouseCollectionViewOutlet:
             return presenter?.movieProductionHouses.count ?? 0
+        case movieGalleryCollectionViewOutlet:
+            return presenter?.movieVideos?.results?.count ?? 0
         default:
             return 0
         }
@@ -121,6 +162,13 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             cell.configure(productionCompany: cellData)
             return cell
+        case movieGalleryCollectionViewOutlet:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesGalleryCollectionViewCell", for: indexPath) as! MoviesGalleryCollectionViewCell
+            guard let cellData = presenter?.movieVideos?.results?[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(trailer: cellData)
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -141,3 +189,11 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
 }
 
+private extension UILabel {
+    func toMins(duration: Double){
+        let totalMinutes = Int(duration) / 60
+        let totalSeconds = Int(duration) % 60
+        let totalTimeString = String(format: "%02d:%02d", totalMinutes, totalSeconds)
+        self.text = totalTimeString
+    }
+}

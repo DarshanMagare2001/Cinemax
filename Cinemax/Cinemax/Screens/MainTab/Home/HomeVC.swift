@@ -19,6 +19,11 @@ class HomeVC: UIViewController {
     @IBOutlet weak var userImg: CircleImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var moviesTableViewOutlet: UITableView!
+    @IBOutlet weak var moviesBtn: RoundedButton!
+    @IBOutlet weak var tvShowsBtn: UIButton!
+    @IBOutlet weak var tvShowsView: UIView!
+    @IBOutlet weak var mainContentView: UIView!
+    @IBOutlet weak var tvShowTableViewOutlet: UITableView!
     
     var presenter: HomeVCPresenterProtocol?
     lazy var refreshControl: UIRefreshControl = {
@@ -49,6 +54,10 @@ class HomeVC: UIViewController {
         presenter?.loadDataSource()
     }
     
+    @IBAction func contentToggleBtn(_ sender: UIButton) {
+        toggleContent(tag:sender.tag)
+    }
+    
 }
 
 extension HomeVC: HomeVCProtocol {
@@ -56,11 +65,13 @@ extension HomeVC: HomeVCProtocol {
     func setupUI(name:String,profileImgUrl:String){
         userNameLbl.text = name
         userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
+        self.tvShowsView.isHidden = false
     }
     
     func updateUI(){
         self.refreshControl.perform(#selector(UIRefreshControl.endRefreshing), with: nil, afterDelay: 0)
         moviesTableViewOutlet.reloadData()
+        tvShowTableViewOutlet.reloadData()
     }
     
     func registerXib(){
@@ -72,90 +83,175 @@ extension HomeVC: HomeVCProtocol {
         moviesTableViewOutlet.addSubview(refreshControl)
     }
     
+    private func toggleContent(tag:Int){
+        if tag == 0 {
+            UIView.transition(with: self.moviesBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = false
+                self.tvShowsBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.backgroundColor = .clear
+            },completion: nil)
+            UIView.transition(with: self.mainContentView,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesTableViewOutlet.isHidden = false
+                self.tvShowsView.isHidden = true
+            },completion: nil)
+        }else{
+            UIView.transition(with: self.tvShowsBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.tvShowsBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.isUserInteractionEnabled = false
+                self.moviesBtn.backgroundColor = .clear
+            },completion: nil)
+            UIView.transition(with: self.mainContentView,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.moviesTableViewOutlet.isHidden = true
+                self.tvShowsView.isHidden = false
+            },completion: nil)
+        }
+    }
+    
 }
 
 extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        switch tableView {
+        case moviesTableViewOutlet:
+            return 4
+        case tvShowTableViewOutlet:
+            return 2
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch tableView {
+        case moviesTableViewOutlet:
+            return 1
+        case tvShowTableViewOutlet:
+            if section == 0 {
+                return 1
+            }else{
+                return presenter?.tvShowsDatasource?.results.count ?? 0
+            }
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
-            DispatchQueue.main.async { [weak self] in
-                if let upcomingMovies = self?.presenter?.movieUpcomingDatasource {
-                    cell.configureCell(dataSource: upcomingMovies)
+        switch tableView {
+        case moviesTableViewOutlet:
+            if indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingMoviesCell", for: indexPath) as! UpcomingMoviesCell
+                DispatchQueue.main.async { [weak self] in
+                    if let upcomingMovies = self?.presenter?.movieUpcomingDatasource {
+                        cell.configureCell(dataSource: upcomingMovies)
+                    }
                 }
-            }
-            
-            cell.cellTappedClosure = { [weak self] data in
-                self?.presenter?.gotoDetailVC(movieData:data)
-            }
-            
-            cell.seeAllBtnpressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieUpcoming)
-            }
-            
-            return cell
-        }else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
-            DispatchQueue.main.async { [weak self] in
-                if let movieTopRated = self?.presenter?.movieTopRatedDatasource {
-                    cell.dataSource = movieTopRated
-                    cell.cellTitleData = "TOPRATED"
+                
+                cell.cellTappedClosure = { [weak self] data in
+                    self?.presenter?.gotoDetailVC(movieData:data)
                 }
-            }
-            
-            cell.seeAllBtnPressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated)
-            }
-            
-            cell.cellTappedClosure = { [weak self] data in
-                self?.presenter?.gotoDetailVC(movieData:data)
-            }
-            
-            return cell
-        }else if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
-            DispatchQueue.main.async { [weak self] in
-                if let movieNowPlaying = self?.presenter?.movieNowPlayingDatasource {
-                    cell.dataSource = movieNowPlaying
-                    cell.cellTitleData = "NOWPLAYING"
+                
+                cell.seeAllBtnpressedClosure = { [weak self] in
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieUpcoming)
                 }
-            }
-            
-            cell.seeAllBtnPressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying)
-            }
-            
-            cell.cellTappedClosure = { [weak self] data in
-                self?.presenter?.gotoDetailVC(movieData:data)
-            }
-            
-            return cell
-        }else if indexPath.section == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
-            DispatchQueue.main.async { [weak self] in
-                if let moviePopular = self?.presenter?.moviePopularDatasource {
-                    cell.dataSource = moviePopular
-                    cell.cellTitleData = "POPULAR"
+                
+                return cell
+            }else if indexPath.section == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+                DispatchQueue.main.async { [weak self] in
+                    if let movieTopRated = self?.presenter?.movieTopRatedDatasource {
+                        cell.dataSource = movieTopRated
+                        cell.cellTitleData = "TOPRATED"
+                    }
                 }
+                
+                cell.seeAllBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated)
+                }
+                
+                cell.cellTappedClosure = { [weak self] data in
+                    self?.presenter?.gotoDetailVC(movieData:data)
+                }
+                
+                return cell
+            }else if indexPath.section == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+                DispatchQueue.main.async { [weak self] in
+                    if let movieNowPlaying = self?.presenter?.movieNowPlayingDatasource {
+                        cell.dataSource = movieNowPlaying
+                        cell.cellTitleData = "NOWPLAYING"
+                    }
+                }
+                
+                cell.seeAllBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying)
+                }
+                
+                cell.cellTappedClosure = { [weak self] data in
+                    self?.presenter?.gotoDetailVC(movieData:data)
+                }
+                
+                return cell
+            }else if indexPath.section == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+                DispatchQueue.main.async { [weak self] in
+                    if let moviePopular = self?.presenter?.moviePopularDatasource {
+                        cell.dataSource = moviePopular
+                        cell.cellTitleData = "POPULAR"
+                    }
+                }
+                
+                cell.seeAllBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular)
+                }
+                
+                cell.cellTappedClosure = { [weak self] data in
+                    self?.presenter?.gotoDetailVC(movieData:data)
+                }
+                
+                return cell
             }
             
-            cell.seeAllBtnPressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular)
+        case tvShowTableViewOutlet:
+            if indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell1", for: indexPath) as!
+                TVShowsTableViewCell1
+                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                    return  UITableViewCell()
+                }
+                cell.configure(tvShow: cellData)
+                cell.playBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoTVShowDetailsVC(tvShow: cellData)
+                }
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell2", for: indexPath) as! TVShowsTableViewCell2
+                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                    return  UITableViewCell()
+                }
+                cell.configure(tvShow: cellData)
+                cell.playBtnPressedClosure = { [weak self] in
+                    self?.presenter?.gotoTVShowDetailsVC(tvShow: cellData)
+                }
+                return cell
             }
-            
-            cell.cellTappedClosure = { [weak self] data in
-                self?.presenter?.gotoDetailVC(movieData:data)
-            }
-            
-            return cell
+        default:
+            return UITableViewCell()
         }
         return UITableViewCell()
     }

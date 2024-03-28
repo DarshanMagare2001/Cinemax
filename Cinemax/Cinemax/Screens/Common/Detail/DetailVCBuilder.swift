@@ -10,6 +10,7 @@ import UIKit
 
 public final class DetailVCBuilder {
     
+    static var detailVCStack: [DetailVC] = []
     static var backButtonPressedClosure : (()->())?
     
     static func build(movieData: MasterMovieModelResult?) -> UIViewController {
@@ -27,8 +28,11 @@ public final class DetailVCBuilder {
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         detailVC.navigationItem.leftBarButtonItem = backButton
         DetailVCBuilder.backButtonPressedClosure = { [weak detailVC] in
-            detailVC?.backBtnPressed()
+            if let lastDetailVC = detailVCStack.popLast(){
+                lastDetailVC.backBtnPressed()
+            }
         }
+        detailVCStack.append(detailVC)
         return detailVC
     }
     

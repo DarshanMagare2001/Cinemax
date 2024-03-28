@@ -6,6 +6,7 @@ protocol HomeVCInteractorProtocol {
     func fetchMovieNowPlaying(page:Int) -> Single<MasterMovieModel>
     func fetchMovieTopRated(page:Int) -> Single<MasterMovieModel>
     func fetchMoviePopular(page:Int) -> Single<MasterMovieModel>
+    func fetchTVShows(page:Int) -> Single<TVShowsResponseModel>
 }
 
 class HomeVCInteractor {
@@ -27,6 +28,10 @@ extension HomeVCInteractor: HomeVCInteractorProtocol {
     }
     func fetchMoviePopular(page:Int) -> Single<MasterMovieModel> {
         return moviesServiceManager.fetchMoviePopular(page: page)
+    }
+    
+    func fetchTVShows(page:Int) -> Single<TVShowsResponseModel>{
+        return moviesServiceManager.fetchTVShows(page: page)
     }
 }
 

@@ -10,23 +10,27 @@ PODS:
     - JXPageControl/Common
   - JXPageControl/Transform (0.1.5):
     - JXPageControl/Common
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - FSPagerView
   - IQKeyboardManagerSwift
   - JXPageControl
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
     - FSPagerView
     - IQKeyboardManagerSwift
     - JXPageControl
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXPageControl: e9487b39e2e58fc17790833214f3b8e935bef98b
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 365bd5ceaddcbe691ab42fdfbf29fbc235edf76b
+PODFILE CHECKSUM: 22f560e7da7f1e00d88d8239686aab66034b5e2c
 
 COCOAPODS: 1.11.2

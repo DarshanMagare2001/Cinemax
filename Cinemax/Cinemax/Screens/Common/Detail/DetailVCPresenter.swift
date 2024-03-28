@@ -14,6 +14,7 @@ protocol DetailVCPresenterProtocol {
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     var movieData : MasterMovieModelResult? { get set }
     var similarMovies : MovieResultModel? { get set }
+    var movieVideos : MovieVideosResponseModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
 }
 
@@ -23,6 +24,13 @@ class DetailVCPresenter {
     var router: DetailVCRouterProtocol
     var movieData : MasterMovieModelResult?
     var similarMovies : MovieResultModel?
+    var movieVideos : MovieVideosResponseModel? {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.playMovieTrailer()
+            }
+        }
+    }
     var movieProductionHouses = [ProductionCompany]()
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
@@ -48,6 +56,10 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         }
         dispatchGroup.enter()
         fetchSimilarMovies{ [weak self] in
+            self?.dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        fetchMovieVideos{ [weak self] in
             self?.dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main) { [weak self] in
@@ -82,6 +94,22 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     case.success(let movieData):
                         print(movieData)
                         self.similarMovies = movieData
+                    case.failure(let error):
+                        print(error)
+                    }
+                    completionHandler()
+                }).disposed(by: disposeBag)
+        }
+    }
+    
+    func fetchMovieVideos(completionHandler:@escaping()->()){
+        if let data = self.movieData{
+            interactor.fetchMovieVideos(movieId: data.id)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        print(movieData)
+                        self.movieVideos = movieData
                     case.failure(let error):
                         print(error)
                     }
