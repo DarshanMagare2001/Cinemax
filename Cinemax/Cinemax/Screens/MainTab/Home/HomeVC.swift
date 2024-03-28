@@ -65,8 +65,6 @@ extension HomeVC: HomeVCProtocol {
     func setupUI(name:String,profileImgUrl:String){
         userNameLbl.text = name
         userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
-        self.moviesBtn.isUserInteractionEnabled = false
-        self.tvShowsBtn.isUserInteractionEnabled = true
         self.tvShowsView.isHidden = false
     }
     
