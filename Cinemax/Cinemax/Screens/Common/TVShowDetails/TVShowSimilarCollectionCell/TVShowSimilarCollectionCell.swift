@@ -8,6 +8,7 @@
 import UIKit
 
 class TVShowSimilarCollectionCell: UICollectionViewCell {
+    
     @IBOutlet weak var tvShowImg: UIImageView!
     
     override func prepareForReuse() {
@@ -18,4 +19,5 @@ class TVShowSimilarCollectionCell: UICollectionViewCell {
         let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.posterPath ?? "")"
         tvShowImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder:"frame.fill")
     }
+    
 }
