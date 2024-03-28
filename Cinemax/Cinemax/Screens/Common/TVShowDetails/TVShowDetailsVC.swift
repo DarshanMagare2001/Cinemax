@@ -24,6 +24,7 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowsSeasonsTBLViewOutlet: UITableView!
     @IBOutlet weak var tvShowActorsCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var tvShowTrailerPlayerView: YouTubePlayerView!
+    @IBOutlet weak var similarTVShowsCollectionViewOutlet: UICollectionView!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
     
@@ -75,6 +76,7 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         }
         tvShowsSeasonsTBLViewOutlet.reloadData()
         tvShowActorsCollectionViewOutlet.reloadData()
+        similarTVShowsCollectionViewOutlet.reloadData()
         setupTVShowTrailer()
     }
     
@@ -130,16 +132,35 @@ extension TVShowDetailsVC: UITableViewDelegate , UITableViewDataSource {
 extension TVShowDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.tvShowCast?.cast?.count ?? 0
+        switch collectionView {
+        case tvShowActorsCollectionViewOutlet:
+            return presenter?.tvShowCast?.cast?.count ?? 0
+        case similarTVShowsCollectionViewOutlet:
+            return presenter?.tvShowSimilar?.results?.count ?? 0
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActorsCollectionViewCell", for: indexPath) as! ActorsCollectionViewCell
-        guard let cellData = presenter?.tvShowCast?.cast?[indexPath.row] else {
+        switch collectionView {
+        case tvShowActorsCollectionViewOutlet:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActorsCollectionViewCell", for: indexPath) as! ActorsCollectionViewCell
+            guard let cellData = presenter?.tvShowCast?.cast?[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(tvShowCast: cellData)
+            return cell
+        case similarTVShowsCollectionViewOutlet:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVShowSimilarCollectionCell", for: indexPath) as! TVShowSimilarCollectionCell
+            guard let cellData = presenter?.tvShowSimilar?.results?[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.configure(tvShow: cellData)
+            return cell
+        default:
             return UICollectionViewCell()
         }
-        cell.configure(tvShowCast: cellData)
-        return cell
     }
     
 }

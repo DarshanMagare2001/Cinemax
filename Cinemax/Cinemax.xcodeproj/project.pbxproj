@@ -56,6 +56,8 @@
 		134ECC232B67ADA2004BCAC2 /* LoginVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */; };
 		134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */; };
 		134ECC282B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */; };
+		136B58632BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B58622BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift */; };
+		136B58652BB598CB00D903B5 /* TVShowSimilarResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B58642BB598CB00D903B5 /* TVShowSimilarResponseModel.swift */; };
 		1371E5412BAAE486005246D6 /* CollectionViewLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371E53F2BAAE486005246D6 /* CollectionViewLoadingCell.swift */; };
 		1371E5422BAAE486005246D6 /* CollectionViewLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1371E5402BAAE486005246D6 /* CollectionViewLoadingCell.xib */; };
 		1371E5442BAAF1EE005246D6 /* DetailVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1371E5432BAAF1EE005246D6 /* DetailVCRouter.swift */; };
@@ -217,6 +219,8 @@
 		134ECC222B67ADA2004BCAC2 /* LoginVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCRouter.swift; sourceTree = "<group>"; };
 		134ECC252B67C026004BCAC2 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		134ECC272B67C06A004BCAC2 /* ResetPasswordVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCBuilder.swift; sourceTree = "<group>"; };
+		136B58622BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarCollectionCell.swift; sourceTree = "<group>"; };
+		136B58642BB598CB00D903B5 /* TVShowSimilarResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarResponseModel.swift; sourceTree = "<group>"; };
 		1371E53F2BAAE486005246D6 /* CollectionViewLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLoadingCell.swift; sourceTree = "<group>"; };
 		1371E5402BAAE486005246D6 /* CollectionViewLoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewLoadingCell.xib; sourceTree = "<group>"; };
 		1371E5432BAAF1EE005246D6 /* DetailVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCRouter.swift; sourceTree = "<group>"; };
@@ -503,6 +507,14 @@
 			path = ResetPassword;
 			sourceTree = "<group>";
 		};
+		136B58612BB594CB00D903B5 /* TVShowSimilarCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				136B58622BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift */,
+			);
+			path = TVShowSimilarCollectionCell;
+			sourceTree = "<group>";
+		};
 		1371E53E2BAAE35A005246D6 /* CollectionViewLoadingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,12 +527,13 @@
 		1389E5462BB41B0E00884FF3 /* TVShowDetails */ = {
 			isa = PBXGroup;
 			children = (
+				136B58612BB594CB00D903B5 /* TVShowSimilarCollectionCell */,
 				1389E5512BB446AC00884FF3 /* TVShowSeasonsCell */,
 				1389E5472BB41B5000884FF3 /* TVShowDetailsVC.swift */,
-				1389E5492BB41B9600884FF3 /* TVShowDetailsVCBuilder.swift */,
 				1389E54B2BB4241000884FF3 /* TVShowDetailsVCInteractor.swift */,
 				1389E54D2BB4241F00884FF3 /* TVShowDetailsVCPresenter.swift */,
 				1389E54F2BB4242B00884FF3 /* TVShowDetailsVCRouter.swift */,
+				1389E5492BB41B9600884FF3 /* TVShowDetailsVCBuilder.swift */,
 			);
 			path = TVShowDetails;
 			sourceTree = "<group>";
@@ -581,6 +594,7 @@
 				13197DFD2BB2D64C00463D4B /* TVShowsResponseModel.swift */,
 				13197DFF2BB2D75200463D4B /* TVShowDetailsResponseModel.swift */,
 				1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */,
+				136B58642BB598CB00D903B5 /* TVShowSimilarResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1233,6 +1247,7 @@
 				13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */,
 				13297AEC2BA4556D0039F0B8 /* DetailVCInteractor.swift in Sources */,
 				139531D82B97489100B2BCAA /* MoviesService.swift in Sources */,
+				136B58652BB598CB00D903B5 /* TVShowSimilarResponseModel.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				13C713A32BA1C54A009DA2A5 /* MovieDetailsModel.swift in Sources */,
 				139531D62B97471E00B2BCAA /* MoviesRouter.swift in Sources */,
@@ -1257,6 +1272,7 @@
 				13D9FE472BADB3A6008550AB /* MoviesGalleryCollectionViewCell.swift in Sources */,
 				139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */,
 				131A9B3F2B6A1FFC007A4D55 /* Loader.swift in Sources */,
+				136B58632BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift in Sources */,
 				13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */,
 				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
 				13197DFE2BB2D64C00463D4B /* TVShowsResponseModel.swift in Sources */,

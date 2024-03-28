@@ -14,6 +14,7 @@ protocol TVShowDetailsVCPresenterProtocol {
     var tvShowDetails: TVShowDetailsResponseModel? { get set }
     var tvShowCast: TVShowCastResponseModel? { get set }
     var tvShowTrailer: MovieVideosResponseModel? { get set}
+    var tvShowSimilar: TVShowSimilarResponseModel? { get set}
 }
 
 class TVShowDetailsVCPresenter {
@@ -24,6 +25,7 @@ class TVShowDetailsVCPresenter {
     var tvShowDetails: TVShowDetailsResponseModel?
     var tvShowCast: TVShowCastResponseModel?
     var tvShowTrailer: MovieVideosResponseModel?
+    var tvShowSimilar: TVShowSimilarResponseModel?
     let disposeBag = DisposeBag()
     let dispatchGroup = DispatchGroup()
     init(view: TVShowDetailsVCProtocol,interactor: TVShowDetailsVCInteractorProtocol,router: TVShowDetailsVCRouterProtocol){
@@ -51,6 +53,10 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
         }
         dispatchGroup.enter()
         fetchTVShowVideos{
+            self.dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        fetchTVShowSimilar{
             self.dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main){ [weak self] in
@@ -97,6 +103,22 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
                     switch response {
                     case.success(let tvShowVideosData):
                         self.tvShowTrailer = tvShowVideosData
+                    case.failure(let error):
+                        print(error)
+                    }
+                    completion()
+                }).disposed(by: disposeBag)
+        }
+    }
+    
+    func fetchTVShowSimilar(completion:@escaping ()->()){
+        if let tvShow = tvShow {
+            interactor.fetchTVShowSimilar(similarId: tvShow.id, page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let tvShowSimilarData):
+                        print(tvShowSimilarData)
+                        self.tvShowSimilar = tvShowSimilarData
                     case.failure(let error):
                         print(error)
                     }

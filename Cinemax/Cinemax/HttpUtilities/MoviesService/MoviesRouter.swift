@@ -22,6 +22,7 @@ enum MoviesRouter: HttpRouterProtocol {
     case tvShowDetails(showId:Int)
     case tvShowsCast(showId:Int)
     case tvShowsVideos(showId:Int)
+    case tvShowSimilar(similarId:Int,page:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -53,6 +54,8 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/tv/\(showId)/credits?api_key=38a73d59546aa378980a88b645f487fc"
         case .tvShowsVideos(let showId):
             return "/tv/\(showId)/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
+        case .tvShowSimilar(let similarId,let page):
+            return "/tv/\(similarId)/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
         }
     }
     
@@ -86,3 +89,5 @@ enum MoviesRouter: HttpRouterProtocol {
 //https://api.themoviedb.org/3/tv/5579/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US
 
 //"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
+
+//https://api.themoviedb.org/3/tv/5583/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1
