@@ -69,13 +69,13 @@ extension MainTabVC {
     private func updateContentForSelectedTab() {
         switch selectedTab {
         case .home:
-            showChildViewController(HomeVCBuilder.build())
+            showChildViewController(HomeVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         case .search:
-            showChildViewController(SearchVCBuilder.build())
+            showChildViewController(SearchVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         case .download:
-            showChildViewController(DownloadVCBuilder.build())
+            showChildViewController(DownloadVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         case .profile:
-            showChildViewController(ProfileVCBuilder.build())
+            showChildViewController(ProfileVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         }
     }
     

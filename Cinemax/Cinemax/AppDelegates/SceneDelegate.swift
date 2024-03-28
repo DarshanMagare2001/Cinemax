@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setUpScreens() -> UIViewController {
         if let isonboardingDone = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .isOnboardingDone){
             if let currentUser = Auth.auth().currentUser {
-                return MainTabVCBuilder.build(factor: NavigationFactory.build(rootView:))
+                return MainTabVCBuilder.build()
             }else{
                 return SignUpVCBuilder.build(factory:NavigationFactory.build(rootView:))
             }

@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+//"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
+
 enum MoviesRouter: HttpRouterProtocol {
     
     case moviesUpcoming(page:Int)
@@ -74,9 +76,7 @@ enum MoviesRouter: HttpRouterProtocol {
     
 }
 
-
 // "https://api.themoviedb.org/3/movie/1011985/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US")!
-
 //        let trailerURL = URL(string: "https://www.youtube.com/watch?v=69yHznzqCEI")!
 
 //https://api.themoviedb.org/3/tv/on_the_air?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1
@@ -86,6 +86,3 @@ enum MoviesRouter: HttpRouterProtocol {
 //https://api.themoviedb.org/3/tv/5583/credits?api_key=38a73d59546aa378980a88b645f487fc
 
 //https://api.themoviedb.org/3/tv/5579/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US
-
-//"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
-

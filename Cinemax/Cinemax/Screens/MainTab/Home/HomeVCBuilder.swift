@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public final class HomeVCBuilder {
-    static func build() -> UIViewController {
+    static func build(factor:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Home
         let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         let moviesServiceManager = MoviesServiceManager.shared
@@ -17,6 +17,6 @@ public final class HomeVCBuilder {
         let router = HomeVCRouter(viewController: homeVC)
         let presenter = HomeVCPresenter(view: homeVC, interactor: interactor, router: router)
         homeVC.presenter = presenter
-        return homeVC
+        return factor(homeVC)
     }
 }

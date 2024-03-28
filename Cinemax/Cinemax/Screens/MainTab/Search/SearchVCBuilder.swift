@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 public final class SearchVCBuilder {
-    static func build() -> UIViewController {
+    static func build(factor:NavigationFactoryClosure) -> UIViewController {
         let storyboard = UIStoryboard.Search
         let searchVC = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-        return searchVC
+        return factor(searchVC)
     }
 }
 
