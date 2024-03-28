@@ -53,16 +53,16 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         flowLayout.minimumInteritemSpacing = 10
         tvShowActorsCollectionViewOutlet.collectionViewLayout = flowLayout
     }
-
+    
     
     func updateUI(tvShowDetails: TVShowDetailsResponseModel){
         tvShowTitleLbl.text = tvShowDetails.name
         let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShowDetails.posterPath ?? "")"
         tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
-        let tvShowRating = String(format: "%.1f",tvShowDetails.voteAverage)
+        let tvShowRating = String(format: "%.1f",tvShowDetails.voteAverage ?? 0.0)
         tvShowRatingLbl.text = tvShowRating
-        tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes)"
-        tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate.extractYearFromDateString() ?? ""
+        tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes ?? 0)"
+        tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate?.extractYearFromDateString() ?? ""
         tvShowOverviewLbl.text = tvShowDetails.overview ?? ""
         tvShowsSeasonsTBLViewOutlet.reloadData()
         tvShowActorsCollectionViewOutlet.reloadData()
@@ -73,12 +73,12 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
 extension TVShowDetailsVC: UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.tvShowDetails?.seasons.count ?? 0
+        return presenter?.tvShowDetails?.seasons?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowSeasonsCell", for: indexPath) as! TVShowSeasonsCell
-        guard let cellData = presenter?.tvShowDetails?.seasons[indexPath.row],
+        guard let cellData = presenter?.tvShowDetails?.seasons?[indexPath.row],
               let defaultPosterPath = presenter?.tvShow?.posterPath else {
                   return UITableViewCell()
               }

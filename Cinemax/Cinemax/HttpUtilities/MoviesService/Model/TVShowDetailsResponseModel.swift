@@ -8,37 +8,37 @@
 import Foundation
 
 struct TVShowDetailsResponseModel: Codable {
-    let adult: Bool
+    let adult: Bool?
     let backdropPath: String?
-    let createdBy: [Creator]
-    let episodeRunTime: [Int]
-    let firstAirDate: String
-    let genres: [TVShowDetailsResponseModelGenre]
-    let homepage: String
-    let id: Int
-    let inProduction: Bool
-    let languages: [String]
-    let lastAirDate: String
-    let lastEpisodeToAir: Episode
-    let name: String
-    let nextEpisodeToAir: Episode
-    let networks: [Network]
-    let numberOfEpisodes: Int
-    let numberOfSeasons: Int
-    let originCountry: [String]
-    let originalLanguage: String
-    let originalName: String
-    let overview: String
-    let popularity: Double
+    let createdBy: [Creator]?
+    let episodeRunTime: [Int]?
+    let firstAirDate: String?
+    let genres: [TVShowDetailsResponseModelGenre]?
+    let homepage: String?
+    let id: Int?
+    let inProduction: Bool?
+    let languages: [String]?
+    let lastAirDate: String?
+    let lastEpisodeToAir: Episode?
+    let name: String?
+    let nextEpisodeToAir: Episode?
+    let networks: [Network]?
+    let numberOfEpisodes: Int?
+    let numberOfSeasons: Int?
+    let originCountry: [String]?
+    let originalLanguage: String?
+    let originalName: String?
+    let overview: String?
+    let popularity: Double?
     let posterPath: String?
-    let productionCountries: [TVShowDetailsResponseModelProductionCountry]
-    let seasons: [Season]
-    let spokenLanguages: [TVShowDetailsResponseModelSpokenLanguage]
-    let status: String
+    let productionCountries: [TVShowDetailsResponseModelProductionCountry]?
+    let seasons: [Season]?
+    let spokenLanguages: [TVShowDetailsResponseModelSpokenLanguage]?
+    let status: String?
     let tagline: String?
-    let type: String
-    let voteAverage: Double
-    let voteCount: Int
+    let type: String?
+    let voteAverage: Double?
+    let voteCount: Int?
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -76,10 +76,10 @@ struct TVShowDetailsResponseModel: Codable {
 }
 
 struct Creator: Codable {
-    let id: Int
-    let creditId: String
-    let name: String
-    let gender: Int
+    let id: Int?
+    let creditId: String?
+    let name: String?
+    let gender: Int?
     let profilePath: String?
     
     enum CodingKeys: String, CodingKey {
@@ -92,23 +92,23 @@ struct Creator: Codable {
 }
 
 struct TVShowDetailsResponseModelGenre: Codable {
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
 }
 
 struct Episode: Codable {
-    let id: Int
-    let name: String
-    let overview: String
-    let voteAverage: Double
-    let voteCount: Int
-    let airDate: String
-    let episodeNumber: Int
-    let episodeType: String
+    let id: Int?
+    let name: String?
+    let overview: String?
+    let voteAverage: Double?
+    let voteCount: Int?
+    let airDate: String?
+    let episodeNumber: Int?
+    let episodeType: String?
     let productionCode: String?
     let runtime: Int?
-    let seasonNumber: Int
-    let showId: Int
+    let seasonNumber: Int?
+    let showId: Int?
     let stillPath: String?
     
     enum CodingKeys: String, CodingKey {
@@ -129,10 +129,10 @@ struct Episode: Codable {
 }
 
 struct Network: Codable {
-    let id: Int
+    let id: Int?
     let logoPath: String?
-    let name: String
-    let originCountry: String
+    let name: String?
+    let originCountry: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -143,8 +143,8 @@ struct Network: Codable {
 }
 
 struct TVShowDetailsResponseModelProductionCountry: Codable {
-    let iso31661: String
-    let name: String
+    let iso31661: String?
+    let name: String?
     
     enum CodingKeys: String, CodingKey {
         case iso31661 = "iso_3166_1"
@@ -153,14 +153,14 @@ struct TVShowDetailsResponseModelProductionCountry: Codable {
 }
 
 struct Season: Codable {
-    let airDate: String
-    let episodeCount: Int
-    let id: Int
-    let name: String
+    let airDate: String?
+    let episodeCount: Int?
+    let id: Int?
+    let name: String?
     let overview: String?
     let posterPath: String?
-    let seasonNumber: Int
-    let voteAverage: Double
+    let seasonNumber: Int?
+    let voteAverage: Double?
     
     enum CodingKeys: String, CodingKey {
         case airDate = "air_date"
@@ -175,9 +175,9 @@ struct Season: Codable {
 }
 
 struct TVShowDetailsResponseModelSpokenLanguage: Codable {
-    let englishName: String
-    let iso6391: String
-    let name: String
+    let englishName: String?
+    let iso6391: String?
+    let name: String?
     
     enum CodingKeys: String, CodingKey {
         case englishName = "english_name"
