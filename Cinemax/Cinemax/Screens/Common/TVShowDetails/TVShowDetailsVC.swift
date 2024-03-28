@@ -70,7 +70,9 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         tvShowRatingLbl.text = tvShowRating
         tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes ?? 0)"
         tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate?.extractYearFromDateString() ?? ""
-        tvShowOverviewLbl.text = tvShowDetails.overview ?? ""
+        if let tvShowOverview = tvShowDetails.overview {
+            tvShowOverviewLbl.text = (tvShowOverview.isEmpty ? "Overview Not Available." : tvShowOverview)
+        }
         tvShowsSeasonsTBLViewOutlet.reloadData()
         tvShowActorsCollectionViewOutlet.reloadData()
         setupTVShowTrailer()
