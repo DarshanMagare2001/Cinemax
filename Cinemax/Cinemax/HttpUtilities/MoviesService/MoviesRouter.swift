@@ -8,8 +8,6 @@
 import Foundation
 import Alamofire
 
-//"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
-
 enum MoviesRouter: HttpRouterProtocol {
     
     case movieUpcoming(page:Int)
@@ -60,3 +58,4 @@ enum MoviesRouter: HttpRouterProtocol {
     }
     
 }
+
