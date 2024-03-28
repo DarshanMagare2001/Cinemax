@@ -163,4 +163,16 @@ extension TVShowDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,U
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case tvShowActorsCollectionViewOutlet:
+            print("")
+        case similarTVShowsCollectionViewOutlet:
+            let cellData = presenter?.tvShowSimilar?.results?[indexPath.row]
+            presenter?.gotoTVShowDetailsVC(tvShow:cellData)
+        default:
+            print("")
+        }
+    }
+    
 }
