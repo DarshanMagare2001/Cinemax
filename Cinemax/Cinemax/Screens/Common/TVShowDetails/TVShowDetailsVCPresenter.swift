@@ -12,6 +12,7 @@ protocol TVShowDetailsVCPresenterProtocol {
     func viewDidload()
     var tvShow: TVShowsResponseModelResult? { get set }
     var tvShowDetails: TVShowDetailsResponseModel? { get set }
+    var tvShowCast: TVShowCastResponseModel? { get set }
 }
 
 class TVShowDetailsVCPresenter {
@@ -20,6 +21,7 @@ class TVShowDetailsVCPresenter {
     var router: TVShowDetailsVCRouterProtocol
     var tvShow: TVShowsResponseModelResult?
     var tvShowDetails: TVShowDetailsResponseModel?
+    var tvShowCast: TVShowCastResponseModel?
     let disposeBag = DisposeBag()
     let dispatchGroup = DispatchGroup()
     init(view: TVShowDetailsVCProtocol,interactor: TVShowDetailsVCInteractorProtocol,router: TVShowDetailsVCRouterProtocol){
@@ -32,6 +34,7 @@ class TVShowDetailsVCPresenter {
 extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     
     func viewDidload(){
+        view?.registerXibs()
         loadDatasource()
     }
     
@@ -73,6 +76,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
                     switch response {
                     case.success(let castData):
                         print(castData)
+                        self.tvShowCast = castData
                     case.failure(let error):
                         print(error)
                     }

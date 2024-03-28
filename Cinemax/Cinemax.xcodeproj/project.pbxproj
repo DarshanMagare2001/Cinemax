@@ -66,6 +66,8 @@
 		1389E5502BB4242B00884FF3 /* TVShowDetailsVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E54F2BB4242B00884FF3 /* TVShowDetailsVCRouter.swift */; };
 		1389E5532BB446CD00884FF3 /* TVShowSeasonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E5522BB446CD00884FF3 /* TVShowSeasonsCell.swift */; };
 		1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */; };
+		1389E5592BB45A1000884FF3 /* ActorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1389E5572BB45A1000884FF3 /* ActorsCollectionViewCell.swift */; };
+		1389E55A2BB45A1000884FF3 /* ActorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1389E5582BB45A1000884FF3 /* ActorsCollectionViewCell.xib */; };
 		139531CD2B97403300B2BCAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 139531CC2B97403300B2BCAA /* Alamofire */; };
 		139531D22B9746ED00B2BCAA /* HttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D02B9746ED00B2BCAA /* HttpRouter.swift */; };
 		139531D32B9746ED00B2BCAA /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139531D12B9746ED00B2BCAA /* HttpService.swift */; };
@@ -225,6 +227,8 @@
 		1389E54F2BB4242B00884FF3 /* TVShowDetailsVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsVCRouter.swift; sourceTree = "<group>"; };
 		1389E5522BB446CD00884FF3 /* TVShowSeasonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSeasonsCell.swift; sourceTree = "<group>"; };
 		1389E5542BB4501F00884FF3 /* TVShowCastResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCastResponseModel.swift; sourceTree = "<group>"; };
+		1389E5572BB45A1000884FF3 /* ActorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1389E5582BB45A1000884FF3 /* ActorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorsCollectionViewCell.xib; sourceTree = "<group>"; };
 		139531D02B9746ED00B2BCAA /* HttpRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRouter.swift; sourceTree = "<group>"; };
 		139531D12B9746ED00B2BCAA /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		139531D52B97471E00B2BCAA /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
@@ -529,6 +533,15 @@
 			path = TVShowSeasonsCell;
 			sourceTree = "<group>";
 		};
+		1389E5562BB459E800884FF3 /* ActorsCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1389E5572BB45A1000884FF3 /* ActorsCollectionViewCell.swift */,
+				1389E5582BB45A1000884FF3 /* ActorsCollectionViewCell.xib */,
+			);
+			path = ActorsCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		139531CE2B97404400B2BCAA /* HttpUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				1389E5462BB41B0E00884FF3 /* TVShowDetails */,
+				1389E5562BB459E800884FF3 /* ActorsCollectionViewCell */,
 				1371E53E2BAAE35A005246D6 /* CollectionViewLoadingCell */,
 				131C6C102BA87D6700EEFCEA /* SeeAll */,
 				13374AF42BA33525005E2BCA /* Detail */,
@@ -1103,6 +1117,7 @@
 				139C227B2B612D270082DBDD /* Home.storyboard in Resources */,
 				132C2B2E2BA99183000A00F4 /* MoviesCollectionViewDetailCell.xib in Resources */,
 				139C227E2B612D4C0082DBDD /* Search.storyboard in Resources */,
+				1389E55A2BB45A1000884FF3 /* ActorsCollectionViewCell.xib in Resources */,
 				13305D552B726571007B74D4 /* MoviesCollectionViewCell.xib in Resources */,
 				139C22842B612D8D0082DBDD /* Profile.storyboard in Resources */,
 				1398F0BC2B68D1F100D58906 /* GoogleService-Info.plist in Resources */,
@@ -1265,6 +1280,7 @@
 				1389E5482BB41B5000884FF3 /* TVShowDetailsVC.swift in Sources */,
 				13305D482B723F29007B74D4 /* UpcomingMoviesCell.swift in Sources */,
 				132C2B272BA96C32000A00F4 /* SeeAllVCPresenter.swift in Sources */,
+				1389E5592BB45A1000884FF3 /* ActorsCollectionViewCell.swift in Sources */,
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
