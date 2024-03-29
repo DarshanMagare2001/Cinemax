@@ -90,4 +90,4 @@ enum MoviesRouter: HttpRouterProtocol {
 
 //"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
 
-//https://api.themoviedb.org/3/tv/5583/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1
+//https://api.themoviedb.org/3/tv/5583/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=500

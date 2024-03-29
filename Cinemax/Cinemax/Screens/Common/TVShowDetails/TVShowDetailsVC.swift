@@ -38,6 +38,11 @@ class TVShowDetailsVC: UIViewController {
         manageVideoState(tag:sender.tag)
     }
     
+    
+    @IBAction func seeAllSimilarTVShowsBtnPressed(_ sender: UIButton) {
+        presenter?.gotoTVShowSimilarVC()
+    }
+    
 }
 
 extension TVShowDetailsVC:  TVShowDetailsVCProtocol {

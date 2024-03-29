@@ -11,6 +11,7 @@ import RxSwift
 protocol TVShowDetailsVCPresenterProtocol {
     func viewDidload()
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowSimilarVC()
     var tvShow: TVShowsResponseModelResult? { get set }
     var tvShowDetails: TVShowDetailsResponseModel? { get set }
     var tvShowCast: TVShowCastResponseModel? { get set }
@@ -131,5 +132,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
         router.gotoTVShowDetailsVC(tvShow: tvShow)
     }
-    
+    func gotoTVShowSimilarVC(){
+        router.gotoTVShowSimilarVC()
+    }
 }

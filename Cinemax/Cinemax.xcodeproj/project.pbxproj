@@ -111,6 +111,8 @@
 		139C22972B6144040082DBDD /* OnboardingVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */; };
 		139C22992B6144110082DBDD /* OnboardingVCEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C22982B6144110082DBDD /* OnboardingVCEntity.swift */; };
 		139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */; };
+		13AB6D8D2BB6A6330010D248 /* TVShowSimilarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */; };
+		13AB6D8F2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */; };
 		13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */; };
 		13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */; };
 		13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */; };
@@ -266,6 +268,8 @@
 		139C22962B6144040082DBDD /* OnboardingVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCPresenter.swift; sourceTree = "<group>"; };
 		139C22982B6144110082DBDD /* OnboardingVCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCEntity.swift; sourceTree = "<group>"; };
 		139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCRouter.swift; sourceTree = "<group>"; };
+		13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVC.swift; sourceTree = "<group>"; };
+		13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCBuilder.swift; sourceTree = "<group>"; };
 		13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCBuilder.swift; sourceTree = "<group>"; };
 		13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCInteractor.swift; sourceTree = "<group>"; };
@@ -806,6 +810,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				13AB6D8B2BB6A6110010D248 /* TVShowSimilar */,
 				1389E5462BB41B0E00884FF3 /* TVShowDetails */,
 				1389E5562BB459E800884FF3 /* ActorsCollectionViewCell */,
 				1371E53E2BAAE35A005246D6 /* CollectionViewLoadingCell */,
@@ -826,6 +831,15 @@
 				13374AE92BA2E04F005E2BCA /* ImageLoaderWithKingfisher.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13AB6D8B2BB6A6110010D248 /* TVShowSimilar */ = {
+			isa = PBXGroup;
+			children = (
+				13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */,
+				13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */,
+			);
+			path = TVShowSimilar;
 			sourceTree = "<group>";
 		};
 		13B1E6432B6D0DCA003DD382 /* ProfileComponents */ = {
@@ -1287,9 +1301,11 @@
 				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
 				13197E002BB2D75200463D4B /* TVShowDetailsResponseModel.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
+				13AB6D8F2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift in Sources */,
 				1389E5532BB446CD00884FF3 /* TVShowSeasonsCell.swift in Sources */,
 				139C22932B61399B0082DBDD /* RoundedCorners.swift in Sources */,
 				134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */,
+				13AB6D8D2BB6A6330010D248 /* TVShowSimilarVC.swift in Sources */,
 				139C22902B61316E0082DBDD /* OnboardingVCBuilder.swift in Sources */,
 				132C2B2D2BA99183000A00F4 /* MoviesCollectionViewDetailCell.swift in Sources */,
 				134ECC262B67C026004BCAC2 /* ResetPasswordVC.swift in Sources */,

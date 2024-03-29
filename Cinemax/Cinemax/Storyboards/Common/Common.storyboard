@@ -1126,7 +1126,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pp-da-JS0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SY9-yB-ddO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pp-da-JS0">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOz-HW-Cg5">
@@ -1567,7 +1571,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ul-E6-4Bd" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="1091.5" width="394" height="200"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yr0-Yl-gsW">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yr0-Yl-gsW">
                                                                 <rect key="frame" x="15" y="15" width="364" height="170"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tfZ-J9-h6e">
@@ -1705,11 +1709,25 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W28-X0-EGq">
-                                                                <rect key="frame" x="15" y="0.0" width="379" height="50"/>
+                                                                <rect key="frame" x="15" y="0.0" width="279" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwG-Vg-UZs">
+                                                                <rect key="frame" x="304" y="0.0" width="90" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="90" id="NBx-TM-253"/>
+                                                                </constraints>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="See All">
+                                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="seeAllSimilarTVShowsBtnPressed:" destination="AF1-78-xaJ" eventType="touchUpInside" id="tEp-3S-j0b"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="TEW-y6-oBR"/>
@@ -1819,8 +1837,12 @@
                         <constraints>
                             <constraint firstItem="7Pp-da-JS0" firstAttribute="top" secondItem="YjI-hu-MhU" secondAttribute="top" id="4HV-o5-DRU"/>
                             <constraint firstAttribute="bottom" secondItem="7Pp-da-JS0" secondAttribute="bottom" id="56H-37-EaW"/>
+                            <constraint firstItem="YjI-hu-MhU" firstAttribute="trailing" secondItem="SY9-yB-ddO" secondAttribute="trailing" id="627-7J-gvt"/>
                             <constraint firstItem="VOz-HW-Cg5" firstAttribute="width" secondItem="Qcu-ke-Xgn" secondAttribute="width" id="6yf-Ng-OXw"/>
+                            <constraint firstAttribute="bottom" secondItem="SY9-yB-ddO" secondAttribute="bottom" id="Fdb-Wo-40x"/>
+                            <constraint firstItem="SY9-yB-ddO" firstAttribute="leading" secondItem="YjI-hu-MhU" secondAttribute="leading" id="fp9-rb-686"/>
                             <constraint firstItem="YjI-hu-MhU" firstAttribute="trailing" secondItem="7Pp-da-JS0" secondAttribute="trailing" id="l5H-SX-rwT"/>
+                            <constraint firstItem="SY9-yB-ddO" firstAttribute="top" secondItem="Qcu-ke-Xgn" secondAttribute="top" id="qe7-vw-PHV"/>
                             <constraint firstItem="7Pp-da-JS0" firstAttribute="leading" secondItem="YjI-hu-MhU" secondAttribute="leading" id="yPI-T4-OIs"/>
                         </constraints>
                     </view>
@@ -1840,6 +1862,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmK-Th-FQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2078.2608695652175" y="59.598214285714285"/>
+        </scene>
+        <!--Show SimilarVC-->
+        <scene sceneID="Ntw-Kd-JK0">
+            <objects>
+                <viewController storyboardIdentifier="TVShowSimilarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aNq-XV-rQc" customClass="TVShowSimilarVC" customModule="Cinemax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k8h-5G-Wl8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QCJ-Zo-tUw"/>
+                        <color key="backgroundColor" name="AppDark1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwp-CQ-Muq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="61"/>
         </scene>
     </scenes>
     <resources>
