@@ -57,7 +57,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="BVp-6q-3XI" firstAttribute="top" secondItem="vRN-fY-UEn" secondAttribute="top" id="JRw-LL-hSF"/>
                                     <constraint firstAttribute="trailing" secondItem="BVp-6q-3XI" secondAttribute="trailing" constant="10" id="N76-K3-ajA"/>
@@ -70,7 +70,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5OK-BG-pmb">
                                         <rect key="frame" x="10" y="0.0" width="415" height="300"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="10" id="QLo-YL-mMf">
                                             <size key="itemSize" width="200" height="300"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -79,7 +79,7 @@
                                         </collectionViewFlowLayout>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5OK-BG-pmb" firstAttribute="leading" secondItem="hOh-G5-Jyf" secondAttribute="leading" constant="10" id="4Aw-aQ-v5p"/>
                                     <constraint firstItem="5OK-BG-pmb" firstAttribute="top" secondItem="hOh-G5-Jyf" secondAttribute="top" id="JtG-u7-8RX"/>
@@ -89,10 +89,10 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" name="AppDark1"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="xeI-a0-R2t" secondAttribute="trailing" id="OGe-3c-sPA"/>
                     <constraint firstItem="xeI-a0-R2t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SY9-4G-1eB"/>
@@ -111,6 +111,9 @@
     <resources>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppDark1">
+            <color red="0.14509803921568629" green="0.15686274509803921" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

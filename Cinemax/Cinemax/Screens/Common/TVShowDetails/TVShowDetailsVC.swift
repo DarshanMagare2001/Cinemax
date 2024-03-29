@@ -54,11 +54,11 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
     
     func setupFlowLayoutForTVShowActorsCollectionViewOutlet() {
         let flowLayout = UICollectionViewFlowLayout()
-        let width = (tvShowActorsCollectionViewOutlet.bounds.width / 2)
+        let width = (tvShowActorsCollectionViewOutlet.bounds.width / 2) - 5
         let height = (tvShowActorsCollectionViewOutlet.bounds.height / 2) - 5
         flowLayout.itemSize = CGSize(width: width, height: height)
         flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumInteritemSpacing = 0
         tvShowActorsCollectionViewOutlet.collectionViewLayout = flowLayout
     }
     
