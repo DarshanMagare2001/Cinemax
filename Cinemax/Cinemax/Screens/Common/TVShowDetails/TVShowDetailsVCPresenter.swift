@@ -132,7 +132,11 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
         router.gotoTVShowDetailsVC(tvShow: tvShow)
     }
+    
     func gotoTVShowSimilarVC(){
-        router.gotoTVShowSimilarVC()
+        if let tvShow = tvShow {
+            router.gotoTVShowSimilarVC(tvShowData: tvShow, page: 1)
+        }
     }
+    
 }

@@ -113,6 +113,10 @@
 		139C229B2B61442B0082DBDD /* OnboardingVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */; };
 		13AB6D8D2BB6A6330010D248 /* TVShowSimilarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */; };
 		13AB6D8F2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */; };
+		13AB6D912BB6BA5A0010D248 /* TVShowSimilarVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D902BB6BA5A0010D248 /* TVShowSimilarVCInteractor.swift */; };
+		13AB6D932BB6BA690010D248 /* TVShowSimilarVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D922BB6BA690010D248 /* TVShowSimilarVCPresenter.swift */; };
+		13AB6D952BB6BA780010D248 /* TVShowSimilarVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D942BB6BA780010D248 /* TVShowSimilarVCRouter.swift */; };
+		13AB6D982BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6D972BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift */; };
 		13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */; };
 		13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */; };
 		13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */; };
@@ -270,6 +274,10 @@
 		139C229A2B61442B0082DBDD /* OnboardingVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCRouter.swift; sourceTree = "<group>"; };
 		13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVC.swift; sourceTree = "<group>"; };
 		13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCBuilder.swift; sourceTree = "<group>"; };
+		13AB6D902BB6BA5A0010D248 /* TVShowSimilarVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCInteractor.swift; sourceTree = "<group>"; };
+		13AB6D922BB6BA690010D248 /* TVShowSimilarVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCPresenter.swift; sourceTree = "<group>"; };
+		13AB6D942BB6BA780010D248 /* TVShowSimilarVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCRouter.swift; sourceTree = "<group>"; };
+		13AB6D972BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSimilarVCTBLCell.swift; sourceTree = "<group>"; };
 		13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCBuilder.swift; sourceTree = "<group>"; };
 		13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCInteractor.swift; sourceTree = "<group>"; };
@@ -836,10 +844,22 @@
 		13AB6D8B2BB6A6110010D248 /* TVShowSimilar */ = {
 			isa = PBXGroup;
 			children = (
+				13AB6D962BB6C4A70010D248 /* TVShowSimilarVCTBLCell */,
 				13AB6D8C2BB6A6330010D248 /* TVShowSimilarVC.swift */,
+				13AB6D902BB6BA5A0010D248 /* TVShowSimilarVCInteractor.swift */,
+				13AB6D922BB6BA690010D248 /* TVShowSimilarVCPresenter.swift */,
+				13AB6D942BB6BA780010D248 /* TVShowSimilarVCRouter.swift */,
 				13AB6D8E2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift */,
 			);
 			path = TVShowSimilar;
+			sourceTree = "<group>";
+		};
+		13AB6D962BB6C4A70010D248 /* TVShowSimilarVCTBLCell */ = {
+			isa = PBXGroup;
+			children = (
+				13AB6D972BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift */,
+			);
+			path = TVShowSimilarVCTBLCell;
 			sourceTree = "<group>";
 		};
 		13B1E6432B6D0DCA003DD382 /* ProfileComponents */ = {
@@ -1219,6 +1239,7 @@
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */,
 				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
+				13AB6D952BB6BA780010D248 /* TVShowSimilarVCRouter.swift in Sources */,
 				13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */,
 				1398F0C42B68EBB000D58906 /* String+Extensions.swift in Sources */,
 				139531DA2B97496A00B2BCAA /* MoviesServiceManager.swift in Sources */,
@@ -1249,6 +1270,7 @@
 				1371E5412BAAE486005246D6 /* CollectionViewLoadingCell.swift in Sources */,
 				134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */,
 				13B1E64C2B6D0FFF003DD382 /* EditProfileVCPresenter.swift in Sources */,
+				13AB6D912BB6BA5A0010D248 /* TVShowSimilarVCInteractor.swift in Sources */,
 				132C2B252BA96C25000A00F4 /* SeeAllVCInteractor.swift in Sources */,
 				13C74DFE2B6BA08B009CA6DB /* StoreUserServerManager.swift in Sources */,
 				13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */,
@@ -1256,6 +1278,7 @@
 				13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */,
 				139531D22B9746ED00B2BCAA /* HttpRouter.swift in Sources */,
 				13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */,
+				13AB6D982BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift in Sources */,
 				134ECC212B67AD8F004BCAC2 /* LoginVCPresenter.swift in Sources */,
 				139C22952B6143F50082DBDD /* OnboardingVCInteractor.swift in Sources */,
 				13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */,
@@ -1315,6 +1338,7 @@
 				1389E5592BB45A1000884FF3 /* ActorsCollectionViewCell.swift in Sources */,
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
+				13AB6D932BB6BA690010D248 /* TVShowSimilarVCPresenter.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

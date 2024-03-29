@@ -10,7 +10,7 @@ import UIKit
 
 protocol TVShowDetailsVCRouterProtocol {
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
-    func gotoTVShowSimilarVC()
+    func gotoTVShowSimilarVC(tvShowData: TVShowsResponseModelResult?, page: Int?)
 }
 
 class TVShowDetailsVCRouter {
@@ -25,8 +25,8 @@ extension TVShowDetailsVCRouter: TVShowDetailsVCRouterProtocol {
         let tvShowDetailsVC = TVShowDetailsVCBuilder.build(tvShow:tvShow)
         viewController.navigationController?.pushViewController(tvShowDetailsVC, animated: true)
     }
-    func gotoTVShowSimilarVC(){
-        let tvShowSimilarVC = TVShowSimilarVCBuilder.build()
+    func gotoTVShowSimilarVC(tvShowData: TVShowsResponseModelResult?, page: Int?){
+        let tvShowSimilarVC = TVShowSimilarVCBuilder.build(tvShowData: tvShowData, page: page)
         viewController.navigationController?.pushViewController(tvShowSimilarVC, animated: true)
     }
 }
