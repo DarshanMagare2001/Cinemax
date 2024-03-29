@@ -1061,7 +1061,7 @@
                                 <rect key="frame" x="0.0" y="139" width="414" height="723"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-Fn-dp7">
-                                        <rect key="frame" x="5" y="10" width="404" height="713"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="713"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="15" minimumInteritemSpacing="15" id="CHN-y1-xsY">
                                             <size key="itemSize" width="200" height="300"/>
@@ -1071,7 +1071,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="38l-eP-oWy">
-                                                <rect key="frame" x="86" y="0.0" width="232" height="238"/>
+                                                <rect key="frame" x="81" y="0.0" width="232" height="238"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Iax-FS-4Wx">
                                                     <rect key="frame" x="0.0" y="0.0" width="232" height="238"/>
@@ -1088,15 +1088,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="6q5-Fn-dp7" secondAttribute="bottom" id="6No-hg-ofD"/>
-                                    <constraint firstAttribute="trailing" secondItem="6q5-Fn-dp7" secondAttribute="trailing" constant="5" id="AcW-t4-9ED"/>
-                                    <constraint firstItem="6q5-Fn-dp7" firstAttribute="leading" secondItem="NWM-mk-vbN" secondAttribute="leading" constant="5" id="lnP-WM-ml5"/>
-                                    <constraint firstItem="6q5-Fn-dp7" firstAttribute="top" secondItem="NWM-mk-vbN" secondAttribute="top" constant="10" id="rtC-fV-FbQ"/>
+                                    <constraint firstItem="6q5-Fn-dp7" firstAttribute="top" secondItem="NWM-mk-vbN" secondAttribute="top" constant="10" id="4MR-tv-Wr6"/>
+                                    <constraint firstAttribute="trailing" secondItem="6q5-Fn-dp7" secondAttribute="trailing" constant="10" id="UH2-PA-ayv"/>
+                                    <constraint firstAttribute="bottom" secondItem="6q5-Fn-dp7" secondAttribute="bottom" id="mse-ZI-eLb"/>
+                                    <constraint firstItem="6q5-Fn-dp7" firstAttribute="leading" secondItem="NWM-mk-vbN" secondAttribute="leading" constant="10" id="zWW-lf-oUu"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uys-da-sud"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="AppDark1"/>
                         <constraints>
                             <constraint firstItem="NWM-mk-vbN" firstAttribute="leading" secondItem="Uys-da-sud" secondAttribute="leading" id="EEs-Wy-Zsa"/>
                             <constraint firstItem="Uys-da-sud" firstAttribute="trailing" secondItem="Dhq-SB-Ao1" secondAttribute="trailing" id="I2D-BH-fmn"/>
