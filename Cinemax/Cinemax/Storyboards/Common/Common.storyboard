@@ -1568,7 +1568,7 @@
                                                         <rect key="frame" x="0.0" y="1091.5" width="394" height="200"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yr0-Yl-gsW">
-                                                                <rect key="frame" x="10" y="10" width="374" height="180"/>
+                                                                <rect key="frame" x="15" y="15" width="364" height="170"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tfZ-J9-h6e">
                                                                     <size key="itemSize" width="300" height="100"/>
@@ -1586,11 +1586,11 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="Yr0-Yl-gsW" firstAttribute="leading" secondItem="6ul-E6-4Bd" secondAttribute="leading" constant="10" id="Asb-QY-BFL"/>
+                                                            <constraint firstItem="Yr0-Yl-gsW" firstAttribute="top" secondItem="6ul-E6-4Bd" secondAttribute="top" constant="15" id="JQ6-MG-x5m"/>
                                                             <constraint firstAttribute="height" constant="200" id="YRK-kW-j9I"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Yr0-Yl-gsW" secondAttribute="trailing" constant="10" id="rTQ-8J-Qpn"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Yr0-Yl-gsW" secondAttribute="bottom" constant="10" id="rc2-Ej-Vu9"/>
-                                                            <constraint firstItem="Yr0-Yl-gsW" firstAttribute="top" secondItem="6ul-E6-4Bd" secondAttribute="top" constant="10" id="t1p-z9-aR5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Yr0-Yl-gsW" secondAttribute="bottom" constant="15" id="cZA-9R-QJV"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Yr0-Yl-gsW" secondAttribute="trailing" constant="15" id="dhh-P6-EjN"/>
+                                                            <constraint firstItem="Yr0-Yl-gsW" firstAttribute="leading" secondItem="6ul-E6-4Bd" secondAttribute="leading" constant="15" id="zg6-xq-wIa"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
