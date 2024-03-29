@@ -1891,7 +1891,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExD-UV-UNV" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-3S-p3C">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-3S-p3C">
                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
                                                                         </imageView>
                                                                     </subviews>

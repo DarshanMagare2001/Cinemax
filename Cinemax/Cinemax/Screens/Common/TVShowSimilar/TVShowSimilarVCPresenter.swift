@@ -11,6 +11,7 @@ import RxSwift
 protocol TVShowSimilarVCPresenterProtocol {
     func viewDidload()
     func loadDatasource()
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
     var similarTVShowsData: [TVShowsResponseModelResult] { get set }
 }
 
@@ -61,6 +62,10 @@ extension TVShowSimilarVCPresenter: TVShowSimilarVCPresenterProtocol {
             }
         }
         self.page = (page + 1)
+    }
+    
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
+        router.gotoTVShowDetailsVC(tvShow: tvShow)
     }
     
 }

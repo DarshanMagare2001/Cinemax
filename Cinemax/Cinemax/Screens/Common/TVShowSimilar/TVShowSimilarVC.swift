@@ -39,6 +39,7 @@ extension TVShowSimilarVC: TVShowSimilarVCProtocol {
 }
 
 extension TVShowSimilarVC: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.similarTVShowsData.count ?? 0
     }
@@ -55,6 +56,12 @@ extension TVShowSimilarVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         presenter?.loadDatasource()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cellData = presenter?.similarTVShowsData[indexPath.row]  {
+            presenter?.gotoTVShowDetailsVC(tvShow:cellData)
+        }
     }
     
 }
