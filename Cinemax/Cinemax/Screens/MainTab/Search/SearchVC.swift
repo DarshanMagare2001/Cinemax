@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol SearchVCProtocol: AnyObject {
-    
+    func updateUI()
 }
 
 class SearchVC: UIViewController {
@@ -22,15 +22,15 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerXib()
         bindSearchBar()
-        bindTblView()
         presenter?.viewDidload()
     }
-    
     
 }
 
 extension SearchVC: SearchVCProtocol {
+    
     func bindSearchBar(){
         searchBarOutlet.rx.text.orEmpty
             .debounce(.microseconds(300), scheduler: MainScheduler.instance)
@@ -40,12 +40,31 @@ extension SearchVC: SearchVCProtocol {
             .disposed(by: disposeBag)
     }
     
-    func bindTblView(){
-        presenter?.moviesSearchResults
-            .observeOn(MainScheduler.instance)
-            .subscribe({ data in
-                print(data.element?.results)
-            }).disposed(by: disposeBag)
+    func registerXib(){
+        let nib = UINib(nibName: "MoviesCell", bundle: nil)
+        searchResultTblOutlet.register(nib, forCellReuseIdentifier: "MoviesCell")
+    }
+    
+    func updateUI(){
+        searchResultTblOutlet.reloadData()
+    }
+    
+}
+
+extension SearchVC: UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
+        guard let cellData = presenter?.datasource else {
+            return UITableViewCell()
+        }
+        cell.dataSource = cellData
+        cell.cellTitleData = "Movies"
+        return cell
     }
     
 }

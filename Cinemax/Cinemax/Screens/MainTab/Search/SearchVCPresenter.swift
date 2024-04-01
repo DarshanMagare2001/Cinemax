@@ -12,7 +12,7 @@ import RxCocoa
 protocol SearchVCPresenterProtocol {
     func viewDidload()
     var searchQuery: BehaviorRelay<String> { get set }
-    var moviesSearchResults : PublishSubject<MasterMovieModel> { get set }
+    var datasource : MasterMovieModel? { get set }
 }
 
 class SearchVCPresenter {
@@ -20,7 +20,13 @@ class SearchVCPresenter {
     var interactor: SearchVCInteractorProtocol
     var router: SearchVCRouterProtocol
     var searchQuery = BehaviorRelay<String>(value: "")
-    var moviesSearchResults = PublishSubject<MasterMovieModel>()
+    var datasource : MasterMovieModel? {
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.updateUI()
+            }
+        }
+    }
     let disposeBag = DisposeBag()
     init(view: SearchVCProtocol,interactor: SearchVCInteractorProtocol,router: SearchVCRouterProtocol){
         self.view = view
@@ -53,7 +59,7 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
                 case.success(let movies):
                     let moviesData = MasterMovieModel(dates: nil, page: movies.page ?? 0, results: movies.results ?? [], totalPages: movies.totalPages ?? 0, totalResults: movies.totalResults ?? 0)
                     print(moviesData)
-                    self.moviesSearchResults.onNext(moviesData)
+                    self.datasource = moviesData
                 case.failure(let error):
                     print(error)
                 }
