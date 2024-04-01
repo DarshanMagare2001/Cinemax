@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import YouTubePlayer
+import YoutubePlayer_in_WKWebView
 import RxSwift
 import RxCocoa
 
@@ -31,7 +31,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var productionHouseCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var movieStatus: UILabel!
     @IBOutlet weak var productionHouseCollectionViewOutletView: RoundedCornerView!
-    @IBOutlet weak var movieTrailerView: YouTubePlayerView!
+    @IBOutlet weak var movieTrailerView: WKYTPlayerView!
     @IBOutlet weak var movieTrailerSectionView: UIView!
     @IBOutlet weak var movieGalleryCollectionViewOutlet: UICollectionView!
     
@@ -55,15 +55,15 @@ class DetailVC: UIViewController {
     
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        movieTrailerView.play()
+        movieTrailerView.playVideo()
     }
     
     @IBAction func pauseBtnPressed(_ sender: UIButton) {
-        movieTrailerView.pause()
+        movieTrailerView.pauseVideo()
     }
     
     @IBAction func stopBtnPressed(_ sender: UIButton) {
-        movieTrailerView.stop()
+        movieTrailerView.stopVideo()
     }
     
 }
@@ -121,7 +121,8 @@ extension DetailVC : DetailVCProtocol {
                 if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
                    let trailerVideoKey = trailerVideo.key{
                     if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
-                        self?.movieTrailerView.loadVideoURL(myVideoURL)
+//                        self?.movieTrailerView.loadVideoURL(myVideoURL)
+                        self?.movieTrailerView.load(withVideoId: trailerVideoKey)
                     }
                 }
             }

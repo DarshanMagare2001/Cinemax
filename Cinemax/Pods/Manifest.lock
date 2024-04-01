@@ -11,12 +11,14 @@ PODS:
   - JXPageControl/Transform (0.1.5):
     - JXPageControl/Common
   - YouTubePlayer (0.7.2)
+  - YoutubePlayer-in-WKWebView (0.3.9)
 
 DEPENDENCIES:
   - FSPagerView
   - IQKeyboardManagerSwift
   - JXPageControl
   - YouTubePlayer
+  - YoutubePlayer-in-WKWebView
 
 SPEC REPOS:
   trunk:
@@ -24,13 +26,15 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JXPageControl
     - YouTubePlayer
+    - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXPageControl: e9487b39e2e58fc17790833214f3b8e935bef98b
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
+  YoutubePlayer-in-WKWebView: 2bfac1a51faec752a9ecf6e7019f13347aad4da0
 
-PODFILE CHECKSUM: 22f560e7da7f1e00d88d8239686aab66034b5e2c
+PODFILE CHECKSUM: bb5556c6efbf3a5f2c5502b4d1fa04e02af05959
 
 COCOAPODS: 1.11.2
