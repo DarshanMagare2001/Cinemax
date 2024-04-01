@@ -69,7 +69,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func fetchMovieData(completionHandler:@escaping()->()){
         if let data = self.movieData{
-            interactor.fetchMovieDetail(movieId: data.id)
+            interactor.fetchMovieDetail(movieId: data.id ?? 0)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
@@ -88,7 +88,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func fetchSimilarMovies(completionHandler:@escaping()->()){
         if let data = self.movieData{
-            interactor.fetchMovieSimilar(movieId: data.id, page: 1)
+            interactor.fetchMovieSimilar(movieId: data.id ?? 0, page: 1)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
@@ -104,7 +104,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func fetchMovieVideos(completionHandler:@escaping()->()){
         if let data = self.movieData{
-            interactor.fetchMovieVideos(movieId: data.id)
+            interactor.fetchMovieVideos(movieId: data.id ?? 0)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):

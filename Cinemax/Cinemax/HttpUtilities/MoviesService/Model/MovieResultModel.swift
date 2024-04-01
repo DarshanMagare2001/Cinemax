@@ -10,9 +10,9 @@ import Foundation
 
 // MARK: - MovieResultModel
 struct MovieResultModel: Codable {
-    let page: Int
+    let page: Int?
     let results: [MasterMovieModelResult]?
-    let totalPages, totalResults: Int
+    let totalPages, totalResults: Int?
     
     enum CodingKeys: String, CodingKey {
         case page, results

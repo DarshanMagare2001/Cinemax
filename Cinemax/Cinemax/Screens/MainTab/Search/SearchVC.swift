@@ -32,10 +32,10 @@ class SearchVC: UIViewController {
 extension SearchVC: SearchVCProtocol {
     func bindSearchBar(){
         searchBarOutlet.rx.text.orEmpty
-            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .debounce(.microseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribe { [weak self] (query) in
-              
-            }.disposed(by: disposeBag)
+            .skip(1)
+            .bind(to: presenter!.searchQuery)
+            .disposed(by: disposeBag)
     }
 }

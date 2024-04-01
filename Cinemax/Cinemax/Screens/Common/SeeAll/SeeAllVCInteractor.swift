@@ -121,7 +121,7 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
             let dispatchGroup = DispatchGroup()
             for movie in movies {
                 dispatchGroup.enter()
-                self.movieServiceManager.fetchMovieDetail(movieId: movie.id)
+                self.movieServiceManager.fetchMovieDetail(movieId: movie.id ?? 0)
                     .subscribe(onSuccess: { movieDetails in
                         tempArray.append(movieDetails)
                         dispatchGroup.leave()

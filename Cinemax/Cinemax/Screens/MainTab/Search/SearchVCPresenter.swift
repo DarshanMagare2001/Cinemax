@@ -34,7 +34,26 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
     }
     
     func loadDatasource(){
-     
+        searchQuery
+            .map({$0})
+            .subscribe({ data in
+                if let query = data.element{
+                    print(query)
+                    self.fetchSearchedMovies(query:query)
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func fetchSearchedMovies(query:String){
+        interactor.fetchMovieSearch(searchText: query, page: 1)
+            .subscribe({ data in
+                switch data {
+                case.success(let movies):
+                    print(movies)
+                case.failure(let error):
+                    print(error)
+                }
+            }).disposed(by: disposeBag)
     }
     
 }
