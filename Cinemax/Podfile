@@ -9,6 +9,5 @@ target 'Cinemax' do
   pod 'JXPageControl'
   pod 'IQKeyboardManagerSwift'
   pod 'FSPagerView'
-  pod 'YouTubePlayer'
   pod 'YoutubePlayer-in-WKWebView'
 end

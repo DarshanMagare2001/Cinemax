@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import YouTubePlayer
+import YoutubePlayer_in_WKWebView
 
 protocol TVShowDetailsVCProtocol: AnyObject {
     func updateUI(tvShowDetails: TVShowDetailsResponseModel)
@@ -23,7 +23,7 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowOverviewLbl: UILabel!
     @IBOutlet weak var tvShowsSeasonsTBLViewOutlet: UITableView!
     @IBOutlet weak var tvShowActorsCollectionViewOutlet: UICollectionView!
-    @IBOutlet weak var tvShowTrailerPlayerView: YouTubePlayerView!
+    @IBOutlet weak var tvShowTrailerPlayerView: WKYTPlayerView!
     @IBOutlet weak var similarTVShowsCollectionViewOutlet: UICollectionView!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
@@ -90,27 +90,23 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
            let results = tvShowTrailer.results,
            !results.isEmpty,
            let trailerKey = results[0].key {
-            if let tvShowTrailerUrl = URL(string: "https://www.youtube.com/watch?v=\(trailerKey)") {
-                DispatchQueue.main.async { [weak self] in
-                    self?.tvShowTrailerPlayerView.loadVideoURL(tvShowTrailerUrl)
-                }
+            DispatchQueue.main.async { [weak self] in
+                self?.tvShowTrailerPlayerView.load(withVideoId:trailerKey)
             }
         }else{
-            if let tvShowTrailerUrl = URL(string: "https://www.youtube.com/watch?v=") {
-                DispatchQueue.main.async { [weak self] in
-                    self?.tvShowTrailerPlayerView.loadVideoURL(tvShowTrailerUrl)
-                }
+            DispatchQueue.main.async { [weak self] in
+                self?.tvShowTrailerPlayerView.load(withVideoId: "")
             }
         }
     }
     
     private func manageVideoState(tag:Int){
         if tag == 0 {
-            tvShowTrailerPlayerView.play()
+            tvShowTrailerPlayerView.playVideo()
         }else if tag == 1 {
-            tvShowTrailerPlayerView.pause()
+            tvShowTrailerPlayerView.pauseVideo()
         }else if tag == 2 {
-            tvShowTrailerPlayerView.stop()
+            tvShowTrailerPlayerView.stopVideo()
         }
     }
     
