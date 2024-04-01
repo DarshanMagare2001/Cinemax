@@ -40,6 +40,9 @@
 		13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AF52BA33591005E2BCA /* DetailVC.swift */; };
 		13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */; };
 		133AD5742BA07BF7007A45C5 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133AD5732BA07BF6007A45C5 /* DataTests.swift */; };
+		134542592BBAA9710068E44F /* SearchVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134542582BBAA9710068E44F /* SearchVCInteractor.swift */; };
+		1345425B2BBAA9850068E44F /* SearchVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345425A2BBAA9850068E44F /* SearchVCPresenter.swift */; };
+		1345425D2BBAA98E0068E44F /* SearchVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345425C2BBAA98E0068E44F /* SearchVCRouter.swift */; };
 		134ECC082B6766FC004BCAC2 /* NavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */; };
 		134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC092B676C2B004BCAC2 /* SignUpVC.swift */; };
 		134ECC0C2B676C7C004BCAC2 /* SignUpVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */; };
@@ -209,6 +212,9 @@
 		13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCBuilder.swift; sourceTree = "<group>"; };
 		133AD56C2BA07BF6007A45C5 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		133AD5732BA07BF6007A45C5 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		134542582BBAA9710068E44F /* SearchVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCInteractor.swift; sourceTree = "<group>"; };
+		1345425A2BBAA9850068E44F /* SearchVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCPresenter.swift; sourceTree = "<group>"; };
+		1345425C2BBAA98E0068E44F /* SearchVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCRouter.swift; sourceTree = "<group>"; };
 		134ECC072B6766FC004BCAC2 /* NavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFactory.swift; sourceTree = "<group>"; };
 		134ECC092B676C2B004BCAC2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		134ECC0B2B676C7C004BCAC2 /* SignUpVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCBuilder.swift; sourceTree = "<group>"; };
@@ -940,6 +946,9 @@
 			isa = PBXGroup;
 			children = (
 				13C74DE02B6B62D9009CA6DB /* SearchVC.swift */,
+				134542582BBAA9710068E44F /* SearchVCInteractor.swift */,
+				1345425A2BBAA9850068E44F /* SearchVCPresenter.swift */,
+				1345425C2BBAA98E0068E44F /* SearchVCRouter.swift */,
 				13C74DE22B6B630C009CA6DB /* SearchVCBuilder.swift */,
 			);
 			path = Search;
@@ -1246,6 +1255,7 @@
 				13BA5F782B627F8C005EDA19 /* UserdefaultRepositoryManager.swift in Sources */,
 				1389E5502BB4242B00884FF3 /* TVShowDetailsVCRouter.swift in Sources */,
 				139C228C2B612F780082DBDD /* UIColors+Extensions.swift in Sources */,
+				1345425D2BBAA98E0068E44F /* SearchVCRouter.swift in Sources */,
 				13C74DE32B6B630C009CA6DB /* SearchVCBuilder.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
 				13C74DE12B6B62D9009CA6DB /* SearchVC.swift in Sources */,
@@ -1276,6 +1286,7 @@
 				13305D542B726571007B74D4 /* MoviesCollectionViewCell.swift in Sources */,
 				13C713A12BA1C3E6009DA2A5 /* MovieResultModel.swift in Sources */,
 				13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */,
+				134542592BBAA9710068E44F /* SearchVCInteractor.swift in Sources */,
 				139531D22B9746ED00B2BCAA /* HttpRouter.swift in Sources */,
 				13C74DED2B6B6403009CA6DB /* ProfileVCBuilder.swift in Sources */,
 				13AB6D982BB6C4C10010D248 /* TVShowSimilarVCTBLCell.swift in Sources */,
@@ -1339,6 +1350,7 @@
 				13C74DE92B6B6390009CA6DB /* DownloadVCBuilder.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13AB6D932BB6BA690010D248 /* TVShowSimilarVCPresenter.swift in Sources */,
+				1345425B2BBAA9850068E44F /* SearchVCPresenter.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
