@@ -23,6 +23,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindSearchBar()
+        bindTblView()
         presenter?.viewDidload()
     }
     
@@ -38,4 +39,13 @@ extension SearchVC: SearchVCProtocol {
             .bind(to: presenter!.searchQuery)
             .disposed(by: disposeBag)
     }
+    
+    func bindTblView(){
+        presenter?.moviesSearchResults
+            .observeOn(MainScheduler.instance)
+            .subscribe({ data in
+                print(data.element?.results)
+            }).disposed(by: disposeBag)
+    }
+    
 }
