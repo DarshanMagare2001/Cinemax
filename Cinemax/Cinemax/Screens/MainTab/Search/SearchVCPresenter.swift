@@ -12,7 +12,8 @@ import RxCocoa
 protocol SearchVCPresenterProtocol {
     func viewDidload()
     var searchQuery: BehaviorRelay<String> { get set }
-    var datasource : MasterMovieModel? { get set }
+    var moviesDatasource : MasterMovieModel? { get set }
+    var tvShowsDatasource : MasterMovieModel? { get set }
 }
 
 class SearchVCPresenter {
@@ -20,14 +21,10 @@ class SearchVCPresenter {
     var interactor: SearchVCInteractorProtocol
     var router: SearchVCRouterProtocol
     var searchQuery = BehaviorRelay<String>(value: "")
-    var datasource : MasterMovieModel? {
-        didSet{
-            DispatchQueue.main.async { [weak self] in
-                self?.view?.updateUI()
-            }
-        }
-    }
+    var moviesDatasource : MasterMovieModel?
+    var tvShowsDatasource : MasterMovieModel?
     let disposeBag = DisposeBag()
+    let dispatchGroup = DispatchGroup()
     init(view: SearchVCProtocol,interactor: SearchVCInteractorProtocol,router: SearchVCRouterProtocol){
         self.view = view
         self.interactor = interactor
@@ -48,22 +45,50 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
             .subscribe({ data in
                 if let query = data.element{
                     print(query)
-                    self.fetchSearchedMovies(query:query)
+                    self.fetchSearchedMoviesAndTVShows(query:query)
                 }
             }).disposed(by: disposeBag)
     }
     
-    private func fetchSearchedMovies(query:String){
-        interactor.fetchMovieSearch(searchText: query, page: 1)
+    private func fetchSearchedMoviesAndTVShows(query:String){
+        dispatchGroup.enter()
+        fetchSearchedMovies(searchText: query, page: 1) {
+            self.dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        fetchSearcedTVShows(searchText: query, page: 1) {
+            self.dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main){ [weak self] in
+            self?.view?.updateUI()
+        }
+    }
+    
+    private func fetchSearchedMovies(searchText: String, page: Int,completion:@escaping()->()){
+        interactor.fetchMovieSearch(searchText: searchText, page: page)
             .subscribe({ data in
                 switch data {
                 case.success(let movies):
                     let moviesData = MasterMovieModel(dates: nil, page: movies.page ?? 0, results: movies.results ?? [], totalPages: movies.totalPages ?? 0, totalResults: movies.totalResults ?? 0)
-                    print(moviesData)
-                    self.datasource = moviesData
+                    self.moviesDatasource = moviesData
                 case.failure(let error):
                     print(error)
                 }
+                completion()
+            }).disposed(by: disposeBag)
+    }
+    
+    private func fetchSearcedTVShows(searchText: String, page: Int,completion:@escaping()->()){
+        interactor.fetchTVShowSearch(searchText: searchText, page: page)
+            .subscribe({ data in
+                switch data {
+                case.success(let tvShows):
+                    let tvShowsData = MasterMovieModel(dates: nil, page: tvShows.page ?? 0, results: tvShows.results ?? [], totalPages: tvShows.totalPages ?? 0, totalResults: tvShows.totalResults ?? 0)
+                    self.tvShowsDatasource = tvShowsData
+                case.failure(let error):
+                    print(error)
+                }
+                completion()
             }).disposed(by: disposeBag)
     }
     

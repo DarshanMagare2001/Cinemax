@@ -23,6 +23,7 @@ enum MoviesRouter: HttpRouterProtocol {
     case tvShowsCast(showId:Int)
     case tvShowsVideos(showId:Int)
     case tvShowSimilar(similarId:Int,page:Int)
+    case tvShowSearch(searchText: String,page:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -56,6 +57,8 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/tv/\(showId)/videos?api_key=38a73d59546aa378980a88b645f487fc&language=en-US"
         case .tvShowSimilar(let similarId,let page):
             return "/tv/\(similarId)/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)"
+        case .tvShowSearch(let searchText,let page):
+            return "/search/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)&query=\(searchText)"
         }
     }
     
@@ -91,3 +94,5 @@ enum MoviesRouter: HttpRouterProtocol {
 //"https://api.themoviedb.org/3/movie/top_rated?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1"
 
 //https://api.themoviedb.org/3/tv/5583/similar?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=500
+
+//https://api.themoviedb.org/3/search/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1&query=Jumanji

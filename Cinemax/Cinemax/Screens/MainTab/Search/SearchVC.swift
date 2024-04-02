@@ -83,18 +83,37 @@ extension SearchVC: SearchVCProtocol {
 
 extension SearchVC: UITableViewDelegate,UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0{
+            return 1
+        }else if section == 1{
+            return 1
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! MoviesCell
-        guard let cellData = presenter?.datasource else {
-            return UITableViewCell()
+        if indexPath.section == 0{
+            guard let cellData = presenter?.moviesDatasource else {
+                return UITableViewCell()
+            }
+            cell.dataSource = cellData
+            cell.cellTitleData = "Movies"
+            return cell
+        }else if indexPath.section == 1{
+            guard let cellData = presenter?.tvShowsDatasource else {
+                return UITableViewCell()
+            }
+            cell.dataSource = cellData
+            cell.cellTitleData = "TV Shows"
+            return cell
         }
-        cell.dataSource = cellData
-        cell.cellTitleData = "Movies"
-        return cell
+        return UITableViewCell()
     }
     
 }
