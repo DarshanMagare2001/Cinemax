@@ -27,6 +27,16 @@ class SearchVC: UIViewController {
         presenter?.viewDidload()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
 }
 
 extension SearchVC: SearchVCProtocol {
@@ -36,6 +46,7 @@ extension SearchVC: SearchVCProtocol {
             .debounce(.microseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .skip(1)
+            .filter { !$0.isEmpty }
             .bind(to: presenter!.searchQuery)
             .disposed(by: disposeBag)
     }
