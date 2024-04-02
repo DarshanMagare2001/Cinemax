@@ -17,6 +17,8 @@ class SearchVC: UIViewController {
     
     @IBOutlet weak var searchBarOutlet: UITextField!
     @IBOutlet weak var searchResultTblOutlet: UITableView!
+    @IBOutlet weak var searchMessageView: UIView!
+    
     var presenter: SearchVCPresenterProtocol?
     let disposeBag = DisposeBag()
     
@@ -41,6 +43,12 @@ class SearchVC: UIViewController {
     
     @IBAction func clearSearchbtnPressed(_ sender: UIButton) {
         searchBarOutlet.text = nil
+        UIView.transition(with: searchMessageView,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.searchMessageView.isHidden = false
+        },completion: nil)
     }
     
 }
@@ -51,7 +59,6 @@ extension SearchVC: SearchVCProtocol {
         searchBarOutlet.rx.text.orEmpty
             .debounce(.microseconds(600), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .skip(1)
             .filter { !$0.isEmpty }
             .bind(to: presenter!.searchQuery)
             .disposed(by: disposeBag)
@@ -63,7 +70,13 @@ extension SearchVC: SearchVCProtocol {
     }
     
     func updateUI(){
-        searchResultTblOutlet.reloadData()
+        UIView.transition(with: searchResultTblOutlet,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.searchResultTblOutlet.reloadData()
+            self.searchMessageView.isHidden = true
+        },completion: nil)
     }
     
 }

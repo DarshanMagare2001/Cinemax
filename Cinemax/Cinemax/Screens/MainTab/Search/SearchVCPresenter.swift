@@ -43,6 +43,7 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
     
     func loadDatasource(){
         searchQuery
+            .skip(1)
             .map({$0})
             .subscribe({ data in
                 if let query = data.element{
