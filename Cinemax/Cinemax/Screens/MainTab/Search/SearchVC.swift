@@ -15,7 +15,7 @@ protocol SearchVCProtocol: AnyObject {
 
 class SearchVC: UIViewController {
     
-    @IBOutlet weak var searchBarOutlet: UISearchBar!
+    @IBOutlet weak var searchBarOutlet: UITextField!
     @IBOutlet weak var searchResultTblOutlet: UITableView!
     var presenter: SearchVCPresenterProtocol?
     let disposeBag = DisposeBag()
@@ -37,13 +37,19 @@ class SearchVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    
+    
+    @IBAction func clearSearchbtnPressed(_ sender: UIButton) {
+        searchBarOutlet.text = nil
+    }
+    
 }
 
 extension SearchVC: SearchVCProtocol {
     
     func bindSearchBar(){
         searchBarOutlet.rx.text.orEmpty
-            .debounce(.microseconds(300), scheduler: MainScheduler.instance)
+            .debounce(.microseconds(600), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .skip(1)
             .filter { !$0.isEmpty }
