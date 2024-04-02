@@ -472,8 +472,8 @@
 				13374AF52BA33591005E2BCA /* DetailVC.swift */,
 				13297AEB2BA4556D0039F0B8 /* DetailVCInteractor.swift */,
 				13297AED2BA4557D0039F0B8 /* DetailVCPresenter.swift */,
-				13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */,
 				1371E5432BAAF1EE005246D6 /* DetailVCRouter.swift */,
+				13374AF72BA335A2005E2BCA /* DetailVCBuilder.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";

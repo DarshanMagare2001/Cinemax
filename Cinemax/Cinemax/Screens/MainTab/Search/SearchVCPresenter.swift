@@ -11,6 +11,8 @@ import RxCocoa
 
 protocol SearchVCPresenterProtocol {
     func viewDidload()
+    func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     var searchQuery: BehaviorRelay<String> { get set }
     var moviesDatasource : MasterMovieModel? { get set }
     var tvShowsDatasource : MasterMovieModel? { get set }
@@ -90,6 +92,14 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
                 }
                 completion()
             }).disposed(by: disposeBag)
+    }
+    
+    func gotoDetailVC(movieData: MasterMovieModelResult?){
+        router.gotoDetailVC(movieData: movieData)
+    }
+    
+    func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
+        router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
     }
     
 }

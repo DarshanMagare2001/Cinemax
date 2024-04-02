@@ -104,6 +104,12 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
             }
             cell.dataSource = cellData
             cell.cellTitleData = "Movies"
+            cell.cellTappedClosure = { [weak self] data in
+                self?.presenter?.gotoDetailVC(movieData: data)
+            }
+            cell.seeAllBtnPressedClosure = { [weak self] in
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: self?.searchBarOutlet.text , movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieSearch)
+            }
             return cell
         }else if indexPath.section == 1{
             guard let cellData = presenter?.tvShowsDatasource else {
