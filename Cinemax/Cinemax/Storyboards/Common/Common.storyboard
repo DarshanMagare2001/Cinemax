@@ -1865,29 +1865,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowSimilarVCTBLCell" rowHeight="400" id="Vtv-uR-rGy" customClass="TVShowSimilarVCTBLCell" customModule="Cinemax" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="400"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowSimilarVCTBLCell" rowHeight="353" id="Vtv-uR-rGy" customClass="TVShowSimilarVCTBLCell" customModule="Cinemax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="353"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vtv-uR-rGy" id="TZ5-y9-OPI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="353"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRQ-BQ-eMV">
-                                                    <rect key="frame" x="20" y="11" width="374" height="378"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="331"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="14T-1l-o2M">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="378"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="331"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExD-UV-UNV" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-3S-p3C">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-3S-p3C">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="300" id="NXd-J4-BJm"/>
+                                                                        <constraint firstAttribute="height" constant="250" id="NXd-J4-BJm"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Li7-3S-p3C" secondAttribute="trailing" id="XcG-kA-cYY"/>
                                                                         <constraint firstItem="Li7-3S-p3C" firstAttribute="leading" secondItem="ExD-UV-UNV" secondAttribute="leading" id="dqi-hp-QUx"/>
                                                                         <constraint firstItem="Li7-3S-p3C" firstAttribute="top" secondItem="ExD-UV-UNV" secondAttribute="top" id="j8c-cr-lcL"/>
@@ -1903,7 +1903,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMs-Sd-Ufe">
-                                                                    <rect key="frame" x="0.0" y="305" width="374" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="255" width="374" height="30"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="fal-60-Eqr"/>
@@ -1913,10 +1913,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8zr-Sw-tTB">
-                                                                    <rect key="frame" x="0.0" y="340" width="374" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="290" width="374" height="41"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppCalender" translatesAutoresizingMaskIntoConstraints="NO" id="75C-da-nlM">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="38"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="41"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="Du0-Y1-I6K"/>
@@ -1924,7 +1924,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-PG-mBw">
-                                                                            <rect key="frame" x="35" y="0.0" width="339" height="38"/>
+                                                                            <rect key="frame" x="35" y="0.0" width="339" height="41"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
