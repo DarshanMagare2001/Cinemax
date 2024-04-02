@@ -35,6 +35,7 @@ struct MasterMovieModelResult: Codable {
     let originalLanguage, originalTitle, overview: String?
     let popularity: Double?
     let posterPath, releaseDate, title: String?
+    let name: String?
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
@@ -49,7 +50,7 @@ struct MasterMovieModelResult: Codable {
         case overview, popularity
         case posterPath = "poster_path"
         case releaseDate = "release_date"
-        case title, video
+        case title, video , name
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
