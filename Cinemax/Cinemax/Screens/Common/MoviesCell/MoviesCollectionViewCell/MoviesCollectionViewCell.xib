@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,10 +22,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbP-Tp-2bQ">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-tj-Nwi">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-tj-Nwi" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="225" width="200" height="75"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="C8i-yY-YDC">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C8i-yY-YDC">
                                         <rect key="frame" x="10" y="5" width="185" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mk5-XR-ksI">
@@ -36,7 +35,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oo8-gS-fvd">
-                                                <rect key="frame" x="0.0" y="48" width="185" height="12"/>
+                                                <rect key="frame" x="0.0" y="47" width="185" height="13"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -47,13 +46,21 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" name="AppDark1"/>
+                                <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="0.80569003275688122" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="C8i-yY-YDC" secondAttribute="trailing" constant="5" id="5Eh-Dm-cj9"/>
                                     <constraint firstAttribute="bottom" secondItem="C8i-yY-YDC" secondAttribute="bottom" constant="10" id="JKn-ar-z0t"/>
                                     <constraint firstItem="C8i-yY-YDC" firstAttribute="top" secondItem="GqK-tj-Nwi" secondAttribute="top" constant="5" id="mkj-RT-GOO"/>
                                     <constraint firstItem="C8i-yY-YDC" firstAttribute="leading" secondItem="GqK-tj-Nwi" secondAttribute="leading" constant="10" id="rdp-UQ-dFq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-jy-Fpe" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
                                 <rect key="frame" x="120" y="20" width="70" height="30"/>
@@ -164,8 +171,5 @@
     </objects>
     <resources>
         <image name="AppRatingIcon" width="16" height="16"/>
-        <namedColor name="AppDark1">
-            <color red="0.14509803921568629" green="0.15686274509803921" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
