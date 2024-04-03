@@ -65,11 +65,16 @@ extension OnboardingVC: OnboardingVCProtocol {
             frontImg.isHidden = true
             backgroundImg.image = datasource.img
         }else{
-            backgroundImg.isHidden = true
-            frontImg.isHidden = false
-            frontImg.image = datasource.img
-            headlineLbl.text = datasource.headline
-            subHeadlineLbl.text = datasource.subHeadline
+            UIView.transition(with: frontImg,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                self.backgroundImg.isHidden = true
+                self.frontImg.isHidden = false
+                self.frontImg.image = datasource.img
+                self.headlineLbl.text = datasource.headline
+                self.subHeadlineLbl.text = datasource.subHeadline
+            },completion: nil)
         }
     }
     
