@@ -1,18 +1,19 @@
 //
-//  DownloadVC.swift
+//  GenresVC.swift
 //  Cinemax
 //
-//  Created by IPS-161 on 01/02/24.
+//  Created by IPS-161 on 03/04/24.
 //
 
 import UIKit
 
-class DownloadVC: UIViewController {
+class GenresVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+
 
 }

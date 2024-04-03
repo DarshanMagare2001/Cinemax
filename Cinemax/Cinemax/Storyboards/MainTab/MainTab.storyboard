@@ -37,13 +37,13 @@
                                                 <rect key="frame" x="0.0" y="7" width="414" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-lc-CfC">
-                                                        <rect key="frame" x="-14.5" y="5" width="443" height="50"/>
+                                                        <rect key="frame" x="-66.5" y="5" width="547" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-g3-dlf" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M9u-51-wcr">
-                                                                        <rect key="frame" x="10" y="5" width="70.5" height="40"/>
+                                                                        <rect key="frame" x="10" y="5" width="71.5" height="40"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-E4-QUu">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
@@ -58,7 +58,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-Z0-FMp">
-                                                                                <rect key="frame" x="25" y="0.0" width="45.5" height="40"/>
+                                                                                <rect key="frame" x="25" y="0.0" width="46.5" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="15G-nj-Hmc"/>
                                                                                 </constraints>
@@ -89,7 +89,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-C7-YZc" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="105.5" y="0.0" width="96.5" height="50"/>
+                                                                <rect key="frame" x="106.5" y="0.0" width="96.5" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yOz-dA-Fvq">
                                                                         <rect key="frame" x="10" y="5" width="76.5" height="40"/>
@@ -137,28 +137,28 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wim-wX-QLI" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="217" y="0.0" width="118" height="50"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ati-2h-EtU" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="218" y="0.0" width="97.5" height="50"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="64v-Za-JcO">
-                                                                        <rect key="frame" x="10" y="5" width="98" height="40"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w2M-kT-JIW">
+                                                                        <rect key="frame" x="10" y="5" width="77.5" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s58-ad-vQq">
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pb1-No-bZM">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="20" id="Wrf-pa-TdS"/>
+                                                                                    <constraint firstAttribute="width" constant="20" id="YFL-S3-9pu"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="Button"/>
-                                                                                <buttonConfiguration key="configuration" style="plain" image="DownloadBtn"/>
+                                                                                <buttonConfiguration key="configuration" style="plain" image="text.justify" catalog="system"/>
                                                                                 <connections>
-                                                                                    <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wed-lW-0Z7"/>
+                                                                                    <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aMe-a2-tHF"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9O-lo-RRH">
-                                                                                <rect key="frame" x="25" y="0.0" width="73" height="40"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-a8-yS2">
+                                                                                <rect key="frame" x="25" y="0.0" width="52.5" height="40"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="ooc-eP-0uY"/>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="aJl-Ps-hNF"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,10 +169,59 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="AppDark1"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="64v-Za-JcO" secondAttribute="bottom" constant="5" id="2tl-q7-kuX"/>
-                                                                    <constraint firstItem="64v-Za-JcO" firstAttribute="top" secondItem="Wim-wX-QLI" secondAttribute="top" constant="5" id="DEL-8i-qjD"/>
-                                                                    <constraint firstItem="64v-Za-JcO" firstAttribute="leading" secondItem="Wim-wX-QLI" secondAttribute="leading" constant="10" id="VnZ-7z-Jcz"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="64v-Za-JcO" secondAttribute="trailing" constant="10" id="Zaq-UW-vR1"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="w2M-kT-JIW" secondAttribute="bottom" constant="5" id="3u8-Uk-eN7"/>
+                                                                    <constraint firstItem="w2M-kT-JIW" firstAttribute="top" secondItem="ati-2h-EtU" secondAttribute="top" constant="5" id="RaF-Fp-yVX"/>
+                                                                    <constraint firstItem="w2M-kT-JIW" firstAttribute="leading" secondItem="ati-2h-EtU" secondAttribute="leading" constant="10" id="lHC-Qk-F5H"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="w2M-kT-JIW" secondAttribute="trailing" constant="10" id="vJb-g2-gJf"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="AppDark1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-jh-Z8Z" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
+                                                                <rect key="frame" x="330.5" y="0.0" width="108.5" height="50"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ukz-v1-Wns">
+                                                                        <rect key="frame" x="10" y="5" width="88.5" height="40"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amq-XL-Phu">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="20" id="uVa-D5-7fi"/>
+                                                                                </constraints>
+                                                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <state key="normal" title="Button"/>
+                                                                                <buttonConfiguration key="configuration" style="plain" image="bookmark.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PtB-S4-tuh"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-eX-ONa">
+                                                                                <rect key="frame" x="25" y="0.0" width="63.5" height="40"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="qty-Dc-wFp"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" name="AppDark1"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="ukz-v1-Wns" secondAttribute="bottom" constant="5" id="aXv-rL-5Ad"/>
+                                                                    <constraint firstItem="ukz-v1-Wns" firstAttribute="leading" secondItem="XyR-jh-Z8Z" secondAttribute="leading" constant="10" id="mRV-BY-khy"/>
+                                                                    <constraint firstItem="ukz-v1-Wns" firstAttribute="top" secondItem="XyR-jh-Z8Z" secondAttribute="top" constant="5" id="ovH-H6-HL2"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ukz-v1-Wns" secondAttribute="trailing" constant="10" id="zKT-xX-TOr"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -187,12 +236,12 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piV-dY-5ph" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                                                <rect key="frame" x="350" y="0.0" width="93" height="50"/>
+                                                                <rect key="frame" x="454" y="0.0" width="93" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zvQ-MA-DAz">
                                                                         <rect key="frame" x="10" y="5" width="73" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FS-c3-45B">
+                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FS-c3-45B">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="20" id="dNb-Gr-qWm"/>
@@ -261,9 +310,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="downloadBtn" destination="s58-ad-vQq" id="hnz-UA-gBs"/>
-                        <outlet property="downloadBtnLbl" destination="v9O-lo-RRH" id="eQj-co-G6F"/>
-                        <outlet property="downloadBtnView" destination="Wim-wX-QLI" id="nsg-to-8Gm"/>
+                        <outlet property="genresBtn" destination="Pb1-No-bZM" id="sRk-Eh-DA2"/>
+                        <outlet property="genresBtnLbl" destination="QP2-a8-yS2" id="C0E-mQ-6NQ"/>
+                        <outlet property="genresBtnView" destination="ati-2h-EtU" id="Iin-Ml-Chl"/>
                         <outlet property="homeBtn" destination="vEg-E4-QUu" id="CSY-pQ-sJj"/>
                         <outlet property="homeBtnLbl" destination="HvB-Z0-FMp" id="jNi-Uy-3J0"/>
                         <outlet property="homeBtnView" destination="0AF-g3-dlf" id="XxR-Fy-sK7"/>
@@ -274,6 +323,9 @@
                         <outlet property="searchBtn" destination="1oJ-S0-cEP" id="Ynv-Ni-fat"/>
                         <outlet property="searchBtnLbl" destination="L7F-ci-i9H" id="eYL-j7-Mn1"/>
                         <outlet property="searchBtnView" destination="n7d-C7-YZc" id="7B4-1Y-bUh"/>
+                        <outlet property="wishlistBtn" destination="amq-XL-Phu" id="j1Y-fU-WGA"/>
+                        <outlet property="wishlistBtnView" destination="XyR-jh-Z8Z" id="Kvq-J1-71A"/>
+                        <outlet property="wishlistLbl" destination="bfU-eX-ONa" id="fBQ-cw-xBs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -282,10 +334,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DownloadBtn" width="24" height="24"/>
         <image name="HomeBtn" width="19" height="17"/>
         <image name="PersonBtn" width="24" height="24"/>
         <image name="SearchBtn" width="24" height="24"/>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -11,14 +11,17 @@ class MainTabVC: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var homeBtnLbl: UILabel!
     @IBOutlet weak var searchBtnLbl: UILabel!
-    @IBOutlet weak var downloadBtnLbl: UILabel!
+    @IBOutlet weak var genresBtnLbl: UILabel!
+    @IBOutlet weak var wishlistLbl: UILabel!
     @IBOutlet weak var profileBtnLbl: UILabel!
     @IBOutlet weak var homeBtn: UIButton!
     @IBOutlet weak var homeBtnView: RoundedCornerView!
     @IBOutlet weak var searchBtnView: RoundedCornerView!
     @IBOutlet weak var searchBtn: UIButton!
-    @IBOutlet weak var downloadBtnView: RoundedCornerView!
-    @IBOutlet weak var downloadBtn: UIButton!
+    @IBOutlet weak var genresBtnView: RoundedCornerView!
+    @IBOutlet weak var genresBtn: UIButton!
+    @IBOutlet weak var wishlistBtnView: RoundedCornerView!
+    @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var personBtnView: RoundedCornerView!
     @IBOutlet weak var personBtn: UIButton!
     
@@ -47,10 +50,12 @@ extension MainTabVC {
     }
     
     private func updateTabUI() {
+        
         let tabs: [(UILabel, RoundedCornerView, UIButton)] = [
             (homeBtnLbl, homeBtnView, homeBtn),
             (searchBtnLbl, searchBtnView, searchBtn),
-            (downloadBtnLbl, downloadBtnView, downloadBtn),
+            (genresBtnLbl, genresBtnView, genresBtn),
+            (wishlistLbl, wishlistBtnView, wishlistBtn),
             (profileBtnLbl, personBtnView, personBtn)
         ]
         
@@ -72,8 +77,10 @@ extension MainTabVC {
             showChildViewController(HomeVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         case .search:
             showChildViewController(SearchVCBuilder.build(factor: NavigationFactory.build(rootView:)))
-        case .download:
-            showChildViewController(DownloadVCBuilder.build(factor: NavigationFactory.build(rootView:)))
+        case.genres:
+            showChildViewController(GenresVCBuilder.build(factor: NavigationFactory.build(rootView:)))
+        case.wishList:
+            showChildViewController(WishListVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         case .profile:
             showChildViewController(ProfileVCBuilder.build(factor: NavigationFactory.build(rootView:)))
         }
@@ -102,5 +109,5 @@ extension MainTabVC {
 }
 
 enum Tab: Int {
-    case home = 0, search, download, profile
+    case home = 0,search,genres,wishList,profile
 }

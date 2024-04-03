@@ -14,7 +14,8 @@ extension UIStoryboard {
     static let MainTab = UIStoryboard(name: "MainTab", bundle: nil)
     static let Home = UIStoryboard(name: "Home", bundle: nil)
     static let Search = UIStoryboard(name: "Search", bundle: nil)
-    static let Download = UIStoryboard(name: "Download", bundle: nil)
+    static let Genres = UIStoryboard(name: "Genres", bundle: nil)
+    static let WishList = UIStoryboard(name: "WishList", bundle: nil)
     static let Profile = UIStoryboard(name: "Profile", bundle: nil)
     static let Common = UIStoryboard(name: "Common", bundle: nil)
 }
