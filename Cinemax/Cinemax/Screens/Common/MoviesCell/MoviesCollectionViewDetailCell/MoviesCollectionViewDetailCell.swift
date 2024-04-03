@@ -18,6 +18,17 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
     @IBOutlet weak var movieOverviewLbl: UILabel!
     @IBOutlet weak var movieRatingLbl: UILabel!
     
+    override func prepareForReuse() {
+        movieImg.image = nil
+        movieNameLbl.text = nil
+        movieReleaseDate.text = nil
+        movieDuration.text = nil
+        movieGenereLbl.text = nil
+        movieLanguageLbl.text = nil
+        movieOverviewLbl.text = nil
+        movieRatingLbl.text = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
