@@ -22,26 +22,38 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configure(movie:MovieDetailsModel){
-        if let movieImgUrl = movie.posterPath,
-           let movieName = movie.title,
-           let moviereleaseDate = movie.releaseDate,
-           let movieDuration = movie.runtime,
-           let movieGenere = movie.genres?[0].name,
-           let movieLanguage = movie.originalLanguage,
-           let movieOverview = movie.overview,
-           let movieVoteAverage = movie.voteAverage {
-            let imgUrl = "https://image.tmdb.org/t/p/w500\(movieImgUrl)"
-            self.movieImg.loadImage(urlString: imgUrl, placeholder: "frame.fill")
-            self.movieNameLbl.text = movieName
-            self.movieReleaseDate.text = moviereleaseDate
-            self.movieDuration.text = "\(movieDuration) mins"
-            self.movieGenereLbl.text = movieGenere
-            self.movieLanguageLbl.text = movieLanguage
-            self.movieOverviewLbl.text = movieOverview
-            let movieRating = String(format: "%.1f",movieVoteAverage)
-            self.movieRatingLbl.text = movieRating
+    func configure(cellData:MoviesCollectionViewDetailCellModel){
+        DispatchQueue.main.async { [weak self] in
+            self?.movieImg.loadImage(urlString: cellData.movieImgUrl, placeholder: "frame.fill")
+            self?.movieNameLbl.text = cellData.movieNameLblText
+            self?.movieReleaseDate.text = cellData.movieReleaseDateText
+            self?.movieDuration.text = cellData.movieDurationText
+            self?.movieGenereLbl.text = cellData.movieGenereLblText
+            self?.movieLanguageLbl.text = cellData.movieLanguageLblText
+            self?.movieOverviewLbl.text = cellData.movieOverviewLblText
+            self?.movieRatingLbl.text = String(format: "%.1f",cellData.movieRatingLblText)
         }
     }
     
+}
+
+struct MoviesCollectionViewDetailCellModel {
+    let movieImgUrl:String
+    let movieNameLblText:String
+    let movieReleaseDateText:String
+    let movieDurationText:String
+    let movieGenereLblText:String
+    let movieLanguageLblText:String
+    let movieOverviewLblText:String
+    let movieRatingLblText:Double
+    init(movieImgUrl:String,movieNameLblText:String,movieReleaseDateText:String,movieDurationText:String,movieGenereLblText:String,movieLanguageLblText:String,movieOverviewLblText:String,movieRatingLblText:Double){
+        self.movieImgUrl = "https://image.tmdb.org/t/p/w500\(movieImgUrl)"
+        self.movieNameLblText = movieNameLblText
+        self.movieReleaseDateText = movieReleaseDateText
+        self.movieDurationText = "\(movieDurationText) mins"
+        self.movieGenereLblText = movieGenereLblText
+        self.movieLanguageLblText = movieLanguageLblText
+        self.movieOverviewLblText = movieOverviewLblText
+        self.movieRatingLblText = movieRatingLblText
+    }
 }

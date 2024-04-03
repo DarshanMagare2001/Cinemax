@@ -14,6 +14,13 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellLanguageLbl: UILabel!
     @IBOutlet weak var cellRatingLbl: UILabel!
     
+    override func prepareForReuse() {
+        cellImg.image = nil
+        cellNameLbl.text = nil
+        cellLanguageLbl.text = nil
+        cellRatingLbl.text = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -155,10 +155,18 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
-            if let movie = presenter?.moviesDatasourceIndetail[indexPath.row] {
-                DispatchQueue.main.async { [weak self] in
-                    cell.configure(movie: movie)
-                }
+            if let data = presenter?.moviesDatasourceIndetail[indexPath.row] {
+                let movieImgUrl = data.posterPath ?? ""
+                let movieNameLblText = data.title ?? ""
+                let movieReleaseDateText = data.releaseDate ?? ""
+                let movieDurationText = data.runtime ?? 0
+                let genres = data.genres ?? []
+                let movieGenereLblText = ((genres.isEmpty) ? "" : genres[0].name ?? "" )
+                let movieLanguageLblText = data.originalLanguage ?? ""
+                let movieOverviewLblText = data.overview ?? ""
+                let movieRatingLblText = data.voteAverage ?? 0.0
+                let cellData = MoviesCollectionViewDetailCellModel(movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+                cell.configure(cellData: cellData)
             }
             return cell
         }

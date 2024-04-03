@@ -14,13 +14,11 @@ class MoviesCell: UITableViewCell {
     
     var seeAllBtnPressedClosure : (()->())?
     var cellTappedClosure : ((MasterMovieModelResult?)->())?
-    
     var cellTitleData : String? {
         didSet{
             self.cellTitle.text = cellTitleData
         }
     }
-    
     var dataSource : MasterMovieModel? {
         didSet{
             collectionViewOutlet.reloadData()
