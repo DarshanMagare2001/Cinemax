@@ -112,10 +112,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYg-pV-paO">
-                                <rect key="frame" x="0.0" y="144" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDD-Rj-XLX" customClass="RoundedCornerView" customModule="Cinemax" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="15" width="394" height="70"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-pb-0qh">
                                                 <rect key="frame" x="10" y="10" width="374" height="50"/>
@@ -184,21 +184,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="3Jh-zw-9jC"/>
-                                    <constraint firstAttribute="bottom" secondItem="DDD-Rj-XLX" secondAttribute="bottom" constant="15" id="SPu-3x-Vim"/>
-                                    <constraint firstItem="DDD-Rj-XLX" firstAttribute="top" secondItem="eYg-pV-paO" secondAttribute="top" constant="15" id="e2a-W4-soO"/>
+                                    <constraint firstAttribute="height" constant="90" id="3Jh-zw-9jC"/>
+                                    <constraint firstAttribute="bottom" secondItem="DDD-Rj-XLX" secondAttribute="bottom" constant="10" id="SPu-3x-Vim"/>
+                                    <constraint firstItem="DDD-Rj-XLX" firstAttribute="top" secondItem="eYg-pV-paO" secondAttribute="top" constant="10" id="e2a-W4-soO"/>
                                     <constraint firstAttribute="trailing" secondItem="DDD-Rj-XLX" secondAttribute="trailing" constant="10" id="usv-cC-7Y4"/>
                                     <constraint firstItem="DDD-Rj-XLX" firstAttribute="leading" secondItem="eYg-pV-paO" secondAttribute="leading" constant="10" id="v5Y-2W-ibL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaX-VO-9e3">
-                                <rect key="frame" x="0.0" y="244" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="234" width="414" height="628"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvm-e2-aJ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="618"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SyY-cA-J5w">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="618"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                                 <color key="backgroundColor" name="AppDark1"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowsTableViewCell1" rowHeight="255" id="F0M-Z0-BTY" customClass="TVShowsTableViewCell1" customModule="Cinemax" customModuleProvider="target">
@@ -484,18 +484,18 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-Ci-mCs">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="618"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                         <color key="backgroundColor" name="AppDark1"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="549" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="549"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingMoviesCell" rowHeight="564" id="L73-Vu-V5k" customClass="UpcomingMoviesCell" customModule="Cinemax" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="564"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L73-Vu-V5k" id="qbb-Df-7bc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ccd-8D-qbk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k24-YK-4EE">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -573,13 +573,13 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqF-qO-Mas">
-                                                                    <rect key="frame" x="0.0" y="480" width="414" height="69"/>
+                                                                    <rect key="frame" x="0.0" y="480" width="414" height="84"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0TY-M4-jgX">
-                                                                            <rect key="frame" x="10" y="10" width="394" height="49"/>
+                                                                            <rect key="frame" x="10" y="10" width="394" height="64"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6OZ-YC-H6H">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="19"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="30" id="ZNC-Li-ms1"/>
                                                                                     </constraints>
@@ -592,7 +592,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="9az-RY-9hd">
-                                                                                    <rect key="frame" x="0.0" y="29" width="394" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="44" width="394" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="HGb-8x-8Wf"/>
                                                                                     </constraints>

@@ -57,7 +57,7 @@ extension MainTabVC {
         for (label, view, button) in tabs {
             let isSelectedTab = button.tag == selectedTab.rawValue
             label.isHidden = !isSelectedTab
-            view.backgroundColor = isSelectedTab ? UIColor.appDark1! : UIColor.black
+            view.backgroundColor = isSelectedTab ? UIColor.black : UIColor.appDark1!
             button.tintColor = isSelectedTab ? UIColor.appBlue! : UIColor.gray
             label.textColor = isSelectedTab ? UIColor.appBlue! : UIColor.black
         }
