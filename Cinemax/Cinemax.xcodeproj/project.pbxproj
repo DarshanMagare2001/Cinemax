@@ -125,6 +125,9 @@
 		13ADC99F2BBD6C55000D48D0 /* WishListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC99E2BBD6C55000D48D0 /* WishListVC.swift */; };
 		13ADC9A12BBD6C83000D48D0 /* GenresVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC9A02BBD6C83000D48D0 /* GenresVCBuilder.swift */; };
 		13ADC9A32BBD6D18000D48D0 /* WishListVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC9A22BBD6D18000D48D0 /* WishListVCBuilder.swift */; };
+		13ADC9A52BBD974A000D48D0 /* GenresVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC9A42BBD974A000D48D0 /* GenresVCInteractor.swift */; };
+		13ADC9A72BBD975C000D48D0 /* GenresVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC9A62BBD975C000D48D0 /* GenresVCPresenter.swift */; };
+		13ADC9A92BBD976B000D48D0 /* GenresVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADC9A82BBD976B000D48D0 /* GenresVCRouter.swift */; };
 		13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */; };
 		13B1E6482B6D0E37003DD382 /* EditProfileVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */; };
 		13B1E64A2B6D0FF1003DD382 /* EditProfileVCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */; };
@@ -292,6 +295,9 @@
 		13ADC99E2BBD6C55000D48D0 /* WishListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListVC.swift; sourceTree = "<group>"; };
 		13ADC9A02BBD6C83000D48D0 /* GenresVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresVCBuilder.swift; sourceTree = "<group>"; };
 		13ADC9A22BBD6D18000D48D0 /* WishListVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListVCBuilder.swift; sourceTree = "<group>"; };
+		13ADC9A42BBD974A000D48D0 /* GenresVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresVCInteractor.swift; sourceTree = "<group>"; };
+		13ADC9A62BBD975C000D48D0 /* GenresVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresVCPresenter.swift; sourceTree = "<group>"; };
+		13ADC9A82BBD976B000D48D0 /* GenresVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresVCRouter.swift; sourceTree = "<group>"; };
 		13B1E6452B6D0DFC003DD382 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		13B1E6472B6D0E37003DD382 /* EditProfileVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCBuilder.swift; sourceTree = "<group>"; };
 		13B1E6492B6D0FF1003DD382 /* EditProfileVCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVCInteractor.swift; sourceTree = "<group>"; };
@@ -888,6 +894,9 @@
 			isa = PBXGroup;
 			children = (
 				13ADC99C2BBD6C27000D48D0 /* GenresVC.swift */,
+				13ADC9A42BBD974A000D48D0 /* GenresVCInteractor.swift */,
+				13ADC9A62BBD975C000D48D0 /* GenresVCPresenter.swift */,
+				13ADC9A82BBD976B000D48D0 /* GenresVCRouter.swift */,
 				13ADC9A02BBD6C83000D48D0 /* GenresVCBuilder.swift */,
 			);
 			path = Genres;
@@ -1273,6 +1282,7 @@
 				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */,
+				13ADC9A72BBD975C000D48D0 /* GenresVCPresenter.swift in Sources */,
 				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
 				13AB6D952BB6BA780010D248 /* TVShowSimilarVCRouter.swift in Sources */,
 				13374AF62BA33591005E2BCA /* DetailVC.swift in Sources */,
@@ -1338,6 +1348,7 @@
 				13305D402B721746007B74D4 /* HomeVCInteractor.swift in Sources */,
 				132C2B232BA95E75000A00F4 /* SeeAllVCBuilder.swift in Sources */,
 				134ECC1F2B67AD84004BCAC2 /* LoginVCInteractor.swift in Sources */,
+				13ADC9A92BBD976B000D48D0 /* GenresVCRouter.swift in Sources */,
 				139C22782B6129DD0082DBDD /* Storyboards+Extensions.swift in Sources */,
 				13ADC9A32BBD6D18000D48D0 /* WishListVCBuilder.swift in Sources */,
 				13BA5F7C2B62961D005EDA19 /* LoginVC.swift in Sources */,
@@ -1362,6 +1373,7 @@
 				132C2B292BA96F57000A00F4 /* SeeAllVCRouter.swift in Sources */,
 				139C228E2B6131050082DBDD /* OnboardingVC.swift in Sources */,
 				131A9B3B2B6A1AE2007A4D55 /* LoaderVC.swift in Sources */,
+				13ADC9A52BBD974A000D48D0 /* GenresVCInteractor.swift in Sources */,
 				13197E002BB2D75200463D4B /* TVShowDetailsResponseModel.swift in Sources */,
 				134ECC132B6776A5004BCAC2 /* SignUpVCInteractor.swift in Sources */,
 				13AB6D8F2BB6A6730010D248 /* TVShowSimilarVCBuilder.swift in Sources */,
