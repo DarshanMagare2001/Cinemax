@@ -151,10 +151,19 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
         case similarMoviesCollectionviewOutlet:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
             MoviesCollectionViewCell
-            guard let cellData = presenter?.similarMovies?.results?[indexPath.row] else {
+            guard let data = presenter?.similarMovies?.results?[indexPath.row] else {
                 return UICollectionViewCell()
             }
-            cell.configure(movie: cellData)
+            let posterPath = data.posterPath ?? ""
+            let title = data.title ?? ""
+            let name = data.name ?? ""
+            let originalLanguage = data.originalLanguage ?? ""
+            let voteAverage = data.voteAverage ?? 0.0
+            let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+                                                         cellNameLblText:((title == "") ? name:title),
+                                                         cellLanguageLblText:originalLanguage,
+                                                         cellRatingLblText:voteAverage)
+            cell.configure(cellData: cellData)
             return cell
         case productionHouseCollectionViewOutlet:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductionHouseCollectionViewCell", for: indexPath) as! ProductionHouseCollectionViewCell

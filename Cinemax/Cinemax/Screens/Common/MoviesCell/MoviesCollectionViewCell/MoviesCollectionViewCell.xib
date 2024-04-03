@@ -161,10 +161,10 @@
             </constraints>
             <size key="customSize" width="196" height="341"/>
             <connections>
-                <outlet property="movieGenereLbl" destination="Oo8-gS-fvd" id="E9E-dl-rnK"/>
-                <outlet property="movieImg" destination="NbP-Tp-2bQ" id="ZZt-1l-AYz"/>
-                <outlet property="movieNameLbl" destination="mk5-XR-ksI" id="cu5-E8-TFH"/>
-                <outlet property="moviesRatingLbl" destination="5BZ-Iz-MMV" id="l4I-uy-9hd"/>
+                <outlet property="cellImg" destination="NbP-Tp-2bQ" id="ZZt-1l-AYz"/>
+                <outlet property="cellLanguageLbl" destination="Oo8-gS-fvd" id="E9E-dl-rnK"/>
+                <outlet property="cellNameLbl" destination="mk5-XR-ksI" id="cu5-E8-TFH"/>
+                <outlet property="cellRatingLbl" destination="5BZ-Iz-MMV" id="l4I-uy-9hd"/>
             </connections>
             <point key="canvasLocation" x="-179.71014492753625" y="21.428571428571427"/>
         </collectionViewCell>

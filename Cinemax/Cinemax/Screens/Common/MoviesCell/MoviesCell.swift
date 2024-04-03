@@ -54,10 +54,19 @@ extension MoviesCell : UICollectionViewDelegate , UICollectionViewDataSource , U
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as! MoviesCollectionViewCell
-        guard let cellData = dataSource?.results[indexPath.row] else {
+        guard let data = dataSource?.results[indexPath.row] else {
             return UICollectionViewCell()
         }
-        cell.configure(movie: cellData)
+        let posterPath = data.posterPath ?? ""
+        let title = data.title ?? ""
+        let name = data.name ?? ""
+        let originalLanguage = data.originalLanguage ?? ""
+        let voteAverage = data.voteAverage ?? 0.0
+        let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+                                                     cellNameLblText:((title == "") ? name:title),
+                                                     cellLanguageLblText:originalLanguage,
+                                                     cellRatingLblText:voteAverage)
+        cell.configure(cellData: cellData)
         return cell
     }
     

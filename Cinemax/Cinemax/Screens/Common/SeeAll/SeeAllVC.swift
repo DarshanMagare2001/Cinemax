@@ -139,10 +139,19 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         if isGridLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
             MoviesCollectionViewCell
-            guard let cellData = presenter?.moviesDatasource[indexPath.row] else {
+            guard let data = presenter?.moviesDatasource[indexPath.row] else {
                 return UICollectionViewCell()
             }
-            cell.configure(movie: cellData)
+            let posterPath = data.posterPath ?? ""
+            let title = data.title ?? ""
+            let name = data.name ?? ""
+            let originalLanguage = data.originalLanguage ?? ""
+            let voteAverage = data.voteAverage ?? 0.0
+            let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+                                                         cellNameLblText:((title == "") ? name:title),
+                                                         cellLanguageLblText:originalLanguage,
+                                                         cellRatingLblText:voteAverage)
+            cell.configure(cellData: cellData)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
