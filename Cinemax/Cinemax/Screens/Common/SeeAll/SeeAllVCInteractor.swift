@@ -15,10 +15,11 @@ enum SeeAllVCInputs:String {
     case fetchMoviePopular = "POPULAR"
     case fetchMovieSimilar = "SimilarMovies"
     case fetchMovieSearch = "Search"
+    case fetchMoviesByGenres = "Genres"
 }
 
 protocol SeeAllVCInteractorProtocol {
-    func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?) -> Single<[MasterMovieModelResult]>
+    func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?,genreId:Int?) -> Single<[MasterMovieModelResult]>
     func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]) -> Single<[MovieDetailsModel]>
 }
 
@@ -31,13 +32,14 @@ class SeeAllVCInteractor {
 }
 
 extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
-    func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?) -> Single<[MasterMovieModelResult]> {
+    func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?,genreId:Int?) -> Single<[MasterMovieModelResult]> {
         return Single.create { (single) -> Disposable in
             let disposable = Disposables.create()
             guard let seeAllVCInputs = seeAllVCInputs,
                   let movieId = movieId,
                   let searchText = searchText,
-                  let page = page else {
+                  let page = page,
+                  let genreId = genreId else {
                       single(.failure(fatalError()))
                       return disposable
                   }
@@ -109,6 +111,16 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                         }
                     }).disposed(by: self.disposeBag)
                 
+            case .fetchMoviesByGenres:
+                self.movieServiceManager.fetchMoviesByGenres(genreId: genreId, page: page)
+                    .subscribe({ data in
+                        switch data {
+                        case.success(let movieData):
+                            single(.success(movieData.results ?? []))
+                        case.failure(let error):
+                            single(.failure(error))
+                        }
+                    }).disposed(by: self.disposeBag)
             }
             return disposable
         }

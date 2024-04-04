@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol GenresVCRouterProtocol {
-    
+    func gotoSeeAllVC(genreId: Int?, page: Int?, searchText: String?, movieId: Int?, seeAllVCInputs: SeeAllVCInputs?)
 }
 
 class GenresVCRouter {
@@ -20,5 +20,8 @@ class GenresVCRouter {
 }
 
 extension GenresVCRouter: GenresVCRouterProtocol {
-    
+    func gotoSeeAllVC(genreId: Int?, page: Int?, searchText: String?, movieId: Int?, seeAllVCInputs: SeeAllVCInputs?){
+        let seeAllVC = SeeAllVCBuilder.build(genreId: genreId, page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
+        viewController.navigationController?.pushViewController(seeAllVC, animated: true)
+    }
 }

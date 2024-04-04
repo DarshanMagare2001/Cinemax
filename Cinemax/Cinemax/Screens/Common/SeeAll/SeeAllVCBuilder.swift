@@ -13,7 +13,7 @@ public final class SeeAllVCBuilder {
     static var seeAllVCStack: [SeeAllVC] = []
     static var backButtonPressedClosure : (()->())?
     
-    static func build(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?) -> UIViewController {
+    static func build(genreId: Int?,page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let seeAllVC = storyboard.instantiateViewController(withIdentifier: "SeeAllVC") as! SeeAllVC
         let interactor = SeeAllVCInteractor(movieServiceManager: MoviesServiceManager.shared)
@@ -22,6 +22,7 @@ public final class SeeAllVCBuilder {
         presenter.page = page
         presenter.searchText = searchText
         presenter.movieId = movieId
+        presenter.genreId = genreId
         presenter.seeAllVCInputs = seeAllVCInputs
         if let seeAllVCInputs = seeAllVCInputs {
             presenter.moviesHeadline = seeAllVCInputs.rawValue

@@ -41,6 +41,7 @@ class SeeAllVCPresenter {
     var movieId: Int?
     var searchText: String?
     var page: Int?
+    var genreId: Int?
     let disposeBag = DisposeBag()
     init(view: SeeAllVCProtocol,interactor: SeeAllVCInteractorProtocol,router: SeeAllVCRouterProtocol){
         self.view = view
@@ -72,7 +73,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         guard let page = page , page <= 463 else {
             return
         }
-        interactor.fetchAllMoviesPagewise(seeAllVCInputs: seeAllVCInputs, movieId: movieId, searchText: searchText, page: page)
+        interactor.fetchAllMoviesPagewise(seeAllVCInputs: seeAllVCInputs, movieId: movieId, searchText: searchText, page: page, genreId: genreId)
             .subscribe({ data in
                 switch data {
                 case.success(let movieData):

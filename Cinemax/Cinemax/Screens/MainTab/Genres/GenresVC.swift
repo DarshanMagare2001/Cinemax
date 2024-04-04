@@ -8,18 +8,19 @@
 import UIKit
 
 protocol GenresVCProtocol: AnyObject {
-    
+    func updateUI()
 }
 
 class GenresVC: UIViewController {
     
     @IBOutlet weak var moviesBtn: RoundedButton!
     @IBOutlet weak var tvShowsBtn: RoundedButton!
-    
+    @IBOutlet weak var genresCollectionView: UICollectionView!
     var presenter: GenresVCPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupFlowlayout()
         presenter?.viewDidload()
     }
     
@@ -63,6 +64,43 @@ extension GenresVC: GenresVCProtocol {
                 self.tvShowsBtn.isUserInteractionEnabled = false
                 self.moviesBtn.backgroundColor = .clear
             },completion: nil)
+        }
+    }
+    
+    func setupFlowlayout(){
+        let flowLayout = UICollectionViewFlowLayout()
+        let width = (genresCollectionView.bounds.width / 3) - 8
+        let height = (genresCollectionView.bounds.height / 10) - 10
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.itemSize = CGSize(width: width, height: height)
+        genresCollectionView.collectionViewLayout = flowLayout
+    }
+    
+    func updateUI(){
+        genresCollectionView.reloadData()
+    }
+    
+}
+
+extension GenresVC: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter?.genresDatasource.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenresVCCVCell", for: indexPath) as! GenresVCCVCell
+        guard let cellData = presenter?.genresDatasource[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.cellNameLbl.text = cellData.genresName
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cellData = presenter?.genresDatasource[indexPath.row]{
+            presenter?.gotoSeeAllVC(genreId: Int(cellData.genresId), page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviesByGenres)
         }
     }
     

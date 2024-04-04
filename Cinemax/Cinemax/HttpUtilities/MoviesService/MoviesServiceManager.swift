@@ -18,6 +18,7 @@ protocol MoviesServiceManagerProtocol {
     func fetchMovieSimilar(movieId:Int,page: Int) -> Single<MovieResultModel>
     func fetchMovieSearch(searchText:String,page: Int) -> Single<MovieResultModel>
     func fetchMovieVideos(movieId:Int) -> Single<MovieVideosResponseModel>
+    func fetchMoviesByGenres(genreId:Int,page:Int) -> Single<MasterMovieModel>
     func fetchTVShows(page:Int) -> Single<TVShowsResponseModel>
     func fetchTVShowDetails(showId:Int) -> Single<TVShowDetailsResponseModel>
     func fetchTVShowCast(showId:Int) -> Single<TVShowCastResponseModel>
@@ -300,6 +301,26 @@ extension MoviesServiceManager : MoviesServiceManagerProtocol  {
             do{
                 try MoviesRouter.tvShowSearch(searchText: searchText, page:page).request(service: self.movieService)
                     .responseDecodable(of: MovieResultModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
+                        switch response.result {
+                        case .success(let data):
+                            single(.success(data))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    })
+            } catch let error{
+                single(.failure(error))
+            }
+            return disposables
+        })
+    }
+    
+    func fetchMoviesByGenres(genreId:Int,page:Int) -> Single<MasterMovieModel>{
+        return Single.create(subscribe:{ (single) -> Disposable in
+            let disposables = Disposables.create()
+            do{
+                try MoviesRouter.moviesByGenres(genreId: genreId, page: page).request(service: self.movieService)
+                    .responseDecodable(of: MasterMovieModel.self, queue: DispatchQueue.global(qos: .utility), completionHandler: { response in
                         switch response.result {
                         case .success(let data):
                             single(.success(data))

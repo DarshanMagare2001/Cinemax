@@ -28,7 +28,7 @@ extension HomeVCRouter: HomeVCRouterProtocol {
         viewController.navigationController?.pushViewController(detailVC, animated: true)
     }
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
-        let seeAllVC = SeeAllVCBuilder.build(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
+        let seeAllVC = SeeAllVCBuilder.build(genreId: 0, page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
         viewController.navigationController?.pushViewController(seeAllVC, animated: true)
     }
     
