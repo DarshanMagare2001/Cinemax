@@ -13,6 +13,8 @@ protocol WishListVCProtocol: AnyObject {
 
 class WishListVC: UIViewController {
     
+    @IBOutlet weak var moviesBtn: RoundedButton!
+    @IBOutlet weak var tvShowsBtn: RoundedButton!
     var presenter: WishListVCPresenterProtocol?
     
     override func viewDidLoad() {
@@ -30,8 +32,36 @@ class WishListVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    @IBAction func contentToggleBtn(_ sender: UIButton) {
+        toggleContent(tag: sender.tag)
+    }
+    
 }
 
 extension WishListVC: WishListVCProtocol {
+    
+    private func toggleContent(tag:Int){
+        if tag == 0 {
+            UIView.transition(with: self.moviesBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromRight,
+                              animations: {
+                self.moviesBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = false
+                self.tvShowsBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.backgroundColor = .clear
+            },completion: nil)
+        }else{
+            UIView.transition(with: self.tvShowsBtn,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                self.tvShowsBtn.backgroundColor = .appBlue
+                self.moviesBtn.isUserInteractionEnabled = true
+                self.tvShowsBtn.isUserInteractionEnabled = false
+                self.moviesBtn.backgroundColor = .clear
+            },completion: nil)
+        }
+    }
     
 }
