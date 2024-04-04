@@ -25,6 +25,7 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowActorsCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var tvShowTrailerPlayerView: WKYTPlayerView!
     @IBOutlet weak var similarTVShowsCollectionViewOutlet: UICollectionView!
+    @IBOutlet weak var tvShowAddToWishlistBtn: UIButton!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
     
@@ -41,6 +42,11 @@ class TVShowDetailsVC: UIViewController {
     
     @IBAction func seeAllSimilarTVShowsBtnPressed(_ sender: UIButton) {
         presenter?.gotoTVShowSimilarVC()
+    }
+    
+    
+    @IBAction func tvShowAddToWishlistBtnPressed(_ sender: UIButton) {
+        
     }
     
 }
