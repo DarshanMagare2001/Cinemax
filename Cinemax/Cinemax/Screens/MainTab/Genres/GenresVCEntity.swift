@@ -9,5 +9,5 @@ import Foundation
 
 struct GenresVCEntity {
     let genresName:String
-    let genresId:String
+    let genresId:Int
 }
