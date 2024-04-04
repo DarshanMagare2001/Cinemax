@@ -25,6 +25,7 @@ enum MoviesRouter: HttpRouterProtocol {
     case tvShowsVideos(showId:Int)
     case tvShowSimilar(similarId:Int,page:Int)
     case tvShowSearch(searchText: String,page:Int)
+    case tvShowByGenres(genreId:Int,page:Int)
     
     var baseUrlString: String {
         return "https://api.themoviedb.org/3"
@@ -62,6 +63,8 @@ enum MoviesRouter: HttpRouterProtocol {
             return "/search/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=\(page)&query=\(searchText)"
         case .moviesByGenres(let genreId,let page):
             return "/discover/movie?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=\(page)&with_genres=\(genreId)"
+        case .tvShowByGenres(let genreId,let page):
+            return "/discover/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=\(page)&with_genres=\(genreId)"
         }
     }
     
@@ -101,3 +104,5 @@ enum MoviesRouter: HttpRouterProtocol {
 //https://api.themoviedb.org/3/search/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1&query=Jumanji
 
 //https://api.themoviedb.org/3/discover/movie?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28
+
+//https://api.themoviedb.org/3/discover/tv?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10751

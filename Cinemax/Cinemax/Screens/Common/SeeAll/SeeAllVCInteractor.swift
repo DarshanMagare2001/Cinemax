@@ -8,16 +8,6 @@
 import Foundation
 import RxSwift
 
-//enum SeeAllVCInputs:String {
-//    case fetchMovieUpcoming = "UPCOMING"
-//    case fetchMovieNowPlaying = "NOWPLAYING"
-//    case fetchMovieTopRated = "TOPRATED"
-//    case fetchMoviePopular = "POPULAR"
-//    case fetchMovieSimilar = "SimilarMovies"
-//    case fetchMovieSearch = "Search"
-//    case fetchMoviesByGenres = "Genres"
-//}
-
 enum SeeAllVCInputs {
     case fetchMovieUpcoming(title:String)
     case fetchMovieNowPlaying(title:String)
@@ -26,6 +16,7 @@ enum SeeAllVCInputs {
     case fetchMovieSimilar(title:String)
     case fetchMovieSearch(title:String)
     case fetchMoviesByGenres(title:String)
+    case fetchTVShowByGenres(title:String)
 }
 
 
@@ -124,6 +115,16 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                 
             case .fetchMoviesByGenres:
                 self.movieServiceManager.fetchMoviesByGenres(genreId: genreId, page: page)
+                    .subscribe({ data in
+                        switch data {
+                        case.success(let movieData):
+                            single(.success(movieData.results ?? []))
+                        case.failure(let error):
+                            single(.failure(error))
+                        }
+                    }).disposed(by: self.disposeBag)
+            case .fetchTVShowByGenres:
+                self.movieServiceManager.fetchTVShowByGenres(genreId: genreId, page: page)
                     .subscribe({ data in
                         switch data {
                         case.success(let movieData):

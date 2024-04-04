@@ -105,7 +105,7 @@ extension GenresVC: UICollectionViewDelegate , UICollectionViewDataSource , UICo
             if isMoviesSelected {
                 presenter?.gotoSeeAllVC(genreId:cellData.genresId, page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviesByGenres(title:cellData.genresName))
             }else{
-                
+                presenter?.gotoSeeAllVC(genreId:cellData.genresId, page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchTVShowByGenres(title:cellData.genresName))
             }
         }
     }

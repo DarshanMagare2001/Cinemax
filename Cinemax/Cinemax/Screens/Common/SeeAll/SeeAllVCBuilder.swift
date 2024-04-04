@@ -40,6 +40,8 @@ public final class SeeAllVCBuilder {
                 presenter.moviesHeadline = title
             case .fetchMoviesByGenres(title: let title):
                 presenter.moviesHeadline = title
+            case .fetchTVShowByGenres(title: let title):
+                presenter.moviesHeadline = title
             }
         }
         seeAllVC.presenter = presenter
