@@ -106,25 +106,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXr-75-hCl">
-                                <rect key="frame" x="0.0" y="184" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="184" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IHh-7h-tl0">
-                                        <rect key="frame" x="15" y="0.0" width="384" height="90"/>
+                                        <rect key="frame" x="15" y="10" width="384" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOG-Nk-8eA">
-                                                <rect key="frame" x="0.0" y="0.0" width="384" height="83"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="53"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-F1-nRo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="83"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="53"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRK-m1-Phz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="224" height="41.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="224" height="26.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added to wishlist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-Lf-Txh">
-                                                                <rect key="frame" x="0.0" y="41.5" width="224" height="41.5"/>
+                                                                <rect key="frame" x="0.0" y="26.5" width="224" height="26.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-VK-G2k">
-                                                        <rect key="frame" x="224" y="0.0" width="160" height="83"/>
+                                                        <rect key="frame" x="224" y="0.0" width="160" height="53"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="160" id="T2x-pg-hE3"/>
                                                         </constraints>
@@ -148,7 +148,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtj-dZ-dik">
-                                                <rect key="frame" x="0.0" y="88" width="384" height="2"/>
+                                                <rect key="frame" x="0.0" y="58" width="384" height="2"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="1BS-R5-m3b"/>
@@ -161,13 +161,13 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="IHh-7h-tl0" secondAttribute="bottom" id="5Ue-fV-pVA"/>
                                     <constraint firstItem="IHh-7h-tl0" firstAttribute="leading" secondItem="WXr-75-hCl" secondAttribute="leading" constant="15" id="C8e-lr-vDH"/>
-                                    <constraint firstAttribute="height" constant="90" id="JPU-j3-XMI"/>
+                                    <constraint firstAttribute="height" constant="70" id="JPU-j3-XMI"/>
                                     <constraint firstAttribute="trailing" secondItem="IHh-7h-tl0" secondAttribute="trailing" constant="15" id="bY7-yr-iDJ"/>
-                                    <constraint firstItem="IHh-7h-tl0" firstAttribute="top" secondItem="WXr-75-hCl" secondAttribute="top" id="fbJ-7L-rbL"/>
+                                    <constraint firstItem="IHh-7h-tl0" firstAttribute="top" secondItem="WXr-75-hCl" secondAttribute="top" constant="10" id="fbJ-7L-rbL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-j8-n2I">
-                                <rect key="frame" x="0.0" y="274" width="414" height="588"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="608"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -193,6 +193,7 @@
                     <connections>
                         <outlet property="moviesBtn" destination="NWL-DR-08l" id="sBZ-rG-Rk8"/>
                         <outlet property="tvShowsBtn" destination="O6G-16-Q7d" id="NMo-lg-XBI"/>
+                        <outlet property="wishListCountLbl" destination="yRK-m1-Phz" id="SHz-Sg-GwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

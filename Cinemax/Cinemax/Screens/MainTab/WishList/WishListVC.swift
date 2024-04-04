@@ -15,7 +15,20 @@ class WishListVC: UIViewController {
     
     @IBOutlet weak var moviesBtn: RoundedButton!
     @IBOutlet weak var tvShowsBtn: RoundedButton!
+    @IBOutlet weak var wishListCountLbl: UILabel!
+    
     var presenter: WishListVCPresenterProtocol?
+    var isMoviesSelected = true {
+        didSet{
+            DispatchQueue.main.async {
+                if self.isMoviesSelected {
+                    self.wishListCountLbl.text = "Movies"
+                }else{
+                    self.wishListCountLbl.text = "TV Shows"
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +47,7 @@ class WishListVC: UIViewController {
     
     @IBAction func contentToggleBtn(_ sender: UIButton) {
         toggleContent(tag: sender.tag)
+        isMoviesSelected.toggle()
     }
     
 }
