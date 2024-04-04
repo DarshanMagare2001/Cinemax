@@ -108,7 +108,7 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
                 self?.presenter?.gotoDetailVC(movieData: data)
             }
             cell.seeAllBtnPressedClosure = { [weak self] in
-                self?.presenter?.gotoSeeAllVC(page: 1, searchText: self?.searchBarOutlet.text , movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieSearch)
+                self?.presenter?.gotoSeeAllVC(page: 1, searchText: self?.searchBarOutlet.text , movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieSearch(title:self?.searchBarOutlet.text ?? ""))
             }
             return cell
         }else if indexPath.section == 1{

@@ -100,7 +100,7 @@ extension GenresVC: UICollectionViewDelegate , UICollectionViewDataSource , UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cellData = presenter?.genresDatasource[indexPath.row]{
-            presenter?.gotoSeeAllVC(genreId: Int(cellData.genresId), page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviesByGenres)
+            presenter?.gotoSeeAllVC(genreId: Int(cellData.genresId), page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviesByGenres(title:cellData.genresName))
         }
     }
     

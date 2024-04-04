@@ -167,7 +167,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 
                 cell.seeAllBtnpressedClosure = { [weak self] in
-                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieUpcoming)
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieUpcoming(title:"UPCOMING"))
                 }
                 
                 return cell
@@ -181,7 +181,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 
                 cell.seeAllBtnPressedClosure = { [weak self] in
-                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated)
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated(title:"TOPRATED"))
                 }
                 
                 cell.cellTappedClosure = { [weak self] data in
@@ -199,7 +199,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 
                 cell.seeAllBtnPressedClosure = { [weak self] in
-                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying)
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying(title:"NOWPLAYING"))
                 }
                 
                 cell.cellTappedClosure = { [weak self] data in
@@ -217,7 +217,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 }
                 
                 cell.seeAllBtnPressedClosure = { [weak self] in
-                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular)
+                    self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular(title:"POPULAR"))
                 }
                 
                 cell.cellTappedClosure = { [weak self] data in

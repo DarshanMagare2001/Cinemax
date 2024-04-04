@@ -47,8 +47,8 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
-        if let movieData = presenter?.movieData{
-            presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar)
+        if let movieData = presenter?.movieData, let movieTitle = movieData.title {
+            presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar(title:movieTitle))
         }
     }
     

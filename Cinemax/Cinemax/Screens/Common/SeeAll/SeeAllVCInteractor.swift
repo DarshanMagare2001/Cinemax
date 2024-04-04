@@ -8,15 +8,26 @@
 import Foundation
 import RxSwift
 
-enum SeeAllVCInputs:String {
-    case fetchMovieUpcoming = "UPCOMING"
-    case fetchMovieNowPlaying = "NOWPLAYING"
-    case fetchMovieTopRated = "TOPRATED"
-    case fetchMoviePopular = "POPULAR"
-    case fetchMovieSimilar = "SimilarMovies"
-    case fetchMovieSearch = "Search"
-    case fetchMoviesByGenres = "Genres"
+//enum SeeAllVCInputs:String {
+//    case fetchMovieUpcoming = "UPCOMING"
+//    case fetchMovieNowPlaying = "NOWPLAYING"
+//    case fetchMovieTopRated = "TOPRATED"
+//    case fetchMoviePopular = "POPULAR"
+//    case fetchMovieSimilar = "SimilarMovies"
+//    case fetchMovieSearch = "Search"
+//    case fetchMoviesByGenres = "Genres"
+//}
+
+enum SeeAllVCInputs {
+    case fetchMovieUpcoming(title:String)
+    case fetchMovieNowPlaying(title:String)
+    case fetchMovieTopRated(title:String)
+    case fetchMoviePopular(title:String)
+    case fetchMovieSimilar(title:String)
+    case fetchMovieSearch(title:String)
+    case fetchMoviesByGenres(title:String)
 }
+
 
 protocol SeeAllVCInteractorProtocol {
     func fetchAllMoviesPagewise(seeAllVCInputs:SeeAllVCInputs?,movieId:Int?,searchText:String?,page: Int?,genreId:Int?) -> Single<[MasterMovieModelResult]>

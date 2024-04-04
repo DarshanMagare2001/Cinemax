@@ -25,7 +25,22 @@ public final class SeeAllVCBuilder {
         presenter.genreId = genreId
         presenter.seeAllVCInputs = seeAllVCInputs
         if let seeAllVCInputs = seeAllVCInputs {
-            presenter.moviesHeadline = seeAllVCInputs.rawValue
+            switch seeAllVCInputs {
+            case .fetchMovieUpcoming(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMovieNowPlaying(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMovieTopRated(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMoviePopular(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMovieSimilar(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMovieSearch(title: let title):
+                presenter.moviesHeadline = title
+            case .fetchMoviesByGenres(title: let title):
+                presenter.moviesHeadline = title
+            }
         }
         seeAllVC.presenter = presenter
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
