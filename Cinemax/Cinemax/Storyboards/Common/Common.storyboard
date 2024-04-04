@@ -70,8 +70,48 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xP9-qe-p3C">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xuw-s3-ssf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtn-3c-daD">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="d6S-0Q-oAc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
+                                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                                        <color key="textColor" name="AppBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVV-Ar-2Z9">
+                                                        <rect key="frame" x="324" y="0.0" width="70" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="z7S-kN-vre"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="bookmark.slash.fill" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="addToWishlistBtnPressed:" destination="A1G-Lu-jC8" eventType="touchUpInside" id="79B-Ro-8v2"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="dtn-3c-daD" secondAttribute="trailing" constant="10" id="33z-w6-Krj"/>
+                                            <constraint firstAttribute="height" constant="50" id="R05-jt-dnT"/>
+                                            <constraint firstItem="dtn-3c-daD" firstAttribute="leading" secondItem="Xuw-s3-ssf" secondAttribute="leading" constant="10" id="SdZ-Db-7zg"/>
+                                            <constraint firstAttribute="bottom" secondItem="dtn-3c-daD" secondAttribute="bottom" id="omG-Y6-vR8"/>
+                                            <constraint firstItem="dtn-3c-daD" firstAttribute="top" secondItem="Xuw-s3-ssf" secondAttribute="top" id="zjC-6g-hHY"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-Kj-Kec">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2151.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="2151.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-UT-Lb0">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="531.5"/>
@@ -906,9 +946,12 @@
                                 <constraints>
                                     <constraint firstItem="dtB-Kj-Kec" firstAttribute="leading" secondItem="xP9-qe-p3C" secondAttribute="leading" id="8De-W5-eQ4"/>
                                     <constraint firstAttribute="bottom" secondItem="dtB-Kj-Kec" secondAttribute="bottom" id="8hP-ga-ear"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xuw-s3-ssf" secondAttribute="trailing" id="AF3-zb-JCy"/>
+                                    <constraint firstItem="Xuw-s3-ssf" firstAttribute="leading" secondItem="xP9-qe-p3C" secondAttribute="leading" id="Ma4-ku-qeS"/>
                                     <constraint firstAttribute="trailing" secondItem="dtB-Kj-Kec" secondAttribute="trailing" id="Mug-pa-0eT"/>
                                     <constraint firstItem="KpL-UT-Lb0" firstAttribute="height" secondItem="xP9-qe-p3C" secondAttribute="height" multiplier="0.65" id="THZ-KS-VK1"/>
-                                    <constraint firstItem="dtB-Kj-Kec" firstAttribute="top" secondItem="xP9-qe-p3C" secondAttribute="top" id="UkI-EP-0Ub"/>
+                                    <constraint firstItem="Xuw-s3-ssf" firstAttribute="top" secondItem="xP9-qe-p3C" secondAttribute="top" id="TdV-RC-dD7"/>
+                                    <constraint firstItem="dtB-Kj-Kec" firstAttribute="top" secondItem="Xuw-s3-ssf" secondAttribute="bottom" id="ZE3-YY-uka"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -931,6 +974,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToWishListBtn" destination="wVV-Ar-2Z9" id="Kl3-vq-dTL"/>
                         <outlet property="movieBackgroundImg" destination="B3k-4J-KzU" id="ZjU-jf-zwG"/>
                         <outlet property="movieDurationLbl" destination="LLz-5Z-QPa" id="ZCL-xP-ceb"/>
                         <outlet property="movieForegroundImg" destination="ylb-08-GJk" id="AON-r1-PXl"/>
@@ -940,6 +984,7 @@
                         <outlet property="movieRatingLbl" destination="MKr-8H-xER" id="pXn-Hx-NhC"/>
                         <outlet property="movieReleasedateLbl" destination="aYF-eL-W9N" id="dSq-8b-tls"/>
                         <outlet property="movieStatus" destination="drB-a3-ZWH" id="zLe-gX-fPe"/>
+                        <outlet property="movieTitleLbl" destination="d6S-0Q-oAc" id="QuU-zu-VmL"/>
                         <outlet property="movieTrailerSectionView" destination="lJM-1a-eXS" id="5Th-5g-8aL"/>
                         <outlet property="movieTrailerView" destination="2pm-2c-Dt0" id="vO3-3E-Rem"/>
                         <outlet property="productionHouseCollectionViewOutlet" destination="Biy-CR-TiP" id="tH6-rV-1zl"/>
@@ -1991,6 +2036,7 @@
         <image name="AppClock" width="16" height="16"/>
         <image name="AppFIlmRil" width="16" height="16"/>
         <image name="AppRatingIcon" width="16" height="16"/>
+        <image name="bookmark.slash.fill" catalog="system" width="115" height="128"/>
         <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="slider.vertical.3" catalog="system" width="128" height="111"/>

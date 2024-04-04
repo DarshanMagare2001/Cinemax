@@ -34,6 +34,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieTrailerView: WKYTPlayerView!
     @IBOutlet weak var movieTrailerSectionView: UIView!
     @IBOutlet weak var movieGalleryCollectionViewOutlet: UICollectionView!
+    @IBOutlet weak var movieTitleLbl: UILabel!
+    @IBOutlet weak var addToWishListBtn: UIButton!
     
     
     var presenter : DetailVCPresenterProtocol?
@@ -66,6 +68,12 @@ class DetailVC: UIViewController {
         movieTrailerView.stopVideo()
     }
     
+    
+    @IBAction func addToWishlistBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    
 }
 
 extension DetailVC : DetailVCProtocol {
@@ -88,6 +96,7 @@ extension DetailVC : DetailVCProtocol {
            let genere = movieDetail.genres?[0],
            let rating = movieDetail.voteAverage,
            let overView = movieDetail.overview,
+           let title = movieDetail.title,
            let status = movieDetail.status{
             movieReleasedateLbl.text = "\(releaseDate)"
             movieDurationLbl.text = "\(duration) mins"
@@ -96,6 +105,7 @@ extension DetailVC : DetailVCProtocol {
             movieRatingLbl.text = movieRating
             movieOverviewlbl.text = overView
             movieStatus.text = "Satus:- \(status)"
+            movieTitleLbl.text = title
         }
     }
     
@@ -121,7 +131,7 @@ extension DetailVC : DetailVCProtocol {
                 if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
                    let trailerVideoKey = trailerVideo.key{
                     if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
-//                        self?.movieTrailerView.loadVideoURL(myVideoURL)
+                        //                        self?.movieTrailerView.loadVideoURL(myVideoURL)
                         self?.movieTrailerView.load(withVideoId: trailerVideoKey)
                     }
                 }

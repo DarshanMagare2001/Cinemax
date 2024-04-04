@@ -20,11 +20,6 @@ public final class DetailVCBuilder {
         let router = DetailVCRouter(viewController: detailVC)
         let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, router: router, movieData: movieData)
         detailVC.presenter = presenter
-        if let movieData = movieData {
-            DispatchQueue.main.async {
-                detailVC.title = movieData.title
-            }
-        }
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         detailVC.navigationItem.leftBarButtonItem = backButton
         DetailVCBuilder.backButtonPressedClosure = { [weak detailVC] in
