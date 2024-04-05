@@ -16,7 +16,8 @@ public final class DetailVCBuilder {
     static func build(movieData: MasterMovieModelResult?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
-        let interactor = DetailVCInteractor(moviesServiceManager: MoviesServiceManager.shared)
+        let interactor = DetailVCInteractor(moviesServiceManager: MoviesServiceManager.shared,
+                                            cdMoviesManager: CDMoviesManager.shared)
         let router = DetailVCRouter(viewController: detailVC)
         let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, router: router, movieData: movieData)
         detailVC.presenter = presenter

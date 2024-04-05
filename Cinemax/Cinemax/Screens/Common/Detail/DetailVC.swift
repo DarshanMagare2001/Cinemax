@@ -70,7 +70,7 @@ class DetailVC: UIViewController {
     
     
     @IBAction func addToWishlistBtnPressed(_ sender: UIButton) {
-        
+        presenter?.addMovieToWishlist()
     }
     
     

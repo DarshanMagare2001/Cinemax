@@ -12,6 +12,7 @@ protocol DetailVCPresenterProtocol {
     func viewDidload()
     func gotoDetailVC(movieData: MasterMovieModelResult?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
+    func addMovieToWishlist()
     var movieData : MasterMovieModelResult? { get set }
     var similarMovies : MovieResultModel? { get set }
     var movieVideos : MovieVideosResponseModel? { get set }
@@ -124,6 +125,15 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
         router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
+    }
+    
+    func addMovieToWishlist(){
+        if let data = self.movieData , let movieId = data.id {
+            let cdMovieData = CDMoviesModel(id:movieId)
+            interactor.addMovieToWishlist(movie:cdMovieData) { bool in
+                print(bool)
+            }
+        }
     }
     
 }

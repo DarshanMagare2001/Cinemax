@@ -13,7 +13,7 @@ public final class WishListVCBuilder {
         let storyboard = UIStoryboard.WishList
         let wishListVC = storyboard.instantiateViewController(withIdentifier: "WishListVC") as! WishListVC
         let router = WishListVCRouter(viewController: wishListVC)
-        let interactor = WishListVCInteractor()
+        let interactor = WishListVCInteractor(movieServiceManager: MoviesServiceManager.shared, cdMoviesManager: CDMoviesManager.shared)
         let presenter = WishListVCPresenter(view: wishListVC, interactor: interactor, router: router)
         wishListVC.presenter = presenter
         return factor(wishListVC)

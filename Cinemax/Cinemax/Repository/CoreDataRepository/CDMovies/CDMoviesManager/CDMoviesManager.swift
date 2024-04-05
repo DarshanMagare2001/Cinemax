@@ -9,6 +9,7 @@ import Foundation
 
 protocol CDMoviesManagerProtocol {
     func addMovieToWishlist(movie:CDMoviesModel?,completion:@escaping (Bool) -> Void)
+    func fetchMoviesFromWishlist(completion:@escaping(Result<[CDMoviesModel],Error>)->())
 }
 
 class CDMoviesManager {
