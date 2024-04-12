@@ -26,12 +26,22 @@ class TVShowDetailsVC: UIViewController {
     @IBOutlet weak var tvShowTrailerPlayerView: WKYTPlayerView!
     @IBOutlet weak var similarTVShowsCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var tvShowAddToWishlistBtn: UIButton!
+    @IBOutlet weak var showOverView: UIStackView!
+    @IBOutlet weak var showSeasonsView: UIStackView!
+    @IBOutlet weak var showActorsView: UIStackView!
+    @IBOutlet weak var showTrailerView: UIStackView!
+    @IBOutlet weak var showSimilarView: UIStackView!
     
     var presenter: TVShowDetailsVCPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidload()
+        showOverView.isHidden = true
+        showSeasonsView.isHidden = true
+        showActorsView.isHidden = true
+        showTrailerView.isHidden = true
+        showSimilarView.isHidden = true
     }
     
     
@@ -75,6 +85,26 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
     
     
     func updateUI(tvShowDetails: TVShowDetailsResponseModel){
+        if let showOverview = presenter?.tvShowDetails?.overview,(showOverview != "") {
+            showOverView.isHidden = false
+            tvShowOverviewLbl.text = showOverview
+        }
+        if let showSeasons = presenter?.tvShowDetails?.seasons,!(showSeasons.isEmpty){
+            showSeasonsView.isHidden = false
+            tvShowsSeasonsTBLViewOutlet.reloadData()
+        }
+        if let showActors = presenter?.tvShowCast?.cast,!(showActors.isEmpty){
+            showActorsView.isHidden = false
+            tvShowActorsCollectionViewOutlet.reloadData()
+        }
+        if let showTrailer = presenter?.tvShowTrailer?.results,!(showTrailer.isEmpty){
+            showTrailerView.isHidden = false
+            setupTVShowTrailer()
+        }
+        if let showSimilar = presenter?.tvShowSimilar?.results,!(showSimilar.isEmpty){
+            showSimilarView.isHidden = false
+            similarTVShowsCollectionViewOutlet.reloadData()
+        }
         tvShowTitleLbl.text = tvShowDetails.name
         let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShowDetails.posterPath ?? "")"
         tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
@@ -82,13 +112,6 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
         tvShowRatingLbl.text = tvShowRating
         tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes ?? 0)"
         tvShowsReleaseDateLbl.text = tvShowDetails.firstAirDate?.extractYearFromDateString() ?? ""
-        if let tvShowOverview = tvShowDetails.overview {
-            tvShowOverviewLbl.text = (tvShowOverview.isEmpty ? "Overview Not Available." : tvShowOverview)
-        }
-        tvShowsSeasonsTBLViewOutlet.reloadData()
-        tvShowActorsCollectionViewOutlet.reloadData()
-        similarTVShowsCollectionViewOutlet.reloadData()
-        setupTVShowTrailer()
     }
     
     func setupTVShowTrailer(){
