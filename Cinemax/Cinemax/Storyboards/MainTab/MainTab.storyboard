@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +58,7 @@
                                                                                     <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9mg-U2-54Z"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-Z0-FMp">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-Z0-FMp">
                                                                                 <rect key="frame" x="25" y="0.0" width="46.5" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="15G-nj-Hmc"/>
@@ -106,7 +107,7 @@
                                                                                     <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ktj-CR-n8a"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7F-ci-i9H">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="L7F-ci-i9H">
                                                                                 <rect key="frame" x="25" y="0.0" width="51.5" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="Skh-L8-Lai"/>
@@ -155,10 +156,10 @@
                                                                                     <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aMe-a2-tHF"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-a8-yS2">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-a8-yS2">
                                                                                 <rect key="frame" x="25" y="0.0" width="52.5" height="40"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="aJl-Ps-hNF"/>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="aJl-Ps-hNF"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,10 +205,10 @@
                                                                                     <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PtB-S4-tuh"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-eX-ONa">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-eX-ONa">
                                                                                 <rect key="frame" x="25" y="0.0" width="63.5" height="40"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="qty-Dc-wFp"/>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="qty-Dc-wFp"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,10 +254,10 @@
                                                                                     <action selector="tabBtnPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Es-aa-K6d"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0P-83-A8j">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="K0P-83-A8j">
                                                                                 <rect key="frame" x="25" y="0.0" width="48" height="40"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="P0W-3s-rAN"/>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="P0W-3s-rAN"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -337,8 +338,8 @@
         <image name="HomeBtn" width="19" height="17"/>
         <image name="PersonBtn" width="24" height="24"/>
         <image name="SearchBtn" width="24" height="24"/>
-        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
+        <image name="bookmark.fill" catalog="system" width="32" height="32"/>
+        <image name="text.justify" catalog="system" width="32" height="32"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

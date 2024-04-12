@@ -71,10 +71,10 @@ extension GenresVC: GenresVCProtocol {
     
     func setupFlowlayout(){
         let flowLayout = UICollectionViewFlowLayout()
-        let width = (genresCollectionView.bounds.width / 3) - 8
+        let width = (genresCollectionView.bounds.width / 3) - 20
         let height = (genresCollectionView.bounds.height / 10) - 10
         flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumInteritemSpacing = 5
         flowLayout.itemSize = CGSize(width: width, height: height)
         genresCollectionView.collectionViewLayout = flowLayout
     }

@@ -82,11 +82,13 @@ extension SeeAllVC : SeeAllVCProtocol {
             flowLayout.minimumInteritemSpacing = 0
             flowLayout.minimumLineSpacing = 15
             let cellWidth = (moviesCollectionviewOutlet.frame.size.width / 2) - 8
-            flowLayout.itemSize = CGSize(width: cellWidth, height: 300)
+            let height = (moviesCollectionviewOutlet.frame.size.height/2) - 8
+            flowLayout.itemSize = CGSize(width: cellWidth, height: height)
             moviesCollectionviewOutlet.collectionViewLayout = flowLayout
         }else{
             let cellWidth = moviesCollectionviewOutlet.frame.size.width - 5
-            flowLayout.itemSize = CGSize(width: cellWidth, height: 300)
+            let height = (moviesCollectionviewOutlet.frame.size.height/2) - 5
+            flowLayout.itemSize = CGSize(width: cellWidth, height: height)
             flowLayout.minimumInteritemSpacing = 0
             flowLayout.minimumLineSpacing = 15
             moviesCollectionviewOutlet.collectionViewLayout = flowLayout
