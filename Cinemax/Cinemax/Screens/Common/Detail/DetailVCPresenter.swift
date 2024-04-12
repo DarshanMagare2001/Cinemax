@@ -47,6 +47,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func viewDidload(){
         view?.registerXibs()
+        view?.setupFlowlayout()
         loadDatasource()
     }
     

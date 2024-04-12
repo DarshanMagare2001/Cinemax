@@ -13,6 +13,7 @@ import RxCocoa
 protocol DetailVCProtocol : AnyObject {
     func updateUI(movieDetail:MovieDetailsModel)
     func registerXibs()
+    func setupFlowlayout()
     func updateSimilarMoviesCollectionviewOutlet()
     func playMovieTrailer()
 }
@@ -93,14 +94,17 @@ extension DetailVC : DetailVCProtocol {
         movieForegroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
         if let releaseDate = movieDetail.releaseDate,
            let duration = movieDetail.runtime,
-           let genere = movieDetail.genres?[0],
            let rating = movieDetail.voteAverage,
            let overView = movieDetail.overview,
            let title = movieDetail.title,
            let status = movieDetail.status{
             movieReleasedateLbl.text = "\(releaseDate)"
             movieDurationLbl.text = "\(duration) mins"
-            movieGenereLbl.text = "\(genere.name ?? "")"
+            if let genere = movieDetail.genres,!genere.isEmpty {
+                movieGenereLbl.text = "\(genere[0].name ?? "")"
+            }else{
+                movieGenereLbl.text = "nil"
+            }
             let movieRating = String(format: "%.1f",rating)
             movieRatingLbl.text = movieRating
             movieOverviewlbl.text = overView
@@ -123,6 +127,16 @@ extension DetailVC : DetailVCProtocol {
         }
     }
     
+    func setupFlowlayout(){
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        let width = (movieGalleryCollectionViewOutlet.frame.width - 70)
+        let height = (movieGalleryCollectionViewOutlet.frame.height)
+        flowLayout.itemSize = CGSize(width: width, height: height)
+        movieGalleryCollectionViewOutlet.collectionViewLayout = flowLayout
+    }
+    
     func playMovieTrailer(){
         if let movieVideosData = presenter?.movieVideos?.results {
             DispatchQueue.main.async { [weak self] in
@@ -131,7 +145,6 @@ extension DetailVC : DetailVCProtocol {
                 if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
                    let trailerVideoKey = trailerVideo.key{
                     if let myVideoURL = URL(string: "https://www.youtube.com/watch?v=\(trailerVideoKey)") {
-                        //                        self?.movieTrailerView.loadVideoURL(myVideoURL)
                         self?.movieTrailerView.load(withVideoId: trailerVideoKey)
                     }
                 }
