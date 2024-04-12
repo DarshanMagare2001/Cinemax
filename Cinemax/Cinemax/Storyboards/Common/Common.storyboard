@@ -977,6 +977,7 @@
                         <outlet property="movieTitleLbl" destination="d6S-0Q-oAc" id="QuU-zu-VmL"/>
                         <outlet property="movieTrailerSectionView" destination="lJM-1a-eXS" id="5Th-5g-8aL"/>
                         <outlet property="movieTrailerView" destination="2pm-2c-Dt0" id="vO3-3E-Rem"/>
+                        <outlet property="overViewsView" destination="tfp-v9-5Nx" id="5Or-3Y-RPl"/>
                         <outlet property="productionHouseCollectionViewOutlet" destination="Biy-CR-TiP" id="tH6-rV-1zl"/>
                         <outlet property="productionHouseCollectionViewOutletView" destination="KSj-gR-h3T" id="BNm-ZN-jFd"/>
                         <outlet property="similarMoviesCollectionViewsOtletView" destination="C24-8H-QXd" id="6cv-BC-ZXi"/>

@@ -37,7 +37,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var movieGalleryCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var movieTitleLbl: UILabel!
     @IBOutlet weak var addToWishListBtn: UIButton!
-    
+    @IBOutlet weak var overViewsView: RoundedCornerView!
     
     var presenter : DetailVCPresenterProtocol?
     let disposeBag = DisposeBag()
@@ -47,6 +47,8 @@ class DetailVC: UIViewController {
         presenter?.viewDidload()
         productionHouseCollectionViewOutletView.isHidden = true
         movieTrailerSectionView.isHidden = true
+        overViewsView.isHidden = true
+        similarMoviesCollectionViewsOtletView.isHidden = true
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
@@ -84,9 +86,17 @@ extension DetailVC : DetailVCProtocol {
     }
     
     func updateUI(movieDetail:MovieDetailsModel){
-        similarMoviesCollectionViewsOtletView.isHidden = true
         if let productionHouseCollectionViewData = presenter?.movieProductionHouses, !(productionHouseCollectionViewData.isEmpty){
             productionHouseCollectionViewOutletView.isHidden = false
+        }
+        if let overView = presenter?.movieData?.overview,(overView != "") {
+            overViewsView.isHidden = false
+        }
+        if let movieTrailer = presenter?.movieVideos?.results,!(movieTrailer.isEmpty) {
+            movieTrailerSectionView.isHidden = false
+        }
+        if let similarMovies = presenter?.similarMovies?.results,!(similarMovies.isEmpty){
+            similarMoviesCollectionViewsOtletView.isHidden = false
         }
         productionHouseCollectionViewOutlet.reloadData()
         let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
@@ -140,7 +150,6 @@ extension DetailVC : DetailVCProtocol {
     func playMovieTrailer(){
         if let movieVideosData = presenter?.movieVideos?.results {
             DispatchQueue.main.async { [weak self] in
-                self?.movieTrailerSectionView.isHidden = false
                 self?.movieGalleryCollectionViewOutlet.reloadData()
                 if let trailerVideo = movieVideosData.first(where: { $0.type == "Trailer" }),
                    let trailerVideoKey = trailerVideo.key{
