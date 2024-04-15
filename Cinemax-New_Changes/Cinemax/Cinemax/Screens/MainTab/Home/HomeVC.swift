@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol HomeVCProtocol: class {
-    func setupUI(name:String,profileImgUrl:String)
+    func bindUI()
     func updateUI()
     func registerXib()
     func addRefreshcontroToTableview()
@@ -26,6 +27,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tvShowTableViewOutlet: UITableView!
     
     var presenter: HomeVCPresenterProtocol?
+    var userDataRepositoryManager: UserDataRepositoryManagerProtocol?
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
@@ -33,9 +35,11 @@ class HomeVC: UIViewController {
         refreshControl.tintColor = .white
         return refreshControl
     }()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDataRepositoryManager = UserDataRepositoryManager.shared
         presenter?.viewDidload()
     }
     
@@ -62,10 +66,21 @@ class HomeVC: UIViewController {
 
 extension HomeVC: HomeVCProtocol {
     
-    func setupUI(name:String,profileImgUrl:String){
-        userNameLbl.text = name
-        userImg.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
-        self.tvShowsView.isHidden = false
+    func bindUI(){
+        userDataRepositoryManager?.userName.subscribe { event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.userNameLbl.text = element
+                }
+            }
+        }.disposed(by: disposeBag)
+        userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.userImg.loadImage(urlString: element, placeholder: "person.fill")
+                }
+            }
+        }
     }
     
     func updateUI(){

@@ -44,22 +44,13 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     
     func viewDidload(){
         loadDataSource()
+        view?.bindUI()
         view?.registerXib()
         view?.addRefreshcontroToTableview()
     }
     
     func viewWillAppear(){
-        setupUI()
-    }
-    
-    
-    private func setupUI(){
-        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
-           let profileImgUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
-            DispatchQueue.main.async { [weak self] in
-                self?.view?.setupUI(name: name, profileImgUrl: profileImgUrl)
-            }
-        }
+        
     }
     
     func loadDataSource(){
