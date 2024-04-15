@@ -15,7 +15,7 @@ public final class EditProfileVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Profile
         let editProfileVC = storyboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
-        let interactor = EditProfileVCInteractor()
+        let interactor = EditProfileVCInteractor(userDataRepositoryManager: UserDataRepositoryManager.shared)
         editProfileVC.presenterProducer = {
             EditProfileVCPresenter(view: editProfileVC, interactor: interactor, input: $0)
         }

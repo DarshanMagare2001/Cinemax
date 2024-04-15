@@ -46,18 +46,11 @@ class EditProfileVCPresenter {
 }
 
 extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
+    
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
             self?.view?.setupWarningLbls()
-            self?.setupUI()
-        }
-    }
-    
-    private func setupUI(){
-        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
-           let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail){
-            self.view?.setupUI(name: name, email: email)
         }
     }
     

@@ -11,7 +11,6 @@ import SwiftUI
 import RxSwift
 
 protocol EditProfileVCProtocol : class {
-    func setupUI(name:String,email:String)
     func setupInputs()
     func setupWarningLbls()
     func setUpBinding()
@@ -28,13 +27,15 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var saveChangesBtn: RoundedButton!
     
     var presenter : EditProfileVCPresenterProtocol?
+    var userDataRepositoryManager: UserDataRepositoryManagerProtocol?
     var presenterProducer : EditProfileVCPresenterProtocol.Producer!
     var config = YPImagePickerConfiguration()
     var imgPicker = YPImagePicker()
-    private let bag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDataRepositoryManager = UserDataRepositoryManager.shared
         setupInputs()
         presenter?.viewDidload()
     }
@@ -67,19 +68,37 @@ extension EditProfileVC : EditProfileVCProtocol {
     func setUpBinding(){
         presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
             .drive(saveChangesBtn.rx.isEnabled)
-            .disposed(by: bag)
+            .disposed(by: disposeBag)
         
         presenter?.output.fullNameWarning.debug("Enable Login Driver" , trimOutput: false)
             .drive(fullnameWarningLbl.rx.isHidden)
-            .disposed(by: bag)
-    }
-    
-    func setupUI(name:String,email:String){
-        currentUserName.text = name
-        currentUserEmailLbl.text = email
-        if let profileImageUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
-            ImageLoader.loadImage(imageView: currentUserProfileImg, imageUrl: profileImageUrl, placeHolderType: .systemName, placeHolderImage: "person.fill")
-        }
+            .disposed(by: disposeBag)
+        
+        userDataRepositoryManager?.userName.subscribe { event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserName.text = element
+                }
+            }
+        }.disposed(by: disposeBag)
+        
+        userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserProfileImg.loadImage(urlString: element, placeholder: "person.fill")
+                }
+            }
+        }.disposed(by: disposeBag)
+        
+        
+        userDataRepositoryManager?.userEmailAddress.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserEmailLbl.text = element
+                }
+            }
+        }.disposed(by: disposeBag)
+        
     }
     
     func backBtnPressed(){

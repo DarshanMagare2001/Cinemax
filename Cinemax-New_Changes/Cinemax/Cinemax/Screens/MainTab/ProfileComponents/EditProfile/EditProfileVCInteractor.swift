@@ -14,7 +14,10 @@ protocol EditProfileVCInteractorProtocol {
 }
 
 class EditProfileVCInteractor {
-    
+    var userDataRepositoryManager: UserDataRepositoryManagerProtocol?
+    init(userDataRepositoryManager: UserDataRepositoryManagerProtocol){
+        self.userDataRepositoryManager = userDataRepositoryManager
+    }
 }
 
 extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
@@ -47,11 +50,17 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
     
     private func saveCurrentUserImageUrlToUserDefault(url:String?){
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: url) { _ in}
+        if let url = url {
+            userDataRepositoryManager?.userProfileImageUrl.onNext(url)
+        }
     }
     
     func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure){
         StoreUserServerManager.shared.updateCurrentUserNameInDatabase(name: name) { result in
             completion(result)
+        }
+        if let name = name {
+            userDataRepositoryManager?.userName.onNext(name)
         }
     }
     

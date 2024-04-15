@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
+        UserDataRepositoryManager()
         return true
     }
     
