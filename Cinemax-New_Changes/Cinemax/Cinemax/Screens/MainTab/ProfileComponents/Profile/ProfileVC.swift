@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol ProfileVCProtocol : class {
     func errorAlert(message:String)
-    func updateUI(name:String ,email: String, profileImgUrl:String)
+    func bindUI()
 }
 
 class ProfileVC: UIViewController {
@@ -19,9 +20,12 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var currentUserProfileImage: CircleImageView!
     
     var presenter : ProfileVCPresenterProtocol?
+    var userDataRepositoryManager: UserDataRepositoryManagerProtocol?
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDataRepositoryManager = UserDataRepositoryManager.shared
         presenter?.viewDidload()
     }
     
@@ -53,10 +57,31 @@ extension ProfileVC : ProfileVCProtocol {
         Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
     }
     
-    func updateUI(name:String ,email: String, profileImgUrl:String){
-        currentUserName.text = name
-        currentUserEmail.text = email
-        currentUserProfileImage.loadImage(urlString: profileImgUrl, placeholder: "person.fill")
+    func bindUI(){
+        userDataRepositoryManager?.userName.subscribe { event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserName.text = element
+                }
+            }
+        }.disposed(by: disposeBag)
+        
+        userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserProfileImage.loadImage(urlString: element, placeholder: "person.fill")
+                }
+            }
+        }.disposed(by: disposeBag)
+        
+        
+        userDataRepositoryManager?.userEmailAddress.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.currentUserEmail.text = element
+                }
+            }
+        }.disposed(by: disposeBag)
     }
     
 }

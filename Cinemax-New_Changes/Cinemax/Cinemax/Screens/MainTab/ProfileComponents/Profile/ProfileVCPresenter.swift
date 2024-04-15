@@ -29,13 +29,11 @@ class ProfileVCPresenter {
 extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     func viewDidload(){
-        
+        view?.bindUI()
     }
     
     func viewWillAppear(){
-        DispatchQueue.main.async { [weak self] in
-            self?.updateUI()
-        }
+        
     }
     
     func currentUserLogout(){
@@ -64,14 +62,6 @@ extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     
     func goToSignupVC(){
         router.goToSignupVC()
-    }
-    
-    private func updateUI(){
-        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName),
-           let email = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersEmail),
-           let profileImgUrl = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersProfileImageUrl){
-            self.view?.updateUI(name: name, email: email, profileImgUrl: profileImgUrl)
-        }
     }
     
     func goToEditProfileVC(){
