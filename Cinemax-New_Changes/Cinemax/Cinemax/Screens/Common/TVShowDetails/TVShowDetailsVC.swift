@@ -150,9 +150,9 @@ extension TVShowDetailsVC: UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowSeasonsCell", for: indexPath) as! TVShowSeasonsCell
         guard let cellData = presenter?.tvShowDetails?.seasons?[indexPath.row],
-              let defaultPosterPath = presenter?.tvShow?.posterPath else {
-                  return UITableViewCell()
-              }
+              let defaultPosterPath = presenter?.tvShowDetails?.posterPath else {
+            return UITableViewCell()
+        }
         cell.configure(season: cellData, defaultPosterPath: defaultPosterPath)
         return cell
     }

@@ -48,7 +48,7 @@ extension TVShowSimilarVCPresenter: TVShowSimilarVCPresenterProtocol {
         }
         if let tvShowData = tvShowData{
             DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
-                self?.interactor.fetchTVShowSimilar(similarId: tvShowData.id , page: page)
+                self?.interactor.fetchTVShowSimilar(similarId: tvShowData.id ?? 0 , page: page)
                     .subscribe({ data in
                         switch data {
                         case.success(let data):

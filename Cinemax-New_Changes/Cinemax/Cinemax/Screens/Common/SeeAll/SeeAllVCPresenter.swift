@@ -19,11 +19,13 @@ protocol SeeAllVCPresenterProtocol {
     func loadPaginatedData()
     func sortMovies(sortBy:SortMovies)
     func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
     var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
     var moviesDatasourceForCell : [MoviesCollectionViewCellModel] { get set }
     var moviesDatasourceIndetailForCell : [MoviesCollectionViewDetailCellModel] { get set }
+    var seeAllVCInputs: SeeAllVCInputs? { get set }
 }
 
 class SeeAllVCPresenter {
@@ -168,6 +170,10 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
             tempArray.append(cellData)
         }
         return tempArray
+    }
+    
+    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
+        router.gotoTVShowDetailsVC(tvShow: tvShow)
     }
     
 }

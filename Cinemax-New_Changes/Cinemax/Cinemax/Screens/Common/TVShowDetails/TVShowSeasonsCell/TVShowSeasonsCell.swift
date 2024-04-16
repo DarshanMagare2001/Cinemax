@@ -27,7 +27,7 @@ class TVShowSeasonsCell: UITableViewCell {
     }
     
     func configure(season:Season,defaultPosterPath:String){
-        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(season.posterPath ?? defaultPosterPath)"
+        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(season.posterPath ?? (defaultPosterPath ?? ""))"
         let seasonName = season.name ?? ""
         let seasonReleaseDate = season.airDate ?? ""
         DispatchQueue.main.async { [weak self] in

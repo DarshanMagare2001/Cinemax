@@ -29,8 +29,8 @@ class TVShowsTableViewCell1: UITableViewCell {
     }
     
     func configure(tvShow:TVShowsResponseModelResult){
-        let tvShowBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.backdropPath)"
-        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.posterPath)"
+        let tvShowBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.backdropPath ?? "")"
+        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.posterPath ?? "")"
         let name = tvShow.name
         let description = tvShow.overview
         DispatchQueue.main.async { [weak self] in

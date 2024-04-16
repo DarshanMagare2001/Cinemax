@@ -70,7 +70,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     
     func fetchTVShowDetails(completion:@escaping ()->()){
         if let tvShow = tvShow {
-            interactor.fetchTVShowDetails(showId: tvShow.id)
+            interactor.fetchTVShowDetails(showId: tvShow.id ?? 0)
                 .subscribe({ response in
                     switch response {
                     case.success(let showsData):
@@ -85,7 +85,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     
     func fetchTVShowCast(completion:@escaping ()->()){
         if let tvShow = tvShow {
-            interactor.fetchTVShowCast(showId: tvShow.id)
+            interactor.fetchTVShowCast(showId: tvShow.id ?? 0)
                 .subscribe({ response in
                     switch response {
                     case.success(let castData):
@@ -100,7 +100,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     
     func fetchTVShowVideos(completion:@escaping ()->()){
         if let tvShow = tvShow {
-            interactor.fetchTVShowVideos(showId: tvShow.id)
+            interactor.fetchTVShowVideos(showId: tvShow.id ?? 0)
                 .subscribe({ response in
                     switch response {
                     case.success(let tvShowVideosData):
@@ -115,7 +115,7 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     
     func fetchTVShowSimilar(completion:@escaping ()->()){
         if let tvShow = tvShow {
-            interactor.fetchTVShowSimilar(similarId: tvShow.id, page: 1)
+            interactor.fetchTVShowSimilar(similarId: tvShow.id ?? 0, page: 1)
                 .subscribe({ response in
                     switch response {
                     case.success(let tvShowSimilarData):

@@ -159,7 +159,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             if section == 0 {
                 return 1
             }else{
-                return presenter?.tvShowsDatasource?.results.count ?? 0
+                return presenter?.tvShowsDatasource?.results?.count ?? 0
             }
         default:
             return 0
@@ -246,7 +246,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
             if indexPath.section == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell1", for: indexPath) as!
                 TVShowsTableViewCell1
-                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                guard let cellData = presenter?.tvShowsDatasource?.results?[indexPath.row] else {
                     return  UITableViewCell()
                 }
                 cell.configure(tvShow: cellData)
@@ -256,7 +256,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                 return cell
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TVShowsTableViewCell2", for: indexPath) as! TVShowsTableViewCell2
-                guard let cellData = presenter?.tvShowsDatasource?.results[indexPath.row] else {
+                guard let cellData = presenter?.tvShowsDatasource?.results?[indexPath.row] else {
                     return  UITableViewCell()
                 }
                 cell.configure(tvShow: cellData)

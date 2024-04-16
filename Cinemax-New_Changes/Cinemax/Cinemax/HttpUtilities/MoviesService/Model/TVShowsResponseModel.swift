@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - TVShowsResponseModel
 struct TVShowsResponseModel: Codable {
-    let page: Int
-    let results: [TVShowsResponseModelResult]
-    let totalPages, totalResults: Int
+    let page: Int?
+    let results: [TVShowsResponseModelResult]?
+    let totalPages, totalResults: Int?
     
     enum CodingKeys: String, CodingKey {
         case page, results
@@ -22,16 +22,16 @@ struct TVShowsResponseModel: Codable {
 
 // MARK: - Result
 struct TVShowsResponseModelResult: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let genreIDS: [Int]
-    let id: Int
-    let originCountry: [String]
-    let originalLanguage, originalName, overview: String
-    let popularity: Double
-    let posterPath, firstAirDate, name: String
-    let voteAverage: Double
-    let voteCount: Int
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+    let originCountry: [String]?
+    let originalLanguage, originalName, overview: String?
+    let popularity: Double?
+    let posterPath, firstAirDate, name: String?
+    let voteAverage: Double?
+    let voteCount: Int?
     
     enum CodingKeys: String, CodingKey {
         case adult

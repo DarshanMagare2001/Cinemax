@@ -158,8 +158,27 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cellData = presenter?.moviesDatasource[indexPath.row]{
-            presenter?.gotoDetailVC(movieData: cellData)
+        if let categories = presenter?.seeAllVCInputs,
+           let cellData = presenter?.moviesDatasource[indexPath.row]{
+            switch categories {
+            case .fetchMovieUpcoming(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMovieNowPlaying(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMovieTopRated(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMoviePopular(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMovieSimilar(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMovieSearch(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchMoviesByGenres(let title):
+                presenter?.gotoDetailVC(movieData: cellData)
+            case .fetchTVShowByGenres(let title):
+                let tvShowsResponseModelResult = TVShowsResponseModelResult(adult: nil, backdropPath: nil, genreIDS: nil, id: cellData.id, originCountry: nil, originalLanguage: nil, originalName: nil, overview: nil, popularity: nil, posterPath: nil, firstAirDate: nil, name: nil, voteAverage: nil, voteCount: nil)
+                presenter?.gotoTVShowDetailsVC(tvShow:tvShowsResponseModelResult)
+            }
         }
     }
     
