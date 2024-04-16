@@ -55,6 +55,7 @@ extension GenresVC: GenresVCProtocol {
                 self.moviesBtn.isUserInteractionEnabled = false
                 self.tvShowsBtn.isUserInteractionEnabled = true
                 self.tvShowsBtn.backgroundColor = .clear
+                self.genresCollectionView.reloadData()
             },completion: nil)
         }else{
             UIView.transition(with: self.tvShowsBtn,
@@ -65,6 +66,7 @@ extension GenresVC: GenresVCProtocol {
                 self.moviesBtn.isUserInteractionEnabled = true
                 self.tvShowsBtn.isUserInteractionEnabled = false
                 self.moviesBtn.backgroundColor = .clear
+                self.genresCollectionView.reloadData()
             },completion: nil)
         }
     }
@@ -88,23 +90,37 @@ extension GenresVC: GenresVCProtocol {
 extension GenresVC: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.genresDatasource.count ?? 0
+        if isMoviesSelected {
+            return presenter?.genresDatasourceForMovies.count ?? 0
+        }else{
+            return presenter?.genresDatasourceForTvshows.count ?? 0
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenresVCCVCell", for: indexPath) as! GenresVCCVCell
-        guard let cellData = presenter?.genresDatasource[indexPath.row] else {
-            return UICollectionViewCell()
+        if isMoviesSelected {
+            guard let cellData = presenter?.genresDatasourceForMovies[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.cellNameLbl.text = cellData.genresName
+        }else{
+            guard let cellData = presenter?.genresDatasourceForTvshows[indexPath.row] else {
+                return UICollectionViewCell()
+            }
+            cell.cellNameLbl.text = cellData.genresName
         }
-        cell.cellNameLbl.text = cellData.genresName
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cellData = presenter?.genresDatasource[indexPath.row]{
-            if isMoviesSelected {
+        if isMoviesSelected {
+            if let cellData = presenter?.genresDatasourceForMovies[indexPath.row]{
                 presenter?.gotoSeeAllVC(genreId:cellData.genresId, page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviesByGenres(title:cellData.genresName))
-            }else{
+            }
+        }else{
+            if let cellData = presenter?.genresDatasourceForTvshows[indexPath.row]{
                 presenter?.gotoSeeAllVC(genreId:cellData.genresId, page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchTVShowByGenres(title:cellData.genresName))
             }
         }

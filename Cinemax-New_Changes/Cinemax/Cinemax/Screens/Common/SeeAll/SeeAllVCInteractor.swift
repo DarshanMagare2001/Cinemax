@@ -42,9 +42,9 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                   let searchText = searchText,
                   let page = page,
                   let genreId = genreId else {
-                      single(.failure(fatalError()))
-                      return disposable
-                  }
+                single(.failure(fatalError()))
+                return disposable
+            }
             switch seeAllVCInputs {
                 
             case .fetchMovieUpcoming:
@@ -151,7 +151,6 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
                         dispatchGroup.leave()
                     }, onFailure: { error in
                         print(error)
-                        // Handle error if needed
                         dispatchGroup.leave()
                     })
                     .disposed(by: self.disposeBag)
