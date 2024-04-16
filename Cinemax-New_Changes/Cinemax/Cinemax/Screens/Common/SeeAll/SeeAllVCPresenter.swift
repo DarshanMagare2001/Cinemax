@@ -22,6 +22,8 @@ protocol SeeAllVCPresenterProtocol {
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
     var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
+    var moviesDatasourceForCell : [MoviesCollectionViewCellModel] { get set }
+    var moviesDatasourceIndetailForCell : [MoviesCollectionViewDetailCellModel] { get set }
 }
 
 class SeeAllVCPresenter {
@@ -29,14 +31,24 @@ class SeeAllVCPresenter {
     var interactor: SeeAllVCInteractorProtocol
     var router: SeeAllVCRouterProtocol
     var moviesHeadline : String?
-    var moviesDatasource = [MasterMovieModelResult]()
+    var moviesDatasource = [MasterMovieModelResult](){
+        didSet{
+            moviesDatasourceForCell = processMoviesDataForCell1(moviesDatasource:self.moviesDatasource)
+        }
+    }
     var moviesDatasourceIndetail = [MovieDetailsModel](){
+        didSet{
+            moviesDatasourceIndetailForCell = processMoviesDataForCell2(moviesDatasourceIndetail:self.moviesDatasourceIndetail)
+        }
+    }
+    var moviesDatasourceIndetailForCell = [MoviesCollectionViewDetailCellModel](){
         didSet{
             DispatchQueue.main.async { [weak self] in
                 self?.view?.updateCollectionView()
             }
         }
     }
+    var moviesDatasourceForCell = [MoviesCollectionViewCellModel]()
     var seeAllVCInputs: SeeAllVCInputs?
     var movieId: Int?
     var searchText: String?
@@ -121,6 +133,41 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     
     func gotoDetailVC(movieData: MasterMovieModelResult?){
         router.gotoDetailVC(movieData: movieData)
+    }
+    
+    private func processMoviesDataForCell1(moviesDatasource:[MasterMovieModelResult]) -> [MoviesCollectionViewCellModel] {
+        var tempArray = [MoviesCollectionViewCellModel]()
+        for movies in moviesDatasource {
+            let posterPath = movies.posterPath ?? ""
+            let title = movies.title ?? ""
+            let name = movies.name ?? ""
+            let originalLanguage = movies.originalLanguage ?? ""
+            let voteAverage = movies.voteAverage ?? 0.0
+            let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+                                                         cellNameLblText:((title == "") ? name:title),
+                                                         cellLanguageLblText:originalLanguage,
+                                                         cellRatingLblText:voteAverage)
+            tempArray.append(cellData)
+        }
+        return tempArray
+    }
+    
+    private func processMoviesDataForCell2(moviesDatasourceIndetail:[MovieDetailsModel]) -> [MoviesCollectionViewDetailCellModel] {
+        var tempArray = [MoviesCollectionViewDetailCellModel]()
+        for shows in moviesDatasourceIndetail {
+            let movieImgUrl = shows.posterPath ?? ""
+            let movieNameLblText = shows.title ?? ""
+            let movieReleaseDateText = shows.releaseDate ?? ""
+            let movieDurationText = shows.runtime ?? 0
+            let genres = shows.genres ?? []
+            let movieGenereLblText = ((genres.isEmpty) ? "" : genres[0].name ?? "" )
+            let movieLanguageLblText = shows.originalLanguage ?? ""
+            let movieOverviewLblText = shows.overview ?? ""
+            let movieRatingLblText = shows.voteAverage ?? 0.0
+            let cellData = MoviesCollectionViewDetailCellModel(movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+            tempArray.append(cellData)
+        }
+        return tempArray
     }
     
 }

@@ -128,6 +128,7 @@ extension SeeAllVC : SeeAllVCProtocol {
 }
 
 extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isGridLayout {
             return presenter?.moviesDatasource.count ?? 0
@@ -141,33 +142,14 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         if isGridLayout {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewCell", for: indexPath) as!
             MoviesCollectionViewCell
-            guard let data = presenter?.moviesDatasource[indexPath.row] else {
+            guard let cellData = presenter?.moviesDatasourceForCell[indexPath.row] else {
                 return UICollectionViewCell()
             }
-            let posterPath = data.posterPath ?? ""
-            let title = data.title ?? ""
-            let name = data.name ?? ""
-            let originalLanguage = data.originalLanguage ?? ""
-            let voteAverage = data.voteAverage ?? 0.0
-            let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
-                                                         cellNameLblText:((title == "") ? name:title),
-                                                         cellLanguageLblText:originalLanguage,
-                                                         cellRatingLblText:voteAverage)
             cell.configure(cellData: cellData)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
-            if let data = presenter?.moviesDatasourceIndetail[indexPath.row] {
-                let movieImgUrl = data.posterPath ?? ""
-                let movieNameLblText = data.title ?? ""
-                let movieReleaseDateText = data.releaseDate ?? ""
-                let movieDurationText = data.runtime ?? 0
-                let genres = data.genres ?? []
-                let movieGenereLblText = ((genres.isEmpty) ? "" : genres[0].name ?? "" )
-                let movieLanguageLblText = data.originalLanguage ?? ""
-                let movieOverviewLblText = data.overview ?? ""
-                let movieRatingLblText = data.voteAverage ?? 0.0
-                let cellData = MoviesCollectionViewDetailCellModel(movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+            if let cellData = presenter?.moviesDatasourceIndetailForCell[indexPath.row] {
                 cell.configure(cellData: cellData)
             }
             return cell
