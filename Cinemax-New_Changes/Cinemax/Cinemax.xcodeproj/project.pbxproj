@@ -169,6 +169,7 @@
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 		A06660442BCD45130072E7EB /* UserDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */; };
+		A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A0EE0D412BCFE4B4006DB7C7 /* DropDown */; };
 		FAD6AC8D2BC947A40023E92F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8C2BC947A40023E92F /* FirebaseAuth */; };
 		FAD6AC8F2BC947A40023E92F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8E2BC947A40023E92F /* FirebaseDatabase */; };
 		FAD6AC912BC947A40023E92F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC902BC947A40023E92F /* FirebaseFirestore */; };
@@ -370,6 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */,
 				13C713A62BA1D66C009DA2A5 /* Differentiator in Frameworks */,
 				1398F0C02B68EABC00D58906 /* RxCocoa in Frameworks */,
 				131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */,
@@ -1232,6 +1234,7 @@
 				FAD6AC8E2BC947A40023E92F /* FirebaseDatabase */,
 				FAD6AC902BC947A40023E92F /* FirebaseFirestore */,
 				FAD6AC922BC947A40023E92F /* FirebaseStorage */,
+				A0EE0D412BCFE4B4006DB7C7 /* DropDown */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -1274,6 +1277,7 @@
 				139531CB2B97403300B2BCAA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				13C713A42BA1D66B009DA2A5 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				FAD6AC8B2BC947A40023E92F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A0EE0D402BCFE4B4006DB7C7 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -1834,6 +1838,14 @@
 				version = 5.0.2;
 			};
 		};
+		A0EE0D402BCFE4B4006DB7C7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FAD6AC8B2BC947A40023E92F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1899,6 +1911,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13C713A42BA1D66B009DA2A5 /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		A0EE0D412BCFE4B4006DB7C7 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0EE0D402BCFE4B4006DB7C7 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 		FAD6AC8C2BC947A40023E92F /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -14,6 +14,7 @@ protocol SearchVCPresenterProtocol {
     func gotoDetailVC(movieData: MasterMovieModelResult?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func fetchSearchedMoviesAndTVShows(query:String)
     var searchQuery: BehaviorRelay<String> { get set }
     var moviesDatasource : MasterMovieModel? { get set }
     var tvShowsDatasource : MasterMovieModel? { get set }
@@ -53,7 +54,7 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
             }).disposed(by: disposeBag)
     }
     
-    private func fetchSearchedMoviesAndTVShows(query:String){
+    func fetchSearchedMoviesAndTVShows(query:String){
         dispatchGroup.enter()
         fetchSearchedMovies(searchText: query, page: 1) {
             self.dispatchGroup.leave()

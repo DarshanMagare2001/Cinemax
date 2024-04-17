@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import DropDown
 
 protocol SearchVCProtocol: AnyObject {
     func updateUI()
@@ -18,14 +19,19 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchBarOutlet: UITextField!
     @IBOutlet weak var searchResultTblOutlet: UITableView!
     @IBOutlet weak var searchMessageView: UIView!
+    @IBOutlet weak var searchBarView: RoundedCornerView!
     
     var presenter: SearchVCPresenterProtocol?
     let disposeBag = DisposeBag()
+    let dropDown = DropDown()
+    let previousSearchData = ReplayRelay<String>.create(bufferSize:10)
+    var searchQuery = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
         bindSearchBar()
+        setupDropdown()
         presenter?.viewDidload()
     }
     
@@ -62,6 +68,7 @@ extension SearchVC: SearchVCProtocol {
             .filter { !$0.isEmpty }
             .bind(to: presenter!.searchQuery)
             .disposed(by: disposeBag)
+        searchBarOutlet.delegate = self
     }
     
     func registerXib(){
@@ -77,6 +84,22 @@ extension SearchVC: SearchVCProtocol {
             self.searchResultTblOutlet.reloadData()
             self.searchMessageView.isHidden = true
         },completion: nil)
+    }
+    
+    func setupDropdown(){
+        dropDown.anchorView = searchBarView
+        previousSearchData
+            .map { $0 } // Extract the search query from the event
+            .compactMap { $0 } // Remove nil values
+            .subscribe(onNext: { [weak self] data in
+                self?.searchQuery.append(data)
+                self?.dropDown.dataSource = self?.searchQuery ?? []
+            })
+            .disposed(by: disposeBag)
+        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.presenter?.fetchSearchedMoviesAndTVShows(query:item)
+        }
     }
     
 }
@@ -142,3 +165,16 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
     }
     
 }
+
+extension SearchVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        dropDown.show()
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        dropDown.hide()
+        if let searchQuery = searchBarOutlet.text {
+            previousSearchData.accept(searchQuery)
+        }
+    }
+}
+
