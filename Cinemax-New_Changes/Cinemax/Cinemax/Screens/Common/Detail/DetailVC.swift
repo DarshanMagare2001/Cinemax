@@ -141,7 +141,7 @@ extension DetailVC : DetailVCProtocol {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        let width = (movieGalleryCollectionViewOutlet.frame.width - 70)
+        let width = (movieGalleryCollectionViewOutlet.frame.width)
         let height = (movieGalleryCollectionViewOutlet.frame.height)
         flowLayout.itemSize = CGSize(width: width, height: height)
         movieGalleryCollectionViewOutlet.collectionViewLayout = flowLayout

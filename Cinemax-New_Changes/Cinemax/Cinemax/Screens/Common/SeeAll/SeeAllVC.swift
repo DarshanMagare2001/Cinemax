@@ -19,6 +19,7 @@ class SeeAllVC: UIViewController {
     
     @IBOutlet weak var moviesHeadlineLbl: UILabel!
     @IBOutlet weak var moviesCollectionviewOutlet: UICollectionView!
+    @IBOutlet weak var collectionView: UIView!
     @IBOutlet weak var sortByLbl: UILabel!
     @IBOutlet weak var gridBtn: UIButton!
     var sortByString : String? {
@@ -30,7 +31,7 @@ class SeeAllVC: UIViewController {
         didSet{
             DispatchQueue.main.async { [weak self] in
                 self?.setupFlowlayout()
-                UIView.transition(with: self!.moviesCollectionviewOutlet,
+                UIView.transition(with: self!.collectionView,
                                   duration: 0.5,
                                   options: .transitionFlipFromLeft,
                                   animations: {
@@ -183,13 +184,19 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print(presenter?.moviesDatasource.count ?? 0)
-        if indexPath.row == ((presenter?.moviesDatasource.count ?? 0) - 1 ) {
-            presenter?.loadPaginatedData()
+        // Check if collectionView is currently displaying grid layout
+        if isGridLayout {
+            // Check if it's the last item in the grid datasource array
+            if indexPath.row == ((presenter?.moviesDatasource.count ?? 0) - 1) {
+                presenter?.loadPaginatedData()
+            }
         } else {
-            print("Not reached to limit")
+            // Check if it's the last item in the list datasource array
+            if indexPath.row == ((presenter?.moviesDatasourceIndetail.count ?? 0) - 1) {
+                presenter?.loadPaginatedData()
+            }
         }
     }
+
     
 }
