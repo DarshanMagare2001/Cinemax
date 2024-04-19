@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -171,18 +170,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-j8-n2I">
                                 <rect key="frame" x="0.0" y="258" width="414" height="604"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="obw-Jy-HV7">
-                                        <rect key="frame" x="15" y="10" width="384" height="594"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WLK-lA-yrX">
+                                        <rect key="frame" x="10" y="10" width="394" height="584"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XL3-Ih-bIp">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="ejZ-hZ-85G"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="Qih-nn-PRU"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="obw-Jy-HV7" firstAttribute="top" secondItem="v5h-j8-n2I" secondAttribute="top" constant="10" id="5EE-KR-v10"/>
-                                    <constraint firstAttribute="bottom" secondItem="obw-Jy-HV7" secondAttribute="bottom" id="7Rp-wV-f9e"/>
-                                    <constraint firstItem="obw-Jy-HV7" firstAttribute="leading" secondItem="v5h-j8-n2I" secondAttribute="leading" constant="15" id="X7Z-bY-53k"/>
-                                    <constraint firstAttribute="trailing" secondItem="obw-Jy-HV7" secondAttribute="trailing" constant="15" id="s7j-xO-2sX"/>
+                                    <constraint firstAttribute="bottom" secondItem="WLK-lA-yrX" secondAttribute="bottom" constant="10" id="3Xj-Fz-ZQY"/>
+                                    <constraint firstItem="WLK-lA-yrX" firstAttribute="top" secondItem="v5h-j8-n2I" secondAttribute="top" constant="10" id="MFh-M3-VrS"/>
+                                    <constraint firstItem="WLK-lA-yrX" firstAttribute="leading" secondItem="v5h-j8-n2I" secondAttribute="leading" constant="10" id="qCR-AF-KG2"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLK-lA-yrX" secondAttribute="trailing" constant="10" id="swX-UQ-XaL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -206,6 +215,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="moviesAndTVShowsCV" destination="WLK-lA-yrX" id="Hwb-2D-Yq1"/>
                         <outlet property="moviesBtn" destination="NWL-DR-08l" id="sBZ-rG-Rk8"/>
                         <outlet property="tvShowsBtn" destination="O6G-16-Q7d" id="NMo-lg-XBI"/>
                         <outlet property="wishListCountLbl" destination="yRK-m1-Phz" id="SHz-Sg-GwT"/>
@@ -225,15 +235,12 @@
         </designable>
     </designables>
     <resources>
-        <image name="trash.fill" catalog="system" width="117" height="128"/>
+        <image name="trash.fill" catalog="system" width="119" height="128"/>
         <namedColor name="AppBlue">
             <color red="0.070588235294117646" green="0.80392156862745101" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppDark1">
             <color red="0.14509803921568629" green="0.15686274509803921" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

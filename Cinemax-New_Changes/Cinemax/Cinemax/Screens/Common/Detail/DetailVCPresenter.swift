@@ -33,13 +33,15 @@ class DetailVCPresenter {
         }
     }
     var movieProductionHouses = [ProductionCompany]()
+    var realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
-    init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieData: MasterMovieModelResult?){
+    init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieData: MasterMovieModelResult?,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?){
         self.view = view
         self.interactor = interactor
         self.movieData = movieData
         self.router = router
+        self.realmDataRepositoryManager = realmDataRepositoryManager
     }
 }
 
@@ -130,10 +132,8 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func addMovieToWishlist(){
         if let data = self.movieData , let movieId = data.id {
-            let cdMovieData = CDMoviesModel(id:movieId)
-            interactor.addMovieToWishlist(movie:cdMovieData) { bool in
-                print(bool)
-            }
+            let movie = RealmMoviesModel(movieId: movieId)
+            realmDataRepositoryManager?.addMovieToWishlist(movie:movie)
         }
     }
     

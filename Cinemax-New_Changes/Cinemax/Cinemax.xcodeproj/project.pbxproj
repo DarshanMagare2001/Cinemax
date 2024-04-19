@@ -170,6 +170,10 @@
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 		A06660442BCD45130072E7EB /* UserDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */; };
 		A08023642BD262E600E65A27 /* WebImgUrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */; };
+		A083921A2BD2919600FD594F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A08392192BD2919600FD594F /* Realm */; };
+		A083921C2BD2919600FD594F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A083921B2BD2919600FD594F /* RealmSwift */; };
+		A083921F2BD292FC00FD594F /* RealmDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */; };
+		A08392222BD295BE00FD594F /* RealmMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08392212BD295BE00FD594F /* RealmMoviesModel.swift */; };
 		A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A0EE0D412BCFE4B4006DB7C7 /* DropDown */; };
 		FAD6AC8D2BC947A40023E92F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8C2BC947A40023E92F /* FirebaseAuth */; };
 		FAD6AC8F2BC947A40023E92F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8E2BC947A40023E92F /* FirebaseDatabase */; };
@@ -357,6 +361,8 @@
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepositoryManager.swift; sourceTree = "<group>"; };
 		A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImgUrlFactory.swift; sourceTree = "<group>"; };
+		A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataRepositoryManager.swift; sourceTree = "<group>"; };
+		A08392212BD295BE00FD594F /* RealmMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMoviesModel.swift; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -373,12 +379,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A083921C2BD2919600FD594F /* RealmSwift in Frameworks */,
 				A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */,
 				13C713A62BA1D66C009DA2A5 /* Differentiator in Frameworks */,
 				1398F0C02B68EABC00D58906 /* RxCocoa in Frameworks */,
 				131A9B392B6A1760007A4D55 /* NVActivityIndicatorViewExtended in Frameworks */,
 				1398F0AB2B68BB9200D58906 /* GoogleSignInSwift in Frameworks */,
 				17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */,
+				A083921A2BD2919600FD594F /* Realm in Frameworks */,
 				FAD6AC932BC947A40023E92F /* FirebaseStorage in Frameworks */,
 				1398F0A92B68BB9200D58906 /* GoogleSignIn in Frameworks */,
 				139531CD2B97403300B2BCAA /* Alamofire in Frameworks */,
@@ -1031,6 +1039,7 @@
 		13BA5F732B627E09005EDA19 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A083921D2BD2921500FD594F /* RealmDataRepository */,
 				A06660422BCD44F20072E7EB /* UserDataRepository */,
 				137EF2022BBEBC6C000C3A5C /* CoreDataRepository */,
 				13BA5F742B627E20005EDA19 /* UserdefaultRepository */,
@@ -1191,6 +1200,31 @@
 			path = WebImgUrlFactory;
 			sourceTree = "<group>";
 		};
+		A083921D2BD2921500FD594F /* RealmDataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				A08392202BD2959B00FD594F /* Model */,
+				A08392232BD295DA00FD594F /* RealmDataRepositoryManager */,
+			);
+			path = RealmDataRepository;
+			sourceTree = "<group>";
+		};
+		A08392202BD2959B00FD594F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A08392212BD295BE00FD594F /* RealmMoviesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A08392232BD295DA00FD594F /* RealmDataRepositoryManager */ = {
+			isa = PBXGroup;
+			children = (
+				A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */,
+			);
+			path = RealmDataRepositoryManager;
+			sourceTree = "<group>";
+		};
 		F936538B84722E4DFB238AEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1288,8 @@
 				FAD6AC902BC947A40023E92F /* FirebaseFirestore */,
 				FAD6AC922BC947A40023E92F /* FirebaseStorage */,
 				A0EE0D412BCFE4B4006DB7C7 /* DropDown */,
+				A08392192BD2919600FD594F /* Realm */,
+				A083921B2BD2919600FD594F /* RealmSwift */,
 			);
 			productName = Cinemax;
 			productReference = 139C224E2B6126F60082DBDD /* Cinemax.app */;
@@ -1297,6 +1333,7 @@
 				13C713A42BA1D66B009DA2A5 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				FAD6AC8B2BC947A40023E92F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A0EE0D402BCFE4B4006DB7C7 /* XCRemoteSwiftPackageReference "DropDown" */,
+				A08392182BD2919500FD594F /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 139C224F2B6126F60082DBDD /* Products */;
 			projectDirPath = "";
@@ -1498,6 +1535,8 @@
 				13ADC99D2BBD6C27000D48D0 /* GenresVC.swift in Sources */,
 				136B58632BB594EF00D903B5 /* TVShowSimilarCollectionCell.swift in Sources */,
 				13374AF82BA335A2005E2BCA /* DetailVCBuilder.swift in Sources */,
+				A08392222BD295BE00FD594F /* RealmMoviesModel.swift in Sources */,
+				A083921F2BD292FC00FD594F /* RealmDataRepositoryManager.swift in Sources */,
 				13C74DF32B6B975F009CA6DB /* ProfileVCRouter.swift in Sources */,
 				13197DFE2BB2D64C00463D4B /* TVShowsResponseModel.swift in Sources */,
 				13C74DFA2B6B9FE4009CA6DB /* UserServerModel.swift in Sources */,
@@ -1858,6 +1897,14 @@
 				version = 5.0.2;
 			};
 		};
+		A08392182BD2919500FD594F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		A0EE0D402BCFE4B4006DB7C7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
@@ -1931,6 +1978,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13C713A42BA1D66B009DA2A5 /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		A08392192BD2919600FD594F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A08392182BD2919500FD594F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A083921B2BD2919600FD594F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A08392182BD2919500FD594F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		A0EE0D412BCFE4B4006DB7C7 /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,7 +8,9 @@
 import UIKit
 
 protocol WishListVCProtocol: AnyObject {
-    
+    func registerXibs()
+    func setupFlowlayout()
+    func updateUI()
 }
 
 class WishListVC: UIViewController {
@@ -16,6 +18,7 @@ class WishListVC: UIViewController {
     @IBOutlet weak var moviesBtn: RoundedButton!
     @IBOutlet weak var tvShowsBtn: RoundedButton!
     @IBOutlet weak var wishListCountLbl: UILabel!
+    @IBOutlet weak var moviesAndTVShowsCV: UICollectionView!
     
     var presenter: WishListVCPresenterProtocol?
     var isMoviesSelected = true {
@@ -54,6 +57,26 @@ class WishListVC: UIViewController {
 
 extension WishListVC: WishListVCProtocol {
     
+    
+    func registerXibs(){
+        let nib2 = UINib(nibName: "MoviesCollectionViewDetailCell", bundle: nil)
+        moviesAndTVShowsCV.register(nib2, forCellWithReuseIdentifier: "MoviesCollectionViewDetailCell")
+    }
+    
+    func setupFlowlayout(){
+        let flowLayout = UICollectionViewFlowLayout()
+        let cellWidth = moviesAndTVShowsCV.frame.size.width - 5
+        let height = (moviesAndTVShowsCV.frame.size.height/2) - 5
+        flowLayout.itemSize = CGSize(width: cellWidth, height: height)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 15
+        moviesAndTVShowsCV.collectionViewLayout = flowLayout
+    }
+    
+    func updateUI(){
+        moviesAndTVShowsCV.reloadData()
+    }
+    
     private func toggleContent(tag:Int){
         if tag == 0 {
             UIView.transition(with: self.moviesBtn,
@@ -78,4 +101,18 @@ extension WishListVC: WishListVCProtocol {
         }
     }
     
+}
+
+extension WishListVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter?.datasource.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviesCollectionViewDetailCell", for: indexPath) as! MoviesCollectionViewDetailCell
+        if let cellData = presenter?.datasource[indexPath.row] {
+            cell.configure(cellData: cellData)
+        }
+        return cell
+    }
 }

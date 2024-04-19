@@ -19,7 +19,7 @@ public final class DetailVCBuilder {
         let interactor = DetailVCInteractor(moviesServiceManager: MoviesServiceManager.shared,
                                             cdMoviesManager: CDMoviesManager.shared)
         let router = DetailVCRouter(viewController: detailVC)
-        let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, router: router, movieData: movieData)
+        let presenter = DetailVCPresenter(view: detailVC, interactor: interactor, router: router, movieData: movieData, realmDataRepositoryManager: RealmDataRepositoryManager.shared)
         detailVC.presenter = presenter
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))
         detailVC.navigationItem.leftBarButtonItem = backButton
