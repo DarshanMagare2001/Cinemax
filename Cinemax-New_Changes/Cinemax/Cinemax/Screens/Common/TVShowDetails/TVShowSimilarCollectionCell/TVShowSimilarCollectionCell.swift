@@ -16,8 +16,7 @@ class TVShowSimilarCollectionCell: UICollectionViewCell {
     }
     
     func configure(tvShow:TVShowsResponseModelResult){
-        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.posterPath ?? "")"
-        tvShowImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder:"frame.fill")
+        tvShowImg.WebImageLoadingFactory(urlString: WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: tvShow.posterPath), placeholder:"frame.fill")
     }
     
 }

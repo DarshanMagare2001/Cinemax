@@ -35,7 +35,7 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
     
     func configure(cellData:MoviesCollectionViewDetailCellModel){
         DispatchQueue.main.async { [weak self] in
-            self?.movieImg.loadImage(urlString: cellData.movieImgUrl, placeholder: "frame.fill")
+            self?.movieImg.WebImageLoadingFactory(urlString: cellData.movieImgUrl, placeholder: "frame.fill")
             self?.movieNameLbl.text = cellData.movieNameLblText
             self?.movieReleaseDate.text = cellData.movieReleaseDateText
             self?.movieDuration.text = cellData.movieDurationText
@@ -58,7 +58,7 @@ struct MoviesCollectionViewDetailCellModel {
     let movieOverviewLblText:String
     let movieRatingLblText:Double
     init(movieImgUrl:String,movieNameLblText:String,movieReleaseDateText:String,movieDurationText:String,movieGenereLblText:String,movieLanguageLblText:String,movieOverviewLblText:String,movieRatingLblText:Double){
-        self.movieImgUrl = "https://image.tmdb.org/t/p/w500\(movieImgUrl)"
+        self.movieImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: movieImgUrl)
         self.movieNameLblText = movieNameLblText
         self.movieReleaseDateText = movieReleaseDateText
         self.movieDurationText = "\(movieDurationText) mins"

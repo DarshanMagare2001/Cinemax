@@ -29,11 +29,10 @@ class TVShowSimilarVCTBLCell: UITableViewCell {
     }
     
     func configure(tvShow:TVShowsResponseModelResult){
-        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShow.posterPath )"
         let tvShowName = tvShow.name
         let tvShowReleaseDate = tvShow.firstAirDate
         DispatchQueue.main.async { [weak self] in
-            self?.tvShowImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
+            self?.tvShowImg.WebImageLoadingFactory(urlString: WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl:tvShow.posterPath), placeholder: "frame.fill")
             self?.tvShowNameLbl.text = tvShowName
             self?.tvShowReleaseDateLbl.text = tvShowReleaseDate
         }

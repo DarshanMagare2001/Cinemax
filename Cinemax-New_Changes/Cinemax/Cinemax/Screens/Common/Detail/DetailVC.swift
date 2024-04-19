@@ -99,9 +99,9 @@ extension DetailVC : DetailVCProtocol {
             similarMoviesCollectionViewsOtletView.isHidden = false
         }
         productionHouseCollectionViewOutlet.reloadData()
-        let movieBackgroundImgUrl = "https://image.tmdb.org/t/p/w500\(movieDetail.posterPath ?? "")"
-        movieBackgroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
-        movieForegroundImg.loadImage(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
+        let movieBackgroundImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: movieDetail.posterPath)
+        movieBackgroundImg.WebImageLoadingFactory(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
+        movieForegroundImg.WebImageLoadingFactory(urlString: movieBackgroundImgUrl, placeholder: "frame.fill")
         if let releaseDate = movieDetail.releaseDate,
            let duration = movieDetail.runtime,
            let rating = movieDetail.voteAverage,

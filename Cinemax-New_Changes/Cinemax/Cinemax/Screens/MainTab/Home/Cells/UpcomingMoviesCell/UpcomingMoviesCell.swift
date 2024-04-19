@@ -104,7 +104,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        let imageUrl = "https://image.tmdb.org/t/p/w500\(cellData?.results[index].posterPath ?? "")"
+        let imageUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl:cellData?.results[index].posterPath)
         // Set corner radius for imageView
         cell.imageView?.layer.cornerRadius = 20
         cell.imageView?.layer.masksToBounds = true
@@ -112,7 +112,7 @@ extension UpcomingMoviesCell: FSPagerViewDataSource , FSPagerViewDelegate {
         cell.imageView?.layer.borderColor = UIColor.white.cgColor  // Set borderColor to UIColor.white.cgColor
         
         DispatchQueue.main.async { [weak self] in
-            cell.imageView?.loadImage(urlString: imageUrl, placeholder: "frame.fill")
+            cell.imageView?.WebImageLoadingFactory(urlString: imageUrl, placeholder: "frame.fill")
         }
         
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))

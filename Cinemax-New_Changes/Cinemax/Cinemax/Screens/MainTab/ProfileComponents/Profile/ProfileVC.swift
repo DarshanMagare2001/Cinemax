@@ -69,7 +69,7 @@ extension ProfileVC : ProfileVCProtocol {
         userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
             if let element = event.element {
                 DispatchQueue.main.async { [weak self] in
-                    self?.currentUserProfileImage.loadImage(urlString: element, placeholder: "person.fill")
+                    self?.currentUserProfileImage.WebImageLoadingFactory(urlString: element, placeholder: "person.fill")
                 }
             }
         }.disposed(by: disposeBag)

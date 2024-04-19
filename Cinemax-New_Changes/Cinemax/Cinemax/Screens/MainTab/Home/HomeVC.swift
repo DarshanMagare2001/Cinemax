@@ -77,7 +77,7 @@ extension HomeVC: HomeVCProtocol {
         userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
             if let element = event.element {
                 DispatchQueue.main.async { [weak self] in
-                    self?.userImg.loadImage(urlString: element, placeholder: "person.fill")
+                    self?.userImg.WebImageLoadingFactory(urlString: element, placeholder: "person.fill")
                 }
             }
         }

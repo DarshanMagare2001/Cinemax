@@ -106,8 +106,7 @@ extension TVShowDetailsVC:  TVShowDetailsVCProtocol {
             similarTVShowsCollectionViewOutlet.reloadData()
         }
         tvShowTitleLbl.text = tvShowDetails.name
-        let tvShowForegroundImgUrl = "https://image.tmdb.org/t/p/w500\(tvShowDetails.posterPath ?? "")"
-        tvShowForegroundImg.loadImage(urlString: tvShowForegroundImgUrl, placeholder: "frame.fill")
+        tvShowForegroundImg.WebImageLoadingFactory(urlString: WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: tvShowDetails.posterPath), placeholder: "frame.fill")
         let tvShowRating = String(format: "%.1f",tvShowDetails.voteAverage ?? 0.0)
         tvShowRatingLbl.text = tvShowRating
         tvShowsEpisodesLbl.text = "\(tvShowDetails.numberOfEpisodes ?? 0)"

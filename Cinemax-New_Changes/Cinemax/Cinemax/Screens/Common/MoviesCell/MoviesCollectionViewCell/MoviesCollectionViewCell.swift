@@ -28,7 +28,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     func configure(cellData:MoviesCollectionViewCellModel){
         DispatchQueue.main.async { [weak self] in
-            self?.cellImg.loadImage(urlString: cellData.cellImgUrl, placeholder: "frame.fill")
+            self?.cellImg.WebImageLoadingFactory(urlString: cellData.cellImgUrl, placeholder: "frame.fill")
             self?.cellNameLbl.text = cellData.cellNameLblText
             self?.cellLanguageLbl.text = cellData.cellLanguageLblText
             self?.cellRatingLbl.text = String(format: "%.1f",cellData.cellRatingLblText)
@@ -43,7 +43,7 @@ struct MoviesCollectionViewCellModel {
     let cellLanguageLblText: String
     let cellRatingLblText: Double
     init(cellImgUrl: String,cellNameLblText: String,cellLanguageLblText: String,cellRatingLblText: Double){
-        self.cellImgUrl = "https://image.tmdb.org/t/p/w500\(cellImgUrl)"
+        self.cellImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: cellImgUrl)
         self.cellNameLblText = cellNameLblText
         self.cellLanguageLblText = cellLanguageLblText
         self.cellRatingLblText = cellRatingLblText
