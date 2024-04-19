@@ -27,6 +27,7 @@ class SeeAllVC: UIViewController {
             sortByLbl.text = sortByString ?? ""
         }
     }
+    var scrollConset: CGPoint = .zero
     var isGridLayout : Bool = true {
         didSet{
             DispatchQueue.main.async { [weak self] in
@@ -36,6 +37,7 @@ class SeeAllVC: UIViewController {
                                   options: .transitionFlipFromLeft,
                                   animations: {
                     self?.moviesCollectionviewOutlet.reloadData()
+                    self?.moviesCollectionviewOutlet.setContentOffset(self?.scrollConset ?? .zero, animated: true)
                 },completion: nil)
                 self?.gridBtn.setImage(UIImage(systemName: (self!.isGridLayout ? "square.grid.3x3.fill":"line.3.horizontal")), for: .normal)
             }
@@ -197,6 +199,12 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             }
         }
     }
-
     
+    
+}
+
+extension SeeAllVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollConset = scrollView.contentOffset
+    }
 }
