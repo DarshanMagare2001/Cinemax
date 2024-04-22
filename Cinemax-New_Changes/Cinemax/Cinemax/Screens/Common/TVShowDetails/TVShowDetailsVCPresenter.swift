@@ -10,9 +10,9 @@ import RxSwift
 
 protocol TVShowDetailsVCPresenterProtocol {
     func viewDidload()
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
     func gotoTVShowSimilarVC()
-    var tvShow: TVShowsResponseModelResult? { get set }
+    var tvShowId: Int? { get set }
     var tvShowDetails: TVShowDetailsResponseModel? { get set }
     var tvShowCast: TVShowCastResponseModel? { get set }
     var tvShowTrailer: MovieVideosResponseModel? { get set}
@@ -23,7 +23,7 @@ class TVShowDetailsVCPresenter {
     weak var view: TVShowDetailsVCProtocol?
     var interactor: TVShowDetailsVCInteractorProtocol
     var router: TVShowDetailsVCRouterProtocol
-    var tvShow: TVShowsResponseModelResult?
+    var tvShowId: Int?
     var tvShowDetails: TVShowDetailsResponseModel?
     var tvShowCast: TVShowCastResponseModel?
     var tvShowTrailer: MovieVideosResponseModel?
@@ -69,8 +69,8 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     }
     
     func fetchTVShowDetails(completion:@escaping ()->()){
-        if let tvShow = tvShow {
-            interactor.fetchTVShowDetails(showId: tvShow.id ?? 0)
+        if let tvShowId = tvShowId {
+            interactor.fetchTVShowDetails(showId: tvShowId)
                 .subscribe({ response in
                     switch response {
                     case.success(let showsData):
@@ -84,8 +84,8 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     }
     
     func fetchTVShowCast(completion:@escaping ()->()){
-        if let tvShow = tvShow {
-            interactor.fetchTVShowCast(showId: tvShow.id ?? 0)
+        if let tvShowId = tvShowId {
+            interactor.fetchTVShowCast(showId: tvShowId)
                 .subscribe({ response in
                     switch response {
                     case.success(let castData):
@@ -99,8 +99,8 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     }
     
     func fetchTVShowVideos(completion:@escaping ()->()){
-        if let tvShow = tvShow {
-            interactor.fetchTVShowVideos(showId: tvShow.id ?? 0)
+        if let tvShowId = tvShowId {
+            interactor.fetchTVShowVideos(showId: tvShowId)
                 .subscribe({ response in
                     switch response {
                     case.success(let tvShowVideosData):
@@ -114,8 +114,8 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
     }
     
     func fetchTVShowSimilar(completion:@escaping ()->()){
-        if let tvShow = tvShow {
-            interactor.fetchTVShowSimilar(similarId: tvShow.id ?? 0, page: 1)
+        if let tvShowId = tvShowId {
+            interactor.fetchTVShowSimilar(similarId: tvShowId, page: 1)
                 .subscribe({ response in
                     switch response {
                     case.success(let tvShowSimilarData):
@@ -129,13 +129,13 @@ extension TVShowDetailsVCPresenter: TVShowDetailsVCPresenterProtocol {
         }
     }
     
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        router.gotoTVShowDetailsVC(tvShow: tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        router.gotoTVShowDetailsVC(tvShowId: tvShowId)
     }
     
     func gotoTVShowSimilarVC(){
-        if let tvShow = tvShow {
-            router.gotoTVShowSimilarVC(tvShowData: tvShow, page: 1)
+        if let tvShowId = tvShowId {
+            router.gotoTVShowSimilarVC(tvShowId: tvShowId, page: 1)
         }
     }
     

@@ -19,7 +19,7 @@ protocol SeeAllVCPresenterProtocol {
     func loadPaginatedData()
     func sortMovies(sortBy:SortMovies)
     func gotoDetailVC(movieId: Int?)
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
     var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
@@ -172,8 +172,8 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         return tempArray
     }
     
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        router.gotoTVShowDetailsVC(tvShow: tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        router.gotoTVShowDetailsVC(tvShowId: tvShowId)
     }
     
 }

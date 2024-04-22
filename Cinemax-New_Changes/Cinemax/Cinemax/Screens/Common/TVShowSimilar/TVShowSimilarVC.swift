@@ -59,8 +59,8 @@ extension TVShowSimilarVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cellData = presenter?.similarTVShowsData[indexPath.row]  {
-            presenter?.gotoTVShowDetailsVC(tvShow:cellData)
+        if let tvShowId = presenter?.similarTVShowsData[indexPath.row].id  {
+            presenter?.gotoTVShowDetailsVC(tvShowId:tvShowId)
         }
     }
     

@@ -179,8 +179,7 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             case .fetchMoviesByGenres(_):
                 presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchTVShowByGenres(_):
-                let tvShowsResponseModelResult = TVShowsResponseModelResult(adult: nil, backdropPath: nil, genreIDS: nil, id: cellData.id, originCountry: nil, originalLanguage: nil, originalName: nil, overview: nil, popularity: nil, posterPath: nil, firstAirDate: nil, name: nil, voteAverage: nil, voteCount: nil)
-                presenter?.gotoTVShowDetailsVC(tvShow:tvShowsResponseModelResult)
+                presenter?.gotoTVShowDetailsVC(tvShowId:cellData.id)
             }
         }
     }

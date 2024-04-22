@@ -142,20 +142,9 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
             }
             cell.dataSource = cellData
             cell.cellTitleData = "TV Shows"
-            cell.cellTappedClosure = { [weak self] data in
-                if let adult = data?.adult,
-                   let backdropPath = data?.backdropPath,
-                   let genreIDS = data?.genreIDS,
-                   let id = data?.id,
-                   let originalLanguage = data?.originalLanguage,
-                   let popularity = data?.popularity,
-                   let posterPath = data?.posterPath,
-                   let voteAverage = data?.voteAverage,
-                   let overview = data?.overview,
-                   let name = data?.name,
-                   let voteCount = data?.voteCount{
-                    let tvShowsResponseModelResult = TVShowsResponseModelResult(adult:adult,backdropPath:backdropPath,genreIDS:genreIDS,id:id,originCountry:[],originalLanguage:originalLanguage,originalName:"",overview:overview,popularity:popularity,posterPath:posterPath,firstAirDate:"",name:name,voteAverage:voteAverage,voteCount:voteCount)
-                    self?.presenter?.gotoTVShowDetailsVC(tvShow:tvShowsResponseModelResult)
+            cell.cellTappedClosure = { [weak self] showData in
+                if let showData = showData , let showId = showData.id {
+                    self?.presenter?.gotoTVShowDetailsVC(tvShowId:showId)
                 }
             }
             cell.seeAllBtnPressedClosure = { [weak self] in

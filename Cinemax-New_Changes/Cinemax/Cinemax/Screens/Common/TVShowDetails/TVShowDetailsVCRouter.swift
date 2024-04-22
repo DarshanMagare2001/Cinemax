@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol TVShowDetailsVCRouterProtocol {
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
-    func gotoTVShowSimilarVC(tvShowData: TVShowsResponseModelResult?, page: Int?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
+    func gotoTVShowSimilarVC(tvShowId: Int?, page: Int?)
 }
 
 class TVShowDetailsVCRouter {
@@ -21,12 +21,12 @@ class TVShowDetailsVCRouter {
 }
 
 extension TVShowDetailsVCRouter: TVShowDetailsVCRouterProtocol {
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        let tvShowDetailsVC = TVShowDetailsVCBuilder.build(tvShow:tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        let tvShowDetailsVC = TVShowDetailsVCBuilder.build(tvShowId:tvShowId)
         viewController.navigationController?.pushViewController(tvShowDetailsVC, animated: true)
     }
-    func gotoTVShowSimilarVC(tvShowData: TVShowsResponseModelResult?, page: Int?){
-        let tvShowSimilarVC = TVShowSimilarVCBuilder.build(tvShowData: tvShowData, page: page)
+    func gotoTVShowSimilarVC(tvShowId: Int?, page: Int?){
+        let tvShowSimilarVC = TVShowSimilarVCBuilder.build(tvShowId: tvShowId, page: page)
         viewController.navigationController?.pushViewController(tvShowSimilarVC, animated: true)
     }
 }

@@ -197,8 +197,8 @@ extension TVShowDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,U
         case tvShowActorsCollectionViewOutlet:
             print("")
         case similarTVShowsCollectionViewOutlet:
-            let cellData = presenter?.tvShowSimilar?.results?[indexPath.row]
-            presenter?.gotoTVShowDetailsVC(tvShow:cellData)
+            let tvShowId = presenter?.tvShowSimilar?.results?[indexPath.row].id
+            presenter?.gotoTVShowDetailsVC(tvShowId:tvShowId)
         default:
             print("")
         }

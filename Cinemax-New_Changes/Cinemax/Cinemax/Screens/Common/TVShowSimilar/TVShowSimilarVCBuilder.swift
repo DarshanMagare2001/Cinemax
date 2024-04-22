@@ -13,13 +13,13 @@ public final class TVShowSimilarVCBuilder {
     static var tvShowSimilarVCStack: [TVShowSimilarVC] = []
     static var backButtonPressedClosure : (()->())?
     
-    static func build(tvShowData: TVShowsResponseModelResult?,page: Int?) -> UIViewController {
+    static func build(tvShowId: Int?,page: Int?) -> UIViewController {
         let storyboard = UIStoryboard.Common
         let tvShowSimilarVC = storyboard.instantiateViewController(withIdentifier: "TVShowSimilarVC") as! TVShowSimilarVC
         let interactor = TVShowSimilarVCInteractor(moviesServiceManager: MoviesServiceManager.shared)
         let router = TVShowSimilarVCRouter(viewController: tvShowSimilarVC)
         let presenter = TVShowSimilarVCPresenter(view: tvShowSimilarVC, interactor: interactor, router: router)
-        presenter.tvShowData = tvShowData
+        presenter.tvShowId = tvShowId
         presenter.page = page
         tvShowSimilarVC.presenter = presenter
         let backButton = UIBarButtonItem(image: UIImage(named: "BackBtn"), style: .plain, target: self, action: #selector(backButtonPressed))

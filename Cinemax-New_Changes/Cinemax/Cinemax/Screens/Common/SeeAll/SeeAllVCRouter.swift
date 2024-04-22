@@ -10,7 +10,7 @@ import UIKit
 
 protocol SeeAllVCRouterProtocol {
     func gotoDetailVC(movieId: Int?)
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
 }
 
 class SeeAllVCRouter {
@@ -25,8 +25,8 @@ extension SeeAllVCRouter: SeeAllVCRouterProtocol {
         let detailVC = DetailVCBuilder.build(movieId: movieId)
         viewController.navigationController?.pushViewController(detailVC, animated: true)
     }
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        let tvShowDetailsVC = TVShowDetailsVCBuilder.build(tvShow:tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        let tvShowDetailsVC = TVShowDetailsVCBuilder.build(tvShowId:tvShowId)
         viewController.navigationController?.pushViewController(tvShowDetailsVC, animated: true)
     }
 }

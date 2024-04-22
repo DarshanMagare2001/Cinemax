@@ -11,7 +11,7 @@ import RxSwift
 protocol TVShowSimilarVCPresenterProtocol {
     func viewDidload()
     func loadDatasource()
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
     var similarTVShowsData: [TVShowsResponseModelResult] { get set }
 }
 
@@ -19,7 +19,7 @@ class TVShowSimilarVCPresenter {
     weak var view: TVShowSimilarVCProtocol?
     var interactor: TVShowSimilarVCInteractorProtocol
     var router: TVShowSimilarVCRouterProtocol
-    var tvShowData: TVShowsResponseModelResult?
+    var tvShowId: Int?
     var similarTVShowsData = [TVShowsResponseModelResult]() {
         didSet{
             DispatchQueue.main.async { [weak self] in
@@ -46,9 +46,9 @@ extension TVShowSimilarVCPresenter: TVShowSimilarVCPresenterProtocol {
         guard let page = page , page <= 500 else {
             return
         }
-        if let tvShowData = tvShowData{
+        if let tvShowId = tvShowId{
             DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
-                self?.interactor.fetchTVShowSimilar(similarId: tvShowData.id ?? 0 , page: page)
+                self?.interactor.fetchTVShowSimilar(similarId: tvShowId , page: page)
                     .subscribe({ data in
                         switch data {
                         case.success(let data):
@@ -64,8 +64,8 @@ extension TVShowSimilarVCPresenter: TVShowSimilarVCPresenterProtocol {
         self.page = (page + 1)
     }
     
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        router.gotoTVShowDetailsVC(tvShow: tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        router.gotoTVShowDetailsVC(tvShowId: tvShowId)
     }
     
 }

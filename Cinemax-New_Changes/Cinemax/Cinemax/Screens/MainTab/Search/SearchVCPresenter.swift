@@ -13,7 +13,7 @@ protocol SearchVCPresenterProtocol {
     func viewDidload()
     func gotoDetailVC(movieId: Int?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
+    func gotoTVShowDetailsVC(tvShowId: Int?)
     func fetchSearchedMoviesAndTVShows(query:String)
     var searchQuery: BehaviorRelay<String> { get set }
     var moviesDatasource : MasterMovieModel? { get set }
@@ -104,8 +104,8 @@ extension SearchVCPresenter: SearchVCPresenterProtocol {
         router.gotoSeeAllVC(page: page, searchText: searchText, movieId: movieId, seeAllVCInputs: seeAllVCInputs)
     }
     
-    func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?){
-        router.gotoTVShowDetailsVC(tvShow: tvShow)
+    func gotoTVShowDetailsVC(tvShowId: Int?){
+        router.gotoTVShowDetailsVC(tvShowId: tvShowId)
     }
     
 }
