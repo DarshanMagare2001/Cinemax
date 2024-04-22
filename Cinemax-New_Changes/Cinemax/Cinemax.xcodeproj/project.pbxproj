@@ -169,11 +169,13 @@
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
 		A06660442BCD45130072E7EB /* UserDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */; };
+		A066F3822BD680AC00CBE075 /* CustomPopupVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066F3812BD680AC00CBE075 /* CustomPopupVCBuilder.swift */; };
 		A08023642BD262E600E65A27 /* WebImgUrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */; };
 		A083921A2BD2919600FD594F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A08392192BD2919600FD594F /* Realm */; };
 		A083921C2BD2919600FD594F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A083921B2BD2919600FD594F /* RealmSwift */; };
 		A083921F2BD292FC00FD594F /* RealmDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */; };
 		A08392222BD295BE00FD594F /* RealmMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08392212BD295BE00FD594F /* RealmMoviesModel.swift */; };
+		A0C0E66C2BD67F8100A6DE30 /* CustomPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0E66B2BD67F8100A6DE30 /* CustomPopupVC.swift */; };
 		A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A0EE0D412BCFE4B4006DB7C7 /* DropDown */; };
 		FAD6AC8D2BC947A40023E92F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8C2BC947A40023E92F /* FirebaseAuth */; };
 		FAD6AC8F2BC947A40023E92F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8E2BC947A40023E92F /* FirebaseDatabase */; };
@@ -360,9 +362,11 @@
 		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
 		A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepositoryManager.swift; sourceTree = "<group>"; };
+		A066F3812BD680AC00CBE075 /* CustomPopupVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVCBuilder.swift; sourceTree = "<group>"; };
 		A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImgUrlFactory.swift; sourceTree = "<group>"; };
 		A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataRepositoryManager.swift; sourceTree = "<group>"; };
 		A08392212BD295BE00FD594F /* RealmMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMoviesModel.swift; sourceTree = "<group>"; };
+		A0C0E66B2BD67F8100A6DE30 /* CustomPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVC.swift; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -923,6 +927,7 @@
 		139C228A2B612E3D0082DBDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A0C0E6682BD67F4C00A6DE30 /* CustomPopup */,
 				13AB6D8B2BB6A6110010D248 /* TVShowSimilar */,
 				1389E5462BB41B0E00884FF3 /* TVShowDetails */,
 				1389E5562BB459E800884FF3 /* ActorsCollectionViewCell */,
@@ -1225,6 +1230,15 @@
 			path = RealmDataRepositoryManager;
 			sourceTree = "<group>";
 		};
+		A0C0E6682BD67F4C00A6DE30 /* CustomPopup */ = {
+			isa = PBXGroup;
+			children = (
+				A0C0E66B2BD67F8100A6DE30 /* CustomPopupVC.swift */,
+				A066F3812BD680AC00CBE075 /* CustomPopupVCBuilder.swift */,
+			);
+			path = CustomPopup;
+			sourceTree = "<group>";
+		};
 		F936538B84722E4DFB238AEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1443,6 +1457,7 @@
 				13305D422B721750007B74D4 /* HomeVCPresenter.swift in Sources */,
 				13C74DF12B6B974C009CA6DB /* ProfileVCPresenter.swift in Sources */,
 				1389E5552BB4501F00884FF3 /* TVShowCastResponseModel.swift in Sources */,
+				A0C0E66C2BD67F8100A6DE30 /* CustomPopupVC.swift in Sources */,
 				13ADC9A72BBD975C000D48D0 /* GenresVCPresenter.swift in Sources */,
 				13305D4F2B7263D7007B74D4 /* MoviesCell.swift in Sources */,
 				13AB6D952BB6BA780010D248 /* TVShowSimilarVCRouter.swift in Sources */,
@@ -1502,6 +1517,7 @@
 				13B1E6462B6D0DFC003DD382 /* EditProfileVC.swift in Sources */,
 				13297AEC2BA4556D0039F0B8 /* DetailVCInteractor.swift in Sources */,
 				139531D82B97489100B2BCAA /* MoviesService.swift in Sources */,
+				A066F3822BD680AC00CBE075 /* CustomPopupVCBuilder.swift in Sources */,
 				136B58652BB598CB00D903B5 /* TVShowSimilarResponseModel.swift in Sources */,
 				134ECC0A2B676C2B004BCAC2 /* SignUpVC.swift in Sources */,
 				137EF2052BBEBCA3000C3A5C /* CoreData.xcdatamodeld in Sources */,

@@ -11,6 +11,7 @@ import RealmSwift
 protocol RealmDataRepositoryManagerProtocol {
     func addMovieToWishlist(movie: RealmMoviesModel)
     func getMovieFromWishlist()->[RealmMoviesModel]
+    func deleteMovieFromWishlist(movieId: Int)
 }
 
 class RealmDataRepositoryManager {
@@ -43,6 +44,21 @@ extension RealmDataRepositoryManager: RealmDataRepositoryManagerProtocol {
             print(error)
         }
         return tempArray
+    }
+    
+    func deleteMovieFromWishlist(movieId: Int){
+        do {
+            let realm = try Realm()
+            guard let movieToDelete = realm.objects(RealmMoviesModel.self).filter("movieId == %@", movieId).first else {
+                // Movie with the given ID not found
+                return
+            }
+            try realm.write {
+                realm.delete(movieToDelete)
+            }
+        } catch {
+            print(error)
+        }
     }
     
 }

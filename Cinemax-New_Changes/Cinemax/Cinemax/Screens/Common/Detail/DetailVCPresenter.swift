@@ -13,11 +13,13 @@ protocol DetailVCPresenterProtocol {
     func gotoDetailVC(movieId: Int?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     func addMovieToWishlist()
+    func removeMovieFromWishlist()
     var movieId : Int? { get set }
     var movieDetail : MovieDetailsModel? { get set }
     var similarMovies : MovieResultModel? { get set }
     var movieVideos : MovieVideosResponseModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
+    var wishlistMoviesIds : [Int] { get set }
 }
 
 class DetailVCPresenter {
@@ -36,6 +38,7 @@ class DetailVCPresenter {
     }
     var movieProductionHouses = [ProductionCompany]()
     var realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?
+    var wishlistMoviesIds = [Int]()
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieId: Int?,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?){
@@ -52,6 +55,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     func viewDidload(){
         view?.registerXibs()
         view?.setupFlowlayout()
+        fetchWishlistMoviesIds()
         loadDatasource()
     }
     
@@ -137,6 +141,25 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         if let movieId = self.movieId{
             let movie = RealmMoviesModel(movieId: movieId)
             realmDataRepositoryManager?.addMovieToWishlist(movie:movie)
+        }
+    }
+    
+    func removeMovieFromWishlist(){
+        if let movieId = self.movieId{
+            realmDataRepositoryManager?.deleteMovieFromWishlist(movieId:movieId)
+            fetchWishlistMoviesIds()
+        }
+    }
+    
+    func fetchWishlistMoviesIds(){
+        var tempArray = [Int]()
+        if let wishlistMoviesArray = realmDataRepositoryManager?.getMovieFromWishlist() {
+            for movie in wishlistMoviesArray {
+                if let movieId = movie.movieId.value {
+                    tempArray.append(movieId)
+                }
+            }
+            wishlistMoviesIds = tempArray
         }
     }
     

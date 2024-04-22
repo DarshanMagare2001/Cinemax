@@ -73,7 +73,7 @@ class DetailVC: UIViewController {
     
     
     @IBAction func addToWishlistBtnPressed(_ sender: UIButton) {
-        presenter?.addMovieToWishlist()
+        processAddToWishlist()
     }
     
     
@@ -97,6 +97,9 @@ extension DetailVC : DetailVCProtocol {
         }
         if let similarMovies = presenter?.similarMovies?.results,!(similarMovies.isEmpty){
             similarMoviesCollectionViewsOtletView.isHidden = false
+        }
+        if let wishlistMoviesId = presenter?.wishlistMoviesIds , let movieId = presenter?.movieId {
+            addToWishListBtn.tintColor = (wishlistMoviesId.contains(movieId) ? UIColor.appBlue : UIColor.white)
         }
         productionHouseCollectionViewOutlet.reloadData()
         let movieBackgroundImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: movieDetail.posterPath)
@@ -157,6 +160,30 @@ extension DetailVC : DetailVCProtocol {
                         self?.movieTrailerView.load(withVideoId: trailerVideoKey)
                     }
                 }
+            }
+        }
+    }
+    
+    private func processAddToWishlist(){
+        if let movieTitle = presenter?.movieDetail?.title,
+           let wishlistMoviesId = presenter?.wishlistMoviesIds,
+           let movieId = presenter?.movieId{
+            let popupLblHeadlineInput = (wishlistMoviesId.contains(movieId) ? "Are you sure?":"\(movieTitle) Added To Whishlist.")
+            let popupSubheadlineInput = (wishlistMoviesId.contains(movieId) ? "Do you want to remove \(movieTitle) from wishlist?":"\(movieTitle) added successfully to your wishlist you can watch it there.")
+            let input = (wishlistMoviesId.contains(movieId) ? CustomPopupVCInputs.asking:CustomPopupVCInputs.success)
+            let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: input, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+            customPopVC.modalPresentationStyle = .overCurrentContext
+            navigationController?.present(customPopVC,animated: true)
+            CustomPopupVCBuilder.okBtnTrigger = {
+                self.presenter?.addMovieToWishlist()
+                self.addToWishListBtn.tintColor = UIColor.appBlue
+            }
+            CustomPopupVCBuilder.yesBtnTrigger = {
+                self.presenter?.removeMovieFromWishlist()
+                self.addToWishListBtn.tintColor = UIColor.white
+            }
+            CustomPopupVCBuilder.noBtnTrigger = {
+                
             }
         }
     }
