@@ -52,8 +52,8 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
-        if let movieData = presenter?.movieData, let movieTitle = movieData.title {
-            presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieData.id, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar(title:movieTitle))
+        if let movieId = presenter?.movieId, let movieTitle = presenter?.movieDetail?.title {
+            presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: movieId, seeAllVCInputs: SeeAllVCInputs.fetchMovieSimilar(title:movieTitle))
         }
     }
     
@@ -89,7 +89,7 @@ extension DetailVC : DetailVCProtocol {
         if let productionHouseCollectionViewData = presenter?.movieProductionHouses, !(productionHouseCollectionViewData.isEmpty){
             productionHouseCollectionViewOutletView.isHidden = false
         }
-        if let overView = presenter?.movieData?.overview,(overView != "") {
+        if let overView = movieDetail.overview,(overView != "") {
             overViewsView.isHidden = false
         }
         if let movieTrailer = presenter?.movieVideos?.results,!(movieTrailer.isEmpty) {
@@ -219,8 +219,8 @@ extension  DetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case similarMoviesCollectionviewOutlet:
-            if let movieData = presenter?.similarMovies?.results?[indexPath.row]{
-                presenter?.gotoDetailVC(movieData: movieData)
+            if let movieId = presenter?.similarMovies?.results?[indexPath.row].id {
+                presenter?.gotoDetailVC(movieId: movieId)
             }
         case productionHouseCollectionViewOutlet:
             print("Production House Tapped")

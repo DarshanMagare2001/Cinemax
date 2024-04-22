@@ -127,8 +127,10 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource{
             }
             cell.dataSource = cellData
             cell.cellTitleData = "Movies"
-            cell.cellTappedClosure = { [weak self] data in
-                self?.presenter?.gotoDetailVC(movieData: data)
+            cell.cellTappedClosure = { [weak self] movieData in
+                if let movieData = movieData , let movieId = movieData.id {
+                    self?.presenter?.gotoDetailVC(movieId: movieId)
+                }
             }
             cell.seeAllBtnPressedClosure = { [weak self] in
                 self?.presenter?.gotoSeeAllVC(page: 1, searchText: self?.searchBarOutlet.text , movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieSearch(title:self?.searchBarOutlet.text ?? ""))

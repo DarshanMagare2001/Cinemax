@@ -165,19 +165,19 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
            let cellData = presenter?.moviesDatasource[indexPath.row]{
             switch categories {
             case .fetchMovieUpcoming(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMovieNowPlaying(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMovieTopRated(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMoviePopular(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMovieSimilar(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMovieSearch(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchMoviesByGenres(_):
-                presenter?.gotoDetailVC(movieData: cellData)
+                presenter?.gotoDetailVC(movieId: cellData.id)
             case .fetchTVShowByGenres(_):
                 let tvShowsResponseModelResult = TVShowsResponseModelResult(adult: nil, backdropPath: nil, genreIDS: nil, id: cellData.id, originCountry: nil, originalLanguage: nil, originalName: nil, overview: nil, popularity: nil, posterPath: nil, firstAirDate: nil, name: nil, voteAverage: nil, voteCount: nil)
                 presenter?.gotoTVShowDetailsVC(tvShow:tvShowsResponseModelResult)

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SearchVCRouterProtocol {
-    func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoDetailVC(movieId: Int?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
 }
@@ -22,8 +22,8 @@ class SearchVCRouter {
 }
 
 extension SearchVCRouter: SearchVCRouterProtocol {
-    func gotoDetailVC(movieData: MasterMovieModelResult?){
-        let detailVC = DetailVCBuilder.build(movieData: movieData)
+    func gotoDetailVC(movieId: Int?){
+        let detailVC = DetailVCBuilder.build(movieId: movieId)
         viewController.navigationController?.pushViewController(detailVC, animated: true)
     }
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){

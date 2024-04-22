@@ -18,7 +18,7 @@ protocol SeeAllVCPresenterProtocol {
     func viewDidload()
     func loadPaginatedData()
     func sortMovies(sortBy:SortMovies)
-    func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoDetailVC(movieId: Int?)
     func gotoTVShowDetailsVC(tvShow: TVShowsResponseModelResult?)
     var moviesHeadline : String? { get set }
     var moviesDatasource : [MasterMovieModelResult] { get set }
@@ -133,8 +133,8 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         }
     }
     
-    func gotoDetailVC(movieData: MasterMovieModelResult?){
-        router.gotoDetailVC(movieData: movieData)
+    func gotoDetailVC(movieId: Int?){
+        router.gotoDetailVC(movieId: movieId)
     }
     
     private func processMoviesDataForCell1(moviesDatasource:[MasterMovieModelResult]) -> [MoviesCollectionViewCellModel] {

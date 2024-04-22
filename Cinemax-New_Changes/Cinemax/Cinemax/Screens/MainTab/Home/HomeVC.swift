@@ -177,8 +177,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     }
                 }
                 
-                cell.cellTappedClosure = { [weak self] data in
-                    self?.presenter?.gotoDetailVC(movieData:data)
+                cell.cellTappedClosure = { [weak self] movieData in
+                    if let movieData = movieData , let movieId = movieData.id {
+                        self?.presenter?.gotoDetailVC(movieId:movieId)
+                    }
                 }
                 
                 cell.seeAllBtnpressedClosure = { [weak self] in
@@ -199,8 +201,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieTopRated(title:"TOPRATED"))
                 }
                 
-                cell.cellTappedClosure = { [weak self] data in
-                    self?.presenter?.gotoDetailVC(movieData:data)
+                cell.cellTappedClosure = { [weak self] movieData in
+                    if let movieData = movieData , let movieId = movieData.id {
+                        self?.presenter?.gotoDetailVC(movieId:movieId)
+                    }
                 }
                 
                 return cell
@@ -217,8 +221,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMovieNowPlaying(title:"NOWPLAYING"))
                 }
                 
-                cell.cellTappedClosure = { [weak self] data in
-                    self?.presenter?.gotoDetailVC(movieData:data)
+                cell.cellTappedClosure = { [weak self] movieData in
+                    if let movieData = movieData , let movieId = movieData.id {
+                        self?.presenter?.gotoDetailVC(movieId:movieId)
+                    }
                 }
                 
                 return cell
@@ -235,8 +241,10 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
                     self?.presenter?.gotoSeeAllVC(page: 1, searchText: "", movieId: 0, seeAllVCInputs: SeeAllVCInputs.fetchMoviePopular(title:"POPULAR"))
                 }
                 
-                cell.cellTappedClosure = { [weak self] data in
-                    self?.presenter?.gotoDetailVC(movieData:data)
+                cell.cellTappedClosure = { [weak self] movieData in
+                    if let movieData = movieData , let movieId = movieData.id {
+                        self?.presenter?.gotoDetailVC(movieId:movieId)
+                    }
                 }
                 
                 return cell

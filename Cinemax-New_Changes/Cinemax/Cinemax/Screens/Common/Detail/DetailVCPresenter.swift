@@ -10,10 +10,11 @@ import RxSwift
 
 protocol DetailVCPresenterProtocol {
     func viewDidload()
-    func gotoDetailVC(movieData: MasterMovieModelResult?)
+    func gotoDetailVC(movieId: Int?)
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     func addMovieToWishlist()
-    var movieData : MasterMovieModelResult? { get set }
+    var movieId : Int? { get set }
+    var movieDetail : MovieDetailsModel? { get set }
     var similarMovies : MovieResultModel? { get set }
     var movieVideos : MovieVideosResponseModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
@@ -23,7 +24,8 @@ class DetailVCPresenter {
     weak var view : DetailVCProtocol?
     var interactor : DetailVCInteractorProtocol
     var router: DetailVCRouterProtocol
-    var movieData : MasterMovieModelResult?
+    var movieId : Int?
+    var movieDetail : MovieDetailsModel?
     var similarMovies : MovieResultModel?
     var movieVideos : MovieVideosResponseModel? {
         didSet{
@@ -36,10 +38,10 @@ class DetailVCPresenter {
     var realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
-    init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieData: MasterMovieModelResult?,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?){
+    init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieId: Int?,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?){
         self.view = view
         self.interactor = interactor
-        self.movieData = movieData
+        self.movieId = movieId
         self.router = router
         self.realmDataRepositoryManager = realmDataRepositoryManager
     }
@@ -72,12 +74,13 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     }
     
     func fetchMovieData(completionHandler:@escaping()->()){
-        if let data = self.movieData{
-            interactor.fetchMovieDetail(movieId: data.id ?? 0)
+        if let movieId = self.movieId{
+            interactor.fetchMovieDetail(movieId: movieId)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
                         print(movieData)
+                        self.movieDetail = movieData
                         self.movieProductionHouses = movieData.productionCompanies?.compactMap { $0.logoPath != nil ? $0 : nil } ?? []
                         DispatchQueue.main.async { [weak self] in
                             self?.view?.updateUI(movieDetail: movieData)
@@ -91,8 +94,8 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     }
     
     func fetchSimilarMovies(completionHandler:@escaping()->()){
-        if let data = self.movieData{
-            interactor.fetchMovieSimilar(movieId: data.id ?? 0, page: 1)
+        if let movieId = self.movieId{
+            interactor.fetchMovieSimilar(movieId: movieId, page: 1)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
@@ -107,8 +110,8 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     }
     
     func fetchMovieVideos(completionHandler:@escaping()->()){
-        if let data = self.movieData{
-            interactor.fetchMovieVideos(movieId: data.id ?? 0)
+        if let movieId = self.movieId{
+            interactor.fetchMovieVideos(movieId: movieId)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
@@ -122,8 +125,8 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         }
     }
     
-    func gotoDetailVC(movieData: MasterMovieModelResult?){
-        router.gotoDetailVC(movieData: movieData)
+    func gotoDetailVC(movieId: Int?){
+        router.gotoDetailVC(movieId: movieId)
     }
     
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?){
@@ -131,7 +134,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     }
     
     func addMovieToWishlist(){
-        if let data = self.movieData , let movieId = data.id {
+        if let movieId = self.movieId{
             let movie = RealmMoviesModel(movieId: movieId)
             realmDataRepositoryManager?.addMovieToWishlist(movie:movie)
         }
