@@ -139,7 +139,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                             let movieImgUrl = tvShow.posterPath ?? ""
                             let movieNameLblText = tvShow.name ?? ""
                             let movieReleaseDateText = tvShow.firstAirDate ?? ""
-                            let movieDurationText = "\(tvShow.numberOfEpisodes ?? 0) episodes * avg runtime "
+                            let movieDurationText = "\(tvShow.numberOfEpisodes ?? 0) episodes                   "
                             let genres = tvShow.genres ?? []
                             let movieGenereLblText = ((genres.isEmpty) ? "" : genres[0].name ?? "" )
                             let movieLanguageLblText = tvShow.originalLanguage ?? ""
