@@ -21,8 +21,6 @@ protocol SeeAllVCPresenterProtocol {
     func gotoDetailVC(movieId: Int?)
     func gotoTVShowDetailsVC(tvShowId: Int?)
     var moviesHeadline : String? { get set }
-    var moviesDatasource : [MasterMovieModelResult] { get set }
-    var moviesDatasourceIndetail : [MovieDetailsModel] { get set }
     var moviesDatasourceForCell : [MoviesCollectionViewCellModel] { get set }
     var moviesDatasourceIndetailForCell : [MoviesCollectionViewDetailCellModel] { get set }
     var seeAllVCInputs: SeeAllVCInputs? { get set }
@@ -33,16 +31,7 @@ class SeeAllVCPresenter {
     var interactor: SeeAllVCInteractorProtocol
     var router: SeeAllVCRouterProtocol
     var moviesHeadline : String?
-    var moviesDatasource = [MasterMovieModelResult](){
-        didSet{
-            moviesDatasourceForCell = processMoviesDataForCell1(moviesDatasource:self.moviesDatasource)
-        }
-    }
-    var moviesDatasourceIndetail = [MovieDetailsModel](){
-        didSet{
-            moviesDatasourceIndetailForCell = processMoviesDataForCell2(moviesDatasourceIndetail:self.moviesDatasourceIndetail)
-        }
-    }
+    var moviesDatasourceForCell = [MoviesCollectionViewCellModel]()
     var moviesDatasourceIndetailForCell = [MoviesCollectionViewDetailCellModel](){
         didSet{
             DispatchQueue.main.async { [weak self] in
@@ -50,7 +39,6 @@ class SeeAllVCPresenter {
             }
         }
     }
-    var moviesDatasourceForCell = [MoviesCollectionViewCellModel]()
     var seeAllVCInputs: SeeAllVCInputs?
     var movieId: Int?
     var searchText: String?
@@ -92,7 +80,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 switch data {
                 case.success(let movieData):
                     print(movieData)
-                    self.moviesDatasource.append(contentsOf: movieData)
+                    self.moviesDatasourceForCell.append(contentsOf:self.processMoviesDataForCell1(moviesDatasource: movieData))
                     self.fetchAllMoviesAndTVShowsPagewiseInDetail(moviesAndTVShows:movieData)
                 case.failure(let error):
                     print(error)
@@ -131,7 +119,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                     switch data {
                     case.success(let movieData):
                         print(movieData)
-                        self?.moviesDatasourceIndetail.append(contentsOf:movieData)
+                        self?.moviesDatasourceIndetailForCell.append(contentsOf:(self?.processMoviesDataForCell2(moviesDatasourceIndetail: movieData))!)
                     case.failure(let error):
                         print(error)
                     }
@@ -145,7 +133,22 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 .subscribe({ data in
                     switch data {
                     case.success(let tvShows):
-                        print(tvShows)
+                        var cellDataArray = [MoviesCollectionViewDetailCellModel]()
+                        for tvShow in tvShows {
+                            let movieId = tvShow.id ?? 0
+                            let movieImgUrl = tvShow.posterPath ?? ""
+                            let movieNameLblText = tvShow.name ?? ""
+                            let movieReleaseDateText = tvShow.firstAirDate ?? ""
+                            let movieDurationText = "\(tvShow.numberOfEpisodes ?? 0) episodes * avg runtime "
+                            let genres = tvShow.genres ?? []
+                            let movieGenereLblText = ((genres.isEmpty) ? "" : genres[0].name ?? "" )
+                            let movieLanguageLblText = tvShow.originalLanguage ?? ""
+                            let movieOverviewLblText = tvShow.overview ?? ""
+                            let movieRatingLblText = tvShow.voteAverage ?? 0.0
+                            let cellData = MoviesCollectionViewDetailCellModel(movieId:movieId, movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: movieDurationText, movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+                            cellDataArray.append(cellData)
+                        }
+                        self?.moviesDatasourceIndetailForCell.append(contentsOf:cellDataArray)
                     case.failure(let error):
                         print(error)
                     }
@@ -157,16 +160,16 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         switch sortBy {
         case .byRating:
             // Sort movies by voteAverage in descending order
-            moviesDatasource.sort{ $0.voteAverage ?? 0 > $1.voteAverage ?? 0 }
-            moviesDatasourceIndetail.sort { $0.voteAverage ?? 0 > $1.voteAverage ?? 0 }
+            moviesDatasourceForCell.sort{ $0.cellRatingLblText ?? 0 > $1.cellRatingLblText ?? 0 }
+            moviesDatasourceIndetailForCell.sort { $0.movieRatingLblText ?? 0 > $1.movieRatingLblText ?? 0 }
         case .byNameAZ:
             // Sort movies by title in ascending order
-            moviesDatasource.sort{ $0.title ?? "" < $1.title ?? "" }
-            moviesDatasourceIndetail.sort { $0.title ?? "" < $1.title ?? "" }
+            moviesDatasourceForCell.sort{ $0.cellNameLblText ?? "" < $1.cellNameLblText ?? "" }
+            moviesDatasourceIndetailForCell.sort { $0.movieNameLblText ?? "" < $1.movieNameLblText ?? "" }
         case .byNameZA:
             // Sort movies by title in descending order
-            moviesDatasource.sort{ $0.title ?? "" > $1.title ?? "" }
-            moviesDatasourceIndetail.sort { $0.title ?? "" > $1.title ?? "" }
+            moviesDatasourceForCell.sort{ $0.cellNameLblText ?? "" > $1.cellNameLblText ?? "" }
+            moviesDatasourceIndetailForCell.sort { $0.movieNameLblText ?? "" > $1.movieNameLblText ?? "" }
         }
     }
     

@@ -134,9 +134,9 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isGridLayout {
-            return presenter?.moviesDatasource.count ?? 0
+            return presenter?.moviesDatasourceForCell.count ?? 0
         }else{
-            return presenter?.moviesDatasourceIndetail.count ?? 0
+            return presenter?.moviesDatasourceIndetailForCell.count ?? 0
         }
         return 0
     }
@@ -162,24 +162,25 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let categories = presenter?.seeAllVCInputs,
-           let cellData = presenter?.moviesDatasource[indexPath.row]{
+           let cellDataForCell1 = presenter?.moviesDatasourceForCell[indexPath.row],
+           let cellDataForCell2 = presenter?.moviesDatasourceIndetailForCell[indexPath.row]{
             switch categories {
             case .fetchMovieUpcoming(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMovieNowPlaying(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMovieTopRated(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMoviePopular(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMovieSimilar(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMovieSearch(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchMoviesByGenres(_):
-                presenter?.gotoDetailVC(movieId: cellData.id)
+                presenter?.gotoDetailVC(movieId: cellDataForCell1.cellId)
             case .fetchTVShowByGenres(_):
-                presenter?.gotoTVShowDetailsVC(tvShowId:cellData.id)
+                presenter?.gotoTVShowDetailsVC(tvShowId: cellDataForCell2.movieId)
             }
         }
     }
@@ -188,12 +189,12 @@ extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         // Check if collectionView is currently displaying grid layout
         if isGridLayout {
             // Check if it's the last item in the grid datasource array
-            if indexPath.row == ((presenter?.moviesDatasource.count ?? 0) - 1) {
+            if indexPath.row == ((presenter?.moviesDatasourceForCell.count ?? 0) - 1) {
                 presenter?.loadPaginatedData()
             }
         } else {
             // Check if it's the last item in the list datasource array
-            if indexPath.row == ((presenter?.moviesDatasourceIndetail.count ?? 0) - 1) {
+            if indexPath.row == ((presenter?.moviesDatasourceIndetailForCell.count ?? 0) - 1) {
                 presenter?.loadPaginatedData()
             }
         }
