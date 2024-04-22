@@ -93,7 +93,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                 case.success(let movieData):
                     print(movieData)
                     self.moviesDatasource.append(contentsOf: movieData)
-                    self.fetchAllMoviesPagewiseInDetail(movies:movieData)
+                    self.fetchAllMoviesAndTVShowsPagewiseInDetail(moviesAndTVShows:movieData)
                 case.failure(let error):
                     print(error)
                 }
@@ -101,7 +101,30 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         self.page = (page + 1)
     }
     
-    func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]){
+    func fetchAllMoviesAndTVShowsPagewiseInDetail(moviesAndTVShows:[MasterMovieModelResult]){
+        if let seeAllVCInputs = seeAllVCInputs {
+            switch seeAllVCInputs {
+            case .fetchMovieUpcoming(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMovieNowPlaying(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMovieTopRated(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMoviePopular(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMovieSimilar(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMovieSearch(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchMoviesByGenres(_):
+                fetchAllMoviesPagewiseInDetail(movies:moviesAndTVShows)
+            case .fetchTVShowByGenres(_):
+                fetchAllTVShowsPagewiseInDetail(tvShows:moviesAndTVShows)
+            }
+        }
+    }
+    
+    private func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]){
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.interactor.fetchAllMoviesPagewiseInDetail(movies:movies)
                 .subscribe({ data in
@@ -109,6 +132,20 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
                     case.success(let movieData):
                         print(movieData)
                         self?.moviesDatasourceIndetail.append(contentsOf:movieData)
+                    case.failure(let error):
+                        print(error)
+                    }
+                }).disposed(by: self!.disposeBag)
+        }
+    }
+    
+    private func fetchAllTVShowsPagewiseInDetail(tvShows:[MasterMovieModelResult]){
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            self?.interactor.fetchAllTVShowsPagewiseInDetail(tvShows:tvShows)
+                .subscribe({ data in
+                    switch data {
+                    case.success(let tvShows):
+                        print(tvShows)
                     case.failure(let error):
                         print(error)
                     }
@@ -140,12 +177,13 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     private func processMoviesDataForCell1(moviesDatasource:[MasterMovieModelResult]) -> [MoviesCollectionViewCellModel] {
         var tempArray = [MoviesCollectionViewCellModel]()
         for movies in moviesDatasource {
+            let cellId = movies.id ?? 0
             let posterPath = movies.posterPath ?? ""
             let title = movies.title ?? ""
             let name = movies.name ?? ""
             let originalLanguage = movies.originalLanguage ?? ""
             let voteAverage = movies.voteAverage ?? 0.0
-            let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+            let cellData = MoviesCollectionViewCellModel(cellId: cellId, cellImgUrl:posterPath,
                                                          cellNameLblText:((title == "") ? name:title),
                                                          cellLanguageLblText:originalLanguage,
                                                          cellRatingLblText:voteAverage)
@@ -157,6 +195,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
     private func processMoviesDataForCell2(moviesDatasourceIndetail:[MovieDetailsModel]) -> [MoviesCollectionViewDetailCellModel] {
         var tempArray = [MoviesCollectionViewDetailCellModel]()
         for shows in moviesDatasourceIndetail {
+            let movieId = shows.id ?? 0
             let movieImgUrl = shows.posterPath ?? ""
             let movieNameLblText = shows.title ?? ""
             let movieReleaseDateText = shows.releaseDate ?? ""
@@ -166,7 +205,7 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
             let movieLanguageLblText = shows.originalLanguage ?? ""
             let movieOverviewLblText = shows.overview ?? ""
             let movieRatingLblText = shows.voteAverage ?? 0.0
-            let cellData = MoviesCollectionViewDetailCellModel(movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+            let cellData = MoviesCollectionViewDetailCellModel(movieId: movieId, movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
             tempArray.append(cellData)
         }
         return tempArray

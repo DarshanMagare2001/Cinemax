@@ -81,7 +81,7 @@ extension WishListVCPresenter: WishListVCPresenterProtocol {
             let movieLanguageLblText = shows.originalLanguage ?? ""
             let movieOverviewLblText = shows.overview ?? ""
             let movieRatingLblText = shows.voteAverage ?? 0.0
-            let cellData = MoviesCollectionViewDetailCellModel(movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+            let cellData = MoviesCollectionViewDetailCellModel(movieId: 0, movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
             tempArray.append(cellData)
         }
         return tempArray

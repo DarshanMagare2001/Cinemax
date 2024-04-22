@@ -60,7 +60,7 @@ extension MoviesCell : UICollectionViewDelegate , UICollectionViewDataSource , U
         let name = data.name ?? ""
         let originalLanguage = data.originalLanguage ?? ""
         let voteAverage = data.voteAverage ?? 0.0
-        let cellData = MoviesCollectionViewCellModel(cellImgUrl:posterPath,
+        let cellData = MoviesCollectionViewCellModel(cellId: 0, cellImgUrl:posterPath,
                                                      cellNameLblText:((title == "") ? name:title),
                                                      cellLanguageLblText:originalLanguage,
                                                      cellRatingLblText:voteAverage)

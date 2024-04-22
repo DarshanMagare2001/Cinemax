@@ -38,11 +38,13 @@ class MoviesCollectionViewCell: UICollectionViewCell {
 }
 
 struct MoviesCollectionViewCellModel {
+    let cellId: Int
     let cellImgUrl: String
     let cellNameLblText: String
     let cellLanguageLblText: String
     let cellRatingLblText: Double
-    init(cellImgUrl: String,cellNameLblText: String,cellLanguageLblText: String,cellRatingLblText: Double){
+    init(cellId: Int,cellImgUrl: String,cellNameLblText: String,cellLanguageLblText: String,cellRatingLblText: Double){
+        self.cellId = cellId
         self.cellImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: cellImgUrl)
         self.cellNameLblText = cellNameLblText
         self.cellLanguageLblText = cellLanguageLblText

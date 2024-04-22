@@ -49,6 +49,7 @@ class MoviesCollectionViewDetailCell: UICollectionViewCell {
 }
 
 struct MoviesCollectionViewDetailCellModel {
+    let movieId: Int
     let movieImgUrl:String
     let movieNameLblText:String
     let movieReleaseDateText:String
@@ -57,7 +58,8 @@ struct MoviesCollectionViewDetailCellModel {
     let movieLanguageLblText:String
     let movieOverviewLblText:String
     let movieRatingLblText:Double
-    init(movieImgUrl:String,movieNameLblText:String,movieReleaseDateText:String,movieDurationText:String,movieGenereLblText:String,movieLanguageLblText:String,movieOverviewLblText:String,movieRatingLblText:Double){
+    init(movieId: Int,movieImgUrl:String,movieNameLblText:String,movieReleaseDateText:String,movieDurationText:String,movieGenereLblText:String,movieLanguageLblText:String,movieOverviewLblText:String,movieRatingLblText:Double){
+        self.movieId = movieId
         self.movieImgUrl = WebImgUrlFactory.createUrl(type: .tmdbPosterUrl, inputUrl: movieImgUrl)
         self.movieNameLblText = movieNameLblText
         self.movieReleaseDateText = movieReleaseDateText
