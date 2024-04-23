@@ -41,6 +41,7 @@ class WishListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        presenter?.viewWillAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,6 +105,7 @@ extension WishListVC: WishListVCProtocol {
 }
 
 extension WishListVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter?.datasource.count ?? 0
     }
@@ -115,4 +117,11 @@ extension WishListVC : UICollectionViewDelegate,UICollectionViewDataSource,UICol
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let movieId = presenter?.datasource[indexPath.row].movieId {
+            presenter?.gotoDetailVC(movieId:movieId)
+        }
+    }
+    
 }

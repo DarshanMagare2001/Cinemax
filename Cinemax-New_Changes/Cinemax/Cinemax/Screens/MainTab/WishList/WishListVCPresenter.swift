@@ -10,8 +10,10 @@ import RxSwift
 
 protocol WishListVCPresenterProtocol {
     func viewDidload()
+    func viewWillAppear()
     func fetchMoviesFromWishlist()
     var datasource : [MoviesCollectionViewDetailCellModel] { get set }
+    func gotoDetailVC(movieId: Int?)
 }
 
 class WishListVCPresenter {
@@ -39,6 +41,10 @@ class WishListVCPresenter {
 extension WishListVCPresenter: WishListVCPresenterProtocol {
     
     func viewDidload(){
+        
+    }
+    
+    func viewWillAppear(){
         view?.registerXibs()
         view?.setupFlowlayout()
         fetchMoviesFromWishlist()
@@ -72,6 +78,7 @@ extension WishListVCPresenter: WishListVCPresenterProtocol {
     private func processMoviesDataForCell2(moviesDatasourceIndetail:[MovieDetailsModel]) -> [MoviesCollectionViewDetailCellModel] {
         var tempArray = [MoviesCollectionViewDetailCellModel]()
         for shows in moviesDatasourceIndetail {
+            let movieId = shows.id ?? 0
             let movieImgUrl = shows.posterPath ?? ""
             let movieNameLblText = shows.title ?? ""
             let movieReleaseDateText = shows.releaseDate ?? ""
@@ -81,10 +88,14 @@ extension WishListVCPresenter: WishListVCPresenterProtocol {
             let movieLanguageLblText = shows.originalLanguage ?? ""
             let movieOverviewLblText = shows.overview ?? ""
             let movieRatingLblText = shows.voteAverage ?? 0.0
-            let cellData = MoviesCollectionViewDetailCellModel(movieId: 0, movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
+            let cellData = MoviesCollectionViewDetailCellModel(movieId: movieId, movieImgUrl: movieImgUrl, movieNameLblText: movieNameLblText, movieReleaseDateText: movieReleaseDateText, movieDurationText: "\(movieDurationText)", movieGenereLblText: movieGenereLblText, movieLanguageLblText: movieLanguageLblText, movieOverviewLblText: movieOverviewLblText, movieRatingLblText: movieRatingLblText)
             tempArray.append(cellData)
         }
         return tempArray
+    }
+    
+    func gotoDetailVC(movieId: Int?){
+        router.gotoDetailVC(movieId: movieId)
     }
     
 }

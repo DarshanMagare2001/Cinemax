@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol WishListVCRouterProtocol {
-    
+    func gotoDetailVC(movieId: Int?)
 }
 
 class WishListVCRouter {
@@ -20,5 +20,8 @@ class WishListVCRouter {
 }
 
 extension WishListVCRouter: WishListVCRouterProtocol {
-    
+    func gotoDetailVC(movieId: Int?){
+        let detailVC = DetailVCBuilder.build(movieId: movieId)
+        viewController.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
