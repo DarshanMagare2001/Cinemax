@@ -128,7 +128,14 @@ extension EditProfileVC : EditProfileVCProtocol {
     }
     
     func errorMsgAlert(error:String){
-        Alert.shared.alertOk(title: "Error!", message: error, presentingViewController: self) { _ in}
+        let popupLblHeadlineInput = "Error"
+        let popupSubheadlineInput = error
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.success, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.okBtnTrigger = {
+            
+        }
     }
     
 }

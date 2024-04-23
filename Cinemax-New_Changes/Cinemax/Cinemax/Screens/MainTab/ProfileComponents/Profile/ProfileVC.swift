@@ -48,13 +48,28 @@ class ProfileVC: UIViewController {
 extension ProfileVC : ProfileVCProtocol {
     
     private func confirmBox(){
-        Alert.shared.alertYesNo(title: "Log out!", message: "Are you sure to log out ?.", presentingViewController: self) { [weak self] _ in
-            self?.presenter?.currentUserLogout()
-        } noHandler: { _ in}
+        let popupLblHeadlineInput = "Log out!"
+        let popupSubheadlineInput = "Are you sure to log out ?."
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.asking, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.yesBtnTrigger = {
+            self.presenter?.currentUserLogout()
+        }
+        CustomPopupVCBuilder.noBtnTrigger = {
+            
+        }
     }
     
     func errorAlert(message:String){
-        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+        let popupLblHeadlineInput = "Error"
+        let popupSubheadlineInput = message
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.success, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.okBtnTrigger = {
+            
+        }
     }
     
     func bindUI(){
