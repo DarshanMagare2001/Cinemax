@@ -55,7 +55,9 @@ extension TVShowSimilarVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        presenter?.loadDatasource()
+        if indexPath.row == ((presenter?.similarTVShowsData.count ?? 0) - 1) {
+            presenter?.loadDatasource()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
