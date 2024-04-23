@@ -141,6 +141,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         if let movieId = self.movieId{
             let movie = RealmMoviesModel(movieId: movieId)
             realmDataRepositoryManager?.addMovieToWishlist(movie:movie)
+            fetchWishlistMoviesIds()
         }
     }
     
