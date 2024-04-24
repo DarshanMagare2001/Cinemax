@@ -18,9 +18,7 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var headingLbl: UILabel!
     @IBOutlet weak var emailAdressTxtFld: UITextField!
-    @IBOutlet weak var emailWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var passwordTxtFld: UITextField!
-    @IBOutlet weak var passwordWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var logInBtn: RoundedButton!
     @IBOutlet weak var passwordShowHideBtn: UIButton!
     
@@ -63,8 +61,6 @@ extension LoginVC: LoginVCProtocol {
         if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName){
             headingLbl.text = "Hi,\(name)"
         }
-        emailWarningLbl.isHidden = true
-        passwordWarningLbl.isHidden = true
     }
     
     func setupInputs(){
@@ -78,14 +74,6 @@ extension LoginVC: LoginVCProtocol {
     func setUpBinding(){
         presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
             .drive(logInBtn.rx.isEnabled)
-            .disposed(by: bag)
-        
-        presenter?.output.emailWarning.debug("Enable Login Driver" , trimOutput: false)
-            .drive(emailWarningLbl.rx.isHidden)
-            .disposed(by: bag)
-        
-        presenter?.output.passwordWarning.debug("Enable Login Driver" , trimOutput: false)
-            .drive(passwordWarningLbl.rx.isHidden)
             .disposed(by: bag)
     }
     

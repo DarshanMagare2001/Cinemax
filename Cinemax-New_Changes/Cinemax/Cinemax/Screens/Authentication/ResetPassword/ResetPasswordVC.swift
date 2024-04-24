@@ -19,7 +19,6 @@ class ResetPasswordVC: UIViewController {
     
     @IBOutlet weak var resetPasswordView: UIView!
     @IBOutlet weak var emailAddressTxtFld: UITextField!
-    @IBOutlet weak var emailWarningLbl: RoundedLabelWithBorder!
     @IBOutlet weak var nxtBtn: RoundedButton!
     
     var presenter : ResetPasswordVCPresenterProtocol?
@@ -44,7 +43,7 @@ class ResetPasswordVC: UIViewController {
 extension ResetPasswordVC : ResetPasswordVCPrtocol {
     
     func updateUI(){
-        emailWarningLbl.isHidden = true
+        
     }
     
     func setupInputs(){
@@ -57,10 +56,6 @@ extension ResetPasswordVC : ResetPasswordVCPrtocol {
     func setUpBinding(){
         presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
             .drive(nxtBtn.rx.isEnabled)
-            .disposed(by: bag)
-        
-        presenter?.output.emailWarning.debug("Enable Login Driver" , trimOutput: false)
-            .drive(emailWarningLbl.rx.isHidden)
             .disposed(by: bag)
     }
     

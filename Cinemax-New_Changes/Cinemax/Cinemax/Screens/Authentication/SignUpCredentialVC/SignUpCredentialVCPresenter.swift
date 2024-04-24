@@ -19,18 +19,13 @@ protocol SignUpCredentialVCPresenterProtocol {
     typealias Input = (
         email : Driver<String>,
         password : Driver<String>,
-        fullName : Driver<String>,
-        isTermsAndConditionAccept : Driver<Bool>,
-        login:Driver<Void>
+        firstName : Driver<String>,
+        lastName : Driver<String>,
+        genderName : Driver<String>,
+        isTermsAndConditionAccept : Driver<Bool>
     )
     
-    typealias Output = (
-        enableLogin : Driver<Bool>,
-        fullNameWarning: Driver<Bool>,
-        emailWarning: Driver<Bool>,
-        passwordWarning: Driver<Bool>
-    )
-    
+    typealias Output = (enableLogin : Driver<Bool>,())
     typealias Producer = (SignUpCredentialVCPresenterProtocol.Input) -> SignUpCredentialVCPresenterProtocol
     
     var input : Input { get }
@@ -57,7 +52,6 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
-            self?.view?.setupWarningLbls()
         }
     }
     
@@ -126,21 +120,13 @@ private extension SignUpCredentialVCPresenter {
     static func output(input:Input) -> Output {
         let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid())},
                                                       input.password.map{( !$0.isEmpty && $0.isPasswordValid())},
-                                                      input.fullName.map{(!$0.isEmpty)},
+                                                      input.firstName.map{($0.isValidName())},
+                                                      input.lastName.map{($0.isValidName())},
+                                                      input.genderName.map{(!$0.isEmpty)},
                                                       input.isTermsAndConditionAccept.map{(
                                                         ($0 == true) ? true : false )}
-        ).map{( $0 && $1 && $2 && $3 )}
-        
-        let fullNameWarningDriver = input.fullName.map { !$0.isEmpty }
-        let emailWarningDriver = input.email.map { $0.isEmailValid() }
-        let passwordWarningDriver = input.password.map { !$0.isEmpty && $0.isPasswordValid() }
-        
-        return (
-            enableLogin : enableLoginDriver,
-            fullNameWarning: fullNameWarningDriver,
-            emailWarning: emailWarningDriver,
-            passwordWarning: passwordWarningDriver
-        )
+        ).map{( $0 && $1 && $2 && $3 && $4 && $5 )}
+        return (enableLogin:enableLoginDriver,())
     }
     
 }

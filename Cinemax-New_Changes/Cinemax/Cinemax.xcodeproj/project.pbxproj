@@ -168,6 +168,7 @@
 		13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */; };
 		13F6EE422B70B509006452E2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6EE412B70B509006452E2 /* ImageLoader.swift */; };
 		17BDAC2399389208A2BF18A4 /* Pods_Cinemax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */; };
+		A011F74A2BD7B8FE00746F76 /* UITextFld+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011F7492BD7B8FE00746F76 /* UITextFld+Extensions.swift */; };
 		A06660442BCD45130072E7EB /* UserDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */; };
 		A066F3822BD680AC00CBE075 /* CustomPopupVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066F3812BD680AC00CBE075 /* CustomPopupVCBuilder.swift */; };
 		A08023642BD262E600E65A27 /* WebImgUrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */; };
@@ -361,6 +362,7 @@
 		13F5A98E2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVCPresenter.swift; sourceTree = "<group>"; };
 		13F6EE412B70B509006452E2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		76A6F18CBBB0090443022847 /* Pods-Cinemax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.release.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.release.xcconfig"; sourceTree = "<group>"; };
+		A011F7492BD7B8FE00746F76 /* UITextFld+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextFld+Extensions.swift"; sourceTree = "<group>"; };
 		A06660432BCD45130072E7EB /* UserDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepositoryManager.swift; sourceTree = "<group>"; };
 		A066F3812BD680AC00CBE075 /* CustomPopupVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVCBuilder.swift; sourceTree = "<group>"; };
 		A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImgUrlFactory.swift; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 				139C228B2B612F780082DBDD /* UIColors+Extensions.swift */,
 				1398F0C32B68EBB000D58906 /* String+Extensions.swift */,
 				13B1E6502B6D1E3C003DD382 /* UIViewController+Extensions.swift */,
+				A011F7492BD7B8FE00746F76 /* UITextFld+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1481,6 +1484,7 @@
 				137EF1FF2BBEB27A000C3A5C /* WishListVCPresenter.swift in Sources */,
 				13197E032BB2F32400463D4B /* TVShowsTableViewCell2.swift in Sources */,
 				13C74DEF2B6B973B009CA6DB /* ProfileVCInteractor.swift in Sources */,
+				A011F74A2BD7B8FE00746F76 /* UITextFld+Extensions.swift in Sources */,
 				137EF21E2BBEBEE0000C3A5C /* CDMovies+CoreDataClass.swift in Sources */,
 				13ADC9A12BBD6C83000D48D0 /* GenresVCBuilder.swift in Sources */,
 				139C22522B6126F60082DBDD /* AppDelegate.swift in Sources */,
