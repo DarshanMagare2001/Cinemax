@@ -7,11 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 protocol ResetPasswordVCPrtocol: class {
-    func updateUI()
     func setUpBinding()
-    func errorAlert(message:String)
+    func errorMsg(message:String)
     func successAlert(message:String)
 }
 
@@ -20,10 +20,12 @@ class ResetPasswordVC: UIViewController {
     @IBOutlet weak var resetPasswordView: UIView!
     @IBOutlet weak var emailAddressTxtFld: UITextField!
     @IBOutlet weak var nxtBtn: RoundedButton!
+    @IBOutlet weak var emailAddressTxtFldView: RoundedCornerView!
     
     var presenter : ResetPasswordVCPresenterProtocol?
     var presenterProducer : ResetPasswordVCPresenterProtocol.Producer!
     private let bag = DisposeBag()
+    var doReset: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,11 @@ class ResetPasswordVC: UIViewController {
     }
     
     @IBAction func nxtBtnPressed(_ sender: UIButton) {
-        resetPasswordRequest()
+        if(doReset.value){
+            resetPasswordRequest()
+        }else{
+            showErrors()
+        }
     }
     
     func backBtnPressed() {
@@ -42,34 +48,57 @@ class ResetPasswordVC: UIViewController {
 
 extension ResetPasswordVC : ResetPasswordVCPrtocol {
     
-    func updateUI(){
-        
-    }
-    
     func setupInputs(){
         presenter = presenterProducer((
-            email: emailAddressTxtFld.rx.text.orEmpty.asDriver(),
-            login: nxtBtn.rx.tap.asDriver()
+            email: emailAddressTxtFld.rx.text.orEmpty.asDriver(),()
         ))
     }
     
     func setUpBinding(){
-        presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
-            .drive(nxtBtn.rx.isEnabled)
+        presenter?.output.enableReset
+            .debug("Enable Login Driver", trimOutput: false)
+            .drive { [weak self] enableReset in
+                self?.doReset.accept(enableReset)
+            }
             .disposed(by: bag)
+    }
+    
+    func showErrors(){
+        if !(emailAddressTxtFld.text!.isEmailValid()){
+            if(emailAddressTxtFld.text!.isEmpty){
+                alertMsg(message:"Fill Email.")
+            }else{
+                self.alertMsg(message:"Fill email in correct format.")
+            }
+            emailAddressTxtFldView.borderColor = .red
+            emailAddressTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
+        }
     }
     
     private func resetPasswordRequest(){
         presenter?.resetPasswordRequest(email: emailAddressTxtFld.text)
     }
     
-    func errorAlert(message:String){
-        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    func alertMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.alert, popupLblHeadlineInput: "Alert!", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+    }
+    
+    func errorMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.error, popupLblHeadlineInput: "Error!", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
     }
     
     func successAlert(message:String){
-        Alert.shared.alertOk(title: "Success", message: message, presentingViewController: self) { _ in
-            self.navigationController?.popViewController(animated: true)
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.success, popupLblHeadlineInput: "Success", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.okBtnTrigger = {
+            DispatchQueue.main.asyncAfter(deadline: .now()+1){ [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
     }
     

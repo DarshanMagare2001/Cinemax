@@ -14,13 +14,11 @@ protocol ResetPasswordVCPresenterProtocol {
     func resetPasswordRequest(email: String?)
     
     typealias Input = (
-        email : Driver<String>,
-        login:Driver<Void>
+        email : Driver<String>,()
     )
     
     typealias Output = (
-        enableLogin : Driver<Bool>,
-        emailWarning: Driver<Bool>
+        enableReset : Driver<Bool>,()
     )
     
     typealias Producer = (ResetPasswordVCPresenterProtocol.Input) -> ResetPasswordVCPresenterProtocol
@@ -48,7 +46,6 @@ extension ResetPasswordVCPresenter: ResetPasswordVCPresenterProtocol {
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
-            self?.view?.updateUI()
         }
     }
     
@@ -69,12 +66,12 @@ extension ResetPasswordVCPresenter: ResetPasswordVCPresenterProtocol {
                         print("Invalid credentials")
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: "Invalid credentials")
+                            self?.view?.errorMsg(message: "Invalid credentials")
                         }
                     case .serverError(let serverError):
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: serverError.localizedDescription)
+                            self?.view?.errorMsg(message: serverError.localizedDescription)
                         }
                     }
                 }
@@ -95,11 +92,9 @@ extension ResetPasswordVCPresenter: ResetPasswordVCPresenterProtocol {
 private extension ResetPasswordVCPresenter {
     
     static func output(input:Input) -> Output {
-        let enableLoginDriver =  input.email.map { $0.isEmailValid() }
-        let emailWarningDriver = input.email.map { $0.isEmailValid() }
+        let enableResetDriver =  input.email.map { $0.isEmailValid() }
         return (
-            enableLogin : enableLoginDriver,
-            emailWarning: emailWarningDriver
+            enableReset : enableResetDriver,()
         )
     }
     
