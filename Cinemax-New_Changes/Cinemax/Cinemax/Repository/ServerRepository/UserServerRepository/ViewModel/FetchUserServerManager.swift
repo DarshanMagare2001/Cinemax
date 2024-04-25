@@ -25,10 +25,14 @@ public final class FetchUserServerManager {
                 } else if let document = document, document.exists {
                     print("Fetched current user document: \(document.data())")
                     let uid = document["uid"] as? String
-                    let name = document["name"] as? String
+                    let firstName = document["firstName"] as? String
+                    let lastName = document["lastName"] as? String
+                    let phoneNumber = document["phoneNumber"] as? String
+                    let gender = document["gender"] as? String
+                    let dateOfBirth = document["dateOfBirth"] as? String
                     let email = document["email"] as? String
                     let profileImgUrl = document["profileImgUrl"] as? String
-                    let user = UserServerModel(uid: uid ?? "", name: name ?? "", email: email ?? "", profileImgUrl: profileImgUrl ?? "")
+                    let user = UserServerModel(uid: uid ?? "", firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "", email: email ?? "", profileImgUrl: profileImgUrl ?? "")
                     DispatchQueue.main.async {
                         completion(.success(user))
                     }

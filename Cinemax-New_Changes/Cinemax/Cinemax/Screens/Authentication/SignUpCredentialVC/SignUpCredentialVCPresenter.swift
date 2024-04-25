@@ -66,7 +66,7 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                     self?.saveUserDataToServer(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "", email: email ?? "", completion: {
                         self?.hideLoader()
                         DispatchQueue.main.async { [weak self] in
-                            self?.goToMainTabVC()
+                            self?.view?.successMsg(message: "Signup successfully, you can login in Login section.")
                         }
                     })
                 case.failure(let error):

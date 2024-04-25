@@ -19,14 +19,11 @@ protocol LoginVCPresenterProtocol {
     
     typealias Input = (
         email : Driver<String>,
-        password : Driver<String>,
-        login:Driver<Void>
+        password : Driver<String>
     )
     
     typealias Output = (
-        enableLogin : Driver<Bool>,
-        emailWarning: Driver<Bool>,
-        passwordWarning: Driver<Bool>
+        enableLogin : Driver<Bool>,()
     )
     
     typealias Producer = (LoginVCPresenterProtocol.Input) -> LoginVCPresenterProtocol
@@ -78,12 +75,12 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
                         print("Invalid credentials")
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: "Invalid credentials")
+                            self?.view?.errorMsg(message: "Invalid credentials")
                         }
                     case .serverError(let serverError):
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: serverError.localizedDescription)
+                            self?.view?.errorMsg(message: serverError.localizedDescription)
                         }
                     }
                 }
@@ -129,14 +126,8 @@ private extension LoginVCPresenter {
         let enableLoginDriver =  Driver.combineLatest(input.email.map{( $0.isEmailValid())},
                                                       input.password.map{( !$0.isEmpty && $0.isPasswordValid())})
             .map{( $0 && $1 )}
-        
-        let emailWarningDriver = input.email.map { $0.isEmailValid() }
-        let passwordWarningDriver = input.password.map { !$0.isEmpty && $0.isPasswordValid() }
-        
         return (
-            enableLogin : enableLoginDriver,
-            emailWarning: emailWarningDriver,
-            passwordWarning: passwordWarningDriver
+            enableLogin : enableLoginDriver,()
         )
     }
     

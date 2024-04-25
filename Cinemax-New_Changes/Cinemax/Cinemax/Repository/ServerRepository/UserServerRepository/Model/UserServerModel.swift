@@ -9,12 +9,27 @@ import Foundation
 
 struct UserServerModel {
     var uid:String?
-    var name: String?
+    var firstName: String?
+    var lastName: String?
+    var phoneNumber: String?
+    var gender: String?
+    var dateOfBirth: String?
     var email: String?
     var profileImgUrl: String?
-    init(uid:String,name: String,email: String,profileImgUrl: String){
+    init(uid:String,
+         firstName:String,
+         lastName:String,
+         phoneNumber:String,
+         gender:String,
+         dateOfBirth:String,
+         email:String,
+         profileImgUrl:String){
         self.uid = uid
-        self.name = name
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.gender = gender
+        self.dateOfBirth = dateOfBirth
         self.email = email
         self.profileImgUrl = profileImgUrl
     }

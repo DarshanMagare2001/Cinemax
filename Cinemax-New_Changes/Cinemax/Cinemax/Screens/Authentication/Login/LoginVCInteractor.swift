@@ -15,7 +15,10 @@ protocol LoginVCInteractorProtocol {
 }
 
 class LoginVCInteractor {
-    
+    var userDataRepositoryManager : UserDataRepositoryManagerProtocol?
+    init(userDataRepositoryManager : UserDataRepositoryManagerProtocol){
+        self.userDataRepositoryManager = userDataRepositoryManager
+    }
 }
 
 extension LoginVCInteractor: LoginVCInteractorProtocol {
@@ -43,14 +46,28 @@ extension LoginVCInteractor: LoginVCInteractorProtocol {
     }
     
     func saveUsersDataToUserdefault(user:UserServerModel?){
-        guard let user = user , let name = user.name , let email = user.email , let currentUid = user.uid , let currentUsersProfileImageUrl = user.profileImgUrl else {
+        guard let user = user,
+              let uid = user.uid,
+              let firstName = user.firstName,
+              let lastName = user.lastName,
+              let phoneNumber = user.phoneNumber,
+              let gender = user.gender,
+              let dateOfBirth = user.dateOfBirth,
+              let email = user.email,
+              let profileImgUrl = user.profileImgUrl else {
             return
         }
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: uid) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: firstName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersLastName, data: lastName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPhoneNumber, data: phoneNumber) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersGender, data: gender) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: currentUsersProfileImageUrl) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: profileImgUrl) { _ in}
+        userDataRepositoryManager?.userFirstName.onNext(firstName)
+        userDataRepositoryManager?.userEmailAddress.onNext(email)
+        userDataRepositoryManager?.userProfileImageUrl.onNext(profileImgUrl)
     }
-    
     
 }

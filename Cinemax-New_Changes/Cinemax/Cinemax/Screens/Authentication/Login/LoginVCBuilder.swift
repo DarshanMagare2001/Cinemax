@@ -15,7 +15,7 @@ public final class LoginVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        let interactor = LoginVCInteractor()
+        let interactor = LoginVCInteractor(userDataRepositoryManager: UserDataRepositoryManager.shared)
         let router = LoginVCRouter(viewController: loginVC)
         loginVC.presenterProducer = {
             LoginVCPresenter(view: loginVC, interactor: interactor, router: router, input: $0)

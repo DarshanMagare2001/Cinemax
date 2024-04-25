@@ -7,11 +7,12 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 protocol LoginVCProtocol: class {
     func updateUI()
     func setUpBinding()
-    func errorAlert(message:String)
+    func errorMsg(message:String)
 }
 
 class LoginVC: UIViewController {
@@ -21,6 +22,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxtFld: UITextField!
     @IBOutlet weak var logInBtn: RoundedButton!
     @IBOutlet weak var passwordShowHideBtn: UIButton!
+    @IBOutlet weak var emailAdressTxtFldView: RoundedCornerView!
+    @IBOutlet weak var passwordTxtFldView: RoundedCornerView!
     
     var presenter : LoginVCPresenterProtocol?
     var presenterProducer : LoginVCPresenterProtocol.Producer!
@@ -31,6 +34,7 @@ class LoginVC: UIViewController {
             passwordTxtFld.isSecureTextEntry = isPassworShow ? false : true
         }
     }
+    var doLogin: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +42,20 @@ class LoginVC: UIViewController {
         presenter?.viewDidload()
     }
     
-    
     @IBAction func forgetPasswordBtnPrressed(_ sender: UIButton) {
         presenter?.goToResetPasswordVC()
     }
-    
     
     @IBAction func passwordShowHideBtnPressed(_ sender: UIButton) {
         isPassworShow.toggle()
     }
     
-    
     @IBAction func logInBtnPressed(_ sender: UIButton) {
-        presenter?.signIn(email: emailAdressTxtFld.text, password: passwordTxtFld.text)
+        if(doLogin.value){
+            presenter?.signIn(email: emailAdressTxtFld.text, password: passwordTxtFld.text)
+        }else{
+            showErrors()
+        }
     }
     
 }
@@ -66,20 +71,68 @@ extension LoginVC: LoginVCProtocol {
     func setupInputs(){
         presenter = presenterProducer((
             email: emailAdressTxtFld.rx.text.orEmpty.asDriver(),
-            password: passwordTxtFld.rx.text.orEmpty.asDriver(),
-            login: logInBtn.rx.tap.asDriver()
+            password: passwordTxtFld.rx.text.orEmpty.asDriver()
         ))
+        emailAdressTxtFld.addTarget(self, action: #selector(textFieldDidChangeForEmailAddressTxtFld(_:)), for: .editingChanged)
+        passwordTxtFld.addTarget(self, action: #selector(textFieldDidChangeForPasswordTxtFld(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChangeForEmailAddressTxtFld(_ textField: UITextField) {
+        emailAdressTxtFldView.borderColor = UIColor.appBlue!
+    }
+    @objc func textFieldDidChangeForPasswordTxtFld(_ textField: UITextField) {
+        passwordTxtFldView.borderColor = UIColor.appBlue!
     }
     
     func setUpBinding(){
-        presenter?.output.enableLogin.debug("Enable Login Driver" , trimOutput: false)
-            .drive(logInBtn.rx.isEnabled)
+        presenter?.output.enableLogin
+            .debug("Enable Login Driver", trimOutput: false)
+            .drive { [weak self] enableLogin in
+                self?.doLogin.accept(enableLogin)
+            }
             .disposed(by: bag)
     }
     
+    func showErrors(){
+        if (emailAdressTxtFld.text!.isEmpty) && (passwordTxtFld.text!.isEmpty) {
+            showAllErrorVisuals()
+            alertMsg(message: "Please fill Credentials.")
+        }else if !(emailAdressTxtFld.text!.isEmailValid()) {
+            if(emailAdressTxtFld.text!.isEmpty){
+                alertMsg(message:"Fill Email.")
+            }else{
+                self.alertMsg(message:"Fill email in correct format.")
+            }
+            emailAdressTxtFldView.borderColor = .red
+            emailAdressTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
+        }else if !(passwordTxtFld.text!.isPasswordValid()) {
+            if(passwordTxtFld.text!.isEmpty){
+                alertMsg(message:"Fill Password.")
+            }else{
+                self.alertMsg(message:"Password should be 6 characters and contain at least one alphabet, one integer, and one symbol.")
+            }
+            passwordTxtFldView.borderColor = .red
+            passwordTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
+        }
+    }
     
-    func errorAlert(message:String){
-        Alert.shared.alertOk(title: "Error", message: message, presentingViewController: self) { _ in}
+    func showAllErrorVisuals(){
+        emailAdressTxtFldView.borderColor = .red
+        emailAdressTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
+        passwordTxtFldView.borderColor = .red
+        passwordTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
+    }
+    
+    func alertMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.alert, popupLblHeadlineInput: "Alert!", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+    }
+    
+    func errorMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.error, popupLblHeadlineInput: "Error!", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
     }
     
     func backBtnPressed(){

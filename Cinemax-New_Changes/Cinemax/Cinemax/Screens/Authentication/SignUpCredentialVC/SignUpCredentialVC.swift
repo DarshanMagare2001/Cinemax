@@ -15,6 +15,7 @@ protocol SignUpCredentialVCProtocol: class {
     func setupInputs()
     func setUpBinding()
     func errorMsg(message:String)
+    func successMsg(message:String)
 }
 
 class SignUpCredentialVC: UIViewController {
@@ -238,7 +239,7 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         case .emailaddressTxtFldError:
             return "Fill email in correct format."
         case .passwordTxtFldError:
-            return "Password should be 6 characters and contain at least one alphabet, one integer, and one symbol"
+            return "Password should be 6 characters and contain at least one alphabet, one integer, and one symbol."
         case .allTermsAndCondition:
             return "Please accept terms and condition."
         case .phoneNumberTxtFldError:
@@ -295,6 +296,17 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.alert, popupLblHeadlineInput: "Alert!", popupSubheadlineInput: message)
         customPopVC.modalPresentationStyle = .overCurrentContext
         navigationController?.present(customPopVC,animated: true)
+    }
+    
+    func successMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.success, popupLblHeadlineInput: "Success", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.okBtnTrigger = {
+            DispatchQueue.main.asyncAfter(deadline: .now()+1){ [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
 }
