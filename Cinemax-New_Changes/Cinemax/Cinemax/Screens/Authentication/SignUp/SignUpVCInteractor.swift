@@ -57,18 +57,32 @@ extension SignUpVCInteractor: SignUpVCInteractorProtocol {
             completion()
             return
         }
-        var user = UserServerModel(
-            uid: currentUser.userID ?? "",
-            firstName: currentUser.profile?.givenName ?? "",
-            lastName: currentUser.profile?.familyName ?? "",
-            phoneNumber: "",
-            gender: "",
-            dateOfBirth: "",
-            email: currentUser.profile?.email ?? "",
-            profileImgUrl: currentUser.profile?.imageURL(withDimension: 300)?.absoluteString ?? ""
-        )
-        saveUsersDataToUserdefault(user:user)
-        completion()
+        FetchUserServerManager.shared.fetchCurrentUserFromFirebase { result in
+            switch result {
+            case.success(let user):
+                if let user = user , user.firstName != "" {
+                    self.saveUsersDataToUserdefault(user:user)
+                    completion()
+                }else{
+                    var user = UserServerModel(
+                        uid: currentUser.userID ?? "",
+                        firstName: currentUser.profile?.givenName ?? "",
+                        lastName: currentUser.profile?.familyName ?? "",
+                        phoneNumber: "",
+                        gender: "",
+                        dateOfBirth: "",
+                        email: currentUser.profile?.email ?? "",
+                        profileImgUrl: currentUser.profile?.imageURL(withDimension: 300)?.absoluteString ?? ""
+                    )
+                    self.saveUsersDataToUserdefault(user:user)
+                    self.storeUserInfoToFBDatabase(user:user){
+                        completion()
+                    }
+                }
+            case.failure(let error):
+                print(error)
+            }
+        }
     }
     
     func saveUsersDataToUserdefault(user:UserServerModel){
@@ -93,6 +107,12 @@ extension SignUpVCInteractor: SignUpVCInteractorProtocol {
         userDataRepositoryManager?.userFirstName.onNext(firstName)
         userDataRepositoryManager?.userEmailAddress.onNext(email)
         userDataRepositoryManager?.userProfileImageUrl.onNext(profileImageUrl)
+    }
+    
+    func storeUserInfoToFBDatabase(user:UserServerModel,completion:@escaping()->()){
+        StoreUserServerManager.shared.storeCurrentUserDataToServerNameAndEmail(firstName: user.firstName, lastName: user.lastName, phoneNumber: user.phoneNumber, gender: user.gender, dateOfBirth: user.dateOfBirth, email: user.email) { _ in
+            completion()
+        }
     }
     
 }
