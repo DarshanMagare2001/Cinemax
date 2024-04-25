@@ -10,7 +10,8 @@ import UIKit
 
 protocol EditProfileVCInteractorProtocol {
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage,completion:@escaping(Result<Bool,Error>)->())
-    func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure)
+    func updateCurrentuseerNameInDatabase(firstName:String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,completion: @escaping EscapingResultBoolErrorClosure)
+    func updateCurrentUsernameInUserdefault(firstName:String, lastName: String, phoneNumber: String, gender: String, dateOfBirth: String)
 }
 
 class EditProfileVCInteractor {
@@ -55,13 +56,19 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
         }
     }
     
-    func updateCurrentuseerNameInDatabase(name: String? ,completion: @escaping EscapingResultBoolErrorClosure){
-        StoreUserServerManager.shared.updateCurrentUserNameInDatabase(name: name) { result in
+    func updateCurrentuseerNameInDatabase(firstName:String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,completion: @escaping EscapingResultBoolErrorClosure){
+        StoreUserServerManager.shared.updateCurrentUserNameInDatabase(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, gender: gender, dateOfBirth: dateOfBirth){ result in
             completion(result)
         }
-        if let name = name {
-            userDataRepositoryManager?.userFirstName.onNext(name)
-        }
+    }
+    
+    func updateCurrentUsernameInUserdefault(firstName:String, lastName: String, phoneNumber: String, gender: String, dateOfBirth: String){
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: firstName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersLastName, data: lastName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPhoneNumber, data: phoneNumber) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersGender, data: gender) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
+        userDataRepositoryManager?.userFirstName.onNext(firstName)
     }
     
 }

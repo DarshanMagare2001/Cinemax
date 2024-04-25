@@ -13,23 +13,16 @@ import RxSwift
 protocol EditProfileVCPresenterProtocol {
     func viewDidload()
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage)
-    func updateCurrentuseerNameInDatabase(name: String?,completion:@escaping()->())
-    
+    func updateCurrentuseerNameInDatabase(firstName:String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,completion:@escaping()->())
     typealias Input = (
-        fullName : Driver<String>,
-        login:Driver<Void>
+        firstName : Driver<String>,
+        lastName : Driver<String>,
+        genderName : Driver<String>
     )
-    
-    typealias Output = (
-        enableLogin : Driver<Bool>,
-        fullNameWarning: Driver<Bool>
-    )
-    
+    typealias Output = (enableUpdate : Driver<Bool>,())
     typealias Producer = (EditProfileVCPresenterProtocol.Input) -> EditProfileVCPresenterProtocol
-    
     var input : Input { get }
     var output : Output { get }
-    
 }
 
 class EditProfileVCPresenter {
@@ -50,7 +43,6 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
-            self?.view?.setupWarningLbls()
         }
     }
     
@@ -79,16 +71,16 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
         }
     }
     
-    func updateCurrentuseerNameInDatabase(name: String?,completion:@escaping()->()){
+    func updateCurrentuseerNameInDatabase(firstName:String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,completion:@escaping()->()){
         DispatchQueue.main.async { [weak self] in
             Loader.shared.showLoader(type: .lineScale, color: .white)
         }
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.interactor.updateCurrentuseerNameInDatabase(name: name) { result in
+            self?.interactor.updateCurrentuseerNameInDatabase(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "") { result in
                 switch result{
                 case .success(let bool):
                     print(bool)
-                    self?.updateCurrentUsernameInUserdefault(name:name)
+                    self?.interactor.updateCurrentUsernameInUserdefault(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "")
                     DispatchQueue.main.async { [weak self] in
                         Loader.shared.hideLoader()
                         completion()
@@ -106,21 +98,16 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
         }
     }
     
-    private func updateCurrentUsernameInUserdefault(name:String?){
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: name) { _ in}
-    }
-    
 }
 
 private extension EditProfileVCPresenter {
     
     static func output(input:Input) -> Output {
-        let enableLoginDriver =  input.fullName.map { !$0.isEmpty }
-        let fullNameWarningDriver = input.fullName.map { !$0.isEmpty }
-        return (
-            enableLogin : enableLoginDriver,
-            fullNameWarning: fullNameWarningDriver
-        )
+        let enableUpdateDriver =  Driver.combineLatest(input.firstName.map{($0.isValidName())},
+                                                       input.lastName.map{($0.isValidName())},
+                                                       input.genderName.map{(!$0.isEmpty)})
+            .map{($0 && $1 && $2)}
+        return (enableUpdate:enableUpdateDriver,())
     }
     
 }

@@ -58,8 +58,18 @@ public final class StoreUserServerManager {
     
     // MARK: - Update Current UserName In Database
     
-    func updateCurrentUserNameInDatabase(name: String?, completion: @escaping EscapingResultBoolErrorClosure) {
-        guard let currentUserId = Auth.auth().currentUser?.uid, let name = name else {
+    func updateCurrentUserNameInDatabase(firstName: String?,
+                                         lastName: String?,
+                                         phoneNumber: String?,
+                                         gender: String?,
+                                         dateOfBirth: String?,
+                                         completion: @escaping EscapingResultBoolErrorClosure){
+        guard let currentUserId = Auth.auth().currentUser?.uid,
+              let firstName = firstName,
+              let lastName = lastName,
+              let phoneNumber = phoneNumber,
+              let gender = gender,
+              let dateOfBirth = dateOfBirth else {
             completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in or invalid name"])))
             return
         }
@@ -68,7 +78,11 @@ public final class StoreUserServerManager {
         let userRef = db.collection("users").document(currentUserId)
         
         // Create a dictionary with the updated name
-        let data: [String: Any] = ["name": name]
+        let data: [String: Any] = ["firstName": firstName,
+                                   "lastName": lastName,
+                                   "phoneNumber": phoneNumber,
+                                   "gender": gender,
+                                   "dateOfBirth": dateOfBirth]
         
         // Set the document with the updated data
         userRef.setData(data, merge: true) { error in
