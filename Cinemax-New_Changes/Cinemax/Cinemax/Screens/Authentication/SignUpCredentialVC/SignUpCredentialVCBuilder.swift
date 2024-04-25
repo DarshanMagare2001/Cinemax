@@ -16,7 +16,7 @@ public final class SignUpCredentialVCBuilder {
     static func build() -> UIViewController {
         let storyboard = UIStoryboard.Authentication
         let signUpCredentialVC = storyboard.instantiateViewController(withIdentifier: "SignUpCredentialVC") as! SignUpCredentialVC
-        let interactor = SignUpCredentialVCInteractor()
+        let interactor = SignUpCredentialVCInteractor(userDataRepositoryManager: UserDataRepositoryManager.shared)
         let router = SignUpCredentialVCRouter(viewController: signUpCredentialVC)
         signUpCredentialVC.presenterProducer = {
             SignUpCredentialVCPresenter(view: signUpCredentialVC, interactor: interactor, router: router, input: $0)

@@ -52,7 +52,7 @@ extension LoginVCPresenter: LoginVCPresenterProtocol {
     func viewDidload(){
         DispatchQueue.main.async { [weak self] in
             self?.view?.setUpBinding()
-            self?.view?.updateUI()
+            self?.view?.bindUI()
         }
     }
     

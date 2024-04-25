@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol LoginVCProtocol: class {
-    func updateUI()
+    func bindUI()
     func setUpBinding()
     func errorMsg(message:String)
 }
@@ -24,9 +24,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordShowHideBtn: UIButton!
     @IBOutlet weak var emailAdressTxtFldView: RoundedCornerView!
     @IBOutlet weak var passwordTxtFldView: RoundedCornerView!
+    @IBOutlet weak var userImg: UIImageView!
     
     var presenter : LoginVCPresenterProtocol?
     var presenterProducer : LoginVCPresenterProtocol.Producer!
+    var userDataRepositoryManager: UserDataRepositoryManagerProtocol?
     private let bag = DisposeBag()
     var isPassworShow = false {
         didSet{
@@ -35,9 +37,11 @@ class LoginVC: UIViewController {
         }
     }
     var doLogin: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDataRepositoryManager = UserDataRepositoryManager.shared
         setupInputs()
         presenter?.viewDidload()
     }
@@ -62,10 +66,25 @@ class LoginVC: UIViewController {
 
 extension LoginVC: LoginVCProtocol {
     
-    func updateUI(){
-        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersFirstName){
-            headingLbl.text = "Hi,\(name)"
-        }
+    func bindUI(){
+        userDataRepositoryManager?.userFirstName.subscribe { event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    if element == "" {
+                        self?.headingLbl.text = "Hi,There"
+                    }else{
+                        self?.headingLbl.text = "Hi,\(element)"
+                    }
+                }
+            }
+        }.disposed(by: disposeBag)
+        userDataRepositoryManager?.userProfileImageUrl.subscribe{ event in
+            if let element = event.element {
+                DispatchQueue.main.async { [weak self] in
+                    self?.userImg.WebImageLoadingFactory(urlString: element, placeholder: "person.fill")
+                }
+            }
+        }.disposed(by: disposeBag)
     }
     
     func setupInputs(){

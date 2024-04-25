@@ -17,9 +17,9 @@ protocol UserDataRepositoryManagerProtocol {
 
 class UserDataRepositoryManager {
     static let shared = UserDataRepositoryManager()
-    var userFirstName = BehaviorSubject(value:"UserName")
+    var userFirstName = BehaviorSubject(value:"")
     var userProfileImageUrl = BehaviorSubject(value:"")
-    var userEmailAddress = BehaviorSubject(value:"Cinemax@gmail.com")
+    var userEmailAddress = BehaviorSubject(value:"")
     init(){
         updateUserData()
     }

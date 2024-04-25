@@ -21,7 +21,10 @@ protocol SignUpCredentialVCInteractorProtocol {
 }
 
 class SignUpCredentialVCInteractor {
-    
+    var userDataRepositoryManager : UserDataRepositoryManagerProtocol?
+    init(userDataRepositoryManager : UserDataRepositoryManagerProtocol){
+        self.userDataRepositoryManager = userDataRepositoryManager
+    }
 }
 
 extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
@@ -65,6 +68,8 @@ extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
+        userDataRepositoryManager?.userFirstName.onNext(firstName)
+        userDataRepositoryManager?.userEmailAddress.onNext(email)
     }
     
 }
