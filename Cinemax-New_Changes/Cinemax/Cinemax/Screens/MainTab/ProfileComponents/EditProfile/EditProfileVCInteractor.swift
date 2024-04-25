@@ -60,7 +60,7 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
             completion(result)
         }
         if let name = name {
-            userDataRepositoryManager?.userName.onNext(name)
+            userDataRepositoryManager?.userFirstName.onNext(name)
         }
     }
     

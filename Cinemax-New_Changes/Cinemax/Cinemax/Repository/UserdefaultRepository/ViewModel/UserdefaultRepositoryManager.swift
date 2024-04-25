@@ -8,9 +8,14 @@
 import Foundation
 
 public final class UserdefaultRepositoryManager {
+    
     enum UserInfoFromUserdefault: String {
         case isOnboardingDone = "isOnboardingDone"
-        case currentUsersName = "currentUsersName"
+        case currentUsersFirstName = "currentUsersFirstName"
+        case currentUsersLastName = "currentUsersLastName"
+        case currentUsersPhoneNumber = "currentUsersPhoneNumber"
+        case currentUsersGender = "currentUsersGender"
+        case currentUsersDateOfBirth = "currentUsersDateOfBirth"
         case currentUsersEmail = "currentUsersEmail"
         case currentUsersUid = "currentUsersUid"
         case currentUsersProfileImageUrl = "currentUsersProfileImageUrl"

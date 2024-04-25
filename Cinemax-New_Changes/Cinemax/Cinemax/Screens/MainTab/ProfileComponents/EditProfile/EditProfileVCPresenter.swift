@@ -107,7 +107,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     }
     
     private func updateCurrentUsernameInUserdefault(name:String?){
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: name) { _ in}
     }
     
 }

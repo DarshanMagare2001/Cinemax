@@ -46,7 +46,7 @@ extension LoginVCInteractor: LoginVCInteractorProtocol {
         guard let user = user , let name = user.name , let email = user.email , let currentUid = user.uid , let currentUsersProfileImageUrl = user.profileImgUrl else {
             return
         }
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: name) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: currentUsersProfileImageUrl) { _ in}

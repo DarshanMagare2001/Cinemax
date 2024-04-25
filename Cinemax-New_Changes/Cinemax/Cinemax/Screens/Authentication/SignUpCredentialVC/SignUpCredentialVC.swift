@@ -14,7 +14,7 @@ import SwiftUI
 protocol SignUpCredentialVCProtocol: class {
     func setupInputs()
     func setUpBinding()
-    func errorAlert(message:String)
+    func errorMsg(message:String)
 }
 
 class SignUpCredentialVC: UIViewController {
@@ -161,17 +161,19 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
     func makeSignupProcess(){
         if !(phoneNumberTxtFld.text!.isEmpty){
             if (phoneNumberTxtFld.text!.isPhoneNumberValid()){
-                print("Signup")
-                //                presenter?.signUp(name: firstNameTxtFld.text, email: emailaddressTxtFld.text, password: passwordTxtFld.text)
+                doSignup()
             }else{
-                let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.phoneNumberTxtFldError)
-                errorAlert(message:errorMsg)
+                let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.phoneNumberTxtFldError)
+                self.alertMsg(message:alertMsg)
                 showErrorVisuals(errors: SignUpCredentialVCErrors.phoneNumberTxtFldError)
             }
         }else{
-            print("Signup")
-            //            presenter?.signUp(name: firstNameTxtFld.text, email: emailaddressTxtFld.text, password: passwordTxtFld.text)
+            doSignup()
         }
+    }
+    
+    func doSignup(){
+        presenter?.signUp(firstName: firstNameTxtFld.text, lastName: lastNameTxtFld.text, phoneNumber: phoneNumberTxtFld.text, gender: genderTxtFld.text, dateOfBirth: dateOfBirthTxtFld.text, email: emailaddressTxtFld.text, password: passwordTxtFld.text)
     }
     
     func showErrors(){
@@ -182,46 +184,46 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
             (passwordTxtFld.text!.isEmpty) &&
             (!isTermsAndConditionCheck){
             showAllErrorVisuals()
-            errorAlert(message: "Please fill all required fields and accept terms and condition first.")
+            alertMsg(message: "Please fill all required fields and accept terms and condition first.")
         }else if !(firstNameTxtFld.text!.isValidName()) {
             if(firstNameTxtFld.text!.isEmpty){
-                errorAlert(message:"Fill First name.")
+                alertMsg(message:"Fill First name.")
             }else{
-                let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.firstNameTxtFldError)
-                errorAlert(message:errorMsg)
+                let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.firstNameTxtFldError)
+                self.alertMsg(message:alertMsg)
             }
             showErrorVisuals(errors: SignUpCredentialVCErrors.firstNameTxtFldError)
         }else if !(lastNameTxtFld.text!.isValidName()){
             if(lastNameTxtFld.text!.isEmpty){
-                errorAlert(message:"Fill Last name.")
+                alertMsg(message:"Fill Last name.")
             }else{
-                let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.lastNameTxtFldError)
-                errorAlert(message:errorMsg)
+                let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.lastNameTxtFldError)
+                self.alertMsg(message:alertMsg)
             }
             showErrorVisuals(errors: SignUpCredentialVCErrors.lastNameTxtFldError)
         }else if(genderTxtFld.text!.isEmpty){
-            let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.genderTxtFldError)
-            errorAlert(message:errorMsg)
+            let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.genderTxtFldError)
+            self.alertMsg(message:alertMsg)
             showErrorVisuals(errors: SignUpCredentialVCErrors.genderTxtFldError)
         }else if !(emailaddressTxtFld.text!.isEmailValid()){
             if(emailaddressTxtFld.text!.isEmpty){
-                errorAlert(message:"Fill Email address.")
+                alertMsg(message:"Fill Email address.")
             }else{
-                let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.emailaddressTxtFldError)
-                errorAlert(message:errorMsg)
+                let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.emailaddressTxtFldError)
+                self.alertMsg(message:alertMsg)
             }
             showErrorVisuals(errors: SignUpCredentialVCErrors.emailaddressTxtFldError)
         }else if !(passwordTxtFld.text!.isPasswordValid()){
             if(passwordTxtFld.text!.isEmpty){
-                errorAlert(message:"Fill Password.")
+                alertMsg(message:"Fill Password.")
             }else{
-                let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.passwordTxtFldError)
-                errorAlert(message:errorMsg)
+                let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.passwordTxtFldError)
+                self.alertMsg(message:alertMsg)
             }
             showErrorVisuals(errors: SignUpCredentialVCErrors.passwordTxtFldError)
         }else if !(isTermsAndConditionCheck){
-            let errorMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.allTermsAndCondition)
-            errorAlert(message:errorMsg)
+            let alertMsg = getErrorsMsg(errors: SignUpCredentialVCErrors.allTermsAndCondition)
+            self.alertMsg(message:alertMsg)
         }
     }
     
@@ -282,7 +284,14 @@ extension SignUpCredentialVC: SignUpCredentialVCProtocol {
         passwordTxtFld.shake(duration: 0.07, repeatCount: 4, autoreverses: true)
     }
     
-    func errorAlert(message:String){
+    
+    func errorMsg(message:String){
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.error, popupLblHeadlineInput: "Error!", popupSubheadlineInput: message)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+    }
+    
+    func alertMsg(message:String){
         let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.alert, popupLblHeadlineInput: "Alert!", popupSubheadlineInput: message)
         customPopVC.modalPresentationStyle = .overCurrentContext
         navigationController?.present(customPopVC,animated: true)

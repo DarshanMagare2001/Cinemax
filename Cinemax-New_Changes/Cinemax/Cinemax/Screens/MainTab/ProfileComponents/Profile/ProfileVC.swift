@@ -73,7 +73,7 @@ extension ProfileVC : ProfileVCProtocol {
     }
     
     func bindUI(){
-        userDataRepositoryManager?.userName.subscribe { event in
+        userDataRepositoryManager?.userFirstName.subscribe { event in
             if let element = event.element {
                 DispatchQueue.main.async { [weak self] in
                     self?.currentUserName.text = element

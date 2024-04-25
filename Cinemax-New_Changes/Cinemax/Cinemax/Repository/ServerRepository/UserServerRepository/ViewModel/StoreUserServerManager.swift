@@ -19,17 +19,32 @@ public final class StoreUserServerManager {
     
     // MARK: - Store Current UserName And Email To Server
     
-    func storeCurrentUserDataToServerNameAndEmail(name: String?, email: String?, completion: @escaping EscapingResultBoolErrorClosure) {
-        guard let currentUserId = Auth.auth().currentUser?.uid, let name = name, let email = email else {
+    func storeCurrentUserDataToServerNameAndEmail(firstName: String?,
+                                                  lastName: String?,
+                                                  phoneNumber: String?,
+                                                  gender: String?,
+                                                  dateOfBirth: String?,
+                                                  email: String?,
+                                                  completion: @escaping EscapingResultBoolErrorClosure) {
+        guard let currentUserId = Auth.auth().currentUser?.uid,
+              let firstName = firstName,
+              let lastName = lastName,
+              let phoneNumber = phoneNumber,
+              let gender = gender,
+              let dateOfBirth = dateOfBirth,
+              let email = email else {
             completion(.failure(NSError(domain: "CINEMAX", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
-        
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(currentUserId)
         // Create a dictionary with both the uid and fcmToken
         let data: [String: Any] = ["uid": currentUserId,
-                                   "name": name,
+                                   "firstName": firstName,
+                                   "lastName": lastName,
+                                   "phoneNumber": phoneNumber,
+                                   "gender": gender,
+                                   "dateOfBirth": dateOfBirth,
                                    "email": email]
         // Set the document with the combined data
         userRef.setData(data, merge: true) { error in
@@ -39,7 +54,6 @@ public final class StoreUserServerManager {
                 completion(.success(true))
             }
         }
-        
     }
     
     // MARK: - Update Current UserName In Database

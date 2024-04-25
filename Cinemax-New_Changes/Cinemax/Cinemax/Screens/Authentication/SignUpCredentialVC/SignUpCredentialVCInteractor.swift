@@ -16,8 +16,8 @@ enum AuthenticationError : Error {
 
 protocol SignUpCredentialVCInteractorProtocol {
     func signUp(email: String?, password: String?, completion: @escaping (Result<Bool,AuthenticationError>) -> Void)
-    func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure)
-    func saveUsersDataToUserdefault(name:String?,email: String?)
+    func saveUserDataToServer(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure)
+    func saveUsersDataToUserdefault(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?, email: String?)
 }
 
 class SignUpCredentialVCInteractor {
@@ -42,17 +42,27 @@ extension SignUpCredentialVCInteractor: SignUpCredentialVCInteractorProtocol {
         }
     }
     
-    func saveUserDataToServer(name: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure ){
-        StoreUserServerManager.shared.storeCurrentUserDataToServerNameAndEmail(name: name, email: email) { result in
-            completion(result)
+    func saveUserDataToServer(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?, email: String?,completion: @escaping EscapingResultBoolErrorClosure){
+        StoreUserServerManager.shared.storeCurrentUserDataToServerNameAndEmail(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, gender: gender, dateOfBirth: dateOfBirth, email: email){ data in
+            completion(data)
         }
     }
     
-    func saveUsersDataToUserdefault(name:String?,email: String?){
-        guard let name = name , let email = email, let currentUid = Auth.auth().currentUser?.uid else {
+    func saveUsersDataToUserdefault(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?, email: String?){
+        guard let firstName = firstName,
+              let lastName = lastName,
+              let phoneNumber = phoneNumber,
+              let gender = gender,
+              let email = email,
+              let dateOfBirth = dateOfBirth,
+              let currentUid = Auth.auth().currentUser?.uid else {
             return
         }
-        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersName, data: name) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: firstName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersLastName, data: lastName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPhoneNumber, data: phoneNumber) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersGender, data: gender) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
     }

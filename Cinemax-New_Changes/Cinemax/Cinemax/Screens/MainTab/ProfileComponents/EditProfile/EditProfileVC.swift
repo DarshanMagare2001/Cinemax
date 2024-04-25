@@ -74,7 +74,7 @@ extension EditProfileVC : EditProfileVCProtocol {
             .drive(fullnameWarningLbl.rx.isHidden)
             .disposed(by: disposeBag)
         
-        userDataRepositoryManager?.userName.subscribe { event in
+        userDataRepositoryManager?.userFirstName.subscribe { event in
             if let element = event.element {
                 DispatchQueue.main.async { [weak self] in
                     self?.currentUserName.text = element

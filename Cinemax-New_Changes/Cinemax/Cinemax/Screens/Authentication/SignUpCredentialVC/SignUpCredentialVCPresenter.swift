@@ -13,7 +13,7 @@ import FirebaseAuth
 protocol SignUpCredentialVCPresenterProtocol {
     
     func viewDidload()
-    func signUp(name:String?,email: String?, password: String?)
+    func signUp(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,email: String?, password: String?)
     func goToMainTabVC()
     
     typealias Input = (
@@ -55,15 +55,15 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         }
     }
     
-    func signUp(name:String?,email: String?, password: String?){
+    func signUp(firstName: String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,email: String?, password: String?){
         showLoader()
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.signUp(email: email, password: password) { result in
                 switch result {
                 case.success(let bool):
                     print(bool)
-                    self?.interactor.saveUsersDataToUserdefault(name: name, email: email)
-                    self?.saveUserDataToServer(name: name, email: email, completion: { [weak self] in
+                    self?.interactor.saveUsersDataToUserdefault(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "", email: email ?? "")
+                    self?.saveUserDataToServer(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "", email: email ?? "", completion: {
                         self?.hideLoader()
                         DispatchQueue.main.async { [weak self] in
                             self?.goToMainTabVC()
@@ -75,12 +75,12 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
                         print("Invalid credentials")
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: "Invalid credentials")
+                            self?.view?.errorMsg(message: "Invalid credentials")
                         }
                     case .serverError(let serverError):
                         self?.hideLoader()
                         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                            self?.view?.errorAlert(message: serverError.localizedDescription)
+                            self?.view?.errorMsg(message: serverError.localizedDescription)
                         }
                     }
                 }
@@ -100,8 +100,8 @@ extension SignUpCredentialVCPresenter: SignUpCredentialVCPresenterProtocol {
         router.goToMainTabVC()
     }
     
-    func saveUserDataToServer(name: String?, email: String?,completion:@escaping()->()){
-        interactor.saveUserDataToServer(name: name, email: email) { result in
+    func saveUserDataToServer(firstName: String, lastName: String, phoneNumber:String, gender: String, dateOfBirth:String, email: String,completion:@escaping()->()){
+        interactor.saveUserDataToServer(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, gender: gender, dateOfBirth: dateOfBirth, email: email) { result in
             switch result {
             case.success(let bool):
                 print(bool)

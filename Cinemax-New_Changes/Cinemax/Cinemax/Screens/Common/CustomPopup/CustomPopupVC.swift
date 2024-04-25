@@ -12,6 +12,7 @@ enum CustomPopupVCInputs{
     case success
     case asking
     case alert
+    case error
 }
 
 class CustomPopupVC: UIViewController {
@@ -75,6 +76,10 @@ extension CustomPopupVC {
                 popupOkBtnView.isHidden = false
                 popupYesNoBtnView.isHidden = true
                 popupImg.image = UIImage(named: "popupAlert")
+            case .error:
+                popupOkBtnView.isHidden = false
+                popupYesNoBtnView.isHidden = true
+                popupImg.image = UIImage(named: "popupError")
             }
         }
     }

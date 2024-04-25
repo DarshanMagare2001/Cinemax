@@ -58,7 +58,7 @@ class LoginVC: UIViewController {
 extension LoginVC: LoginVCProtocol {
     
     func updateUI(){
-        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersName){
+        if let name = UserdefaultRepositoryManager.fetchUserInfoFromUserdefault(type: .currentUsersFirstName){
             headingLbl.text = "Hi,\(name)"
         }
     }
