@@ -13,10 +13,14 @@ import GoogleSignIn
 
 protocol SignUpVCInteractorProtocol {
     func signinWithGoogle(view: UIViewController , completion:@escaping(Result<Bool,Error>)->())
+    func getGoogleUserProfile(completion: @escaping () -> ())
 }
 
 class SignUpVCInteractor {
-    
+    var userDataRepositoryManager : UserDataRepositoryManagerProtocol?
+    init(userDataRepositoryManager : UserDataRepositoryManagerProtocol){
+        self.userDataRepositoryManager = userDataRepositoryManager
+    }
 }
 
 extension SignUpVCInteractor: SignUpVCInteractorProtocol {
@@ -46,6 +50,49 @@ extension SignUpVCInteractor: SignUpVCInteractorProtocol {
             }
             
         }
+    }
+    
+    func getGoogleUserProfile(completion: @escaping () -> ()) {
+        guard let currentUser = GIDSignIn.sharedInstance.currentUser else {
+            completion()
+            return
+        }
+        var user = UserServerModel(
+            uid: currentUser.userID ?? "",
+            firstName: currentUser.profile?.givenName ?? "",
+            lastName: currentUser.profile?.familyName ?? "",
+            phoneNumber: "",
+            gender: "",
+            dateOfBirth: "",
+            email: currentUser.profile?.email ?? "",
+            profileImgUrl: currentUser.profile?.imageURL(withDimension: 300)?.absoluteString ?? ""
+        )
+        saveUsersDataToUserdefault(user:user)
+        completion()
+    }
+    
+    func saveUsersDataToUserdefault(user:UserServerModel){
+        guard let firstName = user.firstName,
+              let lastName = user.lastName,
+              let phoneNumber = user.phoneNumber,
+              let gender = user.gender,
+              let email = user.email,
+              let dateOfBirth = user.dateOfBirth,
+              let profileImageUrl = user.profileImgUrl,
+              let currentUid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersFirstName, data: firstName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersLastName, data: lastName) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersPhoneNumber, data: phoneNumber) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersGender, data: gender) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersEmail, data: email) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersUid, data: currentUid) { _ in}
+        UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersProfileImageUrl, data: profileImageUrl) { _ in}
+        userDataRepositoryManager?.userFirstName.onNext(firstName)
+        userDataRepositoryManager?.userEmailAddress.onNext(email)
+        userDataRepositoryManager?.userProfileImageUrl.onNext(profileImageUrl)
     }
     
 }

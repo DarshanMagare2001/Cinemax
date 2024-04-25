@@ -46,16 +46,15 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
             switch result {
             case.success(let bool):
                 print(bool)
-                self.hideLoader()
-                DispatchQueue.main.async { [weak self] in
-                    self?.goToMainTabVC()
+                self.interactor.getGoogleUserProfile {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.hideLoader()
+                        self?.goToMainTabVC()
+                    }
                 }
             case.failure(let error):
                 print(error)
                 self.hideLoader()
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
-                    self?.view?.errorAlert(message: error.localizedDescription)
-                }
             }
         }
     }
