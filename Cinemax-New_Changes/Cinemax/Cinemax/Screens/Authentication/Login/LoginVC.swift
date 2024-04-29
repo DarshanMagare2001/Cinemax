@@ -46,6 +46,12 @@ class LoginVC: UIViewController {
         presenter?.viewDidload()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailAdressTxtFldView.borderColor = UIColor.appBlue!
+        passwordTxtFldView.borderColor = UIColor.appBlue!
+    }
+    
     @IBAction func forgetPasswordBtnPrressed(_ sender: UIButton) {
         presenter?.goToResetPasswordVC()
     }
