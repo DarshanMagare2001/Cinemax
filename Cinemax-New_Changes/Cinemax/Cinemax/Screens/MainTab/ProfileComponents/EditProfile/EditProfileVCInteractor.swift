@@ -69,6 +69,10 @@ extension EditProfileVCInteractor: EditProfileVCInteractorProtocol {
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersGender, data: gender) { _ in}
         UserdefaultRepositoryManager.storeUserInfoFromUserdefault(type: .currentUsersDateOfBirth, data: dateOfBirth) { _ in}
         userDataRepositoryManager?.userFirstName.onNext(firstName)
+        userDataRepositoryManager?.userLastName.onNext(lastName)
+        userDataRepositoryManager?.userPhoneNumber.onNext(phoneNumber)
+        userDataRepositoryManager?.userGender.onNext(gender)
+        userDataRepositoryManager?.userDateOfBirth.onNext(dateOfBirth)
     }
     
 }

@@ -65,6 +65,7 @@ class EditProfileVC: UIViewController {
 extension EditProfileVC : EditProfileVCProtocol {
     
     func setupInputs(){
+        setUpBinding()
         presenter = presenterProducer((
             firstName : firstNameTxtFld.rx.text.orEmpty.asDriver(),
             lastName : lastNameTxtFld.rx.text.orEmpty.asDriver(),
