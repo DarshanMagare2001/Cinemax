@@ -60,6 +60,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     }
     
     func loadDatasource(){
+        showLoader()
         dispatchGroup.enter()
         fetchMovieData{ [weak self] in
             self?.dispatchGroup.leave()
@@ -75,6 +76,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         dispatchGroup.notify(queue: .main) { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.view?.updateSimilarMoviesCollectionviewOutlet()
+                self?.hideLoader()
             }
         }
     }
@@ -164,6 +166,14 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
             }
             wishlistMoviesIds = tempArray
         }
+    }
+    
+    func showLoader(){
+        Loader.shared.showLoader(type: .ballClipRotate, color: .white, background: LoaderVCBackground.withBlur)
+    }
+    
+    func hideLoader(){
+        Loader.shared.hideLoader()
     }
     
 }
