@@ -37,7 +37,7 @@ extension ProfileVCPresenter: ProfileVCPresenterProtocol {
     }
     
     func currentUserLogout(){
-        Loader.shared.showLoader(type: .lineScale, color: .white)
+        Loader.shared.showLoader(type: .lineScale, color: .white, background: LoaderVCBackground.withoutBlur)
         DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
             self?.interactor.currentUserLogout { result in
                 switch result {

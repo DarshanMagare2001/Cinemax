@@ -12,13 +12,14 @@ class Loader: NSObject {
     static let shared = Loader()
     private var presentedLoaderVC: UIViewController?
     
-    func showLoader(type: NVActivityIndicatorType,color: UIColor) {
+    func showLoader(type: NVActivityIndicatorType,color: UIColor,background:LoaderVCBackground) {
         let storyboard = UIStoryboard.Common
         let loaderVC = storyboard.instantiateViewController(withIdentifier: "LoaderVC") as! LoaderVC
         if let viewController = UIApplication.shared.keyWindow?.rootViewController {
             loaderVC.modalPresentationStyle = .overFullScreen
             loaderVC.type = type
             loaderVC.color = color
+            loaderVC.background = background
             viewController.present(loaderVC, animated: true, completion: nil)
             self.presentedLoaderVC = loaderVC
         }

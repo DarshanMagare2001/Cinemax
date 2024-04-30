@@ -73,7 +73,9 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
             self?.dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main) { [weak self] in
-            self?.view?.updateSimilarMoviesCollectionviewOutlet()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.updateSimilarMoviesCollectionviewOutlet()
+            }
         }
     }
     

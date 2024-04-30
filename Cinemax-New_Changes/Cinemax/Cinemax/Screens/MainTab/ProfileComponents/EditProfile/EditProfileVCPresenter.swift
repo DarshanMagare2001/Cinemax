@@ -48,7 +48,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     
     func saveCurrentUserImgToFirebaseStorageAndDatabase(image: UIImage){
         DispatchQueue.main.async { [weak self] in
-            Loader.shared.showLoader(type: .lineScale, color: .white)
+            Loader.shared.showLoader(type: .lineScale, color: .white, background: LoaderVCBackground.withoutBlur)
         }
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.saveCurrentUserImgToFirebaseStorageAndDatabase(image: image) { result in
@@ -73,7 +73,7 @@ extension EditProfileVCPresenter: EditProfileVCPresenterProtocol {
     
     func updateCurrentuseerNameInDatabase(firstName:String?, lastName: String?, phoneNumber: String?, gender: String?, dateOfBirth: String?,completion:@escaping()->()){
         DispatchQueue.main.async { [weak self] in
-            Loader.shared.showLoader(type: .lineScale, color: .white)
+            Loader.shared.showLoader(type: .lineScale, color: .white, background: LoaderVCBackground.withoutBlur)
         }
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.interactor.updateCurrentuseerNameInDatabase(firstName: firstName ?? "", lastName: lastName ?? "", phoneNumber: phoneNumber ?? "", gender: gender ?? "", dateOfBirth: dateOfBirth ?? "") { result in

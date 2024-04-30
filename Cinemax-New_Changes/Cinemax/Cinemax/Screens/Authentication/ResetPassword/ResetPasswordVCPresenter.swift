@@ -80,7 +80,7 @@ extension ResetPasswordVCPresenter: ResetPasswordVCPresenterProtocol {
     }
     
     private func showLoader(){
-        Loader.shared.showLoader(type: .lineScale, color: .white)
+        Loader.shared.showLoader(type: .lineScale, color: .white, background: LoaderVCBackground.withoutBlur)
     }
     
     private func hideLoader(){

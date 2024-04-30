@@ -19,6 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGS-ym-u2A">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7SQ-7a-4l3">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNS-cu-MQT">
                                 <rect key="frame" x="165" y="416" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,17 +48,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UGS-ym-u2A" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="8nZ-L0-2UG"/>
+                            <constraint firstAttribute="trailing" secondItem="UGS-ym-u2A" secondAttribute="trailing" id="Jtg-Kq-Eoq"/>
+                            <constraint firstItem="UGS-ym-u2A" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Q0g-4V-hff"/>
                             <constraint firstItem="rNS-cu-MQT" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="ZEU-Pd-n2E"/>
                             <constraint firstItem="rNS-cu-MQT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="i0c-Lo-dHr"/>
+                            <constraint firstAttribute="bottom" secondItem="UGS-ym-u2A" secondAttribute="bottom" id="xs2-49-7fr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="UGS-ym-u2A" id="w3d-Zc-cin"/>
                         <outlet property="indicatorView" destination="rNS-cu-MQT" id="vzM-x9-1K7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="64"/>
+            <point key="canvasLocation" x="126.97674418604652" y="63.733905579399149"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="Eb8-7g-VG3">
