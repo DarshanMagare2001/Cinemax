@@ -14,12 +14,15 @@ protocol DetailVCPresenterProtocol {
     func gotoSeeAllVC(page: Int?,searchText: String?,movieId: Int?,seeAllVCInputs: SeeAllVCInputs?)
     func addMovieToWishlist()
     func removeMovieFromWishlist()
+    func showLoader()
+    func hideLoader()
     var movieId : Int? { get set }
     var movieDetail : MovieDetailsModel? { get set }
     var similarMovies : MovieResultModel? { get set }
     var movieVideos : MovieVideosResponseModel? { get set }
     var movieProductionHouses : [ProductionCompany] { get set }
     var wishlistMoviesIds : [Int] { get set }
+    var isLoading : Observable<Bool> { get set }
 }
 
 class DetailVCPresenter {
@@ -39,6 +42,7 @@ class DetailVCPresenter {
     var movieProductionHouses = [ProductionCompany]()
     var realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?
     var wishlistMoviesIds = [Int]()
+    var isLoading : Observable<Bool> = Observable(value:false)
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view : DetailVCProtocol,interactor:DetailVCInteractorProtocol,router:DetailVCRouterProtocol,movieId: Int?,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol?){
@@ -55,12 +59,13 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     func viewDidload(){
         view?.registerXibs()
         view?.setupFlowlayout()
+        view?.bindLoader()
         fetchWishlistMoviesIds()
         loadDatasource()
     }
     
     func loadDatasource(){
-        showLoader()
+        isLoading.value = true
         dispatchGroup.enter()
         fetchMovieData{ [weak self] in
             self?.dispatchGroup.leave()
@@ -76,7 +81,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
         dispatchGroup.notify(queue: .main) { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.view?.updateSimilarMoviesCollectionviewOutlet()
-                self?.hideLoader()
+                self?.isLoading.value = false
             }
         }
     }

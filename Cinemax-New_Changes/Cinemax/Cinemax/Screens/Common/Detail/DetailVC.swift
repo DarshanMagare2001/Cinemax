@@ -16,6 +16,7 @@ protocol DetailVCProtocol : AnyObject {
     func setupFlowlayout()
     func updateSimilarMoviesCollectionviewOutlet()
     func playMovieTrailer()
+    func bindLoader()
 }
 
 class DetailVC: UIViewController {
@@ -186,6 +187,19 @@ extension DetailVC : DetailVCProtocol {
                 
             }
         }
+    }
+    
+    func bindLoader(){
+        presenter?.isLoading.bind(listener: { [weak self] bool in
+            guard let bool = bool , let self = self else {
+                return
+            }
+            if bool {
+                self.presenter?.showLoader()
+            }else {
+                self.presenter?.hideLoader()
+            }
+        })
     }
     
 }
