@@ -176,6 +176,7 @@
 		A083921C2BD2919600FD594F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A083921B2BD2919600FD594F /* RealmSwift */; };
 		A083921F2BD292FC00FD594F /* RealmDataRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */; };
 		A08392222BD295BE00FD594F /* RealmMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08392212BD295BE00FD594F /* RealmMoviesModel.swift */; };
+		A086B51D2BE236A7004DAC55 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086B51C2BE236A7004DAC55 /* Observable.swift */; };
 		A0C0E66C2BD67F8100A6DE30 /* CustomPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0E66B2BD67F8100A6DE30 /* CustomPopupVC.swift */; };
 		A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A0EE0D412BCFE4B4006DB7C7 /* DropDown */; };
 		FAD6AC8D2BC947A40023E92F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8C2BC947A40023E92F /* FirebaseAuth */; };
@@ -368,6 +369,7 @@
 		A08023632BD262E600E65A27 /* WebImgUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImgUrlFactory.swift; sourceTree = "<group>"; };
 		A083921E2BD292FC00FD594F /* RealmDataRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataRepositoryManager.swift; sourceTree = "<group>"; };
 		A08392212BD295BE00FD594F /* RealmMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMoviesModel.swift; sourceTree = "<group>"; };
+		A086B51C2BE236A7004DAC55 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A0C0E66B2BD67F8100A6DE30 /* CustomPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupVC.swift; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -949,6 +951,7 @@
 				13F6EE412B70B509006452E2 /* ImageLoader.swift */,
 				139C22922B61399B0082DBDD /* RoundedCorners.swift */,
 				131A9B332B6A1469007A4D55 /* Alert.swift */,
+				A086B51C2BE236A7004DAC55 /* Observable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1474,6 +1477,7 @@
 				1345425D2BBAA98E0068E44F /* SearchVCRouter.swift in Sources */,
 				13C74DE32B6B630C009CA6DB /* SearchVCBuilder.swift in Sources */,
 				139C22752B61298E0082DBDD /* MainTabVCBuilder.swift in Sources */,
+				A086B51D2BE236A7004DAC55 /* Observable.swift in Sources */,
 				137EF2232BBEBF37000C3A5C /* CDTVShows+CoreDataProperties.swift in Sources */,
 				13C74DE12B6B62D9009CA6DB /* SearchVC.swift in Sources */,
 				13305D442B721760007B74D4 /* HomeVCRouter.swift in Sources */,
