@@ -11,6 +11,7 @@ protocol WishListVCProtocol: AnyObject {
     func registerXibs()
     func setupFlowlayout()
     func updateUI()
+    func bindUI()
 }
 
 class WishListVC: UIViewController {
@@ -19,6 +20,10 @@ class WishListVC: UIViewController {
     @IBOutlet weak var tvShowsBtn: RoundedButton!
     @IBOutlet weak var wishListCountLbl: UILabel!
     @IBOutlet weak var moviesAndTVShowsCV: UICollectionView!
+    @IBOutlet weak var removeAllBtn: UIButton!
+    @IBOutlet weak var noContentView: UIView!
+    @IBOutlet weak var noContentHeadlineLbl: UILabel!
+    @IBOutlet weak var noContentSubheadlineLbl: UILabel!
     
     var presenter: WishListVCPresenterProtocol?
     var isMoviesSelected = true {
@@ -52,6 +57,17 @@ class WishListVC: UIViewController {
     @IBAction func contentToggleBtn(_ sender: UIButton) {
         toggleContent(tag: sender.tag)
         isMoviesSelected.toggle()
+    }
+    
+    
+    @IBAction func removeAllBtnPressed(_ sender: UIButton) {
+        if let datasource = presenter?.datasource {
+            if(datasource.count == 0){
+                suggestionBox()
+            }else{
+                confirmBox()
+            }
+        }
     }
     
 }
@@ -99,6 +115,41 @@ extension WishListVC: WishListVCProtocol {
                 self.tvShowsBtn.isUserInteractionEnabled = false
                 self.moviesBtn.backgroundColor = .clear
             },completion: nil)
+        }
+    }
+    
+    private func confirmBox(){
+        let popupLblHeadlineInput = "Remove all!"
+        let popupSubheadlineInput = "Are you sure to remove all movies from wishlist?."
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.asking, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.yesBtnTrigger = {
+            self.presenter?.removeAllMoviesFromWishlist()
+        }
+        CustomPopupVCBuilder.noBtnTrigger = {
+            
+        }
+    }
+    
+    private func suggestionBox(){
+        let popupLblHeadlineInput = "Oops!"
+        let popupSubheadlineInput = "Your wishlist is empty you can add Movies and TV Shows to wishlist."
+        let customPopVC = CustomPopupVCBuilder.build(customPopupVCInputs: CustomPopupVCInputs.suggestion, popupLblHeadlineInput: popupLblHeadlineInput, popupSubheadlineInput: popupSubheadlineInput)
+        customPopVC.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(customPopVC,animated: true)
+        CustomPopupVCBuilder.okBtnTrigger = {
+            
+        }
+    }
+    
+    func bindUI(){
+        presenter?.isWishlistEmpty.bind { bool in
+            if let bool = bool {
+                DispatchQueue.main.async { [weak self] in
+                    self?.noContentView.isHidden = bool
+                }
+            }
         }
     }
     

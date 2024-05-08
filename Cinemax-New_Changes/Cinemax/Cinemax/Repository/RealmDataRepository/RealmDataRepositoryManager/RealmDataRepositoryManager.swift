@@ -12,6 +12,7 @@ protocol RealmDataRepositoryManagerProtocol {
     func addMovieToWishlist(movie: RealmMoviesModel)
     func getMovieFromWishlist()->[RealmMoviesModel]
     func deleteMovieFromWishlist(movieId: Int)
+    func deleteAllMoviesFromWishlist() 
 }
 
 class RealmDataRepositoryManager {
@@ -55,6 +56,18 @@ extension RealmDataRepositoryManager: RealmDataRepositoryManagerProtocol {
             }
             try realm.write {
                 realm.delete(movieToDelete)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deleteAllMoviesFromWishlist() {
+        do {
+            let realm = try Realm()
+            let allMovies = realm.objects(RealmMoviesModel.self)
+            try realm.write {
+                realm.delete(allMovies)
             }
         } catch {
             print(error)

@@ -14,6 +14,8 @@ protocol WishListVCPresenterProtocol {
     func fetchMoviesFromWishlist()
     var datasource : [MoviesCollectionViewDetailCellModel] { get set }
     func gotoDetailVC(movieId: Int?)
+    func removeAllMoviesFromWishlist()
+    var isWishlistEmpty : Observable<Bool> { get set }
 }
 
 class WishListVCPresenter {
@@ -24,10 +26,12 @@ class WishListVCPresenter {
     var datasource = [MoviesCollectionViewDetailCellModel](){
         didSet{
             DispatchQueue.main.async { [weak self] in
+                self?.isWishlistEmpty.value = (self?.datasource.count == 0) ? false : true
                 self?.view?.updateUI()
             }
         }
     }
+    var isWishlistEmpty : Observable<Bool> = Observable(value:false)
     let dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view: WishListVCProtocol?,interactor: WishListVCInteractorProtocol,router: WishListVCRouterProtocol,realmDataRepositoryManager : RealmDataRepositoryManagerProtocol){
@@ -47,6 +51,7 @@ extension WishListVCPresenter: WishListVCPresenterProtocol {
     func viewWillAppear(){
         view?.registerXibs()
         view?.setupFlowlayout()
+        view?.bindUI()
         fetchMoviesFromWishlist()
     }
     
@@ -96,6 +101,11 @@ extension WishListVCPresenter: WishListVCPresenterProtocol {
     
     func gotoDetailVC(movieId: Int?){
         router.gotoDetailVC(movieId: movieId)
+    }
+    
+    func removeAllMoviesFromWishlist(){
+        realmDataRepositoryManager?.deleteAllMoviesFromWishlist()
+        datasource.removeAll()
     }
     
 }
