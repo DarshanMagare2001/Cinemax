@@ -1062,7 +1062,8 @@
 		13BA5F742B627E20005EDA19 /* UserdefaultRepository */ = {
 			isa = PBXGroup;
 			children = (
-				13C74DF52B6B9F76009CA6DB /* ViewModel */,
+				13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */,
+				13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */,
 			);
 			path = UserdefaultRepository;
 			sourceTree = "<group>";
@@ -1134,15 +1135,6 @@
 				13C74DF82B6B9FAE009CA6DB /* UserServerRepository */,
 			);
 			path = ServerRepository;
-			sourceTree = "<group>";
-		};
-		13C74DF52B6B9F76009CA6DB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				13BA5F772B627F8C005EDA19 /* UserdefaultRepositoryManager.swift */,
-				13BA5F752B627E43005EDA19 /* UserdefaultRepository.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		13C74DF62B6B9F82009CA6DB /* Model */ = {
