@@ -195,9 +195,9 @@ extension DetailVC : DetailVCProtocol {
                 return
             }
             if bool {
-                self.presenter?.showLoader()
+                self.view.showLoadingView(backgroundColor: .black, indicatorColor: .white)
             }else {
-                self.presenter?.hideLoader()
+                self.view.dismissLoadingView()
             }
         })
     }
