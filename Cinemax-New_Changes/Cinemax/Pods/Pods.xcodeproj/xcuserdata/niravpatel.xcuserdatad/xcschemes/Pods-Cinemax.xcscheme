@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4C88C2A40F178CFDA25F6F1E2C779D8"
-               BuildableName = "JXPageControl.framework"
-               BlueprintName = "JXPageControl"
+               BlueprintIdentifier = "921B14088CE56B0EF803D91C369811A4"
+               BuildableName = "Pods_Cinemax.framework"
+               BlueprintName = "Pods-Cinemax"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

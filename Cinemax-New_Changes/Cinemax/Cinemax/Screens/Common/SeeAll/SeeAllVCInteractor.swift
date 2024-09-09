@@ -139,54 +139,31 @@ extension SeeAllVCInteractor: SeeAllVCInteractorProtocol  {
         }
     }
     
-    func fetchAllMoviesPagewiseInDetail(movies:[MasterMovieModelResult]) -> Single<[MovieDetailsModel]> {
-        return Single.create { (single) -> Disposable in
-            let disposable = Disposables.create()
-            var tempArray = [MovieDetailsModel]()
-            let dispatchGroup = DispatchGroup()
-            for movie in movies {
-                dispatchGroup.enter()
-                self.movieServiceManager.fetchMovieDetail(movieId: movie.id ?? 0)
-                    .subscribe(onSuccess: { movieDetails in
-                        tempArray.append(movieDetails)
-                        dispatchGroup.leave()
-                    }, onFailure: { error in
-                        print(error)
-                        dispatchGroup.leave()
-                    })
-                    .disposed(by: self.disposeBag)
-            }
-            dispatchGroup.notify(queue: .global()) {
-                single(.success(tempArray))
-            }
-            return disposable
+    func fetchAllMoviesPagewiseInDetail(movies: [MasterMovieModelResult]) -> Single<[MovieDetailsModel]> {
+        // Create an array of Single<MovieDetailsModel> for each movie fetch
+        let movieDetailsSingles: [Single<MovieDetailsModel>] = movies.compactMap { movie in
+            guard let movieId = movie.id else { return nil }
+            // Return a Single for fetching each movie detail
+            return self.movieServiceManager.fetchMovieDetail(movieId: movieId)
         }
+        // Use Single.zip to wait for all Single instances to complete and collect results
+        return Single.zip(movieDetailsSingles)
     }
+
     
     
-    func fetchAllTVShowsPagewiseInDetail(tvShows:[MasterMovieModelResult]) -> Single<[TVShowDetailsResponseModel]> {
-        return Single.create { (single) -> Disposable in
-            let disposable = Disposables.create()
-            var tempArray = [TVShowDetailsResponseModel]()
-            let dispatchGroup = DispatchGroup()
-            for tvShow in tvShows {
-                dispatchGroup.enter()
-                self.movieServiceManager.fetchTVShowDetails(showId:tvShow.id ?? 0)
-                    .subscribe(onSuccess: { movieDetails in
-                        tempArray.append(movieDetails)
-                        dispatchGroup.leave()
-                    }, onFailure: { error in
-                        print(error)
-                        dispatchGroup.leave()
-                    })
-                    .disposed(by: self.disposeBag)
-            }
-            dispatchGroup.notify(queue: .global()) {
-                single(.success(tempArray))
-            }
-            return disposable
+    func fetchAllTVShowsPagewiseInDetail(tvShows: [MasterMovieModelResult]) -> Single<[TVShowDetailsResponseModel]> {
+        // Create an array of Single<TVShowDetailsResponseModel> for each TV show fetch
+        let tvShowDetailsSingles: [Single<TVShowDetailsResponseModel>] = tvShows.compactMap { tvShow in
+            guard let showId = tvShow.id else { return nil }
+            // Return a Single for fetching each TV show detail
+            return self.movieServiceManager.fetchTVShowDetails(showId: showId)
         }
+
+        // Use Single.zip to wait for all Single instances to complete and collect results
+        return Single.zip(tvShowDetailsSingles)
     }
+
     
     
 }

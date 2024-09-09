@@ -179,6 +179,7 @@
 		A08392222BD295BE00FD594F /* RealmMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08392212BD295BE00FD594F /* RealmMoviesModel.swift */; };
 		A086B51D2BE236A7004DAC55 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086B51C2BE236A7004DAC55 /* Observable.swift */; };
 		A0EE0D422BCFE4B4006DB7C7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A0EE0D412BCFE4B4006DB7C7 /* DropDown */; };
+		FA7493252C494C06006D9AB9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7493242C494C06006D9AB9 /* UIView+Extensions.swift */; };
 		FAD6AC8D2BC947A40023E92F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8C2BC947A40023E92F /* FirebaseAuth */; };
 		FAD6AC8F2BC947A40023E92F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC8E2BC947A40023E92F /* FirebaseDatabase */; };
 		FAD6AC912BC947A40023E92F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6AC902BC947A40023E92F /* FirebaseFirestore */; };
@@ -373,6 +374,7 @@
 		A086B51C2BE236A7004DAC55 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D987C6D4255C8CC577EF4057 /* Pods-Cinemax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinemax.debug.xcconfig"; path = "Target Support Files/Pods-Cinemax/Pods-Cinemax.debug.xcconfig"; sourceTree = "<group>"; };
 		ED17B14353823C29F0F4B026 /* Pods_Cinemax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinemax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7493242C494C06006D9AB9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -869,6 +871,7 @@
 				1398F0C32B68EBB000D58906 /* String+Extensions.swift */,
 				13B1E6502B6D1E3C003DD382 /* UIViewController+Extensions.swift */,
 				A011F7492BD7B8FE00746F76 /* UITextFld+Extensions.swift */,
+				FA7493242C494C06006D9AB9 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1583,6 +1586,7 @@
 				1389E5592BB45A1000884FF3 /* ActorsCollectionViewCell.swift in Sources */,
 				131A9B342B6A1469007A4D55 /* Alert.swift in Sources */,
 				13AB6D932BB6BA690010D248 /* TVShowSimilarVCPresenter.swift in Sources */,
+				FA7493252C494C06006D9AB9 /* UIView+Extensions.swift in Sources */,
 				1345425B2BBAA9850068E44F /* SearchVCPresenter.swift in Sources */,
 				13F5A98F2B67D8FE00CFD18A /* ResetPasswordVCPresenter.swift in Sources */,
 			);

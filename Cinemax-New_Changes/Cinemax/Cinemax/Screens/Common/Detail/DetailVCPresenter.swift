@@ -66,77 +66,81 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
     
     func loadDatasource(){
         isLoading.value = true
-        dispatchGroup.enter()
-        fetchMovieData{ [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        fetchSimilarMovies{ [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        fetchMovieVideos{ [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.view?.updateSimilarMoviesCollectionviewOutlet()
-                self?.isLoading.value = false
+        Task {
+            do {
+                self.movieDetail = try await fetchMovieData()
+                self.similarMovies = try await fetchSimilarMovies()
+                self.movieVideos = try await fetchMovieVideos()
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.updateSimilarMoviesCollectionviewOutlet()
+                    self?.isLoading.value = false
+                }
+            } catch {
+                print(error)
             }
         }
     }
     
-    func fetchMovieData(completionHandler:@escaping()->()){
-        if let movieId = self.movieId{
+    
+    func fetchMovieData() async throws -> MovieDetailsModel? {
+        guard let movieId = self.movieId else {
+            return nil
+        }
+        return try await withCheckedThrowingContinuation { continuation in
             interactor.fetchMovieDetail(movieId: movieId)
-                .subscribe({ response in
-                    switch response {
-                    case.success(let movieData):
-                        print(movieData)
-                        self.movieDetail = movieData
-                        self.movieProductionHouses = movieData.productionCompanies?.compactMap { $0.logoPath != nil ? $0 : nil } ?? []
-                        DispatchQueue.main.async { [weak self] in
-                            self?.view?.updateUI(movieDetail: movieData)
-                        }
-                    case.failure(let error):
-                        print(error)
+                .subscribe(onSuccess: { movieData in
+                    // Pass the movieData to the continuation
+                    continuation.resume(returning: movieData)
+                    self.movieProductionHouses = movieData.productionCompanies?.compactMap { $0.logoPath != nil ? $0 : nil } ?? []
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.updateUI(movieDetail: movieData)
                     }
-                    completionHandler()
-                }).disposed(by: disposeBag)
+                }, onFailure: { error in
+                    // Resume the continuation with an error
+                    continuation.resume(throwing: error)
+                })
+                .disposed(by: self.disposeBag)
         }
     }
+
     
-    func fetchSimilarMovies(completionHandler:@escaping()->()){
-        if let movieId = self.movieId{
+    func fetchSimilarMovies() async throws -> MovieResultModel? {
+        guard let movieId = self.movieId else {
+            return nil
+        }
+        return try await withCheckedThrowingContinuation { continuation in
             interactor.fetchMovieSimilar(movieId: movieId, page: 1)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
                         print(movieData)
-                        self.similarMovies = movieData
+                        continuation.resume(returning: movieData)
                     case.failure(let error):
                         print(error)
+                        continuation.resume(throwing: error)
                     }
-                    completionHandler()
                 }).disposed(by: disposeBag)
         }
     }
     
-    func fetchMovieVideos(completionHandler:@escaping()->()){
-        if let movieId = self.movieId{
+    func fetchMovieVideos() async throws -> MovieVideosResponseModel? {
+        guard let movieId = self.movieId else {
+            return nil
+        }
+        return try await withCheckedThrowingContinuation { continuation in
             interactor.fetchMovieVideos(movieId: movieId)
                 .subscribe({ response in
                     switch response {
                     case.success(let movieData):
                         print(movieData)
-                        self.movieVideos = movieData
+                        continuation.resume(returning: movieData)
                     case.failure(let error):
-                        print(error)
+                        continuation.resume(throwing: error)
                     }
-                    completionHandler()
                 }).disposed(by: disposeBag)
         }
     }
+ 
     
     func gotoDetailVC(movieId: Int?){
         router.gotoDetailVC(movieId: movieId)

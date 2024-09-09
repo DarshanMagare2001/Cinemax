@@ -13,6 +13,8 @@ protocol SeeAllVCProtocol: AnyObject {
     func registerXibs()
     func setupFlowlayout()
     func updateCollectionView()
+    func showLoader()
+    func hideLoader()
 }
 
 class SeeAllVC: UIViewController {
@@ -129,6 +131,25 @@ extension SeeAllVC : SeeAllVCProtocol {
         menuButton.menu = sortingMenu
     }
 }
+
+extension SeeAllVC {
+    
+    func showLoader(){
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.moviesCollectionviewOutlet.showLoadingView(backgroundColor: .clear, indicatorColor: .white)
+        }
+    }
+    
+    func hideLoader(){
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.moviesCollectionviewOutlet.dismissLoadingView()
+        }
+    }
+    
+}
+
 
 extension SeeAllVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     

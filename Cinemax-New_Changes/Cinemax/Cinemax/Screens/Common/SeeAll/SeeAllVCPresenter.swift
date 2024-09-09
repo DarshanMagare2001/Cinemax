@@ -75,15 +75,18 @@ extension SeeAllVCPresenter: SeeAllVCPresenterProtocol  {
         guard let page = page , page <= 463 else {
             return
         }
+        self.view?.showLoader()
         interactor.fetchAllMoviesPagewise(seeAllVCInputs: seeAllVCInputs, movieId: movieId, searchText: searchText, page: page, genreId: genreId)
             .subscribe({ data in
                 switch data {
                 case.success(let movieData):
                     print(movieData)
+                    self.view?.hideLoader()
                     self.moviesDatasourceForCell.append(contentsOf:self.processMoviesDataForCell1(moviesDatasource: movieData))
                     self.fetchAllMoviesAndTVShowsPagewiseInDetail(moviesAndTVShows:movieData)
                 case.failure(let error):
                     print(error)
+                    self.view?.hideLoader()
                 }
             }).disposed(by: disposeBag)
         self.page = (page + 1)
