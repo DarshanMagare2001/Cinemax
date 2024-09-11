@@ -31,7 +31,6 @@ class HomeVCPresenter {
     var movieTopRatedDatasource : MasterMovieModel?
     var moviePopularDatasource : MasterMovieModel?
     var tvShowsDatasource : TVShowsResponseModel?
-    var dispatchGroup = DispatchGroup()
     let disposeBag = DisposeBag()
     init(view: HomeVCProtocol,interactor: HomeVCInteractorProtocol,router: HomeVCRouterProtocol){
         self.view = view
@@ -54,100 +53,91 @@ extension HomeVCPresenter: HomeVCPresenterProtocol {
     }
     
     func loadDataSource(){
-        
-        dispatchGroup.enter()
-        fetchMovieUpcoming { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        fetchMovieNowPlaying { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        fetchMovieTopRated { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        fetchMoviePopular { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        fetchTVShows { [weak self] in
-            self?.dispatchGroup.leave()
-        }
-        
-        dispatchGroup.notify(queue: .main){ [weak self] in
-            self?.view?.updateUI()
+        Task {
+            self.movieUpcomingDatasource = try? await fetchMovieUpcoming()
+            self.movieNowPlayingDatasource = try? await fetchMovieNowPlaying()
+            self.movieTopRatedDatasource = try? await fetchMovieTopRated()
+            self.moviePopularDatasource = try? await fetchMoviePopular()
+            self.tvShowsDatasource = try? await fetchTVShows()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.updateUI()
+            }
         }
     }
     
-    private func fetchMovieUpcoming(completionHandler:@escaping()->()){
-        interactor.fetchMovieUpcoming(page: 1)
-            .subscribe({ response in
-                switch response {
-                case.success(let movieData):
-                    self.movieUpcomingDatasource = movieData
-                case.failure(let error):
-                    print(error)
-                }
-                completionHandler()
-            }).disposed(by: disposeBag)
+    private func fetchMovieUpcoming() async throws -> MasterMovieModel? {
+        return try await withCheckedThrowingContinuation { continuation in
+            interactor.fetchMovieUpcoming(page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        continuation.resume(returning: movieData)
+                    case.failure(let error):
+                        continuation.resume(throwing: error)
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
+        }
     }
     
-    private func fetchMovieNowPlaying(completionHandler:@escaping()->()){
-        interactor.fetchMovieNowPlaying(page: 1)
-            .subscribe({ response in
-                switch response {
-                case.success(let movieData):
-                    self.movieNowPlayingDatasource = movieData
-                case.failure(let error):
-                    print(error)
-                }
-                completionHandler()
-            }).disposed(by: disposeBag)
+    private func fetchMovieNowPlaying() async throws -> MasterMovieModel? {
+        return try await withCheckedThrowingContinuation { continuation in
+            interactor.fetchMovieNowPlaying(page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        continuation.resume(returning: movieData)
+                    case.failure(let error):
+                        continuation.resume(throwing: error)
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
+        }
     }
     
-    private func fetchMovieTopRated(completionHandler:@escaping()->()){
-        interactor.fetchMovieTopRated(page: 1)
-            .subscribe({ response in
-                switch response {
-                case.success(let movieData):
-                    self.movieTopRatedDatasource = movieData
-                case.failure(let error):
-                    print(error)
-                }
-                completionHandler()
-            }).disposed(by: disposeBag)
+    private func fetchMovieTopRated() async throws -> MasterMovieModel? {
+        return try await withCheckedThrowingContinuation { continuation in
+            interactor.fetchMovieTopRated(page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        continuation.resume(returning: movieData)
+                    case.failure(let error):
+                        continuation.resume(throwing: error)
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
+        }
     }
     
-    private func fetchMoviePopular(completionHandler:@escaping()->()){
-        interactor.fetchMoviePopular(page: 1)
-            .subscribe({ response in
-                switch response {
-                case.success(let movieData):
-                    self.moviePopularDatasource = movieData
-                case.failure(let error):
-                    print(error)
-                }
-                completionHandler()
-            }).disposed(by: disposeBag)
+    private func fetchMoviePopular() async throws ->  MasterMovieModel? {
+        return try await withCheckedThrowingContinuation { continuation in
+            interactor.fetchMoviePopular(page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let movieData):
+                        continuation.resume(returning: movieData)
+                    case.failure(let error):
+                        continuation.resume(throwing: error)
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
+        }
     }
     
-    private func fetchTVShows(completionHandler:@escaping()->()){
-        interactor.fetchTVShows(page: 1)
-            .subscribe({ response in
-                switch response {
-                case.success(let showsData):
-                    self.tvShowsDatasource = showsData
-                case.failure(let error):
-                    print(error)
-                }
-                completionHandler()
-            }).disposed(by: disposeBag)
+    private func fetchTVShows() async throws ->  TVShowsResponseModel? {
+        return try await withCheckedThrowingContinuation { continuation in
+            interactor.fetchTVShows(page: 1)
+                .subscribe({ response in
+                    switch response {
+                    case.success(let showsData):
+                        continuation.resume(returning: showsData)
+                    case.failure(let error):
+                        continuation.resume(throwing: error)
+                        print(error)
+                    }
+                }).disposed(by: disposeBag)
+        }
     }
     
     func gotoDetailVC(movieId: Int?){

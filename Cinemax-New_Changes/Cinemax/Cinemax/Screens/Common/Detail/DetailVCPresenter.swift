@@ -115,6 +115,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                     case.success(let movieData):
                         print(movieData)
                         continuation.resume(returning: movieData)
+                        
                     case.failure(let error):
                         print(error)
                         continuation.resume(throwing: error)
@@ -140,7 +141,7 @@ extension DetailVCPresenter : DetailVCPresenterProtocol {
                 }).disposed(by: disposeBag)
         }
     }
- 
+  
     
     func gotoDetailVC(movieId: Int?){
         router.gotoDetailVC(movieId: movieId)
